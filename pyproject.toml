@@ -1,0 +1,27 @@
+[project]
+name = "translational-diligence-workbench"
+version = "0.5.0"
+description = "Translational diligence workbench — schema-first MVP"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+  "pydantic>=2.7,<3",
+  "jsonschema>=4.21,<5",
+  "pyyaml>=6.0,<7",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=8.0,<9",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+
+[build-system]
+requires = ["setuptools>=69"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+packages = ["pipeline"]

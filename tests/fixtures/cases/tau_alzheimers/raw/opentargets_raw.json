@@ -1,0 +1,36 @@
+{
+  "connector_name": "opentargets",
+  "case_id": "tau_alzheimers",
+  "mode": "fixture",
+  "query": {
+    "target": "tau",
+    "indication": "Alzheimer's disease",
+    "raw_query": "(tau) AND (Alzheimer's disease)"
+  },
+  "retrieved_at": "2026-05-15T12:00:00Z",
+  "records": [
+    {
+      "source_record_id": "opentargets:MAPT_AD",
+      "source_type": "target_biology",
+      "source_name": "Open Targets",
+      "target_id": "ENSG00000186868",
+      "target_symbol": "MAPT",
+      "disease_id": "EFO_0000249",
+      "disease_name": "Alzheimer disease",
+      "association_score": 0.88,
+      "mechanism_summary": "Microtubule binding protein; aggregates in neurofibrillary tangles (fixture).",
+      "retrieved_at": "2026-05-15T12:00:00Z",
+      "raw_record_ref": "raw/opentargets_raw.json#records/0"
+    }
+  ],
+  "errors": [],
+  "warnings": [
+    "fixture mode \u2014 synthetic raw payload"
+  ],
+  "provenance": {
+    "source_name": "PubMed",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/",
+    "api_endpoint": null,
+    "api_version": null
+  }
+}

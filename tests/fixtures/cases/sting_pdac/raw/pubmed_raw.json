@@ -1,0 +1,119 @@
+{
+  "connector_name": "pubmed",
+  "case_id": "sting_pdac",
+  "mode": "fixture",
+  "query": {
+    "target": "STING",
+    "indication": "pancreatic cancer",
+    "raw_query": "(STING) AND (pancreatic cancer)"
+  },
+  "retrieved_at": "2026-05-15T12:00:00Z",
+  "records": [
+    {
+      "source_record_id": "pubmed:38123456",
+      "source_type": "literature",
+      "source_name": "PubMed",
+      "title": "STING pathway activation remodels the pancreatic ductal adenocarcinoma immune microenvironment",
+      "abstract": "Synthetic abstract (fixture): Pharmacologic STING agonism increased type I interferon signatures and CD8+ T-cell infiltration in syngeneic PDAC models, with modest tumor growth delay.",
+      "authors": [
+        "Chen L",
+        "Patel R",
+        "Nguyen T"
+      ],
+      "journal": "Cancer Immunology Research (fixture)",
+      "publication_year": 2024,
+      "doi": "10.1234/fixture.2024.001",
+      "pmid": "38123456",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/38123456/",
+      "publication_date": "2024-06-01",
+      "retrieved_at": "2026-05-15T12:00:00Z",
+      "raw_record_ref": "raw/pubmed_raw.json#records/38123456"
+    },
+    {
+      "source_record_id": "pubmed:37234567",
+      "source_type": "literature",
+      "source_name": "PubMed",
+      "title": "TMEM173 (STING) expression correlates with interferon-stimulated gene programs in PDAC cohorts",
+      "abstract": "Synthetic abstract (fixture): Analysis of resected PDAC specimens linked higher TMEM173 expression to interferon-stimulated gene enrichment and tertiary lymphoid structure proximity.",
+      "authors": [
+        "Williams K",
+        "Garcia M"
+      ],
+      "journal": "Clinical Cancer Research (fixture)",
+      "publication_year": 2023,
+      "doi": "10.1234/fixture.2023.002",
+      "pmid": "37234567",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/37234567/",
+      "publication_date": "2023-06-01",
+      "retrieved_at": "2026-05-15T12:00:00Z",
+      "raw_record_ref": "raw/pubmed_raw.json#records/37234567"
+    },
+    {
+      "source_record_id": "pubmed:36345678",
+      "source_type": "literature",
+      "source_name": "PubMed",
+      "title": "cGAS-STING innate sensing in pancreatic stellate cells modulates fibrosis and T-cell exclusion",
+      "abstract": "Synthetic abstract (fixture): Stromal cGAS-STING signaling influenced collagen deposition and spatial T-cell exclusion in organotypic PDAC cultures.",
+      "authors": [
+        "Kim S",
+        "O'Brien P"
+      ],
+      "journal": "Nature Communications (fixture)",
+      "publication_year": 2022,
+      "doi": null,
+      "pmid": "36345678",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/36345678/",
+      "publication_date": "2022-06-01",
+      "retrieved_at": "2026-05-15T12:00:00Z",
+      "raw_record_ref": "raw/pubmed_raw.json#records/36345678"
+    },
+    {
+      "source_record_id": "pubmed:35456789",
+      "source_type": "literature",
+      "source_name": "PubMed",
+      "title": "Intratumoral STING agonist delivery combined with anti-PD-1 in advanced pancreatic cancer: early signals",
+      "abstract": "Synthetic abstract (fixture): A small early-phase cohort reported immune activation biomarkers but limited objective response rate as monotherapy.",
+      "authors": [
+        "Hoffman D",
+        "Lee A"
+      ],
+      "journal": "Journal for ImmunoTherapy of Cancer (fixture)",
+      "publication_year": 2025,
+      "doi": null,
+      "pmid": "35456789",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/35456789/",
+      "publication_date": "2025-06-01",
+      "retrieved_at": "2026-05-15T12:00:00Z",
+      "raw_record_ref": "raw/pubmed_raw.json#records/35456789"
+    },
+    {
+      "source_record_id": "pubmed:34567890",
+      "source_type": "literature",
+      "source_name": "PubMed",
+      "title": "Biomarker strategies for STING pathway modulation in solid tumors including PDAC",
+      "abstract": "Synthetic abstract (fixture): Review of pharmacodynamic readouts (IFN gene signatures, cytokines) and tumor STING expression as enrichment hypotheses.",
+      "authors": [
+        "Rao J",
+        "Singh N"
+      ],
+      "journal": "Trends in Pharmacological Sciences (fixture)",
+      "publication_year": 2024,
+      "doi": null,
+      "pmid": "34567890",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/34567890/",
+      "publication_date": "2024-06-01",
+      "retrieved_at": "2026-05-15T12:00:00Z",
+      "raw_record_ref": "raw/pubmed_raw.json#records/34567890"
+    }
+  ],
+  "errors": [],
+  "warnings": [
+    "fixture mode \u2014 synthetic raw payload"
+  ],
+  "provenance": {
+    "source_name": "PubMed",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/",
+    "api_endpoint": null,
+    "api_version": null
+  }
+}

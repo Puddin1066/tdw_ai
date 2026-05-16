@@ -1,0 +1,52 @@
+{
+  "artifact_type": "knowledge_graph",
+  "case_id": "tau_alzheimers",
+  "schema_version": "v0.5",
+  "generated_at": "2026-05-15T12:00:00Z",
+  "provenance": {
+    "generated_by": "pipeline/build_graph.py",
+    "generated_at": "2026-05-15T12:00:00Z",
+    "input_artifacts": [
+      "normalized_entities.json",
+      "evidence_table.json"
+    ],
+    "model_provider": null,
+    "model_name": null,
+    "prompt_template": null,
+    "prompt_hash": null,
+    "schema_version": "v0.5"
+  },
+  "data": {
+    "nodes": [
+      {
+        "node_id": "gene:MAPT",
+        "label": "tau",
+        "node_type": "gene"
+      },
+      {
+        "node_id": "disease:alzheimers",
+        "label": "Alzheimer's",
+        "node_type": "disease"
+      },
+      {
+        "node_id": "modality:anti_tau_mab",
+        "label": "anti-tau mAb",
+        "node_type": "modality"
+      }
+    ],
+    "edges": [
+      {
+        "edge_id": "edge:001",
+        "source": "modality:anti_tau_mab",
+        "target": "gene:MAPT",
+        "relationship": "targets"
+      },
+      {
+        "edge_id": "edge:002",
+        "source": "gene:MAPT",
+        "target": "disease:alzheimers",
+        "relationship": "implicated_in"
+      }
+    ]
+  }
+}

@@ -1,0 +1,77 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://tdw.ai/schemas/diligence_report.schema.json",
+  "title": "DiligenceReportArtifact",
+  "allOf": [
+    { "$ref": "./_common.definitions.json#/$defs/artifactEnvelope" },
+    {
+      "type": "object",
+      "properties": {
+        "artifact_type": { "const": "diligence_report" },
+        "data": { "$ref": "#/$defs/diligenceReportData" }
+      },
+      "required": ["artifact_type", "data"]
+    }
+  ],
+  "$defs": {
+    "reportSection": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["section_id", "title", "content"],
+      "properties": {
+        "section_id": { "type": "string", "minLength": 1 },
+        "title": { "type": "string", "minLength": 1 },
+        "content": { "type": "string" },
+        "evidence_ids": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 1 }
+        }
+      }
+    },
+    "diligenceReportData": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "title",
+        "executive_summary",
+        "overall_confidence",
+        "maturity_stage",
+        "sections",
+        "cited_source_record_ids",
+        "cited_nct_ids",
+        "cited_pmids"
+      ],
+      "properties": {
+        "title": { "type": "string", "minLength": 1 },
+        "executive_summary": { "type": "string", "minLength": 1 },
+        "overall_confidence": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "maturity_stage": { "type": "string", "minLength": 1 },
+        "conclusion": { "type": "string" },
+        "sections": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/reportSection" }
+        },
+        "cited_source_record_ids": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "cited_nct_ids": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "cited_pmids": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "diligence_questions": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      }
+    }
+  }
+}

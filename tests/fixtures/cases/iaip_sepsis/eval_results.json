@@ -1,0 +1,127 @@
+{
+  "artifact_type": "eval_results",
+  "case_id": "iaip_sepsis",
+  "schema_version": "v0.5",
+  "generated_at": "2026-05-15T12:00:00Z",
+  "provenance": {
+    "generated_by": "evals/run_evals.py",
+    "generated_at": "2026-05-15T12:00:00Z",
+    "input_artifacts": [
+      "source_manifest.json",
+      "normalized_entities.json",
+      "literature_records.json",
+      "clinical_trials.json",
+      "target_biology.json",
+      "evidence_table.json",
+      "diligence_report.json",
+      "risk_map.json",
+      "knowledge_graph.json",
+      "eval_results.json"
+    ],
+    "model_provider": null,
+    "model_name": null,
+    "prompt_template": null,
+    "prompt_hash": null,
+    "schema_version": "v0.5"
+  },
+  "data": {
+    "overall_passed": true,
+    "citation_fidelity_score": 0.95,
+    "unsupported_claim_count": 0,
+    "hallucinated_trial_count": 0,
+    "hallucinated_pmid_count": 0,
+    "evidence_coverage_score": 0.75,
+    "evaluators": [
+      {
+        "evaluator_name": "citation_fidelity",
+        "case_id": "iaip_sepsis",
+        "passed": true,
+        "score": 0.97,
+        "errors": [],
+        "warnings": [],
+        "checked_artifacts": [
+          "diligence_report.json",
+          "evidence_table.json"
+        ]
+      },
+      {
+        "evaluator_name": "unsupported_claims",
+        "case_id": "iaip_sepsis",
+        "passed": true,
+        "score": 1.0,
+        "errors": [],
+        "warnings": [],
+        "checked_artifacts": [
+          "diligence_report.json",
+          "evidence_table.json"
+        ]
+      },
+      {
+        "evaluator_name": "trial_hallucination",
+        "case_id": "iaip_sepsis",
+        "passed": true,
+        "score": 1.0,
+        "errors": [],
+        "warnings": [],
+        "checked_artifacts": [
+          "diligence_report.json",
+          "clinical_trials.json"
+        ]
+      },
+      {
+        "evaluator_name": "evidence_coverage",
+        "case_id": "iaip_sepsis",
+        "passed": true,
+        "score": 0.75,
+        "errors": [],
+        "warnings": [
+          "fixture mode \u2014 coverage is illustrative"
+        ],
+        "checked_artifacts": [
+          "evidence_table.json",
+          "literature_records.json"
+        ]
+      },
+      {
+        "evaluator_name": "schema_validation",
+        "case_id": "iaip_sepsis",
+        "passed": true,
+        "score": 1.0,
+        "errors": [],
+        "warnings": [],
+        "checked_artifacts": [
+          "source_manifest.json",
+          "normalized_entities.json",
+          "literature_records.json",
+          "clinical_trials.json",
+          "target_biology.json",
+          "evidence_table.json",
+          "diligence_report.json",
+          "risk_map.json",
+          "knowledge_graph.json",
+          "eval_results.json"
+        ]
+      },
+      {
+        "evaluator_name": "provenance_completeness",
+        "case_id": "iaip_sepsis",
+        "passed": true,
+        "score": 1.0,
+        "errors": [],
+        "warnings": [],
+        "checked_artifacts": [
+          "source_manifest.json",
+          "normalized_entities.json",
+          "literature_records.json",
+          "clinical_trials.json",
+          "target_biology.json",
+          "evidence_table.json",
+          "diligence_report.json",
+          "risk_map.json",
+          "knowledge_graph.json",
+          "eval_results.json"
+        ]
+      }
+    ]
+  }
+}

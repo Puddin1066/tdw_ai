@@ -1,0 +1,22 @@
+{
+  "connector_name": "biothings",
+  "case_id": "sting_pdac",
+  "mode": "fixture",
+  "query": {
+    "target": "STING",
+    "indication": "pancreatic cancer",
+    "raw_query": "(STING) AND (pancreatic cancer)"
+  },
+  "retrieved_at": "2026-05-15T12:00:00Z",
+  "records": [],
+  "errors": [],
+  "warnings": [
+    "fixture mode \u2014 synthetic raw payload"
+  ],
+  "provenance": {
+    "source_name": "PubMed",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/",
+    "api_endpoint": null,
+    "api_version": null
+  }
+}

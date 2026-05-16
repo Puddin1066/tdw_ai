@@ -1,0 +1,34 @@
+{
+  "artifact_type": "target_biology",
+  "case_id": "iaip_sepsis",
+  "schema_version": "v0.5",
+  "generated_at": "2026-05-15T12:00:00Z",
+  "provenance": {
+    "generated_by": "connectors/opentargets.py",
+    "generated_at": "2026-05-15T12:00:00Z",
+    "input_artifacts": [
+      "raw/opentargets_raw.json",
+      "raw/chembl_raw.json"
+    ],
+    "model_provider": null,
+    "model_name": null,
+    "prompt_template": null,
+    "prompt_hash": null,
+    "schema_version": "v0.5"
+  },
+  "data": {
+    "records": [
+      {
+        "source_record_id": "biothings:IAIP_SEPSIS",
+        "source_type": "relationship",
+        "source_name": "BioThings",
+        "subject": "IAIP",
+        "predicate": "associated_with",
+        "object": "sepsis",
+        "confidence": 0.55,
+        "retrieved_at": "2026-05-15T12:00:00Z",
+        "raw_record_ref": "raw/biothings_raw.json#records/0"
+      }
+    ]
+  }
+}

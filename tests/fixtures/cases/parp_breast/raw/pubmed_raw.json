@@ -1,0 +1,80 @@
+{
+  "connector_name": "pubmed",
+  "case_id": "parp_breast",
+  "mode": "fixture",
+  "query": {
+    "target": "PARP1",
+    "indication": "breast cancer",
+    "raw_query": "(PARP1) AND (breast cancer)"
+  },
+  "retrieved_at": "2026-05-15T12:00:00Z",
+  "records": [
+    {
+      "source_record_id": "pubmed:30111222",
+      "source_type": "literature",
+      "source_name": "PubMed",
+      "title": "PARP inhibition and synthetic lethality in BRCA-mutant breast cancer",
+      "abstract": "Fixture: PARP trapping in HR-deficient cells leads to synthetic lethality; olaparib approved in gBRCA-mutant HER2-negative breast cancer.",
+      "authors": [
+        "Lord CJ",
+        "Ashworth A"
+      ],
+      "journal": "Nature Reviews Cancer (fixture)",
+      "publication_year": 2020,
+      "doi": null,
+      "pmid": "30111222",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/30111222/",
+      "publication_date": "2020-06-01",
+      "retrieved_at": "2026-05-15T12:00:00Z",
+      "raw_record_ref": "raw/pubmed_raw.json#records/30111222"
+    },
+    {
+      "source_record_id": "pubmed:29222333",
+      "source_type": "literature",
+      "source_name": "PubMed",
+      "title": "Resistance to PARP inhibitors in breast cancer: mechanisms and combinations",
+      "abstract": "Fixture: Restoration of HR repair, drug efflux, and replication fork protection contribute to acquired resistance.",
+      "authors": [
+        "Murai J",
+        "Das BB"
+      ],
+      "journal": "Cancer Discovery (fixture)",
+      "publication_year": 2019,
+      "doi": null,
+      "pmid": "29222333",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/29222333/",
+      "publication_date": "2019-06-01",
+      "retrieved_at": "2026-05-15T12:00:00Z",
+      "raw_record_ref": "raw/pubmed_raw.json#records/29222333"
+    },
+    {
+      "source_record_id": "pubmed:28333444",
+      "source_type": "literature",
+      "source_name": "PubMed",
+      "title": "Talazoparib versus chemotherapy in advanced BRCA-mutant breast cancer (EMBRACA)",
+      "abstract": "Fixture: Talazoparib improved PFS versus physician's choice chemotherapy in gBRCA-mutant advanced breast cancer.",
+      "authors": [
+        "Litton JK",
+        "Rugo HS"
+      ],
+      "journal": "New England Journal of Medicine (fixture)",
+      "publication_year": 2018,
+      "doi": "10.1056/fixture.embraca",
+      "pmid": "28333444",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/28333444/",
+      "publication_date": "2018-06-01",
+      "retrieved_at": "2026-05-15T12:00:00Z",
+      "raw_record_ref": "raw/pubmed_raw.json#records/28333444"
+    }
+  ],
+  "errors": [],
+  "warnings": [
+    "fixture mode \u2014 synthetic raw payload"
+  ],
+  "provenance": {
+    "source_name": "PubMed",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/",
+    "api_endpoint": null,
+    "api_version": null
+  }
+}

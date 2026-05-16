@@ -1,0 +1,44 @@
+case_id: tau_alzheimers
+display_name: tau / Alzheimer's Disease
+workflow: translational_diligence
+version: v0.5
+fixture: true
+mock_synthetic: false
+
+target:
+  name: tau
+  canonical_id: null
+  aliases:
+    - MAPT
+    - microtubule-associated protein tau
+
+indication:
+  name: Alzheimer's disease
+  aliases:
+    - AD
+    - Alzheimer disease
+
+sources:
+  pubmed: true
+  clinicaltrials: true
+  opentargets: true
+  chembl: true
+  biothings: true
+  local_docs: false
+
+limits:
+  max_literature_records: 50
+  max_trials: 100
+  max_evidence_rows: 100
+
+run_mode_defaults:
+  fixture_allowed: true
+  live_allowed: true
+
+dashboard:
+  maturity_stage: clinical
+  confidence_score: 0.65
+  evidence_density: medium
+  top_risk: "Mixed Phase 2/3 outcomes for anti-tau modalities"
+
+generated_at: 2026-05-15T12:00:00Z

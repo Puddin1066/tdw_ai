@@ -1,0 +1,19 @@
+{
+  "retrieved_at": "2026-05-15T00:00:00Z",
+  "records": [
+    {
+      "source_record_id": "chembl:CHEMBL4297191",
+      "source_type": "compound",
+      "source_name": "ChEMBL",
+      "title": "ADU-S100 (MIW815)",
+      "url": "https://www.ebi.ac.uk/chembl/compound_report_card/CHEMBL4297191/",
+      "publication_date": null,
+      "retrieved_at": "2026-05-15T00:00:00Z",
+      "raw_record_ref": "raw/chembl_raw.json#records/0",
+      "molecule_id": "CHEMBL4297191",
+      "mechanism": "STING agonist",
+      "target_id": "TMEM173",
+      "activity_summary": "STING pathway activation; preclinical PDAC models"
+    }
+  ]
+}

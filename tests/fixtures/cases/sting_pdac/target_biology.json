@@ -1,0 +1,48 @@
+{
+  "artifact_type": "target_biology",
+  "case_id": "sting_pdac",
+  "schema_version": "v0.5",
+  "generated_at": "2026-05-15T12:00:00Z",
+  "provenance": {
+    "generated_by": "connectors/opentargets.py",
+    "generated_at": "2026-05-15T12:00:00Z",
+    "input_artifacts": [
+      "raw/opentargets_raw.json",
+      "raw/chembl_raw.json"
+    ],
+    "model_provider": null,
+    "model_name": null,
+    "prompt_template": null,
+    "prompt_hash": null,
+    "schema_version": "v0.5"
+  },
+  "data": {
+    "records": [
+      {
+        "source_record_id": "opentargets:ENSG00000184584",
+        "source_type": "target_biology",
+        "source_name": "Open Targets",
+        "target_id": "ENSG00000184584",
+        "target_symbol": "TMEM173",
+        "disease_id": "EFO_0002618",
+        "disease_name": "pancreatic carcinoma",
+        "association_score": 0.42,
+        "mechanism_summary": "Innate immune DNA sensing; type I interferon induction (fixture).",
+        "retrieved_at": "2026-05-15T12:00:00Z",
+        "raw_record_ref": "raw/opentargets_raw.json#records/0"
+      },
+      {
+        "source_record_id": "chembl:CHEMBL_FIXTURE_MK1454",
+        "source_type": "compound",
+        "source_name": "ChEMBL",
+        "molecule_id": "CHEMBL_FIXTURE_MK1454",
+        "preferred_name": "MK-1454",
+        "mechanism": "STING agonist",
+        "target_id": "TMEM173",
+        "activity_summary": "Synthetic fixture entry \u2014 preclinical STING agonist.",
+        "retrieved_at": "2026-05-15T12:00:00Z",
+        "raw_record_ref": "raw/chembl_raw.json#records/0"
+      }
+    ]
+  }
+}

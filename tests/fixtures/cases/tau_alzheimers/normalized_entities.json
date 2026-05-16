@@ -1,0 +1,89 @@
+{
+  "artifact_type": "normalized_entities",
+  "case_id": "tau_alzheimers",
+  "schema_version": "v0.5",
+  "generated_at": "2026-05-15T12:00:00Z",
+  "provenance": {
+    "generated_by": "pipeline/normalize_entities.py",
+    "generated_at": "2026-05-15T12:00:00Z",
+    "input_artifacts": [
+      "literature_records.json",
+      "clinical_trials.json"
+    ],
+    "model_provider": null,
+    "model_name": null,
+    "prompt_template": null,
+    "prompt_hash": null,
+    "schema_version": "v0.5"
+  },
+  "data": {
+    "entities": [
+      {
+        "entity_id": "gene:MAPT",
+        "entity_type": "gene",
+        "canonical_name": "MAPT",
+        "display_name": "tau",
+        "aliases": [
+          "MAPT",
+          "microtubule-associated protein tau"
+        ],
+        "external_ids": {
+          "entrez": "4137",
+          "ensembl": null,
+          "uniprot": null,
+          "wikidata": null,
+          "chembl": null,
+          "mondo": null,
+          "mesh": null
+        },
+        "source_record_ids": [
+          "pubmed:39222333"
+        ],
+        "confidence": 0.95
+      },
+      {
+        "entity_id": "disease:alzheimers",
+        "entity_type": "disease",
+        "canonical_name": "Alzheimer's disease",
+        "display_name": "Alzheimer's disease",
+        "aliases": [
+          "AD",
+          "Alzheimer disease"
+        ],
+        "external_ids": {
+          "entrez": null,
+          "ensembl": null,
+          "uniprot": null,
+          "wikidata": null,
+          "chembl": null,
+          "mondo": null,
+          "mesh": null
+        },
+        "source_record_ids": [
+          "pubmed:40111222"
+        ],
+        "confidence": 0.95
+      },
+      {
+        "entity_id": "modality:anti_tau_mab",
+        "entity_type": "modality",
+        "canonical_name": "anti-tau monoclonal antibody",
+        "display_name": "anti-tau mAb",
+        "aliases": [],
+        "external_ids": {
+          "entrez": null,
+          "ensembl": null,
+          "uniprot": null,
+          "wikidata": null,
+          "chembl": null,
+          "mondo": null,
+          "mesh": null
+        },
+        "source_record_ids": [
+          "clinicaltrials:NCT04549847"
+        ],
+        "confidence": 0.95
+      }
+    ]
+  }
+}

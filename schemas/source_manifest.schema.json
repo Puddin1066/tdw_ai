@@ -1,0 +1,64 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://tdw.ai/schemas/source_manifest.schema.json",
+  "title": "SourceManifestArtifact",
+  "allOf": [
+    { "$ref": "./_common.definitions.json#/$defs/artifactEnvelope" },
+    {
+      "type": "object",
+      "properties": {
+        "artifact_type": { "const": "source_manifest" },
+        "data": { "$ref": "#/$defs/sourceManifestData" }
+      },
+      "required": ["artifact_type", "data"]
+    }
+  ],
+  "$defs": {
+    "manifestEntry": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "connector_name",
+        "source_name",
+        "mode",
+        "query",
+        "retrieved_at",
+        "record_count",
+        "raw_record_ref"
+      ],
+      "properties": {
+        "connector_name": { "type": "string", "minLength": 1 },
+        "source_name": { "type": "string", "minLength": 1 },
+        "mode": { "type": "string", "enum": ["fixture", "live"] },
+        "query": { "$ref": "./_common.definitions.json#/$defs/connectorQuery" },
+        "retrieved_at": {
+          "$ref": "./_common.definitions.json#/$defs/isoDateTime"
+        },
+        "record_count": { "type": "integer", "minimum": 0 },
+        "raw_record_ref": { "type": "string", "minLength": 1 },
+        "source_url": { "type": ["string", "null"] },
+        "api_endpoint": { "type": ["string", "null"] },
+        "api_version": { "type": ["string", "null"] },
+        "errors": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "warnings": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      }
+    },
+    "sourceManifestData": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["entries"],
+      "properties": {
+        "entries": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/manifestEntry" }
+        }
+      }
+    }
+  }
+}

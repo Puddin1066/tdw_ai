@@ -1,0 +1,77 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://tdw.ai/schemas/risk_map.schema.json",
+  "title": "RiskMapArtifact",
+  "allOf": [
+    { "$ref": "./_common.definitions.json#/$defs/artifactEnvelope" },
+    {
+      "type": "object",
+      "properties": {
+        "artifact_type": { "const": "risk_map" },
+        "data": { "$ref": "#/$defs/riskMapData" }
+      },
+      "required": ["artifact_type", "data"]
+    }
+  ],
+  "$defs": {
+    "riskItem": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "risk_id",
+        "title",
+        "description",
+        "category",
+        "severity",
+        "confidence",
+        "inferred",
+        "evidence_ids",
+        "source_record_ids"
+      ],
+      "properties": {
+        "risk_id": { "type": "string", "minLength": 1 },
+        "title": { "type": "string", "minLength": 1 },
+        "description": { "type": "string", "minLength": 1 },
+        "category": {
+          "type": "string",
+          "enum": [
+            "translational",
+            "clinical",
+            "biomarker",
+            "safety",
+            "competition",
+            "evidence_gap",
+            "manufacturing",
+            "regulatory"
+          ]
+        },
+        "severity": {
+          "type": "string",
+          "enum": ["low", "medium", "high", "critical"]
+        },
+        "confidence": { "type": "number", "minimum": 0, "maximum": 1 },
+        "inferred": { "type": "boolean" },
+        "evidence_ids": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "source_record_ids": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      }
+    },
+    "riskMapData": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["risks"],
+      "properties": {
+        "risks": {
+          "type": "array",
+          "maxItems": 10,
+          "items": { "$ref": "#/$defs/riskItem" }
+        }
+      }
+    }
+  }
+}

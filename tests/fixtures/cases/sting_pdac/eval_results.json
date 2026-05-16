@@ -1,0 +1,44 @@
+{
+  "artifact_type": "eval_results",
+  "case_id": "sting_pdac",
+  "schema_version": "v0.5",
+  "generated_at": "2026-05-15T00:00:00Z",
+  "provenance": {
+    "generated_by": "web/scripts/generate-stub-cases.mjs",
+    "generated_at": "2026-05-15T00:00:00Z",
+    "model_provider": null,
+    "model_name": null,
+    "prompt_hash": null
+  },
+  "data": {
+    "case_id": "sting_pdac",
+    "citation_fidelity_score": 0.91,
+    "unsupported_claim_count": 0,
+    "hallucinated_trial_count": 0,
+    "passed": true,
+    "evaluators": [
+      {
+        "evaluator_name": "citation_fidelity",
+        "passed": true,
+        "score": 0.91,
+        "errors": [],
+        "warnings": [],
+        "checked_artifacts": [
+          "diligence_report.json",
+          "evidence_table.json"
+        ]
+      },
+      {
+        "evaluator_name": "trial_hallucination",
+        "passed": true,
+        "score": 1,
+        "errors": [],
+        "warnings": [],
+        "checked_artifacts": [
+          "diligence_report.json",
+          "clinical_trials.json"
+        ]
+      }
+    ]
+  }
+}

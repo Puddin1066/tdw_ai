@@ -1,0 +1,66 @@
+{
+  "connector_name": "clinicaltrials",
+  "case_id": "parp_breast",
+  "mode": "fixture",
+  "query": {
+    "target": "PARP1",
+    "indication": "breast cancer",
+    "raw_query": "(PARP1) AND (breast cancer)"
+  },
+  "retrieved_at": "2026-05-15T12:00:00Z",
+  "records": [
+    {
+      "source_record_id": "clinicaltrials:NCT02000622",
+      "source_type": "clinical_trial",
+      "source_name": "ClinicalTrials.gov",
+      "nct_id": "NCT02000622",
+      "title": "Olaparib as adjuvant treatment in patients with germline BRCA-mutated breast cancer (OlympiA)",
+      "phase": "Phase 3",
+      "overall_status": "Completed",
+      "sponsor": "AstraZeneca (fixture)",
+      "interventions": [
+        "olaparib"
+      ],
+      "conditions": [
+        "Breast Cancer",
+        "BRCA Mutation"
+      ],
+      "start_date": "2014-06-01",
+      "completion_date": null,
+      "url": "https://clinicaltrials.gov/study/NCT02000622",
+      "retrieved_at": "2026-05-15T12:00:00Z",
+      "raw_record_ref": "raw/clinicaltrials_raw.json#records/NCT02000622"
+    },
+    {
+      "source_record_id": "clinicaltrials:NCT01945775",
+      "source_type": "clinical_trial",
+      "source_name": "ClinicalTrials.gov",
+      "nct_id": "NCT01945775",
+      "title": "Talazoparib in patients with advanced breast cancer and germline BRCA mutation (EMBRACA)",
+      "phase": "Phase 3",
+      "overall_status": "Completed",
+      "sponsor": "Pfizer (fixture)",
+      "interventions": [
+        "talazoparib"
+      ],
+      "conditions": [
+        "Breast Neoplasms"
+      ],
+      "start_date": "2013-09-01",
+      "completion_date": null,
+      "url": "https://clinicaltrials.gov/study/NCT01945775",
+      "retrieved_at": "2026-05-15T12:00:00Z",
+      "raw_record_ref": "raw/clinicaltrials_raw.json#records/NCT01945775"
+    }
+  ],
+  "errors": [],
+  "warnings": [
+    "fixture mode \u2014 synthetic raw payload"
+  ],
+  "provenance": {
+    "source_name": "ClinicalTrials.gov",
+    "source_url": "https://clinicaltrials.gov/",
+    "api_endpoint": "https://clinicaltrials.gov/api/v2/studies",
+    "api_version": "2"
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://tdw.ai/schemas/evidence_table.schema.json",
+  "title": "EvidenceTableArtifact",
+  "allOf": [
+    { "$ref": "./_common.definitions.json#/$defs/artifactEnvelope" },
+    {
+      "type": "object",
+      "properties": {
+        "artifact_type": { "const": "evidence_table" },
+        "data": { "$ref": "#/$defs/evidenceTableData" }
+      },
+      "required": ["artifact_type", "data"]
+    }
+  ],
+  "$defs": {
+    "evidenceTableData": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["rows"],
+      "properties": {
+        "rows": {
+          "type": "array",
+          "items": {
+            "$ref": "./_common.definitions.json#/$defs/evidenceRow"
+          }
+        }
+      }
+    }
+  }
+}

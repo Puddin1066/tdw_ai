@@ -1,0 +1,35 @@
+{
+  "connector_name": "chembl",
+  "case_id": "sting_pdac",
+  "mode": "fixture",
+  "query": {
+    "target": "STING",
+    "indication": "pancreatic cancer",
+    "raw_query": "(STING) AND (pancreatic cancer)"
+  },
+  "retrieved_at": "2026-05-15T12:00:00Z",
+  "records": [
+    {
+      "source_record_id": "chembl:CHEMBL_FIXTURE_MK1454",
+      "source_type": "compound",
+      "source_name": "ChEMBL",
+      "molecule_id": "CHEMBL_FIXTURE_MK1454",
+      "preferred_name": "MK-1454",
+      "mechanism": "STING agonist",
+      "target_id": "TMEM173",
+      "activity_summary": "Synthetic fixture entry \u2014 preclinical STING agonist.",
+      "retrieved_at": "2026-05-15T12:00:00Z",
+      "raw_record_ref": "raw/chembl_raw.json#records/0"
+    }
+  ],
+  "errors": [],
+  "warnings": [
+    "fixture mode \u2014 synthetic raw payload"
+  ],
+  "provenance": {
+    "source_name": "PubMed",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/",
+    "api_endpoint": null,
+    "api_version": null
+  }
+}

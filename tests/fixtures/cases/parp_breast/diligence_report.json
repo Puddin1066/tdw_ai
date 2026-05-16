@@ -1,0 +1,68 @@
+{
+  "artifact_type": "diligence_report",
+  "case_id": "parp_breast",
+  "schema_version": "v0.5",
+  "generated_at": "2026-05-15T12:00:00Z",
+  "provenance": {
+    "generated_by": "pipeline/generate_report.py",
+    "generated_at": "2026-05-15T12:00:00Z",
+    "input_artifacts": [
+      "evidence_table.json",
+      "clinical_trials.json",
+      "risk_map.json"
+    ],
+    "model_provider": "mock",
+    "model_name": "fixture-mock",
+    "prompt_template": "skills/translational_diligence/prompts/report_generation.md",
+    "prompt_hash": null,
+    "schema_version": "v0.5"
+  },
+  "data": {
+    "title": "Translational Diligence: PARP / Breast Cancer",
+    "mock_synthetic": false,
+    "executive_summary": "Strong clinical validation with clear resistance and competitive risks.",
+    "conclusion": "PARP inhibition is clinically validated in gBRCA-mutant breast cancer; diligence focus shifts to resistance, sequencing, and combination strategies.",
+    "confidence_score": 0.88,
+    "maturity_stage": "clinical",
+    "evidence_density": "high",
+    "top_risk": "Resistance mechanisms after PARP inhibitor exposure",
+    "sections": [
+      {
+        "heading": "Target biology",
+        "body": "Strong clinical validation with clear resistance and competitive risks.",
+        "cited_evidence_ids": [
+          "evidence:parp_breast:0001",
+          "evidence:parp_breast:0002"
+        ],
+        "cited_pmids": [
+          "30111222",
+          "29222333"
+        ],
+        "cited_nct_ids": [
+          "NCT02000622"
+        ]
+      },
+      {
+        "heading": "Clinical landscape",
+        "body": "PARP inhibition is clinically validated in gBRCA-mutant breast cancer; diligence focus shifts to resistance, sequencing, and combination strategies.",
+        "cited_evidence_ids": [
+          "evidence:parp_breast:0002"
+        ],
+        "cited_pmids": [
+          "30111222",
+          "29222333",
+          "28333444"
+        ],
+        "cited_nct_ids": [
+          "NCT02000622",
+          "NCT01945775"
+        ]
+      }
+    ],
+    "key_questions": [
+      "What biomarkers enrich for response?",
+      "What combination partners address TME resistance?",
+      "What is the competitive clinical timeline?"
+    ]
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "artifact_type": "risk_map",
+  "case_id": "iaip_sepsis",
+  "schema_version": "v0.5",
+  "generated_at": "2026-05-15T12:00:00Z",
+  "provenance": {
+    "generated_by": "pipeline/generate_risk_map.py",
+    "generated_at": "2026-05-15T12:00:00Z",
+    "input_artifacts": [
+      "evidence_table.json",
+      "clinical_trials.json",
+      "target_biology.json"
+    ],
+    "model_provider": "mock",
+    "model_name": "fixture-mock",
+    "prompt_template": "skills/translational_diligence/prompts/risk_mapping.md",
+    "prompt_hash": null,
+    "schema_version": "v0.5"
+  },
+  "data": {
+    "risks": [
+      {
+        "risk_id": "risk:iaip_sepsis:001",
+        "category": "clinical",
+        "title": "Endpoint heterogeneity in sepsis trials",
+        "description": "Variable mortality and organ failure endpoints complicate trial interpretation.",
+        "severity": "high",
+        "confidence": 0.78,
+        "evidence_ids": [
+          "evidence:iaip_sepsis:0003"
+        ],
+        "inferred": true
+      },
+      {
+        "risk_id": "risk:iaip_sepsis:002",
+        "category": "evidence_gap",
+        "title": "Limited prospective interventional evidence",
+        "description": "Most support derives from preclinical and retrospective biomarker studies.",
+        "severity": "high",
+        "confidence": 0.8,
+        "evidence_ids": [
+          "evidence:iaip_sepsis:0001"
+        ],
+        "inferred": false
+      }
+    ],
+    "top_risk_id": "risk:iaip_sepsis:001"
+  }
+}

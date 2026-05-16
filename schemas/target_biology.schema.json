@@ -1,0 +1,70 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://tdw.ai/schemas/target_biology.schema.json",
+  "title": "TargetBiologyArtifact",
+  "allOf": [
+    { "$ref": "./_common.definitions.json#/$defs/artifactEnvelope" },
+    {
+      "type": "object",
+      "properties": {
+        "artifact_type": { "const": "target_biology" },
+        "data": { "$ref": "#/$defs/targetBiologyData" }
+      },
+      "required": ["artifact_type", "data"]
+    }
+  ],
+  "$defs": {
+    "targetBiologyRecord": {
+      "allOf": [
+        { "$ref": "./_common.definitions.json#/$defs/sourceRecordBase" },
+        {
+          "type": "object",
+          "required": ["biology_source"],
+          "properties": {
+            "source_type": {
+              "type": "string",
+              "enum": [
+                "target_biology",
+                "compound",
+                "relationship"
+              ]
+            },
+            "biology_source": {
+              "type": "string",
+              "enum": ["opentargets", "chembl", "biothings", "local"]
+            },
+            "target_id": { "type": ["string", "null"] },
+            "disease_id": { "type": ["string", "null"] },
+            "association_score": {
+              "type": ["number", "null"],
+              "minimum": 0,
+              "maximum": 1
+            },
+            "molecule_chembl_id": { "type": ["string", "null"] },
+            "mechanism_of_action": { "type": ["string", "null"] },
+            "activity_summary": { "type": ["string", "null"] },
+            "subject": { "type": ["string", "null"] },
+            "predicate": { "type": ["string", "null"] },
+            "object": { "type": ["string", "null"] },
+            "relationship_confidence": {
+              "type": ["number", "null"],
+              "minimum": 0,
+              "maximum": 1
+            }
+          }
+        }
+      ]
+    },
+    "targetBiologyData": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["records"],
+      "properties": {
+        "records": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/targetBiologyRecord" }
+        }
+      }
+    }
+  }
+}

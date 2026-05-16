@@ -1,0 +1,20 @@
+{
+  "retrieved_at": "2026-05-15T00:00:00Z",
+  "records": [
+    {
+      "source_record_id": "biothings:TMEM173-pdac-001",
+      "source_type": "relationship",
+      "source_name": "BioThings",
+      "title": "TMEM173 associated_with pancreatic ductal adenocarcinoma",
+      "url": null,
+      "publication_date": null,
+      "retrieved_at": "2026-05-15T00:00:00Z",
+      "raw_record_ref": "raw/biothings_raw.json#records/0",
+      "subject": "gene:TMEM173",
+      "predicate": "associated_with",
+      "object": "disease:MONDO_0005089",
+      "source": "opentargets",
+      "confidence": 0.75
+    }
+  ]
+}

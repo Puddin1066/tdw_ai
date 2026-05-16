@@ -1,0 +1,78 @@
+{
+  "artifact_type": "evidence_table",
+  "case_id": "parp_breast",
+  "schema_version": "v0.5",
+  "generated_at": "2026-05-15T12:00:00Z",
+  "provenance": {
+    "generated_by": "pipeline/generate_claims.py",
+    "generated_at": "2026-05-15T12:00:00Z",
+    "input_artifacts": [
+      "literature_records.json",
+      "clinical_trials.json",
+      "target_biology.json"
+    ],
+    "model_provider": "mock",
+    "model_name": "fixture-mock",
+    "prompt_template": "skills/translational_diligence/prompts/claim_extraction.md",
+    "prompt_hash": null,
+    "schema_version": "v0.5"
+  },
+  "data": {
+    "rows": [
+      {
+        "evidence_id": "evidence:parp_breast:0001",
+        "claim_text": "PARP inhibitors exploit synthetic lethality in HR-deficient breast cancer.",
+        "claim_type": "mechanistic",
+        "support_status": "supported",
+        "confidence": 0.9,
+        "source_record_ids": [
+          "pubmed:30111222"
+        ],
+        "quoted_evidence": [
+          {
+            "source_record_id": "pubmed:30111222",
+            "text": "PARP trapping leads to synthetic lethality in HR-deficient cells.",
+            "location": "abstract"
+          }
+        ],
+        "limitations": []
+      },
+      {
+        "evidence_id": "evidence:parp_breast:0002",
+        "claim_text": "Olaparib demonstrated adjuvant benefit in gBRCA-mutant breast cancer (OlympiA).",
+        "claim_type": "clinical",
+        "support_status": "supported",
+        "confidence": 0.88,
+        "source_record_ids": [
+          "clinicaltrials:NCT02000622"
+        ],
+        "quoted_evidence": [
+          {
+            "source_record_id": "clinicaltrials:NCT02000622",
+            "text": "Phase 3 olaparib adjuvant study in germline BRCA-mutated breast cancer.",
+            "location": "abstract"
+          }
+        ],
+        "limitations": []
+      },
+      {
+        "evidence_id": "evidence:parp_breast:0003",
+        "claim_text": "Acquired resistance to PARP inhibition involves HR restoration pathways.",
+        "claim_type": "translational",
+        "support_status": "supported",
+        "confidence": 0.8,
+        "source_record_ids": [
+          "pubmed:29222333"
+        ],
+        "quoted_evidence": [
+          {
+            "source_record_id": "pubmed:29222333",
+            "text": "Restoration of HR repair contributes to acquired resistance.",
+            "location": "abstract"
+          }
+        ],
+        "limitations": []
+      }
+    ]
+  }
+}

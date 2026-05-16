@@ -1,0 +1,85 @@
+{
+  "artifact_type": "knowledge_graph",
+  "case_id": "sting_pdac",
+  "schema_version": "v0.5",
+  "generated_at": "2026-05-15T12:00:00Z",
+  "provenance": {
+    "generated_by": "pipeline/build_graph.py",
+    "generated_at": "2026-05-15T12:00:00Z",
+    "input_artifacts": [
+      "normalized_entities.json",
+      "evidence_table.json"
+    ],
+    "model_provider": null,
+    "model_name": null,
+    "prompt_template": null,
+    "prompt_hash": null,
+    "schema_version": "v0.5"
+  },
+  "data": {
+    "nodes": [
+      {
+        "node_id": "gene:TMEM173",
+        "label": "STING",
+        "node_type": "gene"
+      },
+      {
+        "node_id": "disease:MONDO_0007893",
+        "label": "PDAC",
+        "node_type": "disease"
+      },
+      {
+        "node_id": "pathway:CGAS_STING",
+        "label": "cGAS-STING",
+        "node_type": "pathway"
+      },
+      {
+        "node_id": "compound:MK-1454",
+        "label": "MK-1454",
+        "node_type": "compound"
+      },
+      {
+        "node_id": "clinical_trial:NCT05234567",
+        "label": "NCT05234567",
+        "node_type": "clinical_trial"
+      },
+      {
+        "node_id": "publication:38123456",
+        "label": "PMID 38123456",
+        "node_type": "publication"
+      }
+    ],
+    "edges": [
+      {
+        "edge_id": "edge:001",
+        "source": "gene:TMEM173",
+        "target": "pathway:CGAS_STING",
+        "relationship": "part_of"
+      },
+      {
+        "edge_id": "edge:002",
+        "source": "pathway:CGAS_STING",
+        "target": "disease:MONDO_0007893",
+        "relationship": "implicated_in"
+      },
+      {
+        "edge_id": "edge:003",
+        "source": "compound:MK-1454",
+        "target": "gene:TMEM173",
+        "relationship": "agonizes"
+      },
+      {
+        "edge_id": "edge:004",
+        "source": "clinical_trial:NCT05234567",
+        "target": "compound:MK-1454",
+        "relationship": "tests"
+      },
+      {
+        "edge_id": "edge:005",
+        "source": "publication:38123456",
+        "target": "gene:TMEM173",
+        "relationship": "studies"
+      }
+    ]
+  }
+}

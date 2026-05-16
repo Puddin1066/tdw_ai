@@ -1,0 +1,25 @@
+{
+  "name": "translational-diligence-workbench",
+  "version": "0.5.0",
+  "private": true,
+  "description": "Translational Diligence Workbench — monorepo workspace root",
+  "workspaces": [
+    "web"
+  ],
+  "scripts": {
+    "dev": "npm run dev --workspace=web",
+    "build": "npm run build --workspace=web",
+    "lint": "npm run lint --workspace=web --if-present",
+    "test:schemas": "python -m pytest tests/schemas -q",
+    "test:connectors": "python -m pytest tests/connectors -q",
+    "test:pipeline": "python -m pytest tests/pipeline -q",
+    "test:evals": "python -m pytest tests/evals -q",
+    "test:python": "python -m pytest -q",
+    "fixture:sting": "python -m pipeline.run_workflow --config configs/cases/sting_pdac.yaml --mode fixture",
+    "fixture:all": "npm run fixture:sting && python -m pipeline.run_workflow --config configs/cases/parp_breast.yaml --mode fixture && python -m pipeline.run_workflow --config configs/cases/tau_alzheimers.yaml --mode fixture && python -m pipeline.run_workflow --config configs/cases/iaip_sepsis.yaml --mode fixture"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "packageManager": "yarn@1.22.22+sha512.a6b2f7906b721bba3d67d4aff083df04dad64c399707841b7acf00f6b133b7ac24255f2652fa22ae3534329dc6180534e98d17432037ff6fd140556e2bb3137e"
+}

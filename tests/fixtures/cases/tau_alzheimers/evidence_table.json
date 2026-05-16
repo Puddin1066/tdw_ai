@@ -1,0 +1,78 @@
+{
+  "artifact_type": "evidence_table",
+  "case_id": "tau_alzheimers",
+  "schema_version": "v0.5",
+  "generated_at": "2026-05-15T12:00:00Z",
+  "provenance": {
+    "generated_by": "pipeline/generate_claims.py",
+    "generated_at": "2026-05-15T12:00:00Z",
+    "input_artifacts": [
+      "literature_records.json",
+      "clinical_trials.json",
+      "target_biology.json"
+    ],
+    "model_provider": "mock",
+    "model_name": "fixture-mock",
+    "prompt_template": "skills/translational_diligence/prompts/claim_extraction.md",
+    "prompt_hash": null,
+    "schema_version": "v0.5"
+  },
+  "data": {
+    "rows": [
+      {
+        "evidence_id": "evidence:tau_alzheimers:0001",
+        "claim_text": "Pathological tau propagation is a central hypothesis in Alzheimer's progression.",
+        "claim_type": "mechanistic",
+        "support_status": "supported",
+        "confidence": 0.86,
+        "source_record_ids": [
+          "pubmed:39222333"
+        ],
+        "quoted_evidence": [
+          {
+            "source_record_id": "pubmed:39222333",
+            "text": "MAPT genetics and tau strain diversity influence pathology propagation.",
+            "location": "abstract"
+          }
+        ],
+        "limitations": []
+      },
+      {
+        "evidence_id": "evidence:tau_alzheimers:0002",
+        "claim_text": "Anti-tau antibody programs show heterogeneous Phase 2 outcomes.",
+        "claim_type": "clinical",
+        "support_status": "partially_supported",
+        "confidence": 0.62,
+        "source_record_ids": [
+          "pubmed:40111222"
+        ],
+        "quoted_evidence": [
+          {
+            "source_record_id": "pubmed:40111222",
+            "text": "Mixed clinical outcomes across anti-tau programs.",
+            "location": "abstract"
+          }
+        ],
+        "limitations": []
+      },
+      {
+        "evidence_id": "evidence:tau_alzheimers:0003",
+        "claim_text": "Trial NCT04549847 (gosuranemab) was terminated in early Alzheimer's disease.",
+        "claim_type": "clinical",
+        "support_status": "supported",
+        "confidence": 0.9,
+        "source_record_ids": [
+          "clinicaltrials:NCT04549847"
+        ],
+        "quoted_evidence": [
+          {
+            "source_record_id": "clinicaltrials:NCT04549847",
+            "text": "Phase 2 anti-tau antibody study terminated.",
+            "location": "abstract"
+          }
+        ],
+        "limitations": []
+      }
+    ]
+  }
+}

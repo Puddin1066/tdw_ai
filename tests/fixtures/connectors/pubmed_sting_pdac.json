@@ -1,0 +1,29 @@
+{
+  "retrieved_at": "2026-05-15T00:00:00Z",
+  "records": [
+    {
+      "source_record_id": "pubmed:38291045",
+      "source_type": "literature",
+      "source_name": "PubMed",
+      "title": "STING agonism reprograms tumor-associated macrophages in pancreatic ductal adenocarcinoma",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/38291045/",
+      "publication_date": "2024-01-15",
+      "retrieved_at": "2026-05-15T00:00:00Z",
+      "raw_record_ref": "raw/pubmed_raw.json#records/0",
+      "pmid": "38291045",
+      "doi": "10.1038/s41591-024-00001-0"
+    },
+    {
+      "source_record_id": "pubmed:37120488",
+      "source_type": "literature",
+      "source_name": "PubMed",
+      "title": "Targeting TMEM173/STING in pancreatic cancer: preclinical rationale",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/37120488/",
+      "publication_date": "2023-05-02",
+      "retrieved_at": "2026-05-15T00:00:00Z",
+      "raw_record_ref": "raw/pubmed_raw.json#records/1",
+      "pmid": "37120488",
+      "doi": "10.1016/j.celrep.2023.112233"
+    }
+  ]
+}

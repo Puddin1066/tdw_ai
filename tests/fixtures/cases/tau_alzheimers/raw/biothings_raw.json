@@ -1,0 +1,22 @@
+{
+  "connector_name": "biothings",
+  "case_id": "tau_alzheimers",
+  "mode": "fixture",
+  "query": {
+    "target": "tau",
+    "indication": "Alzheimer's disease",
+    "raw_query": "(tau) AND (Alzheimer's disease)"
+  },
+  "retrieved_at": "2026-05-15T12:00:00Z",
+  "records": [],
+  "errors": [],
+  "warnings": [
+    "fixture mode \u2014 synthetic raw payload"
+  ],
+  "provenance": {
+    "source_name": "PubMed",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/",
+    "api_endpoint": null,
+    "api_version": null
+  }
+}

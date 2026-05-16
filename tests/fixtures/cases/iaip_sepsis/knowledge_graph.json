@@ -1,0 +1,52 @@
+{
+  "artifact_type": "knowledge_graph",
+  "case_id": "iaip_sepsis",
+  "schema_version": "v0.5",
+  "generated_at": "2026-05-15T12:00:00Z",
+  "provenance": {
+    "generated_by": "pipeline/build_graph.py",
+    "generated_at": "2026-05-15T12:00:00Z",
+    "input_artifacts": [
+      "normalized_entities.json",
+      "evidence_table.json"
+    ],
+    "model_provider": null,
+    "model_name": null,
+    "prompt_template": null,
+    "prompt_hash": null,
+    "schema_version": "v0.5"
+  },
+  "data": {
+    "nodes": [
+      {
+        "node_id": "protein:IAIP",
+        "label": "IAIP",
+        "node_type": "protein"
+      },
+      {
+        "node_id": "disease:sepsis",
+        "label": "sepsis",
+        "node_type": "disease"
+      },
+      {
+        "node_id": "gene:ITIH3",
+        "label": "ITIH3",
+        "node_type": "gene"
+      }
+    ],
+    "edges": [
+      {
+        "edge_id": "edge:001",
+        "source": "protein:IAIP",
+        "target": "disease:sepsis",
+        "relationship": "associated_with"
+      },
+      {
+        "edge_id": "edge:002",
+        "source": "gene:ITIH3",
+        "target": "protein:IAIP",
+        "relationship": "encodes_component"
+      }
+    ]
+  }
+}

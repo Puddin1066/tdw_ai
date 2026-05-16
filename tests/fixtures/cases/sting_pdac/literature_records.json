@@ -1,0 +1,26 @@
+{
+  "artifact_type": "literature_records",
+  "case_id": "sting_pdac",
+  "schema_version": "v0.5",
+  "generated_at": "2026-05-15T00:00:00Z",
+  "provenance": {
+    "generated_by": "connectors/pubmed.py",
+    "generated_at": "2026-05-15T00:00:00Z",
+    "input_artifacts": [],
+    "model_provider": null,
+    "model_name": null,
+    "prompt_template": null,
+    "prompt_hash": null,
+    "schema_version": "v0.5"
+  },
+  "data": {
+    "records": [
+      {"source_record_id": "pubmed:34567890", "source_type": "literature", "source_name": "PubMed", "pmid": "34567890", "title": "STING in tumor immunity I"},
+      {"source_record_id": "pubmed:35456789", "source_type": "literature", "source_name": "PubMed", "pmid": "35456789", "title": "STING in tumor immunity II"},
+      {"source_record_id": "pubmed:36345678", "source_type": "literature", "source_name": "PubMed", "pmid": "36345678", "title": "cGAS-STING in PDAC stroma"},
+      {"source_record_id": "pubmed:37234567", "source_type": "literature", "source_name": "PubMed", "pmid": "37234567", "title": "TMEM173 expression in resected PDAC"},
+      {"source_record_id": "pubmed:38123456", "source_type": "literature", "source_name": "PubMed", "pmid": "38123456", "title": "Innate immune programs in PDAC"},
+      {"source_record_id": "pubmed:38401234", "source_type": "literature", "source_name": "PubMed", "pmid": "38401234", "title": "STING signaling in PDAC models"}
+    ]
+  }
+}

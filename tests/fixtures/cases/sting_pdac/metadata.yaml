@@ -1,0 +1,45 @@
+# MOCK/SYNTHETIC FIXTURE DATA — for demo and CI only; not live connector output.
+case_id: sting_pdac
+display_name: STING / Pancreatic Cancer
+workflow: translational_diligence
+version: v0.5
+fixture: true
+mock_synthetic: true
+
+target:
+  name: STING
+  canonical_id: null
+  aliases:
+    - TMEM173
+    - Stimulator of Interferon Genes
+
+indication:
+  name: pancreatic cancer
+  aliases:
+    - PDAC
+    - pancreatic ductal adenocarcinoma
+
+sources:
+  pubmed: true
+  clinicaltrials: true
+  opentargets: true
+  chembl: true
+  biothings: true
+  local_docs: false
+
+limits:
+  max_literature_records: 50
+  max_trials: 100
+  max_evidence_rows: 100
+
+run_mode_defaults:
+  fixture_allowed: true
+  live_allowed: true
+
+dashboard:
+  maturity_stage: translational
+  confidence_score: 0.72
+  evidence_density: high
+  top_risk: "Limited clinical efficacy data for STING agonists in PDAC"
+
+generated_at: 2026-05-15T12:00:00Z

@@ -1,0 +1,47 @@
+{
+  "artifact_type": "clinical_trials",
+  "case_id": "sting_pdac",
+  "schema_version": "v0.5",
+  "generated_at": "2026-05-15T00:00:00Z",
+  "provenance": {
+    "generated_by": "connectors/clinicaltrials.py",
+    "generated_at": "2026-05-15T00:00:00Z",
+    "input_artifacts": [],
+    "model_provider": null,
+    "model_name": null,
+    "prompt_template": null,
+    "prompt_hash": null,
+    "schema_version": "v0.5"
+  },
+  "data": {
+    "records": [
+      {
+        "source_record_id": "clinicaltrials:NCT05234567",
+        "source_type": "clinical_trial",
+        "source_name": "ClinicalTrials.gov",
+        "nct_id": "NCT05234567",
+        "title": "MK-1454 with pembrolizumab in advanced PDAC",
+        "phase": "Phase 1/2",
+        "status": "Recruiting"
+      },
+      {
+        "source_record_id": "clinicaltrials:NCT04890123",
+        "source_type": "clinical_trial",
+        "source_name": "ClinicalTrials.gov",
+        "nct_id": "NCT04890123",
+        "title": "STING agonist combination in solid tumors",
+        "phase": "Phase 2",
+        "status": "Active, not recruiting"
+      },
+      {
+        "source_record_id": "clinicaltrials:NCT04123456",
+        "source_type": "clinical_trial",
+        "source_name": "ClinicalTrials.gov",
+        "nct_id": "NCT04123456",
+        "title": "Intratumoral innate immune agonist in PDAC",
+        "phase": "Phase 1",
+        "status": "Completed"
+      }
+    ]
+  }
+}

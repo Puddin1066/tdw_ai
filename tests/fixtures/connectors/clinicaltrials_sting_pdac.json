@@ -1,0 +1,23 @@
+{
+  "retrieved_at": "2026-05-15T00:00:00Z",
+  "records": [
+    {
+      "source_record_id": "clinicaltrials:NCT05246796",
+      "source_type": "clinical_trial",
+      "source_name": "ClinicalTrials.gov",
+      "title": "STING Agonist ADU-S100 in Combination With Chemotherapy for Pancreatic Cancer",
+      "url": "https://clinicaltrials.gov/study/NCT05246796",
+      "publication_date": null,
+      "retrieved_at": "2026-05-15T00:00:00Z",
+      "raw_record_ref": "raw/clinicaltrials_raw.json#records/0",
+      "nct_id": "NCT05246796",
+      "status": "RECRUITING",
+      "phase": "PHASE2",
+      "sponsor": "Academic Medical Center",
+      "interventions": ["ADU-S100", "Gemcitabine", "Nab-paclitaxel"],
+      "conditions": ["Pancreatic Ductal Adenocarcinoma"],
+      "start_date": "2022-03-01",
+      "completion_date": null
+    }
+  ]
+}

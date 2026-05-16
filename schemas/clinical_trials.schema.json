@@ -1,0 +1,59 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://tdw.ai/schemas/clinical_trials.schema.json",
+  "title": "ClinicalTrialsArtifact",
+  "allOf": [
+    { "$ref": "./_common.definitions.json#/$defs/artifactEnvelope" },
+    {
+      "type": "object",
+      "properties": {
+        "artifact_type": { "const": "clinical_trials" },
+        "data": { "$ref": "#/$defs/clinicalTrialsData" }
+      },
+      "required": ["artifact_type", "data"]
+    }
+  ],
+  "$defs": {
+    "clinicalTrialRecord": {
+      "allOf": [
+        { "$ref": "./_common.definitions.json#/$defs/sourceRecordBase" },
+        {
+          "type": "object",
+          "required": ["nct_id", "brief_title", "overall_status"],
+          "properties": {
+            "source_type": { "const": "clinical_trial" },
+            "nct_id": { "type": "string", "pattern": "^NCT[0-9]{8}$" },
+            "brief_title": { "type": "string", "minLength": 1 },
+            "official_title": { "type": ["string", "null"] },
+            "phase": { "type": ["string", "null"] },
+            "overall_status": { "type": "string", "minLength": 1 },
+            "study_type": { "type": ["string", "null"] },
+            "sponsor": { "type": ["string", "null"] },
+            "interventions": {
+              "type": "array",
+              "items": { "type": "string" }
+            },
+            "conditions": {
+              "type": "array",
+              "items": { "type": "string" }
+            },
+            "start_date": { "type": ["string", "null"] },
+            "completion_date": { "type": ["string", "null"] },
+            "enrollment_count": { "type": ["integer", "null"], "minimum": 0 }
+          }
+        }
+      ]
+    },
+    "clinicalTrialsData": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["trials"],
+      "properties": {
+        "trials": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/clinicalTrialRecord" }
+        }
+      }
+    }
+  }
+}

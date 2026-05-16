@@ -1,0 +1,129 @@
+{
+  "artifact_type": "normalized_entities",
+  "case_id": "parp_breast",
+  "schema_version": "v0.5",
+  "generated_at": "2026-05-15T12:00:00Z",
+  "provenance": {
+    "generated_by": "pipeline/normalize_entities.py",
+    "generated_at": "2026-05-15T12:00:00Z",
+    "input_artifacts": [
+      "literature_records.json",
+      "clinical_trials.json"
+    ],
+    "model_provider": null,
+    "model_name": null,
+    "prompt_template": null,
+    "prompt_hash": null,
+    "schema_version": "v0.5"
+  },
+  "data": {
+    "entities": [
+      {
+        "entity_id": "gene:PARP1",
+        "entity_type": "gene",
+        "canonical_name": "PARP1",
+        "display_name": "PARP1",
+        "aliases": [
+          "PARP",
+          "poly(ADP-ribose) polymerase 1"
+        ],
+        "external_ids": {
+          "entrez": "142",
+          "ensembl": null,
+          "uniprot": null,
+          "wikidata": null,
+          "chembl": null,
+          "mondo": null,
+          "mesh": null
+        },
+        "source_record_ids": [
+          "pubmed:30111222"
+        ],
+        "confidence": 0.95
+      },
+      {
+        "entity_id": "disease:breast_cancer",
+        "entity_type": "disease",
+        "canonical_name": "breast cancer",
+        "display_name": "breast cancer",
+        "aliases": [
+          "HR-deficient breast cancer",
+          "BRCA-mutant breast cancer"
+        ],
+        "external_ids": {
+          "entrez": null,
+          "ensembl": null,
+          "uniprot": null,
+          "wikidata": null,
+          "chembl": null,
+          "mondo": null,
+          "mesh": null
+        },
+        "source_record_ids": [
+          "pubmed:28333444"
+        ],
+        "confidence": 0.95
+      },
+      {
+        "entity_id": "compound:olaparib",
+        "entity_type": "compound",
+        "canonical_name": "olaparib",
+        "display_name": "olaparib",
+        "aliases": [],
+        "external_ids": {
+          "entrez": null,
+          "ensembl": null,
+          "uniprot": null,
+          "wikidata": null,
+          "chembl": "CHEMBL1237025",
+          "mondo": null,
+          "mesh": null
+        },
+        "source_record_ids": [
+          "clinicaltrials:NCT02000622"
+        ],
+        "confidence": 0.95
+      },
+      {
+        "entity_id": "compound:talazoparib",
+        "entity_type": "compound",
+        "canonical_name": "talazoparib",
+        "display_name": "talazoparib",
+        "aliases": [],
+        "external_ids": {
+          "entrez": null,
+          "ensembl": null,
+          "uniprot": null,
+          "wikidata": null,
+          "chembl": null,
+          "mondo": null,
+          "mesh": null
+        },
+        "source_record_ids": [
+          "clinicaltrials:NCT01945775"
+        ],
+        "confidence": 0.95
+      },
+      {
+        "entity_id": "clinical_trial:NCT02000622",
+        "entity_type": "clinical_trial",
+        "canonical_name": "NCT02000622",
+        "display_name": "NCT02000622",
+        "aliases": [],
+        "external_ids": {
+          "entrez": null,
+          "ensembl": null,
+          "uniprot": null,
+          "wikidata": null,
+          "chembl": null,
+          "mondo": null,
+          "mesh": null
+        },
+        "source_record_ids": [
+          "clinicaltrials:NCT02000622"
+        ],
+        "confidence": 0.95
+      }
+    ]
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "artifact_type": "knowledge_graph",
+  "case_id": "parp_breast",
+  "schema_version": "v0.5",
+  "generated_at": "2026-05-15T12:00:00Z",
+  "provenance": {
+    "generated_by": "pipeline/build_graph.py",
+    "generated_at": "2026-05-15T12:00:00Z",
+    "input_artifacts": [
+      "normalized_entities.json",
+      "evidence_table.json"
+    ],
+    "model_provider": null,
+    "model_name": null,
+    "prompt_template": null,
+    "prompt_hash": null,
+    "schema_version": "v0.5"
+  },
+  "data": {
+    "nodes": [
+      {
+        "node_id": "gene:PARP1",
+        "label": "PARP1",
+        "node_type": "gene"
+      },
+      {
+        "node_id": "disease:breast_cancer",
+        "label": "breast cancer",
+        "node_type": "disease"
+      },
+      {
+        "node_id": "compound:olaparib",
+        "label": "olaparib",
+        "node_type": "compound"
+      }
+    ],
+    "edges": [
+      {
+        "edge_id": "edge:001",
+        "source": "compound:olaparib",
+        "target": "gene:PARP1",
+        "relationship": "inhibits"
+      },
+      {
+        "edge_id": "edge:002",
+        "source": "gene:PARP1",
+        "target": "disease:breast_cancer",
+        "relationship": "target_in"
+      }
+    ]
+  }
+}

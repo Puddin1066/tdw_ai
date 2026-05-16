@@ -1,0 +1,68 @@
+{
+  "artifact_type": "diligence_report",
+  "case_id": "tau_alzheimers",
+  "schema_version": "v0.5",
+  "generated_at": "2026-05-15T12:00:00Z",
+  "provenance": {
+    "generated_by": "pipeline/generate_report.py",
+    "generated_at": "2026-05-15T12:00:00Z",
+    "input_artifacts": [
+      "evidence_table.json",
+      "clinical_trials.json",
+      "risk_map.json"
+    ],
+    "model_provider": "mock",
+    "model_name": "fixture-mock",
+    "prompt_template": "skills/translational_diligence/prompts/report_generation.md",
+    "prompt_hash": null,
+    "schema_version": "v0.5"
+  },
+  "data": {
+    "title": "Translational Diligence: tau / Alzheimer's Disease",
+    "mock_synthetic": false,
+    "executive_summary": "High biological rationale with significant clinical translation risk.",
+    "conclusion": "Tau remains biologically central in AD, but clinical validation for anti-tau modalities is unproven with notable program failures.",
+    "confidence_score": 0.65,
+    "maturity_stage": "clinical",
+    "evidence_density": "medium",
+    "top_risk": "Mixed Phase 2/3 outcomes for anti-tau modalities",
+    "sections": [
+      {
+        "heading": "Target biology",
+        "body": "High biological rationale with significant clinical translation risk.",
+        "cited_evidence_ids": [
+          "evidence:tau_alzheimers:0001",
+          "evidence:tau_alzheimers:0002"
+        ],
+        "cited_pmids": [
+          "40111222",
+          "39222333"
+        ],
+        "cited_nct_ids": [
+          "NCT04549847"
+        ]
+      },
+      {
+        "heading": "Clinical landscape",
+        "body": "Tau remains biologically central in AD, but clinical validation for anti-tau modalities is unproven with notable program failures.",
+        "cited_evidence_ids": [
+          "evidence:tau_alzheimers:0002",
+          "evidence:tau_alzheimers:0003"
+        ],
+        "cited_pmids": [
+          "40111222",
+          "39222333"
+        ],
+        "cited_nct_ids": [
+          "NCT04549847",
+          "NCT03446001"
+        ]
+      }
+    ],
+    "key_questions": [
+      "What biomarkers enrich for response?",
+      "What combination partners address TME resistance?",
+      "What is the competitive clinical timeline?"
+    ]
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "artifact_type": "source_manifest",
+  "case_id": "tau_alzheimers",
+  "schema_version": "v0.5",
+  "generated_at": "2026-05-15T12:00:00Z",
+  "provenance": {
+    "generated_by": "connectors/aggregate",
+    "generated_at": "2026-05-15T12:00:00Z",
+    "input_artifacts": [
+      "raw/"
+    ],
+    "model_provider": null,
+    "model_name": null,
+    "prompt_template": null,
+    "prompt_hash": null,
+    "schema_version": "v0.5"
+  },
+  "data": {
+    "sources": [
+      {
+        "connector_name": "pubmed",
+        "query": "Tau-targeting immunotherapies in Alzheim...",
+        "retrieved_at": "2026-05-15T12:00:00Z",
+        "record_count": 2,
+        "status": "ok"
+      },
+      {
+        "connector_name": "clinicaltrials",
+        "query": "Alzheimer's disease",
+        "retrieved_at": "2026-05-15T12:00:00Z",
+        "record_count": 2,
+        "status": "ok"
+      },
+      {
+        "connector_name": "opentargets",
+        "query": "tau",
+        "retrieved_at": "2026-05-15T12:00:00Z",
+        "record_count": 1,
+        "status": "ok"
+      }
+    ],
+    "total_records": 4
+  }
+}

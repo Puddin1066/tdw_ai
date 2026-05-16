@@ -1,0 +1,49 @@
+{
+  "artifact_type": "risk_map",
+  "case_id": "parp_breast",
+  "schema_version": "v0.5",
+  "generated_at": "2026-05-15T12:00:00Z",
+  "provenance": {
+    "generated_by": "pipeline/generate_risk_map.py",
+    "generated_at": "2026-05-15T12:00:00Z",
+    "input_artifacts": [
+      "evidence_table.json",
+      "clinical_trials.json",
+      "target_biology.json"
+    ],
+    "model_provider": "mock",
+    "model_name": "fixture-mock",
+    "prompt_template": "skills/translational_diligence/prompts/risk_mapping.md",
+    "prompt_hash": null,
+    "schema_version": "v0.5"
+  },
+  "data": {
+    "risks": [
+      {
+        "risk_id": "risk:parp_breast:001",
+        "category": "clinical",
+        "title": "Acquired PARP inhibitor resistance",
+        "description": "HR restoration and fork protection limit durability of benefit.",
+        "severity": "high",
+        "confidence": 0.85,
+        "evidence_ids": [
+          "evidence:parp_breast:0003"
+        ],
+        "inferred": false
+      },
+      {
+        "risk_id": "risk:parp_breast:002",
+        "category": "competition",
+        "title": "Established PARP inhibitor standards of care",
+        "description": "Olaparib and talazoparib set high efficacy bar in gBRCA populations.",
+        "severity": "medium",
+        "confidence": 0.8,
+        "evidence_ids": [
+          "evidence:parp_breast:0002"
+        ],
+        "inferred": false
+      }
+    ],
+    "top_risk_id": "risk:parp_breast:001"
+  }
+}

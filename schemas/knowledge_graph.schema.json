@@ -1,0 +1,83 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://tdw.ai/schemas/knowledge_graph.schema.json",
+  "title": "KnowledgeGraphArtifact",
+  "allOf": [
+    { "$ref": "./_common.definitions.json#/$defs/artifactEnvelope" },
+    {
+      "type": "object",
+      "properties": {
+        "artifact_type": { "const": "knowledge_graph" },
+        "data": { "$ref": "#/$defs/knowledgeGraphData" }
+      },
+      "required": ["artifact_type", "data"]
+    }
+  ],
+  "$defs": {
+    "graphNode": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["node_id", "label", "node_type"],
+      "properties": {
+        "node_id": { "type": "string", "minLength": 1 },
+        "label": { "type": "string", "minLength": 1 },
+        "node_type": {
+          "type": "string",
+          "enum": [
+            "gene",
+            "protein",
+            "disease",
+            "pathway",
+            "compound",
+            "trial",
+            "publication",
+            "organization",
+            "biomarker",
+            "other"
+          ]
+        },
+        "entity_id": { "type": ["string", "null"] },
+        "source_record_id": { "type": ["string", "null"] },
+        "metadata": {
+          "type": "object",
+          "additionalProperties": { "type": "string" }
+        }
+      }
+    },
+    "graphEdge": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["edge_id", "source", "target", "relationship"],
+      "properties": {
+        "edge_id": { "type": "string", "minLength": 1 },
+        "source": { "type": "string", "minLength": 1 },
+        "target": { "type": "string", "minLength": 1 },
+        "relationship": { "type": "string", "minLength": 1 },
+        "confidence": {
+          "type": ["number", "null"],
+          "minimum": 0,
+          "maximum": 1
+        },
+        "source_record_ids": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      }
+    },
+    "knowledgeGraphData": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["nodes", "edges"],
+      "properties": {
+        "nodes": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/graphNode" }
+        },
+        "edges": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/graphEdge" }
+        }
+      }
+    }
+  }
+}

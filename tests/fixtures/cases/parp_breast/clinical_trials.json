@@ -1,0 +1,65 @@
+{
+  "artifact_type": "clinical_trials",
+  "case_id": "parp_breast",
+  "schema_version": "v0.5",
+  "generated_at": "2026-05-15T12:00:00Z",
+  "provenance": {
+    "generated_by": "connectors/clinicaltrials.py",
+    "generated_at": "2026-05-15T12:00:00Z",
+    "input_artifacts": [
+      "raw/clinicaltrials_raw.json"
+    ],
+    "model_provider": null,
+    "model_name": null,
+    "prompt_template": null,
+    "prompt_hash": null,
+    "schema_version": "v0.5"
+  },
+  "data": {
+    "trials": [
+      {
+        "source_record_id": "clinicaltrials:NCT02000622",
+        "source_type": "clinical_trial",
+        "source_name": "ClinicalTrials.gov",
+        "nct_id": "NCT02000622",
+        "title": "Olaparib as adjuvant treatment in patients with germline BRCA-mutated breast cancer (OlympiA)",
+        "phase": "Phase 3",
+        "overall_status": "Completed",
+        "sponsor": "AstraZeneca (fixture)",
+        "interventions": [
+          "olaparib"
+        ],
+        "conditions": [
+          "Breast Cancer",
+          "BRCA Mutation"
+        ],
+        "start_date": "2014-06-01",
+        "completion_date": null,
+        "url": "https://clinicaltrials.gov/study/NCT02000622",
+        "retrieved_at": "2026-05-15T12:00:00Z",
+        "raw_record_ref": "raw/clinicaltrials_raw.json#records/NCT02000622"
+      },
+      {
+        "source_record_id": "clinicaltrials:NCT01945775",
+        "source_type": "clinical_trial",
+        "source_name": "ClinicalTrials.gov",
+        "nct_id": "NCT01945775",
+        "title": "Talazoparib in patients with advanced breast cancer and germline BRCA mutation (EMBRACA)",
+        "phase": "Phase 3",
+        "overall_status": "Completed",
+        "sponsor": "Pfizer (fixture)",
+        "interventions": [
+          "talazoparib"
+        ],
+        "conditions": [
+          "Breast Neoplasms"
+        ],
+        "start_date": "2013-09-01",
+        "completion_date": null,
+        "url": "https://clinicaltrials.gov/study/NCT01945775",
+        "retrieved_at": "2026-05-15T12:00:00Z",
+        "raw_record_ref": "raw/clinicaltrials_raw.json#records/NCT01945775"
+      }
+    ]
+  }
+}

@@ -1,0 +1,257 @@
+"""CLI entrypoint for translational diligence case generation."""
+
+from __future__ import annotations
+
+import argparse
+import importlib
+import json
+import shutil
+import sys
+import uuid
+from pathlib import Path
+from typing import Any
+
+import yaml
+
+from pipeline._artifacts import copy_fixture_artifact
+from pipeline.artifact_writer import ArtifactValidationError, validate_case_dir
+from pipeline.build_graph import build_knowledge_graph
+from pipeline.config_loader import ConfigValidationError, load_case_config
+from pipeline.generate_claims import generate_claims
+from pipeline.generate_questions import generate_questions
+from pipeline.generate_report import generate_report
+from pipeline.generate_risk_map import generate_risk_map
+from pipeline.normalize_entities import normalize_entities
+from pipeline.provenance import utc_now_iso
+from pipeline.run_registry import RunRegistry
+from pipeline.types import (
+    REQUIRED_ARTIFACTS,
+    CaseConfig,
+    RunMode,
+    fixture_case_dir,
+    generated_case_dir,
+    repo_root,
+)
+
+SOURCE_ARTIFACTS = (
+    "source_manifest.json",
+    "literature_records.json",
+    "clinical_trials.json",
+    "target_biology.json",
+)
+
+CONNECTOR_BINDINGS: dict[str, tuple[str, str]] = {
+    "pubmed": ("connectors.pubmed", "PubMedConnector"),
+    "clinicaltrials": ("connectors.clinicaltrials", "ClinicalTrialsConnector"),
+    "opentargets": ("connectors.opentargets", "OpenTargetsConnector"),
+    "chembl": ("connectors.chembl", "ChEMBLConnector"),
+    "biothings": ("connectors.biothings", "BioThingsConnector"),
+    "local_docs": ("connectors.local_docs", "LocalDocsConnector"),
+}
+
+
+def _enabled_connectors(config: CaseConfig) -> list[str]:
+    sources = config.sources
+    mapping = {
+        "pubmed": sources.pubmed,
+        "clinicaltrials": sources.clinicaltrials,
+        "opentargets": sources.opentargets,
+        "chembl": sources.chembl,
+        "biothings": sources.biothings,
+        "local_docs": sources.local_docs,
+    }
+    return [name for name, enabled in mapping.items() if enabled]
+
+
+def _import_connector(name: str) -> Any | None:
+    module_path, class_name = CONNECTOR_BINDINGS[name]
+    try:
+        module = importlib.import_module(module_path)
+    except ImportError:
+        return None
+    connector_cls = getattr(module, class_name, None)
+    if connector_cls is None:
+        return None
+    return connector_cls()
+
+
+def _write_metadata(config: CaseConfig, case_dir: Path, mode: RunMode) -> Path:
+    metadata = config.to_metadata_dict()
+    metadata["run"] = {
+        "mode": mode,
+        "generated_at": utc_now_iso(),
+        "config_path": str(config.config_path) if config.config_path else None,
+    }
+    path = case_dir / "metadata.yaml"
+    path.write_text(yaml.safe_dump(metadata, sort_keys=False), encoding="utf-8")
+    return path
+
+
+def _seed_fixture_artifacts(config: CaseConfig, case_dir: Path) -> None:
+    fixture_dir = fixture_case_dir(config.case_id)
+    if not fixture_dir.exists():
+        return
+    for item in fixture_dir.iterdir():
+        if item.is_file():
+            shutil.copy2(item, case_dir / item.name)
+
+
+def _connector_payload_to_dict(result: Any) -> dict[str, Any]:
+    if hasattr(result, "model_dump"):
+        return result.model_dump(mode="json")
+    if hasattr(result, "to_dict"):
+        return result.to_dict()
+    if isinstance(result, dict):
+        return result
+    raise TypeError(f"Unsupported connector result type: {type(result)!r}")
+
+
+def _save_connector_raw(case_dir: Path, connector_name: str, payload: dict[str, Any]) -> None:
+    raw_dir = case_dir / "raw"
+    raw_dir.mkdir(parents=True, exist_ok=True)
+    raw_path = raw_dir / f"{connector_name}_raw.json"
+    raw_path.write_text(json.dumps(payload, indent=2) + "\n", encoding="utf-8")
+
+
+def run_connectors(config: CaseConfig, case_dir: Path, mode: RunMode) -> list[dict[str, Any]]:
+    """Invoke connectors when implemented; otherwise rely on fixture artifacts."""
+    payloads: list[dict[str, Any]] = []
+    for name in _enabled_connectors(config):
+        connector = _import_connector(name)
+        if connector is None:
+            continue
+        result = connector.fetch(config, mode)
+        payload = _connector_payload_to_dict(result)
+        payloads.append(payload)
+        _save_connector_raw(case_dir, name, payload)
+    return payloads
+
+
+def _ensure_source_artifacts(config: CaseConfig, case_dir: Path, mode: RunMode) -> None:
+    for artifact_name in SOURCE_ARTIFACTS:
+        dest = case_dir / artifact_name
+        if dest.exists():
+            continue
+        copy_fixture_artifact(config.case_id, artifact_name, dest)
+        if not dest.exists():
+            raise FileNotFoundError(
+                f"Missing source artifact {artifact_name} and no fixture available for {config.case_id}"
+            )
+
+
+def _ensure_eval_results(config: CaseConfig, case_dir: Path, mode: RunMode) -> None:
+    dest = case_dir / "eval_results.json"
+    if dest.exists():
+        return
+    copy_fixture_artifact(config.case_id, "eval_results.json", dest)
+    if not dest.exists():
+        dest.write_text(
+            json.dumps(
+                {
+                    "artifact_type": "eval_results",
+                    "case_id": config.case_id,
+                    "schema_version": "v0.5",
+                    "generated_at": utc_now_iso(),
+                    "provenance": {
+                        "generated_by": "pipeline/run_workflow.py",
+                        "generated_at": utc_now_iso(),
+                        "input_artifacts": list(REQUIRED_ARTIFACTS),
+                        "model_provider": None,
+                        "model_name": None,
+                        "prompt_hash": None,
+                        "schema_version": "v0.5",
+                    },
+                    "data": {"evaluators": [], "summary": {"passed": True}},
+                },
+                indent=2,
+            )
+            + "\n",
+            encoding="utf-8",
+        )
+
+
+def run_case_workflow(config: CaseConfig, mode: RunMode, *, output_dir: Path | None = None) -> Path:
+    """Execute the full pipeline for one case configuration."""
+    case_dir = output_dir or generated_case_dir(config.case_id)
+    if case_dir.exists():
+        shutil.rmtree(case_dir)
+    case_dir.mkdir(parents=True, exist_ok=True)
+
+    if mode == "fixture":
+        _seed_fixture_artifacts(config, case_dir)
+
+    _write_metadata(config, case_dir, mode)
+    connector_payloads = run_connectors(config, case_dir, mode)
+    _ensure_source_artifacts(config, case_dir, mode)
+
+    normalize_entities(config, case_dir, mode=mode, connector_payloads=connector_payloads)
+    generate_claims(config, case_dir, mode=mode)
+    generate_risk_map(config, case_dir, mode=mode)
+    generate_report(config, case_dir, mode=mode)
+    generate_questions(config, case_dir, mode=mode)
+    build_knowledge_graph(config, case_dir)
+    _ensure_eval_results(config, case_dir, mode)
+
+    validate_case_dir(case_dir)
+    return case_dir
+
+
+def main(argv: list[str] | None = None) -> int:
+    parser = argparse.ArgumentParser(description="Run translational diligence workflow")
+    parser.add_argument("--config", required=True, help="Path to configs/cases/{case_id}.yaml")
+    parser.add_argument(
+        "--mode",
+        required=True,
+        choices=["fixture", "live"],
+        help="fixture copies/assembles from tests/fixtures; live uses connector/synthesis stubs",
+    )
+    args = parser.parse_args(argv)
+
+    config_path = Path(args.config)
+    if not config_path.is_absolute():
+        candidate = repo_root() / config_path
+        if candidate.exists():
+            config_path = candidate
+
+    mode: RunMode = args.mode
+    registry = RunRegistry()
+    run_id = uuid.uuid4().hex[:12]
+
+    try:
+        config = load_case_config(config_path)
+    except (ConfigValidationError, FileNotFoundError) as exc:
+        print(f"Config error: {exc}", file=sys.stderr)
+        return 1
+
+    if mode == "fixture" and not config.run_mode_defaults.fixture_allowed:
+        print("Fixture mode disabled for this case", file=sys.stderr)
+        return 1
+    if mode == "live" and not config.run_mode_defaults.live_allowed:
+        print("Live mode disabled for this case", file=sys.stderr)
+        return 1
+
+    output_dir = generated_case_dir(config.case_id)
+    record = registry.start_run(
+        run_id=run_id,
+        case_id=config.case_id,
+        mode=mode,
+        config_path=config_path,
+        output_dir=output_dir,
+    )
+
+    try:
+        case_dir = run_case_workflow(config, mode)
+        artifacts = validate_case_dir(case_dir)
+        registry.complete_run(record, artifacts=artifacts)
+    except (ArtifactValidationError, FileNotFoundError, ConfigValidationError) as exc:
+        registry.complete_run(record, artifacts=[], errors=[str(exc)])
+        print(f"Workflow failed: {exc}", file=sys.stderr)
+        return 1
+
+    print(f"Generated case packet: {case_dir}")
+    print(f"Artifacts: {len(artifacts)}")
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

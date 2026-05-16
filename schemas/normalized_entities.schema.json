@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://tdw.ai/schemas/normalized_entities.schema.json",
+  "title": "NormalizedEntitiesArtifact",
+  "allOf": [
+    { "$ref": "./_common.definitions.json#/$defs/artifactEnvelope" },
+    {
+      "type": "object",
+      "properties": {
+        "artifact_type": { "const": "normalized_entities" },
+        "data": { "$ref": "#/$defs/normalizedEntitiesData" }
+      },
+      "required": ["artifact_type", "data"]
+    }
+  ],
+  "$defs": {
+    "normalizedEntitiesData": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["entities"],
+      "properties": {
+        "entities": {
+          "type": "array",
+          "items": {
+            "$ref": "./_common.definitions.json#/$defs/normalizedEntity"
+          }
+        }
+      }
+    }
+  }
+}

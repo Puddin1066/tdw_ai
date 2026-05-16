@@ -1,0 +1,66 @@
+{
+  "artifact_type": "diligence_report",
+  "case_id": "iaip_sepsis",
+  "schema_version": "v0.5",
+  "generated_at": "2026-05-15T12:00:00Z",
+  "provenance": {
+    "generated_by": "pipeline/generate_report.py",
+    "generated_at": "2026-05-15T12:00:00Z",
+    "input_artifacts": [
+      "evidence_table.json",
+      "clinical_trials.json",
+      "risk_map.json"
+    ],
+    "model_provider": "mock",
+    "model_name": "fixture-mock",
+    "prompt_template": "skills/translational_diligence/prompts/report_generation.md",
+    "prompt_hash": null,
+    "schema_version": "v0.5"
+  },
+  "data": {
+    "title": "Translational Diligence: IAIP / Sepsis",
+    "mock_synthetic": false,
+    "executive_summary": "Translational hypothesis with biomarker support and limited late-stage clinical validation.",
+    "conclusion": "IAIP biology is plausible in sepsis pathophysiology, but interventional evidence remains early and trial design risk is high.",
+    "confidence_score": 0.58,
+    "maturity_stage": "translational",
+    "evidence_density": "medium",
+    "top_risk": "Heterogeneous sepsis populations and endpoint variability",
+    "sections": [
+      {
+        "heading": "Target biology",
+        "body": "Translational hypothesis with biomarker support and limited late-stage clinical validation.",
+        "cited_evidence_ids": [
+          "evidence:iaip_sepsis:0001",
+          "evidence:iaip_sepsis:0002"
+        ],
+        "cited_pmids": [
+          "35111222",
+          "34222333"
+        ],
+        "cited_nct_ids": [
+          "NCT03034567"
+        ]
+      },
+      {
+        "heading": "Clinical landscape",
+        "body": "IAIP biology is plausible in sepsis pathophysiology, but interventional evidence remains early and trial design risk is high.",
+        "cited_evidence_ids": [
+          "evidence:iaip_sepsis:0003"
+        ],
+        "cited_pmids": [
+          "35111222",
+          "34222333"
+        ],
+        "cited_nct_ids": [
+          "NCT03034567"
+        ]
+      }
+    ],
+    "key_questions": [
+      "What biomarkers enrich for response?",
+      "What combination partners address TME resistance?",
+      "What is the competitive clinical timeline?"
+    ]
+  }
+}

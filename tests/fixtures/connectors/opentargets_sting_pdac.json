@@ -1,0 +1,18 @@
+{
+  "retrieved_at": "2026-05-15T00:00:00Z",
+  "records": [
+    {
+      "source_record_id": "opentargets:ENSG00000184584:MONDO_0005089",
+      "source_type": "target_biology",
+      "source_name": "Open Targets",
+      "title": "TMEM173 association with pancreatic carcinoma",
+      "url": "https://platform.opentargets.org/target/ENSG00000184584",
+      "publication_date": null,
+      "retrieved_at": "2026-05-15T00:00:00Z",
+      "raw_record_ref": "raw/opentargets_raw.json#records/0",
+      "target_id": "ENSG00000184584",
+      "disease_id": "MONDO_0005089",
+      "association_score": 0.42
+    }
+  ]
+}

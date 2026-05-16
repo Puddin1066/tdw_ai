@@ -1,0 +1,56 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://tdw.ai/schemas/literature_records.schema.json",
+  "title": "LiteratureRecordsArtifact",
+  "allOf": [
+    { "$ref": "./_common.definitions.json#/$defs/artifactEnvelope" },
+    {
+      "type": "object",
+      "properties": {
+        "artifact_type": { "const": "literature_records" },
+        "data": { "$ref": "#/$defs/literatureRecordsData" }
+      },
+      "required": ["artifact_type", "data"]
+    }
+  ],
+  "$defs": {
+    "literatureRecord": {
+      "allOf": [
+        { "$ref": "./_common.definitions.json#/$defs/sourceRecordBase" },
+        {
+          "type": "object",
+          "properties": {
+            "source_type": { "const": "literature" },
+            "pmid": { "type": ["string", "null"] },
+            "doi": { "type": ["string", "null"] },
+            "authors": {
+              "type": "array",
+              "items": { "type": "string" }
+            },
+            "journal": { "type": ["string", "null"] },
+            "abstract": { "type": ["string", "null"] },
+            "publication_types": {
+              "type": "array",
+              "items": { "type": "string" }
+            },
+            "mesh_terms": {
+              "type": "array",
+              "items": { "type": "string" }
+            }
+          }
+        }
+      ]
+    },
+    "literatureRecordsData": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["records"],
+      "properties": {
+        "records": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/literatureRecord" }
+        }
+      }
+    }
+  }
+}

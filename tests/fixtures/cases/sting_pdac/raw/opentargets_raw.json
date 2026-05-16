@@ -1,0 +1,36 @@
+{
+  "connector_name": "opentargets",
+  "case_id": "sting_pdac",
+  "mode": "fixture",
+  "query": {
+    "target": "STING",
+    "indication": "pancreatic cancer",
+    "raw_query": "(STING) AND (pancreatic cancer)"
+  },
+  "retrieved_at": "2026-05-15T12:00:00Z",
+  "records": [
+    {
+      "source_record_id": "opentargets:ENSG00000184584",
+      "source_type": "target_biology",
+      "source_name": "Open Targets",
+      "target_id": "ENSG00000184584",
+      "target_symbol": "TMEM173",
+      "disease_id": "EFO_0002618",
+      "disease_name": "pancreatic carcinoma",
+      "association_score": 0.42,
+      "mechanism_summary": "Innate immune DNA sensing; type I interferon induction (fixture).",
+      "retrieved_at": "2026-05-15T12:00:00Z",
+      "raw_record_ref": "raw/opentargets_raw.json#records/0"
+    }
+  ],
+  "errors": [],
+  "warnings": [
+    "fixture mode \u2014 synthetic raw payload"
+  ],
+  "provenance": {
+    "source_name": "PubMed",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/",
+    "api_endpoint": null,
+    "api_version": null
+  }
+}

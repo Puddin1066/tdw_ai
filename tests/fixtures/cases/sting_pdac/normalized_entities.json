@@ -1,0 +1,173 @@
+{
+  "artifact_type": "normalized_entities",
+  "case_id": "sting_pdac",
+  "schema_version": "v0.5",
+  "generated_at": "2026-05-15T12:00:00Z",
+  "provenance": {
+    "generated_by": "pipeline/normalize_entities.py",
+    "generated_at": "2026-05-15T12:00:00Z",
+    "input_artifacts": [
+      "literature_records.json",
+      "clinical_trials.json"
+    ],
+    "model_provider": null,
+    "model_name": null,
+    "prompt_template": null,
+    "prompt_hash": null,
+    "schema_version": "v0.5"
+  },
+  "data": {
+    "entities": [
+      {
+        "entity_id": "gene:TMEM173",
+        "entity_type": "gene",
+        "canonical_name": "TMEM173",
+        "display_name": "STING",
+        "aliases": [
+          "TMEM173",
+          "Stimulator of Interferon Genes"
+        ],
+        "external_ids": {
+          "entrez": "340061",
+          "ensembl": null,
+          "uniprot": null,
+          "wikidata": null,
+          "chembl": null,
+          "mondo": null,
+          "mesh": null
+        },
+        "source_record_ids": [
+          "pubmed:38123456"
+        ],
+        "confidence": 0.95
+      },
+      {
+        "entity_id": "disease:MONDO_0007893",
+        "entity_type": "disease",
+        "canonical_name": "pancreatic ductal adenocarcinoma",
+        "display_name": "PDAC",
+        "aliases": [
+          "PDAC",
+          "pancreatic ductal adenocarcinoma"
+        ],
+        "external_ids": {
+          "entrez": null,
+          "ensembl": null,
+          "uniprot": null,
+          "wikidata": null,
+          "chembl": null,
+          "mondo": "MONDO:0007893",
+          "mesh": null
+        },
+        "source_record_ids": [
+          "pubmed:37234567"
+        ],
+        "confidence": 0.95
+      },
+      {
+        "entity_id": "pathway:CGAS_STING",
+        "entity_type": "pathway",
+        "canonical_name": "cGAS-STING signaling",
+        "display_name": "cGAS-STING pathway",
+        "aliases": [
+          "innate DNA sensing"
+        ],
+        "external_ids": {
+          "entrez": null,
+          "ensembl": null,
+          "uniprot": null,
+          "wikidata": null,
+          "chembl": null,
+          "mondo": null,
+          "mesh": null
+        },
+        "source_record_ids": [
+          "pubmed:36345678"
+        ],
+        "confidence": 0.9
+      },
+      {
+        "entity_id": "compound:MK-1454",
+        "entity_type": "compound",
+        "canonical_name": "MK-1454",
+        "display_name": "MK-1454 (STING agonist)",
+        "aliases": [
+          "intratumoral STING agonist"
+        ],
+        "external_ids": {
+          "entrez": null,
+          "ensembl": null,
+          "uniprot": null,
+          "wikidata": null,
+          "chembl": "CHEMBL_FIXTURE_MK1454",
+          "mondo": null,
+          "mesh": null
+        },
+        "source_record_ids": [
+          "clinicaltrials:NCT05234567"
+        ],
+        "confidence": 0.95
+      },
+      {
+        "entity_id": "biomarker:IFN_SIGNATURE",
+        "entity_type": "biomarker",
+        "canonical_name": "interferon-stimulated gene signature",
+        "display_name": "IFN gene signature",
+        "aliases": [],
+        "external_ids": {
+          "entrez": null,
+          "ensembl": null,
+          "uniprot": null,
+          "wikidata": null,
+          "chembl": null,
+          "mondo": null,
+          "mesh": null
+        },
+        "source_record_ids": [
+          "pubmed:34567890"
+        ],
+        "confidence": 0.85
+      },
+      {
+        "entity_id": "clinical_trial:NCT05234567",
+        "entity_type": "clinical_trial",
+        "canonical_name": "NCT05234567",
+        "display_name": "NCT05234567",
+        "aliases": [],
+        "external_ids": {
+          "entrez": null,
+          "ensembl": null,
+          "uniprot": null,
+          "wikidata": null,
+          "chembl": null,
+          "mondo": null,
+          "mesh": null
+        },
+        "source_record_ids": [
+          "clinicaltrials:NCT05234567"
+        ],
+        "confidence": 0.95
+      },
+      {
+        "entity_id": "publication:38123456",
+        "entity_type": "publication",
+        "canonical_name": "38123456",
+        "display_name": "38123456",
+        "aliases": [],
+        "external_ids": {
+          "entrez": null,
+          "ensembl": null,
+          "uniprot": null,
+          "wikidata": null,
+          "chembl": null,
+          "mondo": null,
+          "mesh": null
+        },
+        "source_record_ids": [
+          "pubmed:38123456"
+        ],
+        "confidence": 0.95
+      }
+    ]
+  }
+}

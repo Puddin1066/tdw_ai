@@ -1,0 +1,61 @@
+{
+  "connector_name": "pubmed",
+  "case_id": "iaip_sepsis",
+  "mode": "fixture",
+  "query": {
+    "target": "IAIP",
+    "indication": "sepsis",
+    "raw_query": "(IAIP) AND (sepsis)"
+  },
+  "retrieved_at": "2026-05-15T12:00:00Z",
+  "records": [
+    {
+      "source_record_id": "pubmed:35111222",
+      "source_type": "literature",
+      "source_name": "PubMed",
+      "title": "Inter-alpha inhibitor proteins in sepsis: preclinical and early clinical observations",
+      "abstract": "Fixture: IAIP family members modulate protease activity and inflammatory cascades in sepsis models.",
+      "authors": [
+        "Stephens J",
+        "Carroll M"
+      ],
+      "journal": "Critical Care Medicine (fixture)",
+      "publication_year": 2022,
+      "doi": null,
+      "pmid": "35111222",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/35111222/",
+      "publication_date": "2022-06-01",
+      "retrieved_at": "2026-05-15T12:00:00Z",
+      "raw_record_ref": "raw/pubmed_raw.json#records/35111222"
+    },
+    {
+      "source_record_id": "pubmed:34222333",
+      "source_type": "literature",
+      "source_name": "PubMed",
+      "title": "Plasma ITIH3/ITIH4 as prognostic markers in septic shock cohorts",
+      "abstract": "Fixture: Lower IAIP levels correlated with organ dysfunction scores in retrospective ICU cohorts.",
+      "authors": [
+        "Zhang Y",
+        "Brown A"
+      ],
+      "journal": "Shock (fixture)",
+      "publication_year": 2021,
+      "doi": null,
+      "pmid": "34222333",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/34222333/",
+      "publication_date": "2021-06-01",
+      "retrieved_at": "2026-05-15T12:00:00Z",
+      "raw_record_ref": "raw/pubmed_raw.json#records/34222333"
+    }
+  ],
+  "errors": [],
+  "warnings": [
+    "fixture mode \u2014 synthetic raw payload"
+  ],
+  "provenance": {
+    "source_name": "PubMed",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/",
+    "api_endpoint": null,
+    "api_version": null
+  }
+}

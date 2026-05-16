@@ -1,0 +1,89 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://tdw.ai/schemas/case_metadata.schema.json",
+  "title": "CaseMetadataArtifact",
+  "allOf": [
+    { "$ref": "./_common.definitions.json#/$defs/artifactEnvelope" },
+    {
+      "type": "object",
+      "properties": {
+        "artifact_type": { "const": "case_metadata" },
+        "data": { "$ref": "#/$defs/caseMetadataData" }
+      },
+      "required": ["artifact_type", "data"]
+    }
+  ],
+  "$defs": {
+    "caseMetadataData": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "case_id",
+        "display_name",
+        "workflow",
+        "version",
+        "target",
+        "indication",
+        "sources",
+        "limits"
+      ],
+      "properties": {
+        "case_id": { "$ref": "./_common.definitions.json#/$defs/caseId" },
+        "display_name": { "type": "string", "minLength": 1 },
+        "workflow": { "const": "translational_diligence" },
+        "version": { "type": "string", "minLength": 1 },
+        "target": { "$ref": "./_common.definitions.json#/$defs/namedEntity" },
+        "indication": { "$ref": "./_common.definitions.json#/$defs/namedEntity" },
+        "sources": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "pubmed",
+            "clinicaltrials",
+            "opentargets",
+            "chembl",
+            "biothings",
+            "local_docs"
+          ],
+          "properties": {
+            "pubmed": { "type": "boolean" },
+            "clinicaltrials": { "type": "boolean" },
+            "opentargets": { "type": "boolean" },
+            "chembl": { "type": "boolean" },
+            "biothings": { "type": "boolean" },
+            "local_docs": { "type": "boolean" }
+          }
+        },
+        "limits": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "max_literature_records",
+            "max_trials",
+            "max_evidence_rows"
+          ],
+          "properties": {
+            "max_literature_records": { "type": "integer", "minimum": 1 },
+            "max_trials": { "type": "integer", "minimum": 1 },
+            "max_evidence_rows": { "type": "integer", "minimum": 1 }
+          }
+        },
+        "run_mode_defaults": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "fixture_allowed": { "type": "boolean" },
+            "live_allowed": { "type": "boolean" }
+          }
+        },
+        "maturity_stage": { "type": "string" },
+        "confidence_score": { "type": "number", "minimum": 0, "maximum": 1 },
+        "evidence_density": {
+          "type": "string",
+          "enum": ["low", "medium", "high"]
+        },
+        "top_risk": { "type": "string" }
+      }
+    }
+  }
+}

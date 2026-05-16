@@ -1,0 +1,110 @@
+{
+  "artifact_type": "normalized_entities",
+  "case_id": "iaip_sepsis",
+  "schema_version": "v0.5",
+  "generated_at": "2026-05-15T12:00:00Z",
+  "provenance": {
+    "generated_by": "pipeline/normalize_entities.py",
+    "generated_at": "2026-05-15T12:00:00Z",
+    "input_artifacts": [
+      "literature_records.json",
+      "clinical_trials.json"
+    ],
+    "model_provider": null,
+    "model_name": null,
+    "prompt_template": null,
+    "prompt_hash": null,
+    "schema_version": "v0.5"
+  },
+  "data": {
+    "entities": [
+      {
+        "entity_id": "protein:IAIP",
+        "entity_type": "protein",
+        "canonical_name": "inter-alpha inhibitor proteins",
+        "display_name": "IAIP",
+        "aliases": [
+          "inter-alpha inhibitor proteins",
+          "ITIH3",
+          "ITIH4"
+        ],
+        "external_ids": {
+          "entrez": null,
+          "ensembl": null,
+          "uniprot": null,
+          "wikidata": null,
+          "chembl": null,
+          "mondo": null,
+          "mesh": null
+        },
+        "source_record_ids": [
+          "pubmed:35111222"
+        ],
+        "confidence": 0.95
+      },
+      {
+        "entity_id": "gene:ITIH3",
+        "entity_type": "gene",
+        "canonical_name": "ITIH3",
+        "display_name": "ITIH3",
+        "aliases": [],
+        "external_ids": {
+          "entrez": null,
+          "ensembl": null,
+          "uniprot": null,
+          "wikidata": null,
+          "chembl": null,
+          "mondo": null,
+          "mesh": null
+        },
+        "source_record_ids": [
+          "pubmed:34222333"
+        ],
+        "confidence": 0.95
+      },
+      {
+        "entity_id": "gene:ITIH4",
+        "entity_type": "gene",
+        "canonical_name": "ITIH4",
+        "display_name": "ITIH4",
+        "aliases": [],
+        "external_ids": {
+          "entrez": null,
+          "ensembl": null,
+          "uniprot": null,
+          "wikidata": null,
+          "chembl": null,
+          "mondo": null,
+          "mesh": null
+        },
+        "source_record_ids": [
+          "pubmed:34222333"
+        ],
+        "confidence": 0.95
+      },
+      {
+        "entity_id": "disease:sepsis",
+        "entity_type": "disease",
+        "canonical_name": "sepsis",
+        "display_name": "sepsis",
+        "aliases": [
+          "septic shock",
+          "severe sepsis"
+        ],
+        "external_ids": {
+          "entrez": null,
+          "ensembl": null,
+          "uniprot": null,
+          "wikidata": null,
+          "chembl": null,
+          "mondo": null,
+          "mesh": null
+        },
+        "source_record_ids": [
+          "pubmed:35111222"
+        ],
+        "confidence": 0.95
+      }
+    ]
+  }
+}

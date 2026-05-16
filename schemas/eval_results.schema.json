@@ -1,0 +1,94 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://tdw.ai/schemas/eval_results.schema.json",
+  "title": "EvalResultsArtifact",
+  "allOf": [
+    { "$ref": "./_common.definitions.json#/$defs/artifactEnvelope" },
+    {
+      "type": "object",
+      "properties": {
+        "artifact_type": { "const": "eval_results" },
+        "data": { "$ref": "#/$defs/evalResultsData" }
+      },
+      "required": ["artifact_type", "data"]
+    }
+  ],
+  "$defs": {
+    "evaluationResult": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "evaluator_name",
+        "case_id",
+        "passed",
+        "score",
+        "errors",
+        "warnings",
+        "checked_artifacts"
+      ],
+      "properties": {
+        "evaluator_name": { "type": "string", "minLength": 1 },
+        "case_id": { "$ref": "./_common.definitions.json#/$defs/caseId" },
+        "passed": { "type": "boolean" },
+        "score": { "type": "number", "minimum": 0, "maximum": 1 },
+        "errors": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "warnings": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "checked_artifacts": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 1 }
+        }
+      }
+    },
+    "evalMetrics": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "citation_fidelity_score",
+        "unsupported_claim_count",
+        "hallucinated_trial_count",
+        "hallucinated_pmid_count",
+        "evidence_coverage_score"
+      ],
+      "properties": {
+        "citation_fidelity_score": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "unsupported_claim_count": { "type": "integer", "minimum": 0 },
+        "hallucinated_trial_count": { "type": "integer", "minimum": 0 },
+        "hallucinated_pmid_count": { "type": "integer", "minimum": 0 },
+        "evidence_coverage_score": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        }
+      }
+    },
+    "evalResultsData": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "overall_passed",
+        "aggregate_score",
+        "evaluations",
+        "metrics"
+      ],
+      "properties": {
+        "overall_passed": { "type": "boolean" },
+        "aggregate_score": { "type": "number", "minimum": 0, "maximum": 1 },
+        "evaluations": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/evaluationResult" }
+        },
+        "metrics": { "$ref": "#/$defs/evalMetrics" }
+      }
+    }
+  }
+}

@@ -1,0 +1,34 @@
+case_id: sting_pdac
+display_name: STING / Pancreatic Cancer
+workflow: translational_diligence
+version: v0.5
+
+target:
+  name: STING
+  canonical_id: null
+  aliases:
+    - TMEM173
+    - Stimulator of Interferon Genes
+
+indication:
+  name: pancreatic cancer
+  aliases:
+    - pancreatic ductal adenocarcinoma
+    - PDAC
+
+sources:
+  pubmed: true
+  clinicaltrials: true
+  opentargets: true
+  chembl: true
+  biothings: true
+  local_docs: false
+
+limits:
+  max_literature_records: 50
+  max_trials: 100
+  max_evidence_rows: 100
+
+run_mode_defaults:
+  fixture_allowed: true
+  live_allowed: true

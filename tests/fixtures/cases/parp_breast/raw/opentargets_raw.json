@@ -1,0 +1,36 @@
+{
+  "connector_name": "opentargets",
+  "case_id": "parp_breast",
+  "mode": "fixture",
+  "query": {
+    "target": "PARP1",
+    "indication": "breast cancer",
+    "raw_query": "(PARP1) AND (breast cancer)"
+  },
+  "retrieved_at": "2026-05-15T12:00:00Z",
+  "records": [
+    {
+      "source_record_id": "opentargets:PARP1_BREAST",
+      "source_type": "target_biology",
+      "source_name": "Open Targets",
+      "target_id": "ENSG00000143799",
+      "target_symbol": "PARP1",
+      "disease_id": "EFO_0000305",
+      "disease_name": "breast carcinoma",
+      "association_score": 0.71,
+      "mechanism_summary": "DNA damage response; synthetic lethality with BRCA loss (fixture).",
+      "retrieved_at": "2026-05-15T12:00:00Z",
+      "raw_record_ref": "raw/opentargets_raw.json#records/0"
+    }
+  ],
+  "errors": [],
+  "warnings": [
+    "fixture mode \u2014 synthetic raw payload"
+  ],
+  "provenance": {
+    "source_name": "PubMed",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/",
+    "api_endpoint": null,
+    "api_version": null
+  }
+}

@@ -1,0 +1,76 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+.venv/
+venv/
+ENV/
+env/
+.pytest_cache/
+.coverage
+htmlcov/
+.ruff_cache/
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Node
+node_modules/
+.npm
+.pnp
+.pnp.js
+.yarn/
+*.tsbuildinfo
+next-env.d.ts
+
+# Next.js / frontend build
+web/.next/
+web/out/
+web/build/
+
+# Generated artifacts (pipeline output)
+generated/
+
+# Copied case packets in frontend public dir (generated)
+web/public/data/cases/
+
+# Environment and secrets
+.env
+.env.local
+.env.*.local
+*.pem
+
+# IDE / OS
+.idea/
+.vscode/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Cursor / local agent state
+.cursor/

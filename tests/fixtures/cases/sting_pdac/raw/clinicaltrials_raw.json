@@ -1,0 +1,90 @@
+{
+  "connector_name": "clinicaltrials",
+  "case_id": "sting_pdac",
+  "mode": "fixture",
+  "query": {
+    "target": "STING",
+    "indication": "pancreatic cancer",
+    "raw_query": "(STING) AND (pancreatic cancer)"
+  },
+  "retrieved_at": "2026-05-15T12:00:00Z",
+  "records": [
+    {
+      "source_record_id": "clinicaltrials:NCT05234567",
+      "source_type": "clinical_trial",
+      "source_name": "ClinicalTrials.gov",
+      "nct_id": "NCT05234567",
+      "title": "Phase 1/2 study of intratumoral STING agonist MK-1454 with pembrolizumab in advanced PDAC",
+      "phase": "Phase 1/Phase 2",
+      "overall_status": "Recruiting",
+      "sponsor": "Merck Sharp & Dohme LLC (fixture)",
+      "interventions": [
+        "MK-1454",
+        "pembrolizumab"
+      ],
+      "conditions": [
+        "Pancreatic Ductal Adenocarcinoma"
+      ],
+      "start_date": "2024-03-01",
+      "completion_date": null,
+      "url": "https://clinicaltrials.gov/study/NCT05234567",
+      "retrieved_at": "2026-05-15T12:00:00Z",
+      "raw_record_ref": "raw/clinicaltrials_raw.json#records/NCT05234567"
+    },
+    {
+      "source_record_id": "clinicaltrials:NCT04890123",
+      "source_type": "clinical_trial",
+      "source_name": "ClinicalTrials.gov",
+      "nct_id": "NCT04890123",
+      "title": "ADU-S100 (MIW815) with chemotherapy in metastatic pancreatic adenocarcinoma",
+      "phase": "Phase 2",
+      "overall_status": "Active, not recruiting",
+      "sponsor": "Novartis Pharmaceuticals (fixture)",
+      "interventions": [
+        "MIW815",
+        "gemcitabine",
+        "nab-paclitaxel"
+      ],
+      "conditions": [
+        "Pancreatic Neoplasms"
+      ],
+      "start_date": "2021-08-15",
+      "completion_date": null,
+      "url": "https://clinicaltrials.gov/study/NCT04890123",
+      "retrieved_at": "2026-05-15T12:00:00Z",
+      "raw_record_ref": "raw/clinicaltrials_raw.json#records/NCT04890123"
+    },
+    {
+      "source_record_id": "clinicaltrials:NCT04123456",
+      "source_type": "clinical_trial",
+      "source_name": "ClinicalTrials.gov",
+      "nct_id": "NCT04123456",
+      "title": "Systemic STING agonist dose-escalation in solid tumors including pancreatic cancer",
+      "phase": "Phase 1",
+      "overall_status": "Completed",
+      "sponsor": "Academic Consortium (fixture)",
+      "interventions": [
+        "GSK3745417"
+      ],
+      "conditions": [
+        "Solid Tumor",
+        "Pancreatic Neoplasms"
+      ],
+      "start_date": "2019-01-10",
+      "completion_date": null,
+      "url": "https://clinicaltrials.gov/study/NCT04123456",
+      "retrieved_at": "2026-05-15T12:00:00Z",
+      "raw_record_ref": "raw/clinicaltrials_raw.json#records/NCT04123456"
+    }
+  ],
+  "errors": [],
+  "warnings": [
+    "fixture mode \u2014 synthetic raw payload"
+  ],
+  "provenance": {
+    "source_name": "ClinicalTrials.gov",
+    "source_url": "https://clinicaltrials.gov/",
+    "api_endpoint": "https://clinicaltrials.gov/api/v2/studies",
+    "api_version": "2"
+  }
+}

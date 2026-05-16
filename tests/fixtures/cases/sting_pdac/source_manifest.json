@@ -1,0 +1,44 @@
+{
+  "artifact_type": "source_manifest",
+  "case_id": "sting_pdac",
+  "schema_version": "v0.5",
+  "generated_at": "2026-05-15T12:00:00Z",
+  "provenance": {
+    "generated_by": "connectors/aggregate",
+    "generated_at": "2026-05-15T12:00:00Z",
+    "input_artifacts": [
+      "raw/"
+    ],
+    "model_provider": null,
+    "model_name": null,
+    "prompt_template": null,
+    "prompt_hash": null,
+    "schema_version": "v0.5"
+  },
+  "data": {
+    "sources": [
+      {
+        "connector_name": "pubmed",
+        "query": "STING pathway activation remodels the pa...",
+        "retrieved_at": "2026-05-15T12:00:00Z",
+        "record_count": 5,
+        "status": "ok"
+      },
+      {
+        "connector_name": "clinicaltrials",
+        "query": "pancreatic cancer",
+        "retrieved_at": "2026-05-15T12:00:00Z",
+        "record_count": 3,
+        "status": "ok"
+      },
+      {
+        "connector_name": "opentargets",
+        "query": "STING",
+        "retrieved_at": "2026-05-15T12:00:00Z",
+        "record_count": 1,
+        "status": "ok"
+      }
+    ],
+    "total_records": 8
+  }
+}

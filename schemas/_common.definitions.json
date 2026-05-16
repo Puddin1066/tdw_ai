@@ -1,0 +1,232 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://tdw.ai/schemas/_common.definitions.json",
+  "$defs": {
+    "isoDateTime": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "caseId": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9_]*$"
+    },
+    "schemaVersion": {
+      "type": "string",
+      "const": "v0.5"
+    },
+    "provenance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "generated_by",
+        "generated_at",
+        "input_artifacts",
+        "schema_version"
+      ],
+      "properties": {
+        "generated_by": { "type": "string", "minLength": 1 },
+        "generated_at": { "$ref": "#/$defs/isoDateTime" },
+        "input_artifacts": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 1 }
+        },
+        "model_provider": { "type": ["string", "null"] },
+        "model_name": { "type": ["string", "null"] },
+        "prompt_template": { "type": ["string", "null"] },
+        "prompt_hash": { "type": ["string", "null"] },
+        "schema_version": { "type": "string", "minLength": 1 }
+      }
+    },
+    "artifactEnvelope": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "artifact_type",
+        "case_id",
+        "schema_version",
+        "generated_at",
+        "provenance",
+        "data"
+      ],
+      "properties": {
+        "artifact_type": { "type": "string", "minLength": 1 },
+        "case_id": { "$ref": "#/$defs/caseId" },
+        "schema_version": { "$ref": "#/$defs/schemaVersion" },
+        "generated_at": { "$ref": "#/$defs/isoDateTime" },
+        "provenance": { "$ref": "#/$defs/provenance" },
+        "data": { "type": "object" }
+      }
+    },
+    "namedEntity": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name"],
+      "properties": {
+        "name": { "type": "string", "minLength": 1 },
+        "canonical_id": { "type": ["string", "null"] },
+        "aliases": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      }
+    },
+    "connectorQuery": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["target", "indication", "raw_query"],
+      "properties": {
+        "target": { "type": "string", "minLength": 1 },
+        "indication": { "type": "string", "minLength": 1 },
+        "raw_query": { "type": "string", "minLength": 1 }
+      }
+    },
+    "sourceRecordBase": {
+      "type": "object",
+      "required": [
+        "source_record_id",
+        "source_type",
+        "source_name",
+        "title",
+        "retrieved_at",
+        "raw_record_ref"
+      ],
+      "properties": {
+        "source_record_id": { "type": "string", "minLength": 1 },
+        "source_type": { "type": "string", "minLength": 1 },
+        "source_name": { "type": "string", "minLength": 1 },
+        "title": { "type": "string" },
+        "url": { "type": ["string", "null"] },
+        "publication_date": { "type": ["string", "null"] },
+        "retrieved_at": { "$ref": "#/$defs/isoDateTime" },
+        "raw_record_ref": { "type": "string", "minLength": 1 }
+      }
+    },
+    "externalIds": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "entrez": { "type": ["string", "null"] },
+        "ensembl": { "type": ["string", "null"] },
+        "uniprot": { "type": ["string", "null"] },
+        "wikidata": { "type": ["string", "null"] },
+        "chembl": { "type": ["string", "null"] },
+        "mondo": { "type": ["string", "null"] },
+        "mesh": { "type": ["string", "null"] }
+      }
+    },
+    "normalizedEntity": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "entity_id",
+        "entity_type",
+        "canonical_name",
+        "display_name",
+        "aliases",
+        "external_ids",
+        "source_record_ids",
+        "confidence"
+      ],
+      "properties": {
+        "entity_id": { "type": "string", "minLength": 1 },
+        "entity_type": {
+          "type": "string",
+          "enum": [
+            "gene",
+            "protein",
+            "disease",
+            "pathway",
+            "compound",
+            "modality",
+            "biomarker",
+            "clinical_trial",
+            "publication",
+            "organization",
+            "investigator"
+          ]
+        },
+        "canonical_name": { "type": "string", "minLength": 1 },
+        "display_name": { "type": "string", "minLength": 1 },
+        "aliases": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "external_ids": { "$ref": "#/$defs/externalIds" },
+        "source_record_ids": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 1 }
+        },
+        "confidence": { "type": "number", "minimum": 0, "maximum": 1 },
+        "warnings": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      }
+    },
+    "quotedEvidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["source_record_id", "text", "location"],
+      "properties": {
+        "source_record_id": { "type": "string", "minLength": 1 },
+        "text": { "type": "string", "minLength": 1 },
+        "location": { "type": "string", "minLength": 1 }
+      }
+    },
+    "evidenceRow": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "evidence_id",
+        "claim_text",
+        "claim_type",
+        "support_status",
+        "confidence",
+        "source_record_ids",
+        "quoted_evidence",
+        "limitations"
+      ],
+      "properties": {
+        "evidence_id": { "type": "string", "minLength": 1 },
+        "claim_text": { "type": "string", "minLength": 1 },
+        "claim_type": {
+          "type": "string",
+          "enum": [
+            "mechanistic",
+            "translational",
+            "clinical",
+            "safety",
+            "biomarker",
+            "competitive",
+            "regulatory",
+            "commercial",
+            "evidence_gap"
+          ]
+        },
+        "support_status": {
+          "type": "string",
+          "enum": [
+            "supported",
+            "partially_supported",
+            "unsupported",
+            "contradicted",
+            "insufficient_evidence"
+          ]
+        },
+        "confidence": { "type": "number", "minimum": 0, "maximum": 1 },
+        "source_record_ids": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 1 }
+        },
+        "quoted_evidence": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/quotedEvidence" }
+        },
+        "limitations": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      }
+    }
+  }
+}

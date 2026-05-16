@@ -1,0 +1,83 @@
+{
+  "artifact_type": "risk_map",
+  "case_id": "sting_pdac",
+  "schema_version": "v0.5",
+  "generated_at": "2026-05-15T12:00:00Z",
+  "provenance": {
+    "generated_by": "pipeline/generate_risk_map.py",
+    "generated_at": "2026-05-15T12:00:00Z",
+    "input_artifacts": [
+      "evidence_table.json",
+      "clinical_trials.json",
+      "target_biology.json"
+    ],
+    "model_provider": "mock",
+    "model_name": "fixture-mock",
+    "prompt_template": "skills/translational_diligence/prompts/risk_mapping.md",
+    "prompt_hash": null,
+    "schema_version": "v0.5"
+  },
+  "data": {
+    "risks": [
+      {
+        "risk_id": "risk:sting_pdac:001",
+        "category": "clinical",
+        "title": "Limited single-agent efficacy in PDAC",
+        "description": "Early clinical signals show immune activation but modest ORR; combination strategies likely required.",
+        "severity": "high",
+        "confidence": 0.8,
+        "evidence_ids": [
+          "evidence:sting_pdac:0005"
+        ],
+        "inferred": false
+      },
+      {
+        "risk_id": "risk:sting_pdac:002",
+        "category": "translational",
+        "title": "Tumor microenvironment heterogeneity",
+        "description": "Fibrotic, immunosuppressive PDAC TME may blunt STING agonist activity.",
+        "severity": "high",
+        "confidence": 0.77,
+        "evidence_ids": [
+          "evidence:sting_pdac:0003"
+        ],
+        "inferred": false
+      },
+      {
+        "risk_id": "risk:sting_pdac:003",
+        "category": "biomarker",
+        "title": "Uncertain patient selection biomarkers",
+        "description": "IFN signatures and STING expression lack prospective validation as enrichment markers.",
+        "severity": "medium",
+        "confidence": 0.7,
+        "evidence_ids": [
+          "evidence:sting_pdac:0006"
+        ],
+        "inferred": true
+      },
+      {
+        "risk_id": "risk:sting_pdac:004",
+        "category": "safety",
+        "title": "Systemic interferon-related toxicity",
+        "description": "Class risk of cytokine-mediated adverse events with systemic STING agonism.",
+        "severity": "medium",
+        "confidence": 0.65,
+        "evidence_ids": [],
+        "inferred": true
+      },
+      {
+        "risk_id": "risk:sting_pdac:005",
+        "category": "competition",
+        "title": "Crowded IO combination landscape in PDAC",
+        "description": "Multiple chemo-IO and innate immune approaches compete for similar patient populations.",
+        "severity": "medium",
+        "confidence": 0.6,
+        "evidence_ids": [
+          "evidence:sting_pdac:0004"
+        ],
+        "inferred": true
+      }
+    ],
+    "top_risk_id": "risk:sting_pdac:001"
+  }
+}

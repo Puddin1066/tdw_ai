@@ -1,0 +1,64 @@
+{
+  "artifact_type": "clinical_trials",
+  "case_id": "tau_alzheimers",
+  "schema_version": "v0.5",
+  "generated_at": "2026-05-15T12:00:00Z",
+  "provenance": {
+    "generated_by": "connectors/clinicaltrials.py",
+    "generated_at": "2026-05-15T12:00:00Z",
+    "input_artifacts": [
+      "raw/clinicaltrials_raw.json"
+    ],
+    "model_provider": null,
+    "model_name": null,
+    "prompt_template": null,
+    "prompt_hash": null,
+    "schema_version": "v0.5"
+  },
+  "data": {
+    "trials": [
+      {
+        "source_record_id": "clinicaltrials:NCT04549847",
+        "source_type": "clinical_trial",
+        "source_name": "ClinicalTrials.gov",
+        "nct_id": "NCT04549847",
+        "title": "Study of anti-tau antibody in early Alzheimer's disease",
+        "phase": "Phase 2",
+        "overall_status": "Terminated",
+        "sponsor": "Biogen (fixture)",
+        "interventions": [
+          "gosuranemab"
+        ],
+        "conditions": [
+          "Alzheimer Disease"
+        ],
+        "start_date": "2020-10-01",
+        "completion_date": null,
+        "url": "https://clinicaltrials.gov/study/NCT04549847",
+        "retrieved_at": "2026-05-15T12:00:00Z",
+        "raw_record_ref": "raw/clinicaltrials_raw.json#records/NCT04549847"
+      },
+      {
+        "source_record_id": "clinicaltrials:NCT03446001",
+        "source_type": "clinical_trial",
+        "source_name": "ClinicalTrials.gov",
+        "nct_id": "NCT03446001",
+        "title": "Semorinemab in mild-to-moderate Alzheimer's disease",
+        "phase": "Phase 2",
+        "overall_status": "Completed",
+        "sponsor": "Roche (fixture)",
+        "interventions": [
+          "semorinemab"
+        ],
+        "conditions": [
+          "Alzheimer Disease"
+        ],
+        "start_date": "2018-02-01",
+        "completion_date": null,
+        "url": "https://clinicaltrials.gov/study/NCT03446001",
+        "retrieved_at": "2026-05-15T12:00:00Z",
+        "raw_record_ref": "raw/clinicaltrials_raw.json#records/NCT03446001"
+      }
+    ]
+  }
+}

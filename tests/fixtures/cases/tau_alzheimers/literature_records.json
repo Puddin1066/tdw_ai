@@ -1,0 +1,60 @@
+{
+  "artifact_type": "literature_records",
+  "case_id": "tau_alzheimers",
+  "schema_version": "v0.5",
+  "generated_at": "2026-05-15T12:00:00Z",
+  "provenance": {
+    "generated_by": "connectors/pubmed.py",
+    "generated_at": "2026-05-15T12:00:00Z",
+    "input_artifacts": [
+      "raw/pubmed_raw.json"
+    ],
+    "model_provider": null,
+    "model_name": null,
+    "prompt_template": null,
+    "prompt_hash": null,
+    "schema_version": "v0.5"
+  },
+  "data": {
+    "records": [
+      {
+        "source_record_id": "pubmed:40111222",
+        "source_type": "literature",
+        "source_name": "PubMed",
+        "title": "Tau-targeting immunotherapies in Alzheimer's disease: biomarker and clinical update",
+        "abstract": "Fixture: Anti-tau antibodies aim to reduce spread of pathological tau; mixed clinical outcomes across programs.",
+        "authors": [
+          "Blennow K",
+          "Zetterberg H"
+        ],
+        "journal": "Lancet Neurology (fixture)",
+        "publication_year": 2024,
+        "doi": null,
+        "pmid": "40111222",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/40111222/",
+        "publication_date": "2024-06-01",
+        "retrieved_at": "2026-05-15T12:00:00Z",
+        "raw_record_ref": "raw/pubmed_raw.json#records/40111222"
+      },
+      {
+        "source_record_id": "pubmed:39222333",
+        "source_type": "literature",
+        "source_name": "PubMed",
+        "title": "MAPT genetics and tau strain diversity in neurodegeneration",
+        "abstract": "Fixture: MAPT haplotypes and post-translational modifications influence tau pathology propagation.",
+        "authors": [
+          "Goedert M",
+          "Spillantini MG"
+        ],
+        "journal": "Neuron (fixture)",
+        "publication_year": 2023,
+        "doi": null,
+        "pmid": "39222333",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/39222333/",
+        "publication_date": "2023-06-01",
+        "retrieved_at": "2026-05-15T12:00:00Z",
+        "raw_record_ref": "raw/pubmed_raw.json#records/39222333"
+      }
+    ]
+  }
+}

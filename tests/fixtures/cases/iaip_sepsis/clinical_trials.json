@@ -1,0 +1,44 @@
+{
+  "artifact_type": "clinical_trials",
+  "case_id": "iaip_sepsis",
+  "schema_version": "v0.5",
+  "generated_at": "2026-05-15T12:00:00Z",
+  "provenance": {
+    "generated_by": "connectors/clinicaltrials.py",
+    "generated_at": "2026-05-15T12:00:00Z",
+    "input_artifacts": [
+      "raw/clinicaltrials_raw.json"
+    ],
+    "model_provider": null,
+    "model_name": null,
+    "prompt_template": null,
+    "prompt_hash": null,
+    "schema_version": "v0.5"
+  },
+  "data": {
+    "trials": [
+      {
+        "source_record_id": "clinicaltrials:NCT03034567",
+        "source_type": "clinical_trial",
+        "source_name": "ClinicalTrials.gov",
+        "nct_id": "NCT03034567",
+        "title": "IAIP supplementation in patients with septic shock",
+        "phase": "Phase 2",
+        "overall_status": "Unknown status",
+        "sponsor": "Academic Medical Center (fixture)",
+        "interventions": [
+          "inter-alpha inhibitor proteins"
+        ],
+        "conditions": [
+          "Sepsis",
+          "Septic Shock"
+        ],
+        "start_date": "2019-05-01",
+        "completion_date": null,
+        "url": "https://clinicaltrials.gov/study/NCT03034567",
+        "retrieved_at": "2026-05-15T12:00:00Z",
+        "raw_record_ref": "raw/clinicaltrials_raw.json#records/NCT03034567"
+      }
+    ]
+  }
+}
