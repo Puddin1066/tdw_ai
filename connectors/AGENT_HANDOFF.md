@@ -1,6 +1,6 @@
 # Connectors Agent Handoff
 
-**Status:** pending
+**Status:** fixture complete; live fetch Phase 2 (`tasks/10_live_connector_agent.md`)
 
 **Owner agent:** connectors-agent
 
@@ -33,7 +33,7 @@ python -m pytest tests/connectors -q
 
 ## Blockers
 
-- `ConnectorResult` schema/types pending schema-agent.
+- PubMed **live** fetch via NCBI E-utilities (`httpx`). Other connectors: fixture or `NotImplemented` in live mode.
 - No connector implementations yet.
 
 ## Downstream consumers

@@ -108,6 +108,29 @@ def run_evaluations(case_dir: Path) -> dict[str, Any]:
 
     overall_passed = all(gate["passed"] for gate in gates)
     scores = {result.evaluator_name: result.score for result in evaluator_results}
+    aggregate_score = sum(scores.values()) / len(scores) if scores else 0.0
+
+    evaluations = [
+        {k: v for k, v in result.to_dict().items() if k != "metrics"}
+        for result in evaluator_results
+    ]
+    metrics = {
+        "citation_fidelity_score": float(scores.get("citation_fidelity", 0.0)),
+        "unsupported_claim_count": sum(
+            1 for result in evaluator_results if result.evaluator_name == "unsupported_claims" and result.errors
+        ),
+        "hallucinated_trial_count": sum(
+            len(result.errors)
+            for result in evaluator_results
+            if result.evaluator_name == "trial_hallucination"
+        ),
+        "hallucinated_pmid_count": sum(
+            len(result.errors)
+            for result in evaluator_results
+            if result.evaluator_name == "citation_fidelity"
+        ),
+        "evidence_coverage_score": float(scores.get("evidence_coverage", 0.0)),
+    }
 
     payload: dict[str, Any] = {
         "artifact_type": "eval_results",
@@ -125,16 +148,10 @@ def run_evaluations(case_dir: Path) -> dict[str, Any]:
             "schema_version": "v0.5",
         },
         "data": {
-            "passed": overall_passed,
-            "scores": scores,
-            "issues": issues,
-            "gates": gates,
-            "evaluators": [result.to_dict() for result in evaluator_results],
-            "summary": {
-                "evaluator_count": len(evaluator_results),
-                "issue_count": len(issues),
-                "missing_artifacts": missing,
-            },
+            "overall_passed": overall_passed,
+            "aggregate_score": round(aggregate_score, 4),
+            "evaluations": evaluations,
+            "metrics": metrics,
         },
     }
     return payload
@@ -162,9 +179,10 @@ def main(argv: list[str] | None = None) -> int:
     output_path = write_eval_results(case_dir, payload)
 
     print(f"Wrote {output_path}")
-    print(f"Overall passed: {payload['data']['passed']}")
-    print(f"Issues: {payload['data']['summary']['issue_count']}")
-    return 0 if payload["data"]["passed"] else 1
+    print(f"Overall passed: {payload['data']['overall_passed']}")
+    issue_count = sum(len(e.get("errors", [])) for e in payload["data"]["evaluations"])
+    print(f"Issues: {issue_count}")
+    return 0 if payload["data"]["overall_passed"] else 1
 
 
 if __name__ == "__main__":

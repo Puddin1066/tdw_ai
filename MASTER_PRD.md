@@ -1,16 +1,142 @@
-Version: v0.7
+Version: v0.8.2
 
-Date: 2026-05-15
+Date: 2026-05-16
 
-Status: Canonical implementation PRD draft
+Status: Canonical implementation PRD — Fixture MVP complete; Portfolio MVP (Phase 2) in progress. **Start at [Development navigation](#development-navigation).**
 
 Owner: Jay Round
+
+## Development navigation
+
+**How to use this table:** Pick a row → read that § for contracts → run **Verify** before marking **Done**. Update **Status** here and in §0B when verification passes. Do not extend `guide_v07.md` (frozen v0.7 snapshot).
+
+| Status | Meaning |
+|--------|---------|
+| **Done** | Tier A delivered; verify command passes |
+| **Phase 2** | Tier B (§20A, §5A); not complete |
+| **Spec** | Requirements; no separate build checkbox |
+| **Deferred** | Out of scope unless re-admitted (§3A.2) |
+| **Open** | Decision not finalized (§21) |
+
+### Section map (document order)
+
+| § | Title | Tier | Status | Task | Verify |
+|---|--------|------|--------|------|--------|
+| [0](#0-implementation-contract) | Implementation Contract | Spec | Spec | — | — |
+| [0B](#0b-implementation-status-as-of-2026-05-16) | Implementation Status | A | Done | `tasks/08_integration_agent.md` | `pytest tests/` · `npm run build --prefix web` |
+| [1](#1-product-definition) | Product Definition | Spec | Spec | — | — |
+| [2](#2-primary-positioning) | Primary Positioning | Spec | Spec | — | — |
+| [3](#3-non-negotiable-design-principles) | Non-Negotiable Design Principles | A | Spec | — | — |
+| [3A](#3a-scope-control-and-job-description-alignment-gate) | Scope Control | Spec | Spec | — | — |
+| [3A.4](#3a4-mvp-scope-boundary) | MVP Scope Boundary | A/B | Tier A Done · Tier B Phase 2 | `tasks/08`–`11` | §25.12 · §20A |
+| [4](#4-parallel-workstreams-and-file-ownership) | Parallel Workstreams | A | Done (see workstreams below) | `tasks/00`–`08` | Per workstream |
+| [5](#5-build-dependency-dag) | Build Dependency DAG | A | Done (steps 1–5, 7–10) | `tasks/01`–`08` | `pytest tests/` |
+| [5A](#5a-phase-2-build-dag-v08) | Phase 2 Build DAG | B | In progress | `tasks/09`–`11` | Steps 1–4,8 done; 5–7,9–10 pending human review |
+| [6](#6-static-first-architecture) | Static-First Architecture | A | Done | `tasks/05_pipeline_agent.md` | Fixture E2E (§22.6) |
+| [7](#7-repository-layout) | Repository Layout | A | Done | `tasks/00_repo_scaffold.md` | Repo tree matches §7 |
+| [8](#8-case-packet-contract) | Case Packet Contract | A | Done | `tasks/02_fixture_agent.md` | 12 files under `tests/fixtures/cases/sting_pdac/` |
+| [9](#9-shared-interface-connectorresult) | ConnectorResult | A/B | Fixture Done · live Phase 2 | `tasks/04` · `tasks/10` | `pytest tests/connectors -q` |
+| [10](#10-provenance-contract) | Provenance Contract | A | Done | `tasks/05_pipeline_agent.md` | Artifacts include `provenance` |
+| [11](#11-frontend-ux-contract) | Frontend UX Contract | A | Done | `tasks/03_frontend_agent.md` | `npm run dev --prefix web` |
+| [12](#12-frontend-component-api-requirements) | Frontend Component API | A | Done | `tasks/03_frontend_agent.md` | Case dashboard 7 tabs |
+| [13](#13-ai-usage-contract) | AI Usage Contract | A/B | Stubs Done · live Phase 2 | `tasks/06` · `tasks/09` | Fixture mode, no API key |
+| [13A](#13a-synthesis-workstream-contract-phase-2) | Synthesis Workstream | B | Done (mock live) | `tasks/09_synthesis_agent.md` | `pytest tests/synthesis -q` |
+| [14](#14-prompt-contract-requirements) | Prompt Contract | B | Done | `tasks/09` | `skills/translational_diligence/prompts/` |
+| [15](#15-evaluation-gates) | Evaluation Gates | A | Done | `tasks/07_evals_agent.md` | `pytest tests/evals -q` |
+| [16](#16-fixture-strategy) | Fixture Strategy | A | Done | `tasks/02_fixture_agent.md` | `pytest tests/fixtures -q` |
+| [17](#17-cli-requirements) | CLI Requirements | A | Done | `tasks/05` · README | §22.6 command chain |
+| [18](#18-ci-requirements) | CI Requirements | B | Phase 2 (strict) | `tasks/11` · `tasks/08` | `.github/workflows/ci.yml` green |
+| [19](#19-repo-foundation-requirements) | Repo Foundation | A | Done | `tasks/00` | `pip install -e ".[dev]"` · `npm install` |
+| [20](#20-mvp-completion-definition) | MVP Completion | A | Items 1–6 Done · 7–9 Phase 2 | — | §20 checklist |
+| [20A](#20a-portfolio-mvp-completion-tier-b) | Portfolio MVP | B | Phase 2 | `tasks/11` | §20A (6 criteria) |
+| [21](#21-open-decisions) | Open Decisions | — | Open | — | — |
+| [22](#22-parallel-agent-convergence-model) | Parallel-Agent Convergence | Spec | Spec | `AGENT_ORCHESTRATION.md` | — |
+| [22.6](#226-holistic-assembly-requirement) | Holistic Assembly | A | Done | `tasks/08_integration_agent.md` | §22.6 commands |
+| [23](#23-change-tracking-protocol) | Change Tracking Protocol | Spec | Spec | — | Bump §26 on contract change |
+| [24](#24-formal-interface-contracts) | Formal Interface Contracts | A | Done (core) | `tasks/01_schema_agent.md` | `pytest tests/schemas -q` |
+| [24.4A](#244a-live-connector-rollout-phase-2) | Live Connector Rollout | B | Phase 2 | `tasks/10_live_connector_agent.md` | `@pytest.mark.live` manual |
+| [24.9](#249-llm-provider-contract) | LLM Provider Contract | B | Done | `tasks/09` | `pipeline/llm_provider.py` |
+| [25](#25-efficient-development-guidelines) | Efficient Development | Spec | Spec | `tasks/00`–`08` | — |
+| [25.12](#2512-definition-of-efficient-mvp-done) | Efficient MVP Done | A | Done | — | §0B Tier A table |
+| [26](#26-version-history) | Version History | Meta | v0.8 | — | — |
+
+### Workstreams (§4)
+
+| Workstream | Tier | Status | Task | Verify |
+|------------|------|--------|------|--------|
+| F — Schemas & types | A | Done | `tasks/01_schema_agent.md` | `pytest tests/schemas -q` |
+| Fixtures (4 cases) | A | Done | `tasks/02_fixture_agent.md` | `pytest tests/fixtures -q` |
+| B — Connectors | A/B | Fixture Done · live Phase 2 | `tasks/04` · `tasks/10` | `pytest tests/connectors -q` |
+| A — Pipeline | A | Done | `tasks/05_pipeline_agent.md` | `pytest tests/pipeline -q` |
+| C — Synthesis / skills | B | Done (mock) | `tasks/06` · `tasks/09` | `pytest tests/synthesis -q` |
+| D — Evals | A | Done | `tasks/07_evals_agent.md` | `pytest tests/evals -q` |
+| E — Frontend | A | Done | `tasks/03_frontend_agent.md` | `npm run build --prefix web` |
+| Integration glue | A/B | Tier A Done · Tier B mock-live Done | `tasks/08` · `tasks/11` | §22.6 + live chain below |
+| Portfolio live case | B | Pending sign-off | `tasks/11` | `docs/LIVE_CASE_REVIEW.md` |
+
+### Tier A checklist (§25.12) — COMPLETE
+
+| # | Criterion | Status | Verify |
+|---|-----------|--------|--------|
+| 1 | Clean clone installs | Done | `pip install -e ".[dev]"` · `npm install` |
+| 2 | Fixture mode without API keys | Done | `pipeline.run_workflow --mode fixture` |
+| 3 | One full case E2E (`sting_pdac`) | Done | §22.6 chain |
+| 4 | Four case cards in UI | Done | Open `/` after `npm run dev --prefix web` |
+| 5 | 12 artifacts (primary case) | Done | `artifact_writer` validation |
+| 6 | Schema validation tests | Done | `pytest tests/schemas -q` |
+| 7 | Deterministic evals | Done | `pytest tests/evals -q` |
+| 8 | Frontend build | Done | `npm run build --prefix web` |
+| 9 | README fixture demo | Done | README § Fixture demo |
+| 10 | Launch kit | Done | `LAUNCH_PROMPT.md` · `tasks/00`–`08` |
+
+### Tier B checklist (§20A) — Phase 2
+
+| # | Criterion | Status | Verify |
+|---|-----------|--------|--------|
+| 1 | Live `sting_pdac` synthesis not fixture-copied | Done (mock) | `run_workflow --mode live` |
+| 2 | One live connector (PubMed or CT.gov) | Done | PubMed live + fixture fallback |
+| 3 | Eval gates on live packet | Done | `evals.run_evals` on `generated/` |
+| 4 | `docs/LIVE_CASE_REVIEW.md` | In progress | Template exists; human sign-off pending |
+| 5 | README documents live path | Done | README Live mode section |
+| 6 | CI fails on core errors | Done | `.github/workflows/ci.yml` |
+
+### Quick verify (Tier A)
+
+```bash
+python -m pipeline.run_workflow --config configs/cases/sting_pdac.yaml --mode fixture
+python -m evals.run_evals --case generated/cases/sting_pdac
+python -m pipeline.artifact_writer generated/cases/sting_pdac --copy-to-web
+pytest tests/ -q
+npm run build --prefix web
+```
+
+### Quick verify (Tier B — mock live, no API key)
+
+```bash
+python -m pipeline.run_workflow --config configs/cases/sting_pdac.yaml --mode live
+python -m evals.run_evals --case generated/cases/sting_pdac
+python -m pipeline.artifact_writer generated/cases/sting_pdac --copy-to-web
+pytest tests/ -q -m "not live"
+npm run build --prefix web
+```
+
+Optional strict JSON Schema publish: add `--validate-schemas` to `artifact_writer` (source artifacts may not all pass until fixture/live alignment).
+
+Historical snapshot: `guide_v07.md` (frozen; do not extend).
+
+---
 
 ## 0. Implementation Contract
 
 This PRD is written so multiple Cursor agents can build the product in parallel. Each module must expose explicit file paths, schemas, function contracts, fixture data, test commands, and acceptance criteria. No agent should depend on private assumptions. If a module needs another module, it must depend only on the documented interface.
 
 The PRD is the source of truth. Cursor agents should not invent additional product scope unless that scope is added here first.
+
+## 0B. Implementation Status (as of 2026-05-16)
+
+Records delivery against this PRD. Does not change contracts unless a section below explicitly revises them.
+
+**Canonical navigation:** [Development navigation](#development-navigation) (section map, workstreams, Tier A/B checklists, verify commands). Update that table when status changes.
 
 ## 1. Product Definition
 
@@ -93,17 +219,22 @@ These may be valuable later, but they are not required to win the job-positionin
 
 ### 3A.4 MVP Scope Boundary
 
-The MVP should remain limited to:
+**Tier A — Fixture MVP (DONE):** maintain, do not regress.
 
 - four static target-indication case packets
 - one polished static frontend
 - connector abstractions with fixture mode
-- one optional live retrieval path
-- build-time AI synthesis
-- source-linked evidence table
-- report, risk map, trial table, knowledge graph, source manifest, and eval panel
 - deterministic tests and schema validation
 - launch kit for Cursor-style repo generation
+
+**Tier B — Portfolio MVP (Phase 2; v0.8 target):**
+
+- build-time AI synthesis via `LLMProvider` and `skills/translational_diligence/`
+- one live retrieval path (PubMed or ClinicalTrials.gov for `sting_pdac` only)
+- source-linked evidence table, report, risk map from synthesis (not fixture copy in live mode)
+- one live-generated case packet passing eval gates
+- `docs/LIVE_CASE_REVIEW.md` with human plausibility review
+- schema validation in `artifact_writer`; CI fails on core test failures
 
 ### 3A.5 Portfolio Narrative Requirement
 
@@ -401,6 +532,21 @@ Hard dependency rules:
 - Synthesis depends on normalized source artifacts, not frontend.
 - Connectors depend only on config and connector base types.
 - Pipeline orchestrates modules but must not contain source-specific business logic.
+
+### 5A. Phase 2 Build DAG (v0.8)
+
+After Tier A is complete, build in this order for `sting_pdac` only:
+
+1. `pipeline/llm_provider.py` — `MockProvider`, `OpenAIProvider`
+2. `skills/translational_diligence/**` — prompts, `SKILL.md`, `output_schema.json`
+3. `pipeline/generate_claims.py` → `generate_risk_map.py` → `generate_report.py`
+4. `tests/synthesis/**` — mock provider only; no paid API in CI
+5. One live connector: `connectors/pubmed.py` **or** `connectors/clinicaltrials.py`
+6. `pipeline.run_workflow --mode live` integration
+7. `evals.run_evals` on live-generated packet
+8. `artifact_writer --copy-to-web` with schema validation
+9. `docs/LIVE_CASE_REVIEW.md` + README live path
+10. CI: required pass on pytest + frontend build (no `continue-on-error` on core steps)
 
 ## 6. Static-First Architecture
 
@@ -742,6 +888,33 @@ Rules:
 - If evidence is insufficient, output low-confidence risk rather than inventing support.
 ```
 
+### 13A. Synthesis Workstream Contract (Phase 2)
+
+All model calls must use `pipeline/llm_provider.py` (§24.9). Synthesis-agent owns `skills/` and `pipeline/generate_*.py`.
+
+**Mandatory synthesis step graph:**
+
+```
+normalized source artifacts
+  → claim_extraction (evidence_table.json)
+  → risk_mapping (risk_map.json)
+  → report_generation (diligence_report.json + diligence_report.md)
+```
+
+**File ownership:**
+
+- `pipeline/llm_provider.py` — `MockProvider`, `OpenAIProvider`
+- `skills/translational_diligence/SKILL.md`
+- `skills/translational_diligence/prompts/*.md`
+- `skills/translational_diligence/output_schema.json`
+- `pipeline/generate_claims.py`, `generate_risk_map.py`, `generate_report.py`, `generate_questions.py`
+- `tests/synthesis/**`
+
+**Modes:**
+
+- `fixture` / CI: `MockProvider` or copy from `tests/fixtures/cases/`; no `OPENAI_API_KEY`.
+- `live`: `OpenAIProvider` when key present; must not byte-copy synthesis outputs from fixture case dirs.
+
 ## 15. Evaluation Gates
 
 A case packet is not valid unless:
@@ -787,10 +960,17 @@ Fixture mode must allow the entire app to run without:
 Required commands:
 
 ```bash
+# Tier A (fixture; no API keys)
 python -m pipeline.run_workflow --config configs/cases/sting_pdac.yaml --mode fixture
+python -m evals.run_evals --case generated/cases/sting_pdac
+python -m pipeline.artifact_writer generated/cases/sting_pdac --copy-to-web
+
+# Tier B (live; requires .env — see .env.example)
 python -m pipeline.run_workflow --config configs/cases/sting_pdac.yaml --mode live
 python -m evals.run_evals --case generated/cases/sting_pdac
-python -m pipeline.artifact_writer --copy-to-web generated/cases/sting_pdac
+python -m pipeline.artifact_writer generated/cases/sting_pdac --copy-to-web
+
+# Frontend (static files only at runtime)
 npm run dev --prefix web
 npm run build --prefix web
 ```
@@ -803,17 +983,18 @@ Acceptance criteria:
 
 ## 18. CI Requirements
 
-Minimum CI checks:
+Minimum CI checks (v0.8: **must fail the job** on error for items marked required):
 
-- Python lint/type check.
-- Connector unit tests.
-- Schema validation tests.
-- Eval tests.
-- Fixture pipeline generation test.
-- Frontend TypeScript check.
-- Frontend build.
+- Connector unit tests (required).
+- Schema validation tests (required).
+- Pipeline tests (required).
+- Eval tests (required).
+- Synthesis tests — mock provider only (required).
+- Fixture pipeline generation for `sting_pdac` (required).
+- Frontend build (required).
+- Python lint (optional until ruff configured).
 
-CI must not require paid API calls.
+CI must not require paid API calls. Live connector and OpenAI tests use `@pytest.mark.live` and run manually only.
 
 ## 19. Repo Foundation Requirements
 
@@ -855,6 +1036,17 @@ MVP is complete when:
 7. The system can optionally run live connector/API mode with environment variables.
 8. CI passes without paid API calls.
 9. At least one live-generated case has been manually reviewed for scientific plausibility.
+
+### 20A. Portfolio MVP Completion (Tier B)
+
+Portfolio MVP is complete when Tier A (§25.12) still passes **and**:
+
+1. `sting_pdac` live workflow produces 12 artifacts with synthesis outputs not copied from `tests/fixtures/cases/`.
+2. At least one connector returns live records (PubMed or ClinicalTrials.gov).
+3. Eval gates pass on the live packet (or documented acceptable warnings in `LIVE_CASE_REVIEW.md`).
+4. `docs/LIVE_CASE_REVIEW.md` records human review of scientific plausibility.
+5. README documents fixture demo and optional live path with env vars.
+6. CI: `pytest tests/` (excluding `@pytest.mark.live`) and `npm run build --prefix web` fail the job on error.
 
 ## 21. Open Decisions
 
@@ -1164,6 +1356,20 @@ Endpoint implementations must include:
 - retry policy
 - timeout policy
 - fixture file path
+
+### 24.4A Live Connector Rollout (Phase 2)
+
+v0.8 implements **one** live connector for `sting_pdac` only. All others remain fixture-only until v0.9.
+
+**Primary choice: PubMed (NCBI E-utilities)**
+
+- Module: `connectors/pubmed.py`
+- Env: `NCBI_EMAIL`, optional `NCBI_API_KEY`
+- Outputs: `literature_records.json`, `raw/pubmed_raw.json`
+- Respect `limits.max_literature_records` from case config
+- Tests: `tests/connectors/test_pubmed_live.py` with `@pytest.mark.live` (excluded from CI)
+
+**Alternate:** ClinicalTrials.gov API v2 → `clinical_trials.json` (same rollout rules).
 
 ### 24.5 Source Record Contract
 
@@ -1716,6 +1922,8 @@ Efficient MVP is done when:
 9. README explains the single-command fixture demo.
 10. Launch kit files exist and match PRD workstreams.
 
+**Status (2026-05-16):** Tier A complete. Tier B tracked in [Development navigation](#development-navigation) (§20A table) and `tasks/09`–`11`.
+
 ## 26. Version History
 
 - v0.1: Initial canonical PRD draft.
@@ -1724,5 +1932,7 @@ Efficient MVP is done when:
 - v0.4: Added formal parallel-agent convergence model, agent handoff files, contract-first development rules, integration gates, holistic assembly command chain, merge conflict policy, integration-agent role, and change tracking protocol.
 - v0.5: Added formal interface contracts for case configs, connectors, source records, entity normalization, artifacts, evidence rows, LLM providers, prompts, evaluators, frontend data loading, MCP-style tools, and contract change process.
 - v0.6: Added efficient development guidelines, MVP vertical slice rule, build order, anti-overbuilding rules, dependency budget, agent efficiency rules, repo-development prompt guidance, Cursor launch kit, launch prompt contract, task file contract, token/context efficiency rules, and efficient MVP definition.
-- v0.6: Added efficient development guidelines, MVP vertical slice rule, build order, anti-overbuilding rules, dependency budget, agent efficiency rules, repo-development prompt guidance, Cursor launch kit, launch prompt contract, task file contract, token/context efficiency rules, and efficient MVP definition.
 - v0.7: Deduplicated section 3A and erroneous section 26 duplicate; fixed broken export links.
+- v0.8: Fixture MVP baseline (§0B); Tier A/B scope split (§3A.4); Phase 2 build DAG (§5A); synthesis contract (§13A); Portfolio MVP definition (§20A); tightened CI (§18); tasks 09–11.
+- v0.8.1: Added [Development navigation](#development-navigation) table at document top; §0B points to it as canonical status board.
+- v0.8.2: Phase 2 synthesis (`llm_provider`, `synthesis_runner`, `skills/`), live PubMed path, `tests/synthesis`, schema validation helper, eval_results schema alignment.

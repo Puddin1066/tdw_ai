@@ -1,0 +1,26 @@
+{
+  "risks": [
+    {
+      "risk_id": "risk:sting_pdac:001",
+      "category": "clinical",
+      "title": "Limited single-agent efficacy in PDAC",
+      "description": "Early clinical signals show immune activation but modest ORR; combination strategies likely required.",
+      "severity": "high",
+      "confidence": 0.8,
+      "evidence_ids": ["evidence:sting_pdac:0001"],
+      "source_record_ids": ["pubmed:38401234"],
+      "inferred": false
+    },
+    {
+      "risk_id": "risk:sting_pdac:002",
+      "category": "translational",
+      "title": "Tumor microenvironment heterogeneity",
+      "description": "Fibrotic, immunosuppressive PDAC TME may blunt STING agonist activity.",
+      "severity": "high",
+      "confidence": 0.77,
+      "evidence_ids": ["evidence:sting_pdac:0001"],
+      "source_record_ids": [],
+      "inferred": true
+    }
+  ]
+}

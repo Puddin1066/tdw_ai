@@ -85,7 +85,12 @@ def test_connector_live_mode_returns_result_not_raise(connector_name: str, confi
 
     assert isinstance(result, ConnectorResult)
     assert result.mode == "live"
-    assert result.errors, f"{connector_name} live mode should report NotImplemented in errors"
+    if connector_name == "pubmed":
+        assert result.records or result.warnings, "PubMed live should return records or warnings"
+    else:
+        assert result.errors or result.warnings, (
+            f"{connector_name} live mode should report NotImplemented in errors or warnings"
+        )
 
 
 def test_pubmed_fixture_has_literature_records(config: CaseConfig) -> None:

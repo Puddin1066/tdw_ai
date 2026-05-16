@@ -54,7 +54,22 @@ def _light_normalize(config: CaseConfig, connector_payloads: list[dict[str, Any]
             record_id = record.get("source_record_id")
             if not record_id:
                 continue
-            entity_type = record.get("entity_type") or record.get("source_type") or "publication"
+            raw_type = record.get("entity_type") or record.get("source_type") or "publication"
+            entity_type = "publication" if raw_type == "literature" else raw_type
+            if entity_type not in (
+                "gene",
+                "protein",
+                "disease",
+                "pathway",
+                "compound",
+                "modality",
+                "biomarker",
+                "clinical_trial",
+                "publication",
+                "organization",
+                "investigator",
+            ):
+                entity_type = "publication"
             entities.append(
                 {
                     "entity_id": f"{entity_type}:{record_id.split(':', 1)[-1]}",

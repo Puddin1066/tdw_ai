@@ -1,0 +1,4 @@
+{
+  "steps": ["evidence_table", "risk_map", "diligence_report"],
+  "schema_version": "v0.5"
+}

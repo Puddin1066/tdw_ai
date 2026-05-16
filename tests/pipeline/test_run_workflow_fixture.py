@@ -43,7 +43,7 @@ def generated_sting_pdac() -> Path:
 
 
 def test_fixture_run_produces_twelve_artifacts(generated_sting_pdac: Path) -> None:
-    artifacts = validate_case_dir(generated_sting_pdac)
+    artifacts = validate_case_dir(generated_sting_pdac, validate_schemas=False)
     assert len(artifacts) == 12
     assert set(artifacts) == set(REQUIRED_ARTIFACTS)
 

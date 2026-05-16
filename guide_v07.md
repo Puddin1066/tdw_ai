@@ -1,16 +1,26 @@
-Version: v0.7
+Version: v0.7 (frozen snapshot)
 
-Date: 2026-05-15
+Date: 2026-05-15 (implementation status added 2026-05-16)
 
-Status: Canonical implementation PRD draft
+Status: **Historical contract** — superseded by `MASTER_PRD.md` v0.8. Do not extend this file.
 
 Owner: Jay Round
+
+> **Canonical spec:** `MASTER_PRD.md` (v0.8). This file preserves the v0.7 text plus §0B delivery record.
 
 ## 0. Implementation Contract
 
 This PRD is written so multiple Cursor agents can build the product in parallel. Each module must expose explicit file paths, schemas, function contracts, fixture data, test commands, and acceptance criteria. No agent should depend on private assumptions. If a module needs another module, it must depend only on the documented interface.
 
 The PRD is the source of truth. Cursor agents should not invent additional product scope unless that scope is added here first.
+
+## 0B. Implementation Status (as of 2026-05-16)
+
+**Tier A (Fixture MVP): COMPLETE** — see `MASTER_PRD.md` §0B for full tables.
+
+Delivered: schemas, four MOCK fixture case packets, fixture connectors, pipeline orchestration, deterministic evals, static Next.js frontend, launch kit (`tasks/00`–`08`), 101+ pytest tests, `npm run build` in `web/`.
+
+**Not delivered under v0.7:** live connectors, build-time OpenAI synthesis (`skills/`), one live-reviewed case (§20.9). Tracked in `MASTER_PRD.md` Tier B / Phase 2.
 
 ## 1. Product Definition
 
@@ -1726,3 +1736,4 @@ Efficient MVP is done when:
 - v0.6: Added efficient development guidelines, MVP vertical slice rule, build order, anti-overbuilding rules, dependency budget, agent efficiency rules, repo-development prompt guidance, Cursor launch kit, launch prompt contract, task file contract, token/context efficiency rules, and efficient MVP definition.
 - v0.6: Added efficient development guidelines, MVP vertical slice rule, build order, anti-overbuilding rules, dependency budget, agent efficiency rules, repo-development prompt guidance, Cursor launch kit, launch prompt contract, task file contract, token/context efficiency rules, and efficient MVP definition.
 - v0.7: Deduplicated section 3A and erroneous section 26 duplicate; fixed broken export links.
+- v0.7-frozen (2026-05-16): Added §0B implementation status; superseded by MASTER_PRD v0.8.

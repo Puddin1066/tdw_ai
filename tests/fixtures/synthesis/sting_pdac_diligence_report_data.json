@@ -1,0 +1,26 @@
+{
+  "title": "STING / Pancreatic Cancer",
+  "executive_summary": "STING pathway agonism shows preclinical PDAC relevance with early-phase clinical exploration; efficacy and biomarker strategy remain key uncertainties.",
+  "overall_confidence": 0.65,
+  "maturity_stage": "translational",
+  "sections": [
+    {
+      "section_id": "mechanism",
+      "title": "Mechanism",
+      "content": "STING activation may enhance innate immune signaling in PDAC models.",
+      "evidence_ids": ["evidence:sting_pdac:0001"]
+    },
+    {
+      "section_id": "clinical",
+      "title": "Clinical landscape",
+      "content": "NCT05234567 evaluates a STING agonist in advanced PDAC.",
+      "evidence_ids": ["evidence:sting_pdac:0002"]
+    }
+  ],
+  "cited_source_record_ids": ["pubmed:38401234", "clinicaltrials:NCT05234567"],
+  "cited_nct_ids": ["NCT05234567"],
+  "cited_pmids": ["38401234"],
+  "diligence_questions": [
+    "What combination regimen maximizes STING pathway engagement in PDAC?"
+  ]
+}

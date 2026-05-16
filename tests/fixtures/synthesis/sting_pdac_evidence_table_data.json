@@ -1,0 +1,30 @@
+{
+  "rows": [
+    {
+      "evidence_id": "evidence:sting_pdac:0001",
+      "claim_text": "STING activation is associated with innate immune signaling in pancreatic cancer models.",
+      "claim_type": "mechanistic",
+      "support_status": "supported",
+      "confidence": 0.82,
+      "source_record_ids": ["pubmed:38401234"],
+      "quoted_evidence": [
+        {
+          "source_record_id": "pubmed:38401234",
+          "text": "STING pathway activation enhanced antigen presentation in PDAC models.",
+          "location": "abstract"
+        }
+      ],
+      "limitations": ["preclinical evidence only", "MOCK/SYNTHETIC synthesis fixture"]
+    },
+    {
+      "evidence_id": "evidence:sting_pdac:0002",
+      "claim_text": "Trial NCT05234567 evaluates a STING agonist in advanced PDAC.",
+      "claim_type": "clinical",
+      "support_status": "supported",
+      "confidence": 0.9,
+      "source_record_ids": ["clinicaltrials:NCT05234567"],
+      "quoted_evidence": [],
+      "limitations": []
+    }
+  ]
+}

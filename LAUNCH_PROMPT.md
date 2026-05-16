@@ -48,6 +48,15 @@ You are the integration-agent for the Translational Diligence Workbench. Read MA
 | frontend-agent | `tasks/03_frontend_agent.md` |
 | connectors-agent | `tasks/04_connector_agent.md` |
 | backend-pipeline-agent | `tasks/05_pipeline_agent.md` |
-| synthesis-agent | `tasks/06_synthesis_agent.md` |
+| synthesis-agent | `tasks/06_synthesis_agent.md` or `tasks/09_synthesis_agent.md` (Phase 2) |
 | evals-agent | `tasks/07_evals_agent.md` |
-| integration-agent | `tasks/08_integration_agent.md` |
+| integration-agent | `tasks/08_integration_agent.md` or `tasks/11_integration_v08_agent.md` (Phase 2) |
+| live-connector-agent | `tasks/10_live_connector_agent.md` (Phase 2) |
+
+---
+
+## Phase 2 (Tier B) prompt
+
+```
+You are implementing Phase 2 of the Translational Diligence Workbench. Read MASTER_PRD.md §0B, §5A, §13A, §20A. Tier A (fixture MVP) is complete — do not regress it. Your scope is sting_pdac only until Tier B passes: LLMProvider + skills, one live connector, live synthesis, eval pass, LIVE_CASE_REVIEW.md. Use tasks/09–11. No paid API calls in tests; use @pytest.mark.live for manual live tests.
+```

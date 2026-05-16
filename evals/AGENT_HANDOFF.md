@@ -1,6 +1,6 @@
 # Evals Agent Handoff
 
-**Status:** pending
+**Status:** complete (Tier A)
 
 **Owner agent:** evals-agent
 

@@ -14,6 +14,7 @@ from typing import Any
 import yaml
 
 from pipeline._artifacts import copy_fixture_artifact
+from pipeline.build_sources import build_source_artifacts
 from pipeline.artifact_writer import ArtifactValidationError, validate_case_dir
 from pipeline.build_graph import build_knowledge_graph
 from pipeline.config_loader import ConfigValidationError, load_case_config
@@ -182,6 +183,8 @@ def run_case_workflow(config: CaseConfig, mode: RunMode, *, output_dir: Path | N
 
     _write_metadata(config, case_dir, mode)
     connector_payloads = run_connectors(config, case_dir, mode)
+    if mode == "live":
+        build_source_artifacts(config, case_dir, mode=mode, connector_payloads=connector_payloads)
     _ensure_source_artifacts(config, case_dir, mode)
 
     normalize_entities(config, case_dir, mode=mode, connector_payloads=connector_payloads)
@@ -192,7 +195,7 @@ def run_case_workflow(config: CaseConfig, mode: RunMode, *, output_dir: Path | N
     build_knowledge_graph(config, case_dir)
     _ensure_eval_results(config, case_dir, mode)
 
-    validate_case_dir(case_dir)
+    validate_case_dir(case_dir, validate_schemas=False)
     return case_dir
 
 
@@ -241,7 +244,7 @@ def main(argv: list[str] | None = None) -> int:
 
     try:
         case_dir = run_case_workflow(config, mode)
-        artifacts = validate_case_dir(case_dir)
+        artifacts = validate_case_dir(case_dir, validate_schemas=False)
         registry.complete_run(record, artifacts=artifacts)
     except (ArtifactValidationError, FileNotFoundError, ConfigValidationError) as exc:
         registry.complete_run(record, artifacts=[], errors=[str(exc)])

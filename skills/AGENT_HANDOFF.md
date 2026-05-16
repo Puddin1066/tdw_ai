@@ -1,43 +1,32 @@
 # Synthesis Agent Handoff
 
-**Status:** pending
+**Status:** Phase 2 core implemented (v0.8.1)
 
 **Owner agent:** synthesis-agent
 
-**Task file:** `tasks/06_synthesis_agent.md`
+**Task file:** `tasks/09_synthesis_agent.md`
 
-## Files modified
+## Implemented
 
-_None yet — scaffold placeholder._
+- `pipeline/llm_provider.py` — `MockProvider`, `OpenAIProvider`, `get_provider()`
+- `pipeline/synthesis_runner.py` — prompt load, envelope write, schema validation
+- `skills/translational_diligence/SKILL.md` and `prompts/*.md`
+- `tests/fixtures/synthesis/sting_pdac_*_data.json` — mock live synthesis payloads
+- `tests/synthesis/test_mock_provider.py`
+- Live mode wired in `pipeline/_artifacts.py` → `run_synthesis_json_step`
 
-## Interfaces consumed
+## Remaining
 
-- Normalized artifacts from pipeline
-- PRD §13–14 AI and prompt contracts
-- `schemas/diligence_report.schema.json` and related schemas
+- Optional: golden refresh when schemas tighten fixture case packets
+- Human completion of `docs/LIVE_CASE_REVIEW.md` after reviewed live run with OpenAI
 
-## Interfaces produced
-
-- `skills/translational_diligence/**`
-- `pipeline/generate_*.py` synthesis steps
-- Report, evidence table, risk map, claims JSON
-
-## Commands to test
+## Commands
 
 ```bash
-python -m pytest tests/synthesis -q
+pytest tests/synthesis -q
+python -m pipeline.run_workflow --config configs/cases/sting_pdac.yaml --mode live
 ```
 
-## Assumptions
+## Consumers
 
-- Build-time OpenAI only in live mode for MVP.
-- Fixture mode uses mock LLM provider.
-
-## Blockers
-
-- Skill and pipeline generation modules not implemented.
-- Depends on schema-agent and normalized fixture artifacts.
-
-## Downstream consumers
-
-- evals-agent, integration-agent
+- pipeline-agent, evals-agent, integration-agent

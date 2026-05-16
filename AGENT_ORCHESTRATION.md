@@ -2,7 +2,7 @@
 
 This document defines how multiple Cursor agents build the Translational Diligence Workbench in parallel without merge chaos.
 
-**Canonical spec:** `MASTER_PRD.md` (v0.7). Agents must not invent product scope outside the PRD.
+**Canonical spec:** `MASTER_PRD.md` (v0.8.1) — start at **Development navigation** (top of PRD). **Historical:** `guide_v07.md` (frozen). Agents must not invent product scope outside the PRD.
 
 ## Core rule
 
@@ -21,22 +21,21 @@ Agents coordinate through **schemas, fixtures, file ownership, CLI contracts, an
 | Synthesis | synthesis-agent | `skills/`, synthesis pipeline modules | `tasks/06_synthesis_agent.md` |
 | Evals | evals-agent | `evals/`, `tests/evals/` | `tasks/07_evals_agent.md` |
 | Integration | integration-agent | glue, CI, README updates, cross-module paths | `tasks/08_integration_agent.md` |
+| Synthesis (Phase 2) | synthesis-agent | `pipeline/llm_provider.py`, `skills/` | `tasks/09_synthesis_agent.md` |
+| Live connector (Phase 2) | connectors-agent | one live source for `sting_pdac` | `tasks/10_live_connector_agent.md` |
+| Integration (Phase 2) | integration-agent | schema validation, strict CI, live review | `tasks/11_integration_v08_agent.md` |
 
 ## Build order (recommended)
 
-Per PRD §25.3:
+**Tier A (complete):** PRD §0B.
 
-1. Repo scaffold ✅
-2. JSON schemas + shared types
-3. Fixture case packets (four cases)
-4. Static frontend against fixtures
-5. Pipeline validation + copy-to-web
-6. Mock connector mode
-7. Deterministic eval suite
-8. Mock LLM / synthesis stubs
-9. Live connectors (one at a time)
-10. OpenAI live synthesis
-11. End-to-end live generation
+**Tier B (Phase 2):** PRD §5A:
+
+1. `pipeline/llm_provider.py` + `skills/` (in progress)
+2. Wire `generate_*` to providers in live mode
+3. One live connector (PubMed or ClinicalTrials.gov)
+4. Live `sting_pdac` E2E + `docs/LIVE_CASE_REVIEW.md`
+5. Strict CI + schema validation in `artifact_writer`
 
 **Vertical slice first:** `sting_pdac` config → `generated/cases/sting_pdac/*` → `web/public/data/cases/sting_pdac/*` → rendered dashboard. No other feature outranks this until it works (PRD §25.2).
 

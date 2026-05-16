@@ -49,19 +49,18 @@ def test_run_evals_writes_eval_results(fixture_sting_pdac: Path, tmp_path: Path)
     assert output_path.exists()
     saved = json.loads(output_path.read_text(encoding="utf-8"))
     assert saved["artifact_type"] == "eval_results"
-    assert saved["data"]["passed"] is True
-    assert "citation_fidelity" in saved["data"]["scores"]
-    assert len(saved["data"]["gates"]) >= 5
-    assert all(gate["passed"] for gate in saved["data"]["gates"])
+    assert saved["data"]["overall_passed"] is True
+    assert saved["data"]["metrics"]["citation_fidelity_score"] >= 0
+    assert len(saved["data"]["evaluations"]) >= 4
 
 
 def test_run_evals_overall_failure_on_hallucinated_nct(
     fixture_sting_pdac_bad_nct: Path,
 ) -> None:
     payload = run_evaluations(fixture_sting_pdac_bad_nct)
-    assert payload["data"]["passed"] is False
-    trial_gate = next(
-        gate for gate in payload["data"]["gates"] if gate["gate_id"] == "nct_ids_in_clinical_trials"
+    assert payload["data"]["overall_passed"] is False
+    trial_eval = next(
+        e for e in payload["data"]["evaluations"] if e["evaluator_name"] == "trial_hallucination"
     )
-    assert trial_gate["passed"] is False
-    assert any("NCT99999999" in issue for issue in payload["data"]["issues"])
+    assert trial_eval["passed"] is False
+    assert any("NCT99999999" in error for error in trial_eval["errors"])
