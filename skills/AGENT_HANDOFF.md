@@ -1,6 +1,6 @@
 # Synthesis Agent Handoff
 
-**Status:** Phase 2 core implemented (v0.8.1)
+**Status:** Tier B complete (v0.8.3)
 
 **Owner agent:** synthesis-agent
 
@@ -15,10 +15,11 @@
 - `tests/synthesis/test_mock_provider.py`
 - Live mode wired in `pipeline/_artifacts.py` → `run_synthesis_json_step`
 
-## Remaining
+## Remaining (optional)
 
-- Optional: golden refresh when schemas tighten fixture case packets
-- Human completion of `docs/LIVE_CASE_REVIEW.md` after reviewed live run with OpenAI
+- OpenAI live synthesis run with `OPENAI_API_KEY` (not required for Tier B)
+- Strict JSON Schema on all 12 artifacts (`artifact_writer --validate-schemas`)
+- Golden refresh when schemas tighten fixture case packets
 
 ## Commands
 

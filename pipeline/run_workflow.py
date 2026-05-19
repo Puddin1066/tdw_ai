@@ -22,8 +22,10 @@ from pipeline.generate_claims import generate_claims
 from pipeline.generate_questions import generate_questions
 from pipeline.generate_report import generate_report
 from pipeline.generate_risk_map import generate_risk_map
+from pipeline.llm_provider import get_provider_status
 from pipeline.normalize_entities import normalize_entities
 from pipeline.provenance import utc_now_iso
+from pipeline.runtime_env import load_repo_env
 from pipeline.run_registry import RunRegistry
 from pipeline.types import (
     REQUIRED_ARTIFACTS,
@@ -77,11 +79,17 @@ def _import_connector(name: str) -> Any | None:
 
 
 def _write_metadata(config: CaseConfig, case_dir: Path, mode: RunMode) -> Path:
+    provider_status = get_provider_status(prefer_live=(mode == "live"))
     metadata = config.to_metadata_dict()
     metadata["run"] = {
         "mode": mode,
         "generated_at": utc_now_iso(),
         "config_path": str(config.config_path) if config.config_path else None,
+        "synthesis_provider": provider_status["provider_name"],
+        "synthesis_model": provider_status["model_name"],
+        "mocked_api_calls": provider_status["mocked_api_calls"],
+        "using_live_api": provider_status["using_live_api"],
+        "provider_selection_reason": provider_status["selection_reason"],
     }
     path = case_dir / "metadata.yaml"
     path.write_text(yaml.safe_dump(metadata, sort_keys=False), encoding="utf-8")
@@ -173,6 +181,7 @@ def _ensure_eval_results(config: CaseConfig, case_dir: Path, mode: RunMode) -> N
 
 def run_case_workflow(config: CaseConfig, mode: RunMode, *, output_dir: Path | None = None) -> Path:
     """Execute the full pipeline for one case configuration."""
+    load_repo_env()
     case_dir = output_dir or generated_case_dir(config.case_id)
     if case_dir.exists():
         shutil.rmtree(case_dir)
@@ -200,6 +209,7 @@ def run_case_workflow(config: CaseConfig, mode: RunMode, *, output_dir: Path | N
 
 
 def main(argv: list[str] | None = None) -> int:
+    load_repo_env()
     parser = argparse.ArgumentParser(description="Run translational diligence workflow")
     parser.add_argument("--config", required=True, help="Path to configs/cases/{case_id}.yaml")
     parser.add_argument(

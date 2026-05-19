@@ -40,8 +40,12 @@ def test_synthesis_fixture_files_exist(step: str) -> None:
     assert isinstance(data, dict)
 
 
-def test_live_mode_synthesis_chain_mock_provider(tmp_path: Path) -> None:
+def test_live_mode_synthesis_chain_mock_provider(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
     """Live mode with MockProvider produces schema-valid synthesis artifacts."""
+    monkeypatch.setenv("TDW_SKIP_REPO_ENV", "1")
+    monkeypatch.delenv("OPENAI_API_KEY", raising=False)
     config = load_case_config(CONFIG)
     case_dir = tmp_path / "sting_pdac"
     case_dir.mkdir()

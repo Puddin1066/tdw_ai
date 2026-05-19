@@ -97,7 +97,12 @@ def collect_report_text(report_json: dict[str, Any], report_md: str | None) -> s
 
 def clinical_trial_nct_ids(clinical_trials: dict[str, Any]) -> set[str]:
     data = artifact_data(clinical_trials)
-    records = data.get("records", []) if isinstance(data, dict) else []
+    records: list[Any] = []
+    if isinstance(data, dict):
+        if isinstance(data.get("records"), list):
+            records.extend(data["records"])
+        if isinstance(data.get("trials"), list):
+            records.extend(data["trials"])
     ncts: set[str] = set()
     for record in records:
         if not isinstance(record, dict):

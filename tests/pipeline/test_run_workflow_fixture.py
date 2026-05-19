@@ -8,6 +8,7 @@ import sys
 from pathlib import Path
 
 import pytest
+import yaml
 
 from pipeline.artifact_writer import validate_case_dir
 from pipeline.types import REQUIRED_ARTIFACTS, generated_case_dir, repo_root
@@ -54,10 +55,19 @@ def test_fixture_metadata_matches_config(generated_sting_pdac: Path) -> None:
     text = metadata_path.read_text(encoding="utf-8")
     assert "case_id: sting_pdac" in text
     assert "STING" in text
+    metadata = yaml.safe_load(text)
+    run_meta = metadata.get("run", {})
+    assert run_meta.get("mode") == "fixture"
+    assert run_meta.get("synthesis_provider") == "mock"
+    assert run_meta.get("mocked_api_calls") is True
+    assert run_meta.get("using_live_api") is False
 
 
 def test_knowledge_graph_built_from_entities(generated_sting_pdac: Path) -> None:
     graph = json.loads((generated_sting_pdac / "knowledge_graph.json").read_text(encoding="utf-8"))
     nodes = graph["data"]["nodes"]
+    edges = graph["data"]["edges"]
     assert any(node["node_id"] == "gene:TMEM173" for node in nodes)
+    assert len(edges) >= 3
+    assert any(edge["relationship"] in {"supports_target", "tested_in"} for edge in edges)
     assert graph["provenance"]["generated_by"] == "pipeline/build_graph.py"

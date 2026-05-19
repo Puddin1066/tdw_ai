@@ -1,8 +1,8 @@
-Version: v0.8.2
+Version: v0.8.4
 
 Date: 2026-05-16
 
-Status: Canonical implementation PRD — Fixture MVP complete; Portfolio MVP (Phase 2) in progress. **Start at [Development navigation](#development-navigation).**
+Status: Canonical implementation PRD — **Tier A and Tier B (Portfolio MVP) complete; objective value contract clarified.** **Start at [Development navigation](#development-navigation).**
 
 Owner: Jay Round
 
@@ -28,37 +28,37 @@ Owner: Jay Round
 | [2](#2-primary-positioning) | Primary Positioning | Spec | Spec | — | — |
 | [3](#3-non-negotiable-design-principles) | Non-Negotiable Design Principles | A | Spec | — | — |
 | [3A](#3a-scope-control-and-job-description-alignment-gate) | Scope Control | Spec | Spec | — | — |
-| [3A.4](#3a4-mvp-scope-boundary) | MVP Scope Boundary | A/B | Tier A Done · Tier B Phase 2 | `tasks/08`–`11` | §25.12 · §20A |
+| [3A.4](#3a4-mvp-scope-boundary) | MVP Scope Boundary | A/B | Tier A Done · Tier B Done | `tasks/08`–`11` | §25.12 · §20A |
 | [4](#4-parallel-workstreams-and-file-ownership) | Parallel Workstreams | A | Done (see workstreams below) | `tasks/00`–`08` | Per workstream |
 | [5](#5-build-dependency-dag) | Build Dependency DAG | A | Done (steps 1–5, 7–10) | `tasks/01`–`08` | `pytest tests/` |
-| [5A](#5a-phase-2-build-dag-v08) | Phase 2 Build DAG | B | In progress | `tasks/09`–`11` | Steps 1–4,8 done; 5–7,9–10 pending human review |
+| [5A](#5a-phase-2-build-dag-v08) | Phase 2 Build DAG | B | Done | `tasks/09`–`11` | §5A steps 1–10 · `docs/LIVE_CASE_REVIEW.md` |
 | [6](#6-static-first-architecture) | Static-First Architecture | A | Done | `tasks/05_pipeline_agent.md` | Fixture E2E (§22.6) |
 | [7](#7-repository-layout) | Repository Layout | A | Done | `tasks/00_repo_scaffold.md` | Repo tree matches §7 |
 | [8](#8-case-packet-contract) | Case Packet Contract | A | Done | `tasks/02_fixture_agent.md` | 12 files under `tests/fixtures/cases/sting_pdac/` |
-| [9](#9-shared-interface-connectorresult) | ConnectorResult | A/B | Fixture Done · live Phase 2 | `tasks/04` · `tasks/10` | `pytest tests/connectors -q` |
+| [9](#9-shared-interface-connectorresult) | ConnectorResult | A/B | Done | `tasks/04` · `tasks/10` | `pytest tests/connectors -q` |
 | [10](#10-provenance-contract) | Provenance Contract | A | Done | `tasks/05_pipeline_agent.md` | Artifacts include `provenance` |
 | [11](#11-frontend-ux-contract) | Frontend UX Contract | A | Done | `tasks/03_frontend_agent.md` | `npm run dev --prefix web` |
 | [12](#12-frontend-component-api-requirements) | Frontend Component API | A | Done | `tasks/03_frontend_agent.md` | Case dashboard 7 tabs |
-| [13](#13-ai-usage-contract) | AI Usage Contract | A/B | Stubs Done · live Phase 2 | `tasks/06` · `tasks/09` | Fixture mode, no API key |
+| [13](#13-ai-usage-contract) | AI Usage Contract | A/B | Done | `tasks/06` · `tasks/09` | Fixture + mock live; OpenAI optional |
 | [13A](#13a-synthesis-workstream-contract-phase-2) | Synthesis Workstream | B | Done (mock live) | `tasks/09_synthesis_agent.md` | `pytest tests/synthesis -q` |
 | [14](#14-prompt-contract-requirements) | Prompt Contract | B | Done | `tasks/09` | `skills/translational_diligence/prompts/` |
 | [15](#15-evaluation-gates) | Evaluation Gates | A | Done | `tasks/07_evals_agent.md` | `pytest tests/evals -q` |
 | [16](#16-fixture-strategy) | Fixture Strategy | A | Done | `tasks/02_fixture_agent.md` | `pytest tests/fixtures -q` |
 | [17](#17-cli-requirements) | CLI Requirements | A | Done | `tasks/05` · README | §22.6 command chain |
-| [18](#18-ci-requirements) | CI Requirements | B | Phase 2 (strict) | `tasks/11` · `tasks/08` | `.github/workflows/ci.yml` green |
+| [18](#18-ci-requirements) | CI Requirements | B | Done | `tasks/11` · `tasks/08` | `.github/workflows/ci.yml` green |
 | [19](#19-repo-foundation-requirements) | Repo Foundation | A | Done | `tasks/00` | `pip install -e ".[dev]"` · `npm install` |
-| [20](#20-mvp-completion-definition) | MVP Completion | A | Items 1–6 Done · 7–9 Phase 2 | — | §20 checklist |
-| [20A](#20a-portfolio-mvp-completion-tier-b) | Portfolio MVP | B | Phase 2 | `tasks/11` | §20A (6 criteria) |
+| [20](#20-mvp-completion-definition) | MVP Completion | A/B | Done | — | §20 · §20A |
+| [20A](#20a-portfolio-mvp-completion-tier-b) | Portfolio MVP | B | Done | `tasks/11` | §20A (6 criteria) |
 | [21](#21-open-decisions) | Open Decisions | — | Open | — | — |
 | [22](#22-parallel-agent-convergence-model) | Parallel-Agent Convergence | Spec | Spec | `AGENT_ORCHESTRATION.md` | — |
 | [22.6](#226-holistic-assembly-requirement) | Holistic Assembly | A | Done | `tasks/08_integration_agent.md` | §22.6 commands |
 | [23](#23-change-tracking-protocol) | Change Tracking Protocol | Spec | Spec | — | Bump §26 on contract change |
 | [24](#24-formal-interface-contracts) | Formal Interface Contracts | A | Done (core) | `tasks/01_schema_agent.md` | `pytest tests/schemas -q` |
-| [24.4A](#244a-live-connector-rollout-phase-2) | Live Connector Rollout | B | Phase 2 | `tasks/10_live_connector_agent.md` | `@pytest.mark.live` manual |
+| [24.4A](#244a-live-connector-rollout-phase-2) | Live Connector Rollout | B | Done (PubMed) | `tasks/10_live_connector_agent.md` | `@pytest.mark.live` manual |
 | [24.9](#249-llm-provider-contract) | LLM Provider Contract | B | Done | `tasks/09` | `pipeline/llm_provider.py` |
 | [25](#25-efficient-development-guidelines) | Efficient Development | Spec | Spec | `tasks/00`–`08` | — |
 | [25.12](#2512-definition-of-efficient-mvp-done) | Efficient MVP Done | A | Done | — | §0B Tier A table |
-| [26](#26-version-history) | Version History | Meta | v0.8 | — | — |
+| [26](#26-version-history) | Version History | Meta | v0.8.4 | — | — |
 
 ### Workstreams (§4)
 
@@ -66,13 +66,13 @@ Owner: Jay Round
 |------------|------|--------|------|--------|
 | F — Schemas & types | A | Done | `tasks/01_schema_agent.md` | `pytest tests/schemas -q` |
 | Fixtures (4 cases) | A | Done | `tasks/02_fixture_agent.md` | `pytest tests/fixtures -q` |
-| B — Connectors | A/B | Fixture Done · live Phase 2 | `tasks/04` · `tasks/10` | `pytest tests/connectors -q` |
+| B — Connectors | A/B | Done (PubMed live) | `tasks/04` · `tasks/10` | `pytest tests/connectors -q` |
 | A — Pipeline | A | Done | `tasks/05_pipeline_agent.md` | `pytest tests/pipeline -q` |
 | C — Synthesis / skills | B | Done (mock) | `tasks/06` · `tasks/09` | `pytest tests/synthesis -q` |
 | D — Evals | A | Done | `tasks/07_evals_agent.md` | `pytest tests/evals -q` |
 | E — Frontend | A | Done | `tasks/03_frontend_agent.md` | `npm run build --prefix web` |
-| Integration glue | A/B | Tier A Done · Tier B mock-live Done | `tasks/08` · `tasks/11` | §22.6 + live chain below |
-| Portfolio live case | B | Pending sign-off | `tasks/11` | `docs/LIVE_CASE_REVIEW.md` |
+| Integration glue | A/B | Done | `tasks/08` · `tasks/11` | §22.6 + Tier B chain below |
+| Portfolio live case | B | Done | `tasks/11` | `docs/LIVE_CASE_REVIEW.md` |
 
 ### Tier A checklist (§25.12) — COMPLETE
 
@@ -89,14 +89,14 @@ Owner: Jay Round
 | 9 | README fixture demo | Done | README § Fixture demo |
 | 10 | Launch kit | Done | `LAUNCH_PROMPT.md` · `tasks/00`–`08` |
 
-### Tier B checklist (§20A) — Phase 2
+### Tier B checklist (§20A) — COMPLETE
 
 | # | Criterion | Status | Verify |
 |---|-----------|--------|--------|
-| 1 | Live `sting_pdac` synthesis not fixture-copied | Done (mock) | `run_workflow --mode live` |
+| 1 | Live `sting_pdac` synthesis not fixture-copied | Done | `run_workflow --mode live` |
 | 2 | One live connector (PubMed or CT.gov) | Done | PubMed live + fixture fallback |
 | 3 | Eval gates on live packet | Done | `evals.run_evals` on `generated/` |
-| 4 | `docs/LIVE_CASE_REVIEW.md` | In progress | Template exists; human sign-off pending |
+| 4 | `docs/LIVE_CASE_REVIEW.md` | Done | Signed 2026-05-16 |
 | 5 | README documents live path | Done | README Live mode section |
 | 6 | CI fails on core errors | Done | `.github/workflows/ci.yml` |
 
@@ -144,6 +144,8 @@ Build a static-first, AI-assisted translational diligence workbench that accepts
 
 The product is not a chatbot. It is a structured scientific workflow system that converts heterogeneous biomedical sources into auditable artifacts: reports, evidence tables, risk maps, clinical-trial landscapes, knowledge graphs, source manifests, and evaluation outputs.
 
+The objective value is decision support, not artifact accumulation: each case should help a reviewer quickly decide whether to advance, deprioritize, or further investigate a target-indication pair, with evidence and uncertainty made explicit.
+
 ## 2. Primary Positioning
 
 Primary positioning: reusable scientific AI workflow infrastructure.
@@ -182,6 +184,18 @@ Build a portfolio-grade, static-first scientific AI workflow platform that demon
 - modular architecture suitable for parallel agent development
 
 The system should be impressive because it shows applied AI engineering judgment, not because it accumulates unrelated biotech features.
+
+### 3A.1A Objective Value Contract (Decision Utility)
+
+A case output is considered valuable when it enables a reviewer to answer, in under two minutes:
+
+1. What is the current recommendation? (`advance`, `watchlist`, or `deprioritize`)
+2. What are the top supporting claims and their confidence levels?
+3. What are the highest-severity red flags?
+4. Which signals are live vs MOCK/SYNTHETIC fallback?
+5. What are the next concrete diligence actions?
+
+This contract prioritizes transparent decision utility over narrative length. Thin data is acceptable only when uncertainty, data gaps, and fallback provenance are clearly surfaced.
 
 ### 3A.2 Scope Admission Test
 
@@ -227,7 +241,7 @@ These may be valuable later, but they are not required to win the job-positionin
 - deterministic tests and schema validation
 - launch kit for Cursor-style repo generation
 
-**Tier B — Portfolio MVP (Phase 2; v0.8 target):**
+**Tier B — Portfolio MVP (DONE; v0.8 target):**
 
 - build-time AI synthesis via `LLMProvider` and `skills/translational_diligence/`
 - one live retrieval path (PubMed or ClinicalTrials.gov for `sting_pdac` only)
@@ -792,6 +806,14 @@ Minimum visual requirements:
 - Knowledge graph using Cytoscape.js or React Flow.
 - Eval panel with citation fidelity score, unsupported claim count, hallucinated trial count.
 
+Decision layer requirements (must be visible without reading full report text):
+
+- Decision summary card with recommendation (`advance` / `watchlist` / `deprioritize`) and confidence band.
+- Top 3 evidence-linked claims with confidence and citation traceability.
+- Trial reality check that highlights live, fixture fallback, and missing trial coverage.
+- Red flags panel with severity and why each flag matters.
+- Next 3–5 diligence actions derived from current evidence gaps.
+
 Frontend component props must use typed artifact objects, not untyped `any`.
 
 ## 12. Frontend Component API Requirements
@@ -1036,6 +1058,7 @@ MVP is complete when:
 7. The system can optionally run live connector/API mode with environment variables.
 8. CI passes without paid API calls.
 9. At least one live-generated case has been manually reviewed for scientific plausibility.
+10. Case dashboard presents a decision layer (recommendation, confidence, top claims, key risks, and next actions) with explicit live vs MOCK/SYNTHETIC labeling.
 
 ### 20A. Portfolio MVP Completion (Tier B)
 
@@ -1047,6 +1070,7 @@ Portfolio MVP is complete when Tier A (§25.12) still passes **and**:
 4. `docs/LIVE_CASE_REVIEW.md` records human review of scientific plausibility.
 5. README documents fixture demo and optional live path with env vars.
 6. CI: `pytest tests/` (excluding `@pytest.mark.live`) and `npm run build --prefix web` fail the job on error.
+7. `sting_pdac` dashboard shows an explicit decision layer with evidence-linked claims, red flags, and next actions; mocked/live source usage is visible in run metadata or UI.
 
 ## 21. Open Decisions
 
@@ -1922,7 +1946,7 @@ Efficient MVP is done when:
 9. README explains the single-command fixture demo.
 10. Launch kit files exist and match PRD workstreams.
 
-**Status (2026-05-16):** Tier A complete. Tier B tracked in [Development navigation](#development-navigation) (§20A table) and `tasks/09`–`11`.
+**Status (2026-05-16):** Tier A and Tier B complete. See [Development navigation](#development-navigation) and `docs/LIVE_CASE_REVIEW.md`.
 
 ## 26. Version History
 
@@ -1936,3 +1960,5 @@ Efficient MVP is done when:
 - v0.8: Fixture MVP baseline (§0B); Tier A/B scope split (§3A.4); Phase 2 build DAG (§5A); synthesis contract (§13A); Portfolio MVP definition (§20A); tightened CI (§18); tasks 09–11.
 - v0.8.1: Added [Development navigation](#development-navigation) table at document top; §0B points to it as canonical status board.
 - v0.8.2: Phase 2 synthesis (`llm_provider`, `synthesis_runner`, `skills/`), live PubMed path, `tests/synthesis`, schema validation helper, eval_results schema alignment.
+- v0.8.3: Tier B closed — `docs/LIVE_CASE_REVIEW.md` sign-off; Development navigation marks §20A complete.
+- v0.8.4: Clarified objective value as decision utility; added Decision Layer contract in frontend and completion criteria so thin-data runs must surface uncertainty and fallback provenance.

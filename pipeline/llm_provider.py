@@ -8,6 +8,7 @@ from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Any, Protocol, runtime_checkable
 
+from pipeline.runtime_env import load_repo_env
 from pipeline.types import repo_root
 
 SYNTHESIS_FIXTURES = repo_root() / "tests" / "fixtures" / "synthesis"
@@ -30,6 +31,13 @@ class LLMResponse:
     finish_reason: str = "stop"
     errors: list[str] = field(default_factory=list)
     warnings: list[str] = field(default_factory=list)
+
+
+@dataclass(frozen=True)
+class ProviderSelection:
+    provider: LLMProvider
+    using_live_api: bool
+    reason: str
 
 
 @runtime_checkable
@@ -197,6 +205,41 @@ class OpenAIProvider:
 
 def get_provider(*, prefer_live: bool = False) -> LLMProvider:
     """Select provider: OpenAI when key present and prefer_live; else MockProvider."""
+    return select_provider(prefer_live=prefer_live).provider
+
+
+def select_provider(*, prefer_live: bool = False) -> ProviderSelection:
+    """Return provider plus explicit selection reason for auditability."""
+    load_repo_env()
     if prefer_live and os.environ.get("OPENAI_API_KEY"):
-        return OpenAIProvider()
-    return MockProvider()
+        return ProviderSelection(
+            provider=OpenAIProvider(),
+            using_live_api=True,
+            reason="OPENAI_API_KEY detected; using OpenAIProvider",
+        )
+    if prefer_live:
+        return ProviderSelection(
+            provider=MockProvider(),
+            using_live_api=False,
+            reason="OPENAI_API_KEY missing; using MockProvider (MOCK/SYNTHETIC)",
+        )
+    return ProviderSelection(
+        provider=MockProvider(),
+        using_live_api=False,
+        reason="Fixture mode defaults to MockProvider (MOCK/SYNTHETIC)",
+    )
+
+
+def get_provider_status(*, prefer_live: bool = False) -> dict[str, Any]:
+    """Expose provider decision details for run metadata and debugging."""
+    selection = select_provider(prefer_live=prefer_live)
+    provider = selection.provider
+    provider_name = getattr(provider, "provider_name", provider.__class__.__name__.lower())
+    model_name = getattr(provider, "model_name", None)
+    return {
+        "provider_name": provider_name,
+        "model_name": model_name,
+        "mocked_api_calls": provider_name == "mock",
+        "using_live_api": selection.using_live_api,
+        "selection_reason": selection.reason,
+    }

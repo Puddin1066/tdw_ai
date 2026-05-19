@@ -2,7 +2,7 @@
 
 Static-first, AI-assisted translational diligence for arbitrary target–indication pairs. The workbench converts heterogeneous biomedical sources into auditable artifacts: reports, evidence tables, risk maps, trial landscapes, knowledge graphs, source manifests, and evaluation outputs.
 
-**This is not a chatbot.** It is structured scientific workflow infrastructure with contract-first, multi-agent development (see `MASTER_PRD.md` v0.8).
+**This is not a chatbot.** It is structured scientific workflow infrastructure with contract-first, multi-agent development (see `MASTER_PRD.md` v0.8.3).
 
 ## Repository status
 
@@ -17,9 +17,9 @@ Static-first, AI-assisted translational diligence for arbitrary target–indicat
 | Synthesis / skills / `LLMProvider` | ✅ mock live path; OpenAI optional via `.env` |
 | Evals (deterministic) | ✅ |
 | Frontend (static Next.js) | ✅ |
-| Portfolio live case + review | 🔲 `docs/LIVE_CASE_REVIEW.md` |
+| Portfolio live case + review | ✅ `docs/LIVE_CASE_REVIEW.md` (2026-05-16) |
 
-**Tier A (fixture MVP)** is complete per `MASTER_PRD.md` §25.12. **Tier B (portfolio MVP)** is Phase 2 — §20A.
+**Tier A (fixture MVP)** and **Tier B (portfolio MVP)** are complete per `MASTER_PRD.md` §25.12 and §20A.
 
 ## Prerequisites
 
@@ -81,10 +81,13 @@ Shortcut: `npm run fixture:sting` (from repo root, if configured).
 
 **With OpenAI:** `pip install -e ".[live]"` and set `OPENAI_API_KEY` in `.env`.
 
+Runtime note: `pipeline.run_workflow` auto-loads repo `.env` (no manual `export` required) unless `TDW_SKIP_REPO_ENV=1`.
+
 ```bash
 python -m pipeline.run_workflow --config configs/cases/sting_pdac.yaml --mode live
 python -m evals.run_evals --case generated/cases/sting_pdac
 python -m pipeline.artifact_writer generated/cases/sting_pdac --copy-to-web
+# verify metadata run block reports synthesis_provider: openai when key is active
 ```
 
 Complete `docs/LIVE_CASE_REVIEW.md` after manual scientific review.
@@ -98,7 +101,7 @@ npm run build --prefix web
 
 ## Multi-agent development
 
-- **Source of truth:** `MASTER_PRD.md` (v0.8.1) — [Development navigation](MASTER_PRD.md#development-navigation)
+- **Source of truth:** `MASTER_PRD.md` (v0.8.3) — [Development navigation](MASTER_PRD.md#development-navigation)
 - **Historical v0.7:** `guide_v07.md` (frozen)
 - **Orchestration:** `AGENT_ORCHESTRATION.md`
 - **Launch prompts:** `LAUNCH_PROMPT.md`

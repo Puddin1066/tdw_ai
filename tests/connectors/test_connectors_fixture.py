@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import re
+from pathlib import Path
 
 import pytest
 
@@ -20,7 +21,7 @@ from pipeline.types import RunModeDefaults
 ISO_8601_Z = re.compile(r"^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}Z$")
 
 
-def sting_pdac_config() -> CaseConfig:
+def sting_pdac_config(*, local_docs_enabled: bool = False) -> CaseConfig:
     return CaseConfig(
         case_id="sting_pdac",
         display_name="STING / Pancreatic Cancer",
@@ -41,7 +42,7 @@ def sting_pdac_config() -> CaseConfig:
             opentargets=True,
             chembl=True,
             biothings=True,
-            local_docs=False,
+            local_docs=local_docs_enabled,
         ),
         limits=LimitsConfig(
             max_literature_records=50,
@@ -87,10 +88,20 @@ def test_connector_live_mode_returns_result_not_raise(connector_name: str, confi
     assert result.mode == "live"
     if connector_name == "pubmed":
         assert result.records or result.warnings, "PubMed live should return records or warnings"
-    else:
-        assert result.errors or result.warnings, (
-            f"{connector_name} live mode should report NotImplemented in errors or warnings"
+    elif connector_name == "clinicaltrials":
+        assert result.records or result.warnings, "clinicaltrials live should return studies or warnings"
+        assert not result.errors, "clinicaltrials live failures should not emit hard errors in happy path"
+    elif connector_name == "local_docs":
+        assert any("local_docs disabled" in w for w in result.warnings), (
+            "local_docs should explicitly report disabled-source state"
         )
+        assert not result.errors, "local_docs fallback should not emit hard errors"
+    else:
+        assert result.records, f"{connector_name} live mode should fall back to fixture records"
+        assert any("MOCK/SYNTHETIC fallback in live mode" in w for w in result.warnings), (
+            f"{connector_name} live mode should clearly mark fixture fallback"
+        )
+        assert not result.errors, f"{connector_name} live fallback should not emit hard errors"
 
 
 def test_pubmed_fixture_has_literature_records(config: CaseConfig) -> None:
@@ -108,3 +119,21 @@ def test_clinicaltrials_fixture_has_nct_ids(config: CaseConfig) -> None:
 def test_local_docs_disabled_adds_warning(config: CaseConfig) -> None:
     result = CONNECTORS["local_docs"].fetch(config, "fixture")
     assert any("local_docs disabled" in w for w in result.warnings)
+
+
+def test_local_docs_live_reads_external_directory(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> None:
+    docs_dir = tmp_path / "rhvc_docs"
+    docs_dir.mkdir()
+    (docs_dir / "report.md").write_text("# Notes\n", encoding="utf-8")
+    (docs_dir / "dataset.csv").write_text("a,b\n1,2\n", encoding="utf-8")
+    (docs_dir / "ignore.bin").write_bytes(b"\x00\x01")
+
+    monkeypatch.setenv("LOCAL_DOCS_DIR", str(docs_dir))
+    cfg = sting_pdac_config(local_docs_enabled=True)
+    result = CONNECTORS["local_docs"].fetch(cfg, "live")
+
+    assert result.mode == "live"
+    assert not result.errors
+    assert len(result.records) == 2
+    assert all(str(r.get("source_record_id", "")).startswith("local_docs:") for r in result.records)
+    assert all(r.get("extension") in {".md", ".csv"} for r in result.records)

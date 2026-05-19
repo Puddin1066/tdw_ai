@@ -9,6 +9,7 @@ import pytest
 
 from evals.citation_fidelity import evaluate as evaluate_citation_fidelity
 from evals.evidence_coverage import evaluate as evaluate_evidence_coverage
+from evals.artifacts import clinical_trial_nct_ids
 from evals.run_evals import run_evaluations, write_eval_results
 from evals.trial_hallucination import evaluate as evaluate_trial_hallucination
 from evals.unsupported_claims import evaluate as evaluate_unsupported_claims
@@ -64,3 +65,16 @@ def test_run_evals_overall_failure_on_hallucinated_nct(
     )
     assert trial_eval["passed"] is False
     assert any("NCT99999999" in error for error in trial_eval["errors"])
+
+
+def test_clinical_trial_nct_ids_supports_trials_key() -> None:
+    artifact = {
+        "artifact_type": "clinical_trials",
+        "data": {
+            "trials": [
+                {"nct_id": "NCT01234567", "source_record_id": "clinicaltrials:NCT01234567"},
+                {"source_record_id": "clinicaltrials:NCT07654321"},
+            ]
+        },
+    }
+    assert clinical_trial_nct_ids(artifact) == {"NCT01234567", "NCT07654321"}

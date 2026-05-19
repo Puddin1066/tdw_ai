@@ -76,6 +76,9 @@ export function CaseDashboard({ packet }: CaseDashboardProps) {
             report={packet.diligenceReport}
             riskMap={packet.riskMap}
             evalResults={packet.evalResults}
+            evidenceRows={packet.evidenceTable}
+            sourceManifest={packet.sourceManifest}
+            clinicalTrials={packet.clinicalTrials}
           />
         </TabsContent>
         <TabsContent value="evidence">
