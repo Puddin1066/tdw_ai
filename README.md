@@ -83,6 +83,15 @@ Shortcut: `npm run fixture:sting` (from repo root, if configured).
 
 Runtime note: `pipeline.run_workflow` auto-loads repo `.env` (no manual `export` required) unless `TDW_SKIP_REPO_ENV=1`.
 
+Optional connector backend flags (safe rollout):
+
+- `CONNECTOR_BACKEND=biomcp` (global override)
+- `OPENTARGETS_BACKEND=biomcp`
+- `CHEMBL_BACKEND=biomcp`
+- `BIOTHINGS_BACKEND=biomcp`
+
+If BioMCP is unavailable or returns invalid payloads, connectors fall back to native live logic and add warnings.
+
 ```bash
 python -m pipeline.run_workflow --config configs/cases/sting_pdac.yaml --mode live
 python -m evals.run_evals --case generated/cases/sting_pdac

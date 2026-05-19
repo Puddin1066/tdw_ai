@@ -184,6 +184,69 @@ def build_source_manifest(
     return path
 
 
+def _normalize_target_biology_record(record: dict[str, Any], connector_name: str, idx: int) -> dict[str, Any]:
+    source_id = str(record.get("source_record_id") or f"{connector_name}:record:{idx}")
+    source_type = str(record.get("source_type") or "relationship")
+    if source_type not in {"target_biology", "compound", "relationship"}:
+        source_type = "relationship"
+    biology_source = connector_name if connector_name in {"opentargets", "chembl", "biothings"} else "local"
+    confidence = record.get("association_score")
+    if confidence is None:
+        confidence = record.get("relationship_confidence")
+    try:
+        parsed_conf = float(confidence) if confidence is not None else None
+    except (TypeError, ValueError):
+        parsed_conf = None
+    if parsed_conf is not None:
+        parsed_conf = max(0.0, min(1.0, parsed_conf))
+    return {
+        "source_record_id": source_id,
+        "source_type": source_type,
+        "source_name": record.get("source_name") or connector_name.title(),
+        "title": record.get("title") or source_id,
+        "url": record.get("url"),
+        "publication_date": record.get("publication_date"),
+        "retrieved_at": record.get("retrieved_at") or utc_now_iso(),
+        "raw_record_ref": record.get("raw_record_ref") or f"raw/{connector_name}_raw.json#records/{idx}",
+        "biology_source": biology_source,
+        "target_id": record.get("target_id"),
+        "disease_id": record.get("disease_id"),
+        "association_score": parsed_conf if source_type == "target_biology" else None,
+        "molecule_chembl_id": record.get("molecule_chembl_id"),
+        "mechanism_of_action": record.get("mechanism_of_action"),
+        "activity_summary": record.get("activity_summary"),
+        "subject": record.get("subject"),
+        "predicate": record.get("predicate"),
+        "object": record.get("object"),
+        "relationship_confidence": parsed_conf if source_type == "relationship" else None,
+    }
+
+
+def build_target_biology(
+    config: CaseConfig,
+    case_dir: Path,
+    connector_payloads: list[dict[str, Any]],
+) -> Path:
+    records: list[dict[str, Any]] = []
+    for connector_name in ("opentargets", "chembl", "biothings"):
+        payload = _connector_by_name(connector_payloads, connector_name)
+        if not payload:
+            continue
+        for idx, raw in enumerate(payload.get("records", [])):
+            if isinstance(raw, dict):
+                records.append(_normalize_target_biology_record(raw, connector_name, idx))
+    path = case_dir / "target_biology.json"
+    path.write_text(
+        json.dumps(
+            _envelope(config, "target_biology", {"records": records}, generated_by="pipeline/build_sources.py"),
+            indent=2,
+        )
+        + "\n",
+        encoding="utf-8",
+    )
+    return path
+
+
 def build_source_artifacts(
     config: CaseConfig,
     case_dir: Path,
@@ -197,6 +260,7 @@ def build_source_artifacts(
         build_source_manifest(config, case_dir, connector_payloads)
         build_literature_records(config, case_dir, connector_payloads)
         build_clinical_trials(config, case_dir, connector_payloads)
+        build_target_biology(config, case_dir, connector_payloads)
 
     for name in ("target_biology.json", "clinical_trials.json", "literature_records.json"):
         dest = case_dir / name

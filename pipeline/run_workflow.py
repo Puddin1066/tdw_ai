@@ -96,6 +96,79 @@ def _write_metadata(config: CaseConfig, case_dir: Path, mode: RunMode) -> Path:
     return path
 
 
+def _read_json(path: Path) -> dict[str, Any]:
+    payload = json.loads(path.read_text(encoding="utf-8"))
+    return payload if isinstance(payload, dict) else {}
+
+
+def _artifact_data(path: Path) -> dict[str, Any]:
+    payload = _read_json(path)
+    data = payload.get("data", {})
+    return data if isinstance(data, dict) else {}
+
+
+def _severity_rank(value: str) -> int:
+    order = {"critical": 4, "high": 3, "medium": 2, "low": 1}
+    return order.get(value.lower(), 0)
+
+
+def _evidence_density(rows_count: int) -> str:
+    if rows_count >= 12:
+        return "high"
+    if rows_count >= 6:
+        return "medium"
+    return "low"
+
+
+def _derive_metadata_summary(case_dir: Path) -> dict[str, Any]:
+    report_data = _artifact_data(case_dir / "diligence_report.json")
+    risk_data = _artifact_data(case_dir / "risk_map.json")
+    evidence_data = _artifact_data(case_dir / "evidence_table.json")
+    eval_data = _artifact_data(case_dir / "eval_results.json")
+
+    confidence = report_data.get("overall_confidence")
+    if not isinstance(confidence, (int, float)):
+        confidence = eval_data.get("aggregate_score", 0.0)
+    if not isinstance(confidence, (int, float)):
+        confidence = 0.0
+    confidence = max(0.0, min(1.0, float(confidence)))
+
+    maturity_stage = report_data.get("maturity_stage")
+    if not isinstance(maturity_stage, str) or not maturity_stage.strip():
+        maturity_stage = "unknown"
+
+    rows = evidence_data.get("rows", [])
+    rows_count = len(rows) if isinstance(rows, list) else 0
+
+    top_risk = "—"
+    risks = risk_data.get("risks", [])
+    if isinstance(risks, list) and risks:
+        ranked = sorted(
+            (risk for risk in risks if isinstance(risk, dict)),
+            key=lambda risk: _severity_rank(str(risk.get("severity", ""))),
+            reverse=True,
+        )
+        if ranked:
+            title = ranked[0].get("title")
+            if isinstance(title, str) and title.strip():
+                top_risk = title.strip()
+
+    return {
+        "maturity_stage": maturity_stage,
+        "confidence_score": round(confidence, 4),
+        "evidence_density": _evidence_density(rows_count),
+        "top_risk": top_risk,
+    }
+
+
+def _write_metadata_summary(metadata_path: Path, case_dir: Path) -> None:
+    metadata = yaml.safe_load(metadata_path.read_text(encoding="utf-8")) or {}
+    if not isinstance(metadata, dict):
+        metadata = {}
+    metadata.update(_derive_metadata_summary(case_dir))
+    metadata_path.write_text(yaml.safe_dump(metadata, sort_keys=False), encoding="utf-8")
+
+
 def _seed_fixture_artifacts(config: CaseConfig, case_dir: Path) -> None:
     fixture_dir = fixture_case_dir(config.case_id)
     if not fixture_dir.exists():
@@ -203,6 +276,7 @@ def run_case_workflow(config: CaseConfig, mode: RunMode, *, output_dir: Path | N
     generate_questions(config, case_dir, mode=mode)
     build_knowledge_graph(config, case_dir)
     _ensure_eval_results(config, case_dir, mode)
+    _write_metadata_summary(case_dir / "metadata.yaml", case_dir)
 
     validate_case_dir(case_dir, validate_schemas=False)
     return case_dir

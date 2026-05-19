@@ -91,6 +91,9 @@ def test_connector_live_mode_returns_result_not_raise(connector_name: str, confi
     elif connector_name == "clinicaltrials":
         assert result.records or result.warnings, "clinicaltrials live should return studies or warnings"
         assert not result.errors, "clinicaltrials live failures should not emit hard errors in happy path"
+    elif connector_name in {"opentargets", "chembl", "biothings"}:
+        assert result.records or result.warnings, f"{connector_name} live should return records or warnings"
+        assert not result.errors, f"{connector_name} live should not emit hard errors in happy path"
     elif connector_name == "local_docs":
         assert any("local_docs disabled" in w for w in result.warnings), (
             "local_docs should explicitly report disabled-source state"

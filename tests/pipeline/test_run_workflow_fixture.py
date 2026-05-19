@@ -61,6 +61,11 @@ def test_fixture_metadata_matches_config(generated_sting_pdac: Path) -> None:
     assert run_meta.get("synthesis_provider") == "mock"
     assert run_meta.get("mocked_api_calls") is True
     assert run_meta.get("using_live_api") is False
+    assert metadata.get("maturity_stage")
+    assert isinstance(metadata.get("confidence_score"), (int, float))
+    assert 0.0 <= float(metadata["confidence_score"]) <= 1.0
+    assert metadata.get("evidence_density") in {"low", "medium", "high"}
+    assert isinstance(metadata.get("top_risk"), str)
 
 
 def test_knowledge_graph_built_from_entities(generated_sting_pdac: Path) -> None:

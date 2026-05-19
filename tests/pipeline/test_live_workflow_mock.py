@@ -51,3 +51,8 @@ def test_live_workflow_metadata_marks_mocked_api_calls(live_case_dir: Path) -> N
     assert run_meta.get("mocked_api_calls") is True
     assert run_meta.get("using_live_api") is False
     assert "OPENAI_API_KEY missing" in (run_meta.get("provider_selection_reason") or "")
+    assert metadata.get("maturity_stage")
+    assert isinstance(metadata.get("confidence_score"), (int, float))
+    assert 0.0 <= float(metadata["confidence_score"]) <= 1.0
+    assert metadata.get("evidence_density") in {"low", "medium", "high"}
+    assert isinstance(metadata.get("top_risk"), str)
