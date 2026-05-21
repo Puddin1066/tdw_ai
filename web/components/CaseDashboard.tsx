@@ -48,6 +48,33 @@ export function CaseDashboard({ packet }: CaseDashboardProps) {
             {metadata.maturity_stage}
           </Badge>
         </div>
+        {metadata.input_profile ? (
+          <div className="rounded-md border border-border/60 bg-card/40 px-4 py-3 text-xs text-muted-foreground">
+            <p className="font-medium text-foreground/90">Input profile</p>
+            <div className="mt-1 grid gap-1 md:grid-cols-2">
+              <p>Mechanism: {metadata.input_profile.biology?.mechanism_direction ?? "—"}</p>
+              <p>Modality: {metadata.input_profile.biology?.modality ?? "—"}</p>
+              <p>Target alias: {metadata.input_profile.biology?.target_alias ?? "—"}</p>
+              <p>Patient segment: {metadata.input_profile.disease?.patient_segment ?? "—"}</p>
+              <p>Geography: {metadata.input_profile.disease?.geography ?? "—"}</p>
+              <p>Asset: {metadata.input_profile.program?.asset ?? "—"}</p>
+              <p>Company: {metadata.input_profile.program?.company ?? "—"}</p>
+              <p>Development stage: {metadata.input_profile.program?.development_stage ?? "—"}</p>
+              <p className="md:col-span-2">
+                Comparators: {(metadata.input_profile.program?.comparators ?? []).join("; ") || "—"}
+              </p>
+              <p className="md:col-span-2">
+                Strategic question: {metadata.input_profile.commercial?.strategic_question ?? "—"}
+              </p>
+              <p className="md:col-span-2">
+                Licensing question: {metadata.input_profile.commercial?.licensing_question ?? "—"}
+              </p>
+              <p className="md:col-span-2">
+                Investment question: {metadata.input_profile.commercial?.investment_question ?? "—"}
+              </p>
+            </div>
+          </div>
+        ) : null}
         {packet.loadErrors.length > 0 ? (
           <div className="rounded-md border border-amber-500/30 bg-amber-500/10 px-4 py-3 text-sm text-amber-200">
             <p className="font-medium">Partial data load</p>

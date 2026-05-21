@@ -13,36 +13,68 @@ import shutil
 import subprocess
 from typing import Any
 
+DEFAULT_BIOMCP_CONNECTORS = {
+    "pubmed",
+    "clinicaltrials",
+    "opentargets",
+    "chembl",
+    "biothings",
+    "uniprot",
+    "reactome",
+    "gwas",
+    "pharmgkb",
+    "openfda",
+}
+
+
+def _normalize_backend(value: str | None) -> str:
+    return (value or "").strip().lower()
+
 
 def should_use_biomcp_backend(connector_name: str) -> bool:
-    """Return True when connector backend is configured as `biomcp`."""
-    specific = os.environ.get(f"{connector_name.upper()}_BACKEND")
-    global_backend = os.environ.get("CONNECTOR_BACKEND")
-    backend = (specific or global_backend or "").strip().lower()
-    return backend == "biomcp"
+    """Return True when connector backend should use BioMCP.
+
+    Behavior:
+    - connector-specific `*_BACKEND` overrides global backend
+    - global `CONNECTOR_BACKEND` applies when specific backend is unset
+    - when neither is set, core biomedical connectors default to BioMCP
+    """
+    specific = _normalize_backend(os.environ.get(f"{connector_name.upper()}_BACKEND"))
+    global_backend = _normalize_backend(os.environ.get("CONNECTOR_BACKEND"))
+
+    if specific in {"biomcp", "native"}:
+        return specific == "biomcp"
+    if global_backend in {"biomcp", "native"}:
+        return global_backend == "biomcp"
+    return connector_name.strip().lower() in DEFAULT_BIOMCP_CONNECTORS
 
 
-def run_biomcp_search(entity: str, term: str, *, limit: int = 25) -> tuple[dict[str, Any] | None, str | None]:
+def run_biomcp_search(
+    entity: str,
+    term: str | None,
+    *,
+    limit: int = 25,
+    offset: int = 0,
+    options: list[str] | None = None,
+) -> tuple[dict[str, Any] | None, str | None]:
     """Execute a BioMCP search command and parse JSON output when possible."""
     if not shutil.which("biomcp"):
         return None, "biomcp executable not found in PATH"
+    safe_limit = _normalize_limit(entity, limit)
+    safe_offset = max(0, int(offset))
 
-    command = [
-        "biomcp",
-        "search",
-        entity,
-        "-q",
-        term,
-        "-l",
-        str(limit),
-        "-j",
-    ]
+    command = ["biomcp", "search", entity]
+    if term and term.strip():
+        command.append(term.strip())
+    if options:
+        command.extend(str(opt) for opt in options if str(opt).strip())
+    command.extend(["--offset", str(safe_offset), "-l", str(safe_limit), "-j"])
     try:
         proc = subprocess.run(
             command,
             capture_output=True,
             text=True,
-            timeout=float(os.environ.get("BIOMCP_TIMEOUT_SECONDS", "20")),
+            timeout=float(os.environ.get("BIOMCP_TIMEOUT_SECONDS", "90")),
             check=False,
         )
     except Exception as exc:  # noqa: BLE001
@@ -56,6 +88,14 @@ def run_biomcp_search(entity: str, term: str, *, limit: int = 25) -> tuple[dict[
     if payload is None:
         return None, "BioMCP output was not parseable JSON"
     return payload, None
+
+
+def _normalize_limit(entity: str, limit: int) -> int:
+    bounded = max(1, int(limit))
+    # trial search enforces hard max 50 in current BioMCP CLI.
+    if entity.strip().lower() == "trial":
+        return min(bounded, 50)
+    return bounded
 
 
 def _parse_json(text: str) -> dict[str, Any] | None:

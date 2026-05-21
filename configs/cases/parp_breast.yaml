@@ -18,12 +18,41 @@ indication:
     - triple-negative breast cancer
     - TNBC
 
+biology:
+  mechanism_direction: inhibit
+  modality: small molecule inhibitor
+  target_alias: PARP1
+
+disease:
+  patient_segment: BRCA-mutant HRD-positive metastatic breast cancer
+  geography: US/EU
+
+program:
+  asset: next-generation PARP inhibitor
+  company: Example Oncology Co
+  development_stage: phase 2
+  comparators:
+    - olaparib
+    - talazoparib
+    - sacituzumab govitecan
+
+commercial:
+  strategic_question: Does this PARP strategy improve durability in HRD-positive TNBC?
+  licensing_question: Which assets have strongest IP and safety profile in crowded PARP space?
+  investment_question: Is there room for differentiated efficacy or combination value creation?
+
 sources:
   pubmed: true
   clinicaltrials: true
   opentargets: true
   chembl: true
   biothings: true
+  uniprot: true
+  reactome: true
+  gwas: true
+  pharmgkb: true
+  openfda: true
+  octagon_market: false
   local_docs: false
 
 limits:

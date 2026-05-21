@@ -18,12 +18,41 @@ indication:
     - AD
     - dementia
 
+biology:
+  mechanism_direction: inhibit
+  modality: monoclonal antibody
+  target_alias: MAPT
+
+disease:
+  patient_segment: early symptomatic AD with tau positivity
+  geography: US/EU
+
+program:
+  asset: anti-tau antibody program
+  company: Example Neuro Therapeutics
+  development_stage: phase 2
+  comparators:
+    - lecanemab
+    - donanemab
+    - semorinemab
+
+commercial:
+  strategic_question: Can tau-targeted therapy deliver additive benefit beyond amyloid approaches?
+  licensing_question: Which tau assets have strongest clinical signal and biomarker strategy?
+  investment_question: Is there credible differentiation in efficacy, safety, or trial design?
+
 sources:
   pubmed: true
   clinicaltrials: true
   opentargets: true
   chembl: true
   biothings: true
+  uniprot: true
+  reactome: true
+  gwas: true
+  pharmgkb: true
+  openfda: true
+  octagon_market: false
   local_docs: false
 
 limits:

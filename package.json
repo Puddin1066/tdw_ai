@@ -16,7 +16,9 @@
     "test:evals": "python -m pytest tests/evals -q",
     "test:python": "python -m pytest -q",
     "fixture:sting": "python -m pipeline.run_workflow --config configs/cases/sting_pdac.yaml --mode fixture",
-    "fixture:all": "npm run fixture:sting && python -m pipeline.run_workflow --config configs/cases/parp_breast.yaml --mode fixture && python -m pipeline.run_workflow --config configs/cases/tau_alzheimers.yaml --mode fixture && python -m pipeline.run_workflow --config configs/cases/iaip_sepsis.yaml --mode fixture"
+    "fixture:all": "npm run fixture:sting && python -m pipeline.run_workflow --config configs/cases/parp_breast.yaml --mode fixture && python -m pipeline.run_workflow --config configs/cases/tau_alzheimers.yaml --mode fixture && python -m pipeline.run_workflow --config configs/cases/iaip_sepsis.yaml --mode fixture",
+    "publish:static:fixture": "python -m pipeline.publish_static --all-cases --mode fixture --build-web",
+    "publish:static:live": "python -m pipeline.publish_static --all-cases --mode live --build-web"
   },
   "engines": {
     "node": ">=20"

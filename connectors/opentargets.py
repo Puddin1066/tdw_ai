@@ -199,15 +199,21 @@ def _fetch_via_biomcp(config: CaseConfig) -> tuple[list[dict[str, Any]], dict[st
     warnings: list[str] = []
     payloads: dict[str, Any] = {}
     records: list[dict[str, Any]] = []
+    entities = ("disease", "gene", "drug")
     for term in _build_terms(config):
-        payload, err = run_biomcp_search("disease", term, limit=25)
-        if err:
-            warnings.append(f"BioMCP opentargets search warning ({term}): {err}")
-            continue
-        if payload is None:
-            continue
-        payloads[term] = payload
-        records.extend(_biomcp_records_to_ot(extract_records(payload), term))
+        for entity in entities:
+            for offset in (0, 25):
+                payload, err = run_biomcp_search(entity, term, limit=25, offset=offset)
+                if err:
+                    warnings.append(
+                        f"BioMCP opentargets search warning ({entity}:{term}, offset={offset}): {err}"
+                    )
+                    continue
+                if payload is None:
+                    continue
+                key = f"{entity}:{term}|offset={offset}"
+                payloads[key] = payload
+                records.extend(_biomcp_records_to_ot(extract_records(payload), key))
     return _dedupe_records(records), payloads, warnings
 
 

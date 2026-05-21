@@ -43,6 +43,11 @@
             "opentargets",
             "chembl",
             "biothings",
+            "uniprot",
+            "reactome",
+            "gwas",
+            "pharmgkb",
+            "openfda",
             "local_docs"
           ],
           "properties": {
@@ -51,6 +56,12 @@
             "opentargets": { "type": "boolean" },
             "chembl": { "type": "boolean" },
             "biothings": { "type": "boolean" },
+            "uniprot": { "type": "boolean" },
+            "reactome": { "type": "boolean" },
+            "gwas": { "type": "boolean" },
+            "pharmgkb": { "type": "boolean" },
+            "openfda": { "type": "boolean" },
+            "octagon_market": { "type": "boolean" },
             "local_docs": { "type": "boolean" }
           }
         },
@@ -74,6 +85,51 @@
           "properties": {
             "fixture_allowed": { "type": "boolean" },
             "live_allowed": { "type": "boolean" }
+          }
+        },
+        "input_profile": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "biology": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "mechanism_direction": { "type": ["string", "null"] },
+                "modality": { "type": ["string", "null"] },
+                "target_alias": { "type": ["string", "null"] }
+              }
+            },
+            "disease": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "patient_segment": { "type": ["string", "null"] },
+                "geography": { "type": ["string", "null"] }
+              }
+            },
+            "program": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "asset": { "type": ["string", "null"] },
+                "company": { "type": ["string", "null"] },
+                "development_stage": { "type": ["string", "null"] },
+                "comparators": {
+                  "type": "array",
+                  "items": { "type": "string" }
+                }
+              }
+            },
+            "commercial": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "strategic_question": { "type": ["string", "null"] },
+                "licensing_question": { "type": ["string", "null"] },
+                "investment_question": { "type": ["string", "null"] }
+              }
+            }
           }
         },
         "maturity_stage": { "type": "string" },

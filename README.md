@@ -89,7 +89,14 @@ Optional connector backend flags (safe rollout):
 - `OPENTARGETS_BACKEND=biomcp`
 - `CHEMBL_BACKEND=biomcp`
 - `BIOTHINGS_BACKEND=biomcp`
+- `PUBMED_BACKEND=biomcp`
+- `CLINICALTRIALS_BACKEND=biomcp`
+- `OCTAGON_MCP_COMMAND=octagon` (override Octagon CLI executable name)
+- `OCTAGON_API_KEY=...` (enables Octagon REST fallback when CLI is unavailable)
 
+Note: `octagon-mcp` from [OctagonAI/octagon-mcp-server](https://github.com/OctagonAI/octagon-mcp-server) is an MCP server process, not a direct `search` CLI. For this pipeline connector, use `OCTAGON_API_KEY` so REST fallback can retrieve market records.
+
+`pubmed` and `clinicaltrials` default to BioMCP in live mode (`*_BACKEND=native` to opt out).  
 If BioMCP is unavailable or returns invalid payloads, connectors fall back to native live logic and add warnings.
 
 ```bash
@@ -100,6 +107,34 @@ python -m pipeline.artifact_writer generated/cases/sting_pdac --copy-to-web
 ```
 
 Complete `docs/LIVE_CASE_REVIEW.md` after manual scientific review.
+
+## Static publish cache (deploy-ready)
+
+The web client is static and reads only cached case packets from `web/public/data/cases/`.
+
+Use the publish command to run workflow + evals + validated copy-to-web in one step:
+
+```bash
+# All configured cases in fixture mode, then static web build
+python -m pipeline.publish_static --all-cases --mode fixture --build-web
+
+# Single case in live mode
+python -m pipeline.publish_static --case sting_pdac --mode live
+```
+
+NPM shortcuts:
+
+```bash
+npm run publish:static:fixture
+npm run publish:static:live
+```
+
+Behavior:
+
+- generates packets under `generated/cases/{case_id}/`
+- runs evals and refreshes `eval_results.json`
+- validates and copies packets to `web/public/data/cases/{case_id}/`
+- optional `--build-web` compiles static output in `web/out`
 
 ## Validation
 

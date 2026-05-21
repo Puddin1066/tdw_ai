@@ -50,6 +50,11 @@ def test_live_workflow_metadata_marks_mocked_api_calls(live_case_dir: Path) -> N
     assert run_meta.get("synthesis_provider") == "mock"
     assert run_meta.get("mocked_api_calls") is True
     assert run_meta.get("using_live_api") is False
+    assert run_meta.get("input_primary_complete") is True
+    assert isinstance(run_meta.get("input_breadth_count"), int)
+    assert run_meta.get("input_quality_band") in {"MINIMAL", "STANDARD", "STRONG", "RICH"}
+    assert isinstance(run_meta.get("input_quality_warnings"), list)
+    assert run_meta.get("input_preferred_minimum_met") in {True, False}
     assert "OPENAI_API_KEY missing" in (run_meta.get("provider_selection_reason") or "")
     assert metadata.get("maturity_stage")
     assert isinstance(metadata.get("confidence_score"), (int, float))

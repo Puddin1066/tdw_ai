@@ -31,7 +31,7 @@
             },
             "biology_source": {
               "type": "string",
-              "enum": ["opentargets", "chembl", "biothings", "local"]
+              "enum": ["opentargets", "chembl", "biothings", "octagon", "local"]
             },
             "target_id": { "type": ["string", "null"] },
             "disease_id": { "type": ["string", "null"] },

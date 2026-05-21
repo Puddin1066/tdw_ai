@@ -2,11 +2,13 @@
 
 from __future__ import annotations
 
+import os
 from typing import Any
 
 import httpx
 
 from connectors._shared import FixtureCapableConnector
+from connectors.biomcp_adapter import extract_records, run_biomcp_search
 from connectors.base import (
     CaseConfig,
     ConnectorProvenance,
@@ -35,6 +37,20 @@ class ClinicalTrialsConnector(FixtureCapableConnector):
     def _fetch_live(self, config: CaseConfig, provenance: ConnectorProvenance) -> ConnectorResult:
         result = empty_result(self.name, config, "live", provenance)
         query = build_query(config)
+        if _use_biomcp_backend():
+            biomcp_records, biomcp_payload, biomcp_warnings = _fetch_via_biomcp(config)
+            if biomcp_records:
+                return result.model_copy(
+                    update={
+                        "query": query,
+                        "retrieved_at": utc_now_iso(),
+                        "records": biomcp_records,
+                        "warnings": biomcp_warnings,
+                        "raw_payload": {"backend": "biomcp", "payload": biomcp_payload},
+                    }
+                )
+            if biomcp_warnings:
+                result = result.model_copy(update={"warnings": biomcp_warnings})
         page_size = max(10, min(config.limits.max_trials, 100))
         search_terms = _build_search_terms(config, query.raw_query)
         max_trials = max(1, min(config.limits.max_trials, 150))
@@ -56,7 +72,7 @@ class ClinicalTrialsConnector(FixtureCapableConnector):
                     )
         except Exception as exc:  # noqa: BLE001
             return result.model_copy(
-                update={"errors": [f"ClinicalTrials.gov live fetch failed: {exc}"]}
+                update={"errors": [*result.errors, f"ClinicalTrials.gov live fetch failed: {exc}"]}
             )
 
         unique_trials = _dedupe_trials(combined_studies)
@@ -78,7 +94,7 @@ class ClinicalTrialsConnector(FixtureCapableConnector):
         )
         records = scored_records[:max_trials]
 
-        warnings: list[str] = []
+        warnings: list[str] = list(result.warnings)
         if not records:
             warnings.append("ClinicalTrials.gov live fetch returned zero studies.")
         elif len(records) < 8:
@@ -307,3 +323,104 @@ def _relevance_score(config: CaseConfig, record: dict[str, Any]) -> float:
     if "PHASE2" in phase or "PHASE3" in phase:
         score += 0.1
     return round(min(score, 1.0), 4)
+
+
+def _use_biomcp_backend() -> bool:
+    backend = (
+        os.environ.get("CLINICALTRIALS_BACKEND")
+        or os.environ.get("CONNECTOR_BACKEND")
+        or "biomcp"
+    ).strip().lower()
+    return backend == "biomcp"
+
+
+def _fetch_via_biomcp(config: CaseConfig) -> tuple[list[dict[str, Any]], dict[str, Any], list[str]]:
+    warnings: list[str] = []
+    payloads: dict[str, Any] = {}
+    rows: list[dict[str, Any]] = []
+    terms = _build_search_terms(config, build_query(config).raw_query)
+    per_page = max(10, min(config.limits.max_trials, 50))
+    offsets = (0, per_page)
+    for term in terms:
+        for offset in offsets:
+            payload, err = run_biomcp_search("trial", term, limit=per_page, offset=offset)
+            if err:
+                warnings.append(
+                    f"BioMCP clinicaltrials search warning ({term}, offset={offset}): {err}"
+                )
+                continue
+            if payload is None:
+                continue
+            payloads[f"{term}|offset={offset}"] = payload
+            rows.extend(_biomcp_rows_to_trials(extract_records(payload), term))
+
+    indication = config.indication.name.strip()
+    for target_term in [config.target.name, *config.target.aliases]:
+        text = target_term.strip()
+        if not text:
+            continue
+        for offset in offsets:
+            payload, err = run_biomcp_search(
+                "trial",
+                None,
+                limit=per_page,
+                offset=offset,
+                options=["-c", indication, "-i", text],
+            )
+            if err:
+                warnings.append(
+                    f"BioMCP clinicaltrials intervention warning ({text}, offset={offset}): {err}"
+                )
+                continue
+            if payload is None:
+                continue
+            key = f"condition={indication}|intervention={text}|offset={offset}"
+            payloads[key] = payload
+            rows.extend(_biomcp_rows_to_trials(extract_records(payload), key))
+    deduped: list[dict[str, Any]] = []
+    seen: set[str] = set()
+    for row in rows:
+        sid = str(row.get("source_record_id", ""))
+        if not sid or sid in seen:
+            continue
+        seen.add(sid)
+        deduped.append(row)
+    return deduped[: config.limits.max_trials], payloads, warnings
+
+
+def _biomcp_rows_to_trials(rows: list[dict[str, Any]], term: str) -> list[dict[str, Any]]:
+    out: list[dict[str, Any]] = []
+    for idx, row in enumerate(rows):
+        nct = str(row.get("nct_id") or row.get("id") or row.get("identifier") or "").strip().upper()
+        if not nct.startswith("NCT") or len(nct) != 11:
+            # keep deterministic id for schema; this preserves nonstandard rows as low-confidence.
+            continue
+        title = str(row.get("title") or row.get("brief_title") or f"Trial {nct}").strip()
+        status = str(row.get("overall_status") or row.get("status") or "Unknown").strip() or "Unknown"
+        interventions = row.get("interventions")
+        conditions = row.get("conditions")
+        out.append(
+            {
+                "source_record_id": f"clinicaltrials:{nct}",
+                "source_type": "clinical_trial",
+                "source_name": "ClinicalTrials.gov",
+                "title": title,
+                "url": row.get("url") or f"https://clinicaltrials.gov/study/{nct}",
+                "publication_date": row.get("publication_date"),
+                "retrieved_at": utc_now_iso(),
+                "raw_record_ref": f"raw/clinicaltrials_raw.json#biomcp/{term}/{idx}",
+                "nct_id": nct,
+                "brief_title": title,
+                "official_title": row.get("official_title"),
+                "phase": row.get("phase"),
+                "overall_status": status,
+                "study_type": row.get("study_type"),
+                "sponsor": row.get("sponsor"),
+                "interventions": interventions if isinstance(interventions, list) else [],
+                "conditions": conditions if isinstance(conditions, list) else [],
+                "start_date": row.get("start_date"),
+                "completion_date": row.get("completion_date"),
+                "enrollment_count": row.get("enrollment_count"),
+            }
+        )
+    return out

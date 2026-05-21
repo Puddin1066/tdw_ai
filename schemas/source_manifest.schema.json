@@ -46,7 +46,14 @@
         "warnings": {
           "type": "array",
           "items": { "type": "string" }
-        }
+        },
+        "backend_used": { "type": "string" },
+        "connection_status": {
+          "type": "string",
+          "enum": ["ok", "warning", "error"]
+        },
+        "value_score": { "type": "integer", "minimum": 0, "maximum": 5 },
+        "value_interpretation": { "type": "string" }
       }
     },
     "sourceManifestData": {
@@ -57,6 +64,93 @@
         "entries": {
           "type": "array",
           "items": { "$ref": "#/$defs/manifestEntry" }
+        },
+        "benchmark_plan": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "input_summary": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "target": { "type": "string" },
+                "indication": { "type": "string" },
+                "mechanism_direction": { "type": ["string", "null"] },
+                "modality": { "type": ["string", "null"] },
+                "target_alias": { "type": ["string", "null"] },
+                "patient_segment": { "type": ["string", "null"] },
+                "geography": { "type": ["string", "null"] },
+                "asset": { "type": ["string", "null"] },
+                "company": { "type": ["string", "null"] },
+                "development_stage": { "type": ["string", "null"] },
+                "comparators": {
+                  "type": "array",
+                  "items": { "type": "string" }
+                },
+                "strategic_question": { "type": ["string", "null"] },
+                "licensing_question": { "type": ["string", "null"] },
+                "investment_question": { "type": ["string", "null"] }
+              }
+            },
+            "comparable_topics": {
+              "type": "array",
+              "items": { "type": "string" }
+            },
+            "mcp_prompt_set": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "connector_name",
+                  "entity",
+                  "goal",
+                  "query_text",
+                  "options"
+                ],
+                "properties": {
+                  "connector_name": { "type": "string" },
+                  "entity": { "type": "string" },
+                  "goal": { "type": "string" },
+                  "query_text": { "type": "string" },
+                  "options": {
+                    "type": "array",
+                    "items": { "type": "string" }
+                  }
+                }
+              }
+            },
+            "mcp_prompt_runs": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "prompt_id",
+                  "connector_name",
+                  "status",
+                  "cached_at",
+                  "query_text",
+                  "response_text",
+                  "source_record_ids"
+                ],
+                "properties": {
+                  "prompt_id": { "type": "string" },
+                  "connector_name": { "type": "string" },
+                  "status": { "type": "string", "enum": ["ok", "warning", "error"] },
+                  "cached_at": { "$ref": "./_common.definitions.json#/$defs/isoDateTime" },
+                  "query_text": { "type": "string" },
+                  "response_text": { "type": "string" },
+                  "source_record_ids": {
+                    "type": "array",
+                    "items": { "type": "string" }
+                  },
+                  "warning": { "type": ["string", "null"] },
+                  "error": { "type": ["string", "null"] }
+                }
+              }
+            }
+          }
         }
       }
     }

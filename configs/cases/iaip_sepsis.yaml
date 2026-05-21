@@ -18,12 +18,41 @@ indication:
     - severe sepsis
     - systemic inflammatory response
 
+biology:
+  mechanism_direction: augment
+  modality: plasma-derived protein therapeutic
+  target_alias: inter-alpha inhibitor proteins
+
+disease:
+  patient_segment: ICU adults with early septic shock
+  geography: US
+
+program:
+  asset: IAIP replacement therapy
+  company: Example Critical Care Bio
+  development_stage: phase 1
+  comparators:
+    - corticosteroids
+    - anti-TNF approaches
+    - anti-endotoxin antibodies
+
+commercial:
+  strategic_question: Can IAIP augmentation reduce mortality in high-risk sepsis patients?
+  licensing_question: Are there scalable manufacturing and trial execution paths for IAIP therapy?
+  investment_question: Does biomarker-based stratification improve probability of success?
+
 sources:
   pubmed: true
   clinicaltrials: true
   opentargets: true
   chembl: true
   biothings: true
+  uniprot: true
+  reactome: true
+  gwas: true
+  pharmgkb: true
+  openfda: true
+  octagon_market: false
   local_docs: false
 
 limits:

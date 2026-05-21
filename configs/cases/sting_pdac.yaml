@@ -16,12 +16,41 @@ indication:
     - pancreatic ductal adenocarcinoma
     - PDAC
 
+biology:
+  mechanism_direction: activate
+  modality: small molecule agonist
+  target_alias: TMEM173
+
+disease:
+  patient_segment: KRAS-mutant metastatic PDAC
+  geography: US/EU
+
+program:
+  asset: STING agonist program
+  company: Example Biotech
+  development_stage: preclinical
+  comparators:
+    - CD40 agonist
+    - IL-12 intratumoral immunotherapy
+    - KRAS G12D inhibitor
+
+commercial:
+  strategic_question: Can STING activation improve IO response in PDAC?
+  licensing_question: Are there partner-ready STING assets for PDAC combination studies?
+  investment_question: Is this program differentiated versus adjacent innate-immunity assets?
+
 sources:
   pubmed: true
   clinicaltrials: true
   opentargets: true
   chembl: true
   biothings: true
+  uniprot: true
+  reactome: true
+  gwas: true
+  pharmgkb: true
+  openfda: true
+  octagon_market: false
   local_docs: false
 
 limits:

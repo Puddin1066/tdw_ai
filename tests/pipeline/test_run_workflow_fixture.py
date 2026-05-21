@@ -61,6 +61,11 @@ def test_fixture_metadata_matches_config(generated_sting_pdac: Path) -> None:
     assert run_meta.get("synthesis_provider") == "mock"
     assert run_meta.get("mocked_api_calls") is True
     assert run_meta.get("using_live_api") is False
+    assert run_meta.get("input_primary_complete") is True
+    assert isinstance(run_meta.get("input_breadth_count"), int)
+    assert run_meta.get("input_quality_band") in {"MINIMAL", "STANDARD", "STRONG", "RICH"}
+    assert isinstance(run_meta.get("input_quality_warnings"), list)
+    assert run_meta.get("input_preferred_minimum_met") in {True, False}
     assert metadata.get("maturity_stage")
     assert isinstance(metadata.get("confidence_score"), (int, float))
     assert 0.0 <= float(metadata["confidence_score"]) <= 1.0

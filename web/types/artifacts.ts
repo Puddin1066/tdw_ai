@@ -49,7 +49,7 @@ export type RiskSeverity = "low" | "medium" | "high" | "critical";
 
 export type ConnectorMode = "fixture" | "live";
 
-export type BiologySource = "opentargets" | "chembl" | "biothings" | "local";
+export type BiologySource = "opentargets" | "chembl" | "biothings" | "octagon" | "local";
 
 export type GraphNodeType =
   | "gene"
@@ -95,6 +95,12 @@ export interface CaseSources {
   opentargets: boolean;
   chembl: boolean;
   biothings: boolean;
+  uniprot: boolean;
+  reactome: boolean;
+  gwas: boolean;
+  pharmgkb: boolean;
+  openfda: boolean;
+  octagon_market: boolean;
   local_docs: boolean;
 }
 
@@ -119,6 +125,28 @@ export interface CaseMetadataData {
   sources: CaseSources;
   limits: CaseLimits;
   run_mode_defaults?: RunModeDefaults;
+  input_profile?: {
+    biology?: {
+      mechanism_direction?: string | null;
+      modality?: string | null;
+      target_alias?: string | null;
+    };
+    disease?: {
+      patient_segment?: string | null;
+      geography?: string | null;
+    };
+    program?: {
+      asset?: string | null;
+      company?: string | null;
+      development_stage?: string | null;
+      comparators?: string[];
+    };
+    commercial?: {
+      strategic_question?: string | null;
+      licensing_question?: string | null;
+      investment_question?: string | null;
+    };
+  };
   maturity_stage?: string;
   confidence_score?: number;
   evidence_density?: EvidenceDensity;
@@ -148,10 +176,51 @@ export interface ManifestEntry {
   api_version?: string | null;
   errors?: string[];
   warnings?: string[];
+  backend_used?: string;
+  connection_status?: "ok" | "warning" | "error";
+  value_score?: number;
+  value_interpretation?: string;
 }
 
 export interface SourceManifestData {
   entries: ManifestEntry[];
+  benchmark_plan?: {
+    input_summary?: {
+      target?: string;
+      indication?: string;
+      mechanism_direction?: string | null;
+      modality?: string | null;
+      target_alias?: string | null;
+      patient_segment?: string | null;
+      geography?: string | null;
+      asset?: string | null;
+      company?: string | null;
+      development_stage?: string | null;
+      comparators?: string[];
+      strategic_question?: string | null;
+      licensing_question?: string | null;
+      investment_question?: string | null;
+    };
+    comparable_topics?: string[];
+    mcp_prompt_set?: Array<{
+      connector_name: string;
+      entity: string;
+      goal: string;
+      query_text: string;
+      options: string[];
+    }>;
+    mcp_prompt_runs?: Array<{
+      prompt_id: string;
+      connector_name: string;
+      status: "ok" | "warning" | "error";
+      cached_at: string;
+      query_text: string;
+      response_text: string;
+      source_record_ids: string[];
+      warning?: string | null;
+      error?: string | null;
+    }>;
+  };
 }
 
 export type SourceManifestArtifact = ArtifactEnvelope<SourceManifestData> & {
@@ -413,6 +482,7 @@ export interface CaseMetadata {
   display_name?: string;
   target_name: string;
   indication_name: string;
+  input_profile?: CaseMetadataData["input_profile"];
   maturity_stage: string;
   confidence_score: number;
   evidence_density: EvidenceDensity;

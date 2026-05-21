@@ -165,15 +165,20 @@ def build_source_manifest(
                 "raw_record_ref": f"raw/{payload.get('connector_name')}_raw.json",
                 "warnings": payload.get("warnings", []),
                 "errors": payload.get("errors", []),
+                "backend_used": _backend_used(payload),
+                "connection_status": _connection_status(payload),
+                "value_score": _value_score(payload),
+                "value_interpretation": _value_interpretation(payload),
             }
         )
+    benchmark_plan = _build_benchmark_plan(config, entries, connector_payloads)
     path = case_dir / "source_manifest.json"
     path.write_text(
         json.dumps(
             _envelope(
                 config,
                 "source_manifest",
-                {"entries": entries},
+                {"entries": entries, "benchmark_plan": benchmark_plan},
                 generated_by="pipeline/build_sources.py",
             ),
             indent=2,
@@ -184,12 +189,251 @@ def build_source_manifest(
     return path
 
 
+def _build_benchmark_plan(
+    config: CaseConfig,
+    entries: list[dict[str, Any]],
+    connector_payloads: list[dict[str, Any]],
+) -> dict[str, Any]:
+    comparators = list(config.input_profile.program.comparators)
+    target = config.target.name
+    indication = config.indication.name
+    modality = config.input_profile.biology.modality
+    mechanism = config.input_profile.biology.mechanism_direction
+    dev_stage = config.input_profile.program.development_stage
+
+    topics: list[str] = [
+        f"{target} in {indication}",
+        f"{target} {indication} development programs",
+        f"{target} mechanism peers in {indication}",
+    ]
+    if modality:
+        topics.append(f"{modality} peers for {target} in {indication}")
+    if comparators:
+        topics.extend(comparators[:5])
+
+    deduped_topics: list[str] = []
+    seen_topics: set[str] = set()
+    for topic in topics:
+        text = str(topic).strip()
+        if not text:
+            continue
+        key = text.lower()
+        if key in seen_topics:
+            continue
+        seen_topics.add(key)
+        deduped_topics.append(text)
+
+    enabled_connectors = [
+        entry.get("connector_name", "unknown")
+        for entry in entries
+        if isinstance(entry.get("connector_name"), str)
+        and entry.get("connector_name")
+        in {
+            "pubmed",
+            "clinicaltrials",
+            "opentargets",
+            "chembl",
+            "biothings",
+            "uniprot",
+            "reactome",
+            "gwas",
+            "pharmgkb",
+            "openfda",
+        }
+    ]
+    prompt_set: list[dict[str, Any]] = []
+    for connector_name in enabled_connectors:
+        for topic in deduped_topics[:4]:
+            prompt_set.append(
+                {
+                    "connector_name": connector_name,
+                    "entity": _connector_entity_hint(connector_name),
+                    "goal": "comparable_benchmark_generation",
+                    "query_text": topic,
+                    "options": _connector_options_hint(connector_name, modality, mechanism, dev_stage),
+                }
+            )
+
+    payload_by_connector: dict[str, dict[str, Any]] = {}
+    for payload in connector_payloads:
+        name = payload.get("connector_name")
+        if isinstance(name, str) and name:
+            payload_by_connector[name] = payload
+
+    prompt_runs: list[dict[str, Any]] = []
+    for idx, prompt in enumerate(prompt_set):
+        connector_name = prompt["connector_name"]
+        payload = payload_by_connector.get(connector_name, {})
+        records = payload.get("records", [])
+        warnings = payload.get("warnings", [])
+        errors = payload.get("errors", [])
+        status = "ok"
+        if isinstance(errors, list) and errors:
+            status = "error"
+        elif isinstance(warnings, list) and warnings:
+            status = "warning"
+        sample_records = records if isinstance(records, list) else []
+        top_rows = [row for row in sample_records if isinstance(row, dict)][:3]
+        source_ids = [str(row.get("source_record_id", "")) for row in top_rows if row.get("source_record_id")]
+        evidence_lines = [str(row.get("title") or row.get("name") or row.get("id") or "").strip() for row in top_rows]
+        evidence_lines = [line for line in evidence_lines if line]
+        response_text = (
+            "; ".join(evidence_lines)
+            if evidence_lines
+            else "No high-confidence records returned for this connector/topic pair."
+        )
+        response_warning = (
+            str(warnings[0]) if isinstance(warnings, list) and warnings else None
+        )
+        response_error = str(errors[0]) if isinstance(errors, list) and errors else None
+        prompt_runs.append(
+            {
+                "prompt_id": f"mcp_prompt_{idx + 1:03d}",
+                "connector_name": connector_name,
+                "status": status,
+                "cached_at": utc_now_iso(),
+                "query_text": prompt["query_text"],
+                "response_text": response_text,
+                "source_record_ids": source_ids,
+                "warning": response_warning,
+                "error": response_error,
+            }
+        )
+
+    return {
+        "input_summary": {
+            "target": target,
+            "indication": indication,
+            "mechanism_direction": mechanism,
+            "modality": modality,
+            "target_alias": config.input_profile.biology.target_alias,
+            "patient_segment": config.input_profile.disease.patient_segment,
+            "geography": config.input_profile.disease.geography,
+            "asset": config.input_profile.program.asset,
+            "company": config.input_profile.program.company,
+            "development_stage": dev_stage,
+            "comparators": comparators,
+            "strategic_question": config.input_profile.commercial.strategic_question,
+            "licensing_question": config.input_profile.commercial.licensing_question,
+            "investment_question": config.input_profile.commercial.investment_question,
+        },
+        "comparable_topics": deduped_topics,
+        "mcp_prompt_set": prompt_set,
+        "mcp_prompt_runs": prompt_runs,
+    }
+
+
+def _backend_used(payload: dict[str, Any]) -> str:
+    raw_payload = payload.get("raw_payload")
+    if isinstance(raw_payload, dict):
+        backend = raw_payload.get("backend")
+        if isinstance(backend, str) and backend.strip():
+            return backend.strip().lower()
+    warnings = payload.get("warnings", [])
+    if isinstance(warnings, list):
+        for warning in warnings:
+            if not isinstance(warning, str):
+                continue
+            low = warning.lower()
+            if "biomcp" in low:
+                return "biomcp_fallback"
+    return "native"
+
+
+def _connection_status(payload: dict[str, Any]) -> str:
+    errors = payload.get("errors", [])
+    if isinstance(errors, list) and errors:
+        return "error"
+    warnings = payload.get("warnings", [])
+    if isinstance(warnings, list) and warnings:
+        return "warning"
+    return "ok"
+
+
+def _value_score(payload: dict[str, Any]) -> int:
+    records = payload.get("records", [])
+    record_count = len(records) if isinstance(records, list) else 0
+    score = 0
+    if record_count >= 50:
+        score += 3
+    elif record_count >= 10:
+        score += 2
+    elif record_count >= 1:
+        score += 1
+    warnings = payload.get("warnings", [])
+    errors = payload.get("errors", [])
+    if isinstance(errors, list) and errors:
+        score -= 2
+    elif isinstance(warnings, list) and warnings:
+        score -= 1
+    return max(0, min(5, score))
+
+
+def _value_interpretation(payload: dict[str, Any]) -> str:
+    status = _connection_status(payload)
+    value = _value_score(payload)
+    backend = _backend_used(payload)
+    if status == "error":
+        return "Low value: connector errors prevented reliable evidence retrieval."
+    if backend == "biomcp" and value >= 3:
+        return "High value: BioMCP-backed retrieval contributed strong signal."
+    if backend == "biomcp_fallback":
+        return "Moderate value: records available but BioMCP path had fallback warnings."
+    if value >= 3:
+        return "Moderate value: native retrieval returned usable evidence volume."
+    if value >= 1:
+        return "Low-to-moderate value: sparse evidence requires follow-up."
+    return "Low value: minimal evidence returned for this connector."
+
+
+def _connector_entity_hint(connector_name: str) -> str:
+    mapping = {
+        "pubmed": "article",
+        "clinicaltrials": "trial",
+        "opentargets": "disease/gene/drug",
+        "chembl": "drug",
+        "biothings": "gene/disease",
+        "uniprot": "protein",
+        "reactome": "pathway",
+        "gwas": "gwas",
+        "pharmgkb": "pgx",
+        "openfda": "adverse-event",
+    }
+    return mapping.get(connector_name, "record")
+
+
+def _connector_options_hint(
+    connector_name: str,
+    modality: str | None,
+    mechanism: str | None,
+    dev_stage: str | None,
+) -> list[str]:
+    options: list[str] = []
+    if connector_name == "pubmed":
+        options.extend(["--source all", "--ranking-mode hybrid"])
+    if connector_name == "clinicaltrials":
+        options.append("--page-size 50")
+    if modality:
+        options.append(f"modality={modality}")
+    if mechanism:
+        options.append(f"mechanism_direction={mechanism}")
+    if dev_stage:
+        options.append(f"development_stage={dev_stage}")
+    return options
+
+
 def _normalize_target_biology_record(record: dict[str, Any], connector_name: str, idx: int) -> dict[str, Any]:
     source_id = str(record.get("source_record_id") or f"{connector_name}:record:{idx}")
     source_type = str(record.get("source_type") or "relationship")
     if source_type not in {"target_biology", "compound", "relationship"}:
         source_type = "relationship"
-    biology_source = connector_name if connector_name in {"opentargets", "chembl", "biothings"} else "local"
+    biology_source = (
+        connector_name
+        if connector_name in {"opentargets", "chembl", "biothings", "octagon_market"}
+        else "local"
+    )
+    if biology_source == "octagon_market":
+        biology_source = "octagon"
     confidence = record.get("association_score")
     if confidence is None:
         confidence = record.get("relationship_confidence")
@@ -228,7 +472,7 @@ def build_target_biology(
     connector_payloads: list[dict[str, Any]],
 ) -> Path:
     records: list[dict[str, Any]] = []
-    for connector_name in ("opentargets", "chembl", "biothings"):
+    for connector_name in ("opentargets", "chembl", "biothings", "octagon_market"):
         payload = _connector_by_name(connector_payloads, connector_name)
         if not payload:
             continue

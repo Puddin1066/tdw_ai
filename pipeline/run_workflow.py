@@ -17,7 +17,7 @@ from pipeline._artifacts import copy_fixture_artifact
 from pipeline.build_sources import build_source_artifacts
 from pipeline.artifact_writer import ArtifactValidationError, validate_case_dir
 from pipeline.build_graph import build_knowledge_graph
-from pipeline.config_loader import ConfigValidationError, load_case_config
+from pipeline.config_loader import ConfigValidationError, load_case_config, summarize_input_quality
 from pipeline.generate_claims import generate_claims
 from pipeline.generate_questions import generate_questions
 from pipeline.generate_report import generate_report
@@ -49,6 +49,12 @@ CONNECTOR_BINDINGS: dict[str, tuple[str, str]] = {
     "opentargets": ("connectors.opentargets", "OpenTargetsConnector"),
     "chembl": ("connectors.chembl", "ChEMBLConnector"),
     "biothings": ("connectors.biothings", "BioThingsConnector"),
+    "uniprot": ("connectors.uniprot", "UniProtConnector"),
+    "reactome": ("connectors.reactome", "ReactomeConnector"),
+    "gwas": ("connectors.gwas", "GwasConnector"),
+    "pharmgkb": ("connectors.pharmgkb", "PharmGkbConnector"),
+    "openfda": ("connectors.openfda", "OpenFdaConnector"),
+    "octagon_market": ("connectors.octagon_market", "OctagonMarketConnector"),
     "local_docs": ("connectors.local_docs", "LocalDocsConnector"),
 }
 
@@ -61,6 +67,12 @@ def _enabled_connectors(config: CaseConfig) -> list[str]:
         "opentargets": sources.opentargets,
         "chembl": sources.chembl,
         "biothings": sources.biothings,
+        "uniprot": getattr(sources, "uniprot", False),
+        "reactome": getattr(sources, "reactome", False),
+        "gwas": getattr(sources, "gwas", False),
+        "pharmgkb": getattr(sources, "pharmgkb", False),
+        "openfda": getattr(sources, "openfda", False),
+        "octagon_market": getattr(sources, "octagon_market", False),
         "local_docs": sources.local_docs,
     }
     return [name for name, enabled in mapping.items() if enabled]
@@ -81,6 +93,7 @@ def _import_connector(name: str) -> Any | None:
 def _write_metadata(config: CaseConfig, case_dir: Path, mode: RunMode) -> Path:
     provider_status = get_provider_status(prefer_live=(mode == "live"))
     metadata = config.to_metadata_dict()
+    input_quality = summarize_input_quality(config)
     metadata["run"] = {
         "mode": mode,
         "generated_at": utc_now_iso(),
@@ -90,6 +103,7 @@ def _write_metadata(config: CaseConfig, case_dir: Path, mode: RunMode) -> Path:
         "mocked_api_calls": provider_status["mocked_api_calls"],
         "using_live_api": provider_status["using_live_api"],
         "provider_selection_reason": provider_status["selection_reason"],
+        **input_quality,
     }
     path = case_dir / "metadata.yaml"
     path.write_text(yaml.safe_dump(metadata, sort_keys=False), encoding="utf-8")

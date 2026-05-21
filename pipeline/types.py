@@ -78,6 +78,7 @@ class BiologySource(StrEnum):
     OPENTARGETS = "opentargets"
     CHEMBL = "chembl"
     BIOTHINGS = "biothings"
+    OCTAGON = "octagon"
     LOCAL = "local"
 
 
@@ -123,6 +124,12 @@ class CaseSources(BaseModel):
     opentargets: bool
     chembl: bool
     biothings: bool
+    uniprot: bool = False
+    reactome: bool = False
+    gwas: bool = False
+    pharmgkb: bool = False
+    openfda: bool = False
+    octagon_market: bool = False
     local_docs: bool
 
 
@@ -153,6 +160,7 @@ class CaseMetadataData(BaseModel):
     sources: CaseSources
     limits: CaseLimits
     run_mode_defaults: RunModeDefaults | None = None
+    input_profile: dict[str, object] | None = None
     maturity_stage: str | None = None
     confidence_score: float | None = Field(default=None, ge=0, le=1)
     evidence_density: EvidenceDensity | None = None
@@ -188,6 +196,7 @@ class SourceManifestData(BaseModel):
     model_config = ConfigDict(extra="forbid")
 
     entries: list[ManifestEntry]
+    benchmark_plan: dict[str, object] | None = None
 
 
 class ExternalIds(BaseModel):
@@ -543,6 +552,12 @@ class SourcesConfig:
     opentargets: bool = False
     chembl: bool = False
     biothings: bool = False
+    uniprot: bool = False
+    reactome: bool = False
+    gwas: bool = False
+    pharmgkb: bool = False
+    openfda: bool = False
+    octagon_market: bool = False
     local_docs: bool = False
 
 
@@ -551,6 +566,42 @@ class LimitsConfig:
     max_literature_records: int = 50
     max_trials: int = 100
     max_evidence_rows: int = 100
+
+
+@dataclass(frozen=True)
+class InputBiology:
+    mechanism_direction: str | None = None
+    modality: str | None = None
+    target_alias: str | None = None
+
+
+@dataclass(frozen=True)
+class InputDisease:
+    patient_segment: str | None = None
+    geography: str | None = None
+
+
+@dataclass(frozen=True)
+class InputProgram:
+    asset: str | None = None
+    company: str | None = None
+    development_stage: str | None = None
+    comparators: list[str] = field(default_factory=list)
+
+
+@dataclass(frozen=True)
+class InputCommercial:
+    strategic_question: str | None = None
+    licensing_question: str | None = None
+    investment_question: str | None = None
+
+
+@dataclass(frozen=True)
+class InputProfile:
+    biology: InputBiology = field(default_factory=InputBiology)
+    disease: InputDisease = field(default_factory=InputDisease)
+    program: InputProgram = field(default_factory=InputProgram)
+    commercial: InputCommercial = field(default_factory=InputCommercial)
 
 
 @dataclass(frozen=True)
@@ -564,6 +615,7 @@ class CaseConfig:
     sources: SourcesConfig
     limits: LimitsConfig
     run_mode_defaults: RunModeDefaults
+    input_profile: InputProfile = field(default_factory=InputProfile)
     config_path: Path | None = None
 
     def to_metadata_dict(self) -> dict[str, object]:
@@ -587,12 +639,40 @@ class CaseConfig:
                 "opentargets": self.sources.opentargets,
                 "chembl": self.sources.chembl,
                 "biothings": self.sources.biothings,
+                "uniprot": self.sources.uniprot,
+                "reactome": self.sources.reactome,
+                "gwas": self.sources.gwas,
+                "pharmgkb": self.sources.pharmgkb,
+                "openfda": self.sources.openfda,
+                "octagon_market": self.sources.octagon_market,
                 "local_docs": self.sources.local_docs,
             },
             "limits": {
                 "max_literature_records": self.limits.max_literature_records,
                 "max_trials": self.limits.max_trials,
                 "max_evidence_rows": self.limits.max_evidence_rows,
+            },
+            "input_profile": {
+                "biology": {
+                    "mechanism_direction": self.input_profile.biology.mechanism_direction,
+                    "modality": self.input_profile.biology.modality,
+                    "target_alias": self.input_profile.biology.target_alias,
+                },
+                "disease": {
+                    "patient_segment": self.input_profile.disease.patient_segment,
+                    "geography": self.input_profile.disease.geography,
+                },
+                "program": {
+                    "asset": self.input_profile.program.asset,
+                    "company": self.input_profile.program.company,
+                    "development_stage": self.input_profile.program.development_stage,
+                    "comparators": list(self.input_profile.program.comparators),
+                },
+                "commercial": {
+                    "strategic_question": self.input_profile.commercial.strategic_question,
+                    "licensing_question": self.input_profile.commercial.licensing_question,
+                    "investment_question": self.input_profile.commercial.investment_question,
+                },
             },
         }
 

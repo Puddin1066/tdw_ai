@@ -200,16 +200,25 @@ def _fetch_via_biomcp(config: CaseConfig) -> tuple[list[dict[str, Any]], dict[st
     warnings: list[str] = []
     payloads: dict[str, Any] = {}
     rows: list[dict[str, Any]] = []
-    terms = _dedupe_terms([config.target.name, *config.target.aliases, config.indication.name])
+    terms = _dedupe_terms(
+        [
+            config.target.name,
+            *config.target.aliases,
+            config.indication.name,
+            *config.indication.aliases,
+            f"{config.target.name} {config.indication.name}",
+        ]
+    )
     for term in terms:
-        payload, err = run_biomcp_search("drug", term, limit=25)
-        if err:
-            warnings.append(f"BioMCP chembl search warning ({term}): {err}")
-            continue
-        if payload is None:
-            continue
-        payloads[term] = payload
-        rows.extend(_biomcp_rows_to_chembl(extract_records(payload), term))
+        for offset in (0, 25):
+            payload, err = run_biomcp_search("drug", term, limit=25, offset=offset)
+            if err:
+                warnings.append(f"BioMCP chembl search warning ({term}, offset={offset}): {err}")
+                continue
+            if payload is None:
+                continue
+            payloads[f"{term}|offset={offset}"] = payload
+            rows.extend(_biomcp_rows_to_chembl(extract_records(payload), term))
     return _dedupe_records(rows), payloads, warnings
 
 

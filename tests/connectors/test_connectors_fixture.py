@@ -42,6 +42,7 @@ def sting_pdac_config(*, local_docs_enabled: bool = False) -> CaseConfig:
             opentargets=True,
             chembl=True,
             biothings=True,
+            octagon_market=True,
             local_docs=local_docs_enabled,
         ),
         limits=LimitsConfig(
@@ -91,7 +92,10 @@ def test_connector_live_mode_returns_result_not_raise(connector_name: str, confi
     elif connector_name == "clinicaltrials":
         assert result.records or result.warnings, "clinicaltrials live should return studies or warnings"
         assert not result.errors, "clinicaltrials live failures should not emit hard errors in happy path"
-    elif connector_name in {"opentargets", "chembl", "biothings"}:
+    elif connector_name in {"opentargets", "chembl", "biothings", "octagon_market"}:
+        assert result.records or result.warnings, f"{connector_name} live should return records or warnings"
+        assert not result.errors, f"{connector_name} live should not emit hard errors in happy path"
+    elif connector_name in {"uniprot", "reactome", "gwas", "pharmgkb", "openfda"}:
         assert result.records or result.warnings, f"{connector_name} live should return records or warnings"
         assert not result.errors, f"{connector_name} live should not emit hard errors in happy path"
     elif connector_name == "local_docs":
