@@ -36,6 +36,18 @@ class ChEMBLConnector(FixtureCapableConnector):
     def _fetch_live(self, config: CaseConfig, provenance: ConnectorProvenance) -> ConnectorResult:
         result = empty_result(self.name, config, "live", provenance)
         query = build_query(config)
+        if not query.raw_query.strip():
+            return result.model_copy(
+                update={
+                    "query": query,
+                    "retrieved_at": utc_now_iso(),
+                    "warnings": [
+                        *result.warnings,
+                        "ChEMBL skipped: no target/indication anchor provided; add either field for retrieval.",
+                    ],
+                    "raw_payload": {"responses": []},
+                }
+            )
         if should_use_biomcp_backend(self.name):
             biomcp_records, biomcp_payload, biomcp_warnings = _fetch_via_biomcp(config)
             if biomcp_records:

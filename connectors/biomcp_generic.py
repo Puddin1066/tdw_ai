@@ -43,15 +43,24 @@ def fetch_records(
     limit: int = 25,
     offsets: tuple[int, ...] = (0, 25),
     terms: list[str] | None = None,
+    ignore_error_substrings: tuple[str, ...] = (),
 ) -> tuple[list[dict[str, Any]], dict[str, Any], list[str]]:
     warnings: list[str] = []
     payloads: dict[str, Any] = {}
     records: list[dict[str, Any]] = []
     query_terms = terms if terms is not None else build_biomcp_terms(config)
+    if not query_terms:
+        warnings.append(
+            f"BioMCP {connector_name} skipped: no semantic anchors provided (target/indication/input profile)."
+        )
+        return records, payloads, warnings
     for term in query_terms:
         for offset in offsets:
             payload, err = run_biomcp_search(entity, term, limit=limit, offset=offset)
             if err:
+                lowered = err.lower()
+                if any(token.lower() in lowered for token in ignore_error_substrings):
+                    continue
                 warnings.append(
                     f"BioMCP {connector_name} search warning ({entity}:{term}, offset={offset}): {err}"
                 )

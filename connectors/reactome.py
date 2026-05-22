@@ -25,6 +25,7 @@ class ReactomeConnector(FixtureCapableConnector):
             entity="pathway",
             config=config,
             limit=25,
+            ignore_error_substrings=("no entries found for query", "http 404 not found"),
         )
         return result.model_copy(
             update={

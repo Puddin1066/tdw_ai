@@ -37,6 +37,17 @@ class PubMedConnector(FixtureCapableConnector):
     def _fetch_live(self, config: CaseConfig, provenance: ConnectorProvenance) -> ConnectorResult:
         result = empty_result(self.name, config, "live", provenance)
         query = build_query(config)
+        if not query.raw_query.strip():
+            return result.model_copy(
+                update={
+                    "query": query,
+                    "retrieved_at": utc_now_iso(),
+                    "warnings": [
+                        *result.warnings,
+                        "PubMed skipped: no target/indication anchor provided; add either field for retrieval.",
+                    ],
+                }
+            )
         if _use_biomcp_backend():
             biomcp_records, biomcp_payload, biomcp_warnings = _fetch_via_biomcp(config)
             if biomcp_records:
@@ -177,7 +188,7 @@ def _fetch_via_biomcp(config: CaseConfig) -> tuple[list[dict[str, Any]], dict[st
     terms = _build_biomcp_terms(config)
     rows: list[dict[str, Any]] = []
     per_page = min(max(config.limits.max_literature_records, 20), 50)
-    offsets = (0, per_page)
+    offsets = (0,)
     for term in terms:
         for offset in offsets:
             payload, err = run_biomcp_search(

@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+from dataclasses import replace
+
 from connectors.biomcp_adapter import should_use_biomcp_backend
 from connectors.biothings import BioThingsConnector
 from connectors.chembl import ChEMBLConnector
@@ -11,6 +13,8 @@ from connectors.pharmgkb import PharmGkbConnector
 from connectors.pubmed import PubMedConnector
 from connectors.reactome import ReactomeConnector
 from connectors.uniprot import UniProtConnector
+from connectors.base import build_raw_query
+from pipeline.types import IndicationConfig, TargetConfig
 from tests.connectors.test_connectors_fixture import sting_pdac_config
 
 
@@ -166,3 +170,71 @@ def test_other_new_connectors_biomcp_backend_path(monkeypatch) -> None:
         assert result.records
         assert result.records[0]["source_record_id"].startswith(prefix)
         assert result.raw_payload and result.raw_payload.get("backend") == "biomcp"
+
+
+def test_build_raw_query_handles_missing_anchor_fields() -> None:
+    class _Target:
+        name = ""
+        aliases: list[str] = []
+
+    class _Indication:
+        name = "pancreatic cancer"
+        aliases: list[str] = []
+
+    assert build_raw_query(_Target(), _Indication()) == "(pancreatic cancer)"
+    _Indication.name = ""
+    assert build_raw_query(_Target(), _Indication()) == ""
+
+
+def _empty_anchor_config():
+    config = sting_pdac_config()
+    return replace(
+        config,
+        target=TargetConfig(name="", canonical_id=None, aliases=[]),
+        indication=IndicationConfig(name="", aliases=[]),
+    )
+
+
+def test_pubmed_skips_with_warning_when_no_anchors() -> None:
+    config = _empty_anchor_config()
+    result = PubMedConnector().fetch(config, "live")
+    assert result.records == []
+    assert any("PubMed skipped" in warning for warning in result.warnings)
+
+
+def test_clinicaltrials_skips_with_warning_when_no_anchors() -> None:
+    config = _empty_anchor_config()
+    result = ClinicalTrialsConnector().fetch(config, "live")
+    assert result.records == []
+    assert any("ClinicalTrials skipped" in warning for warning in result.warnings)
+
+
+def test_biothings_skips_with_warning_when_no_anchors() -> None:
+    config = _empty_anchor_config()
+    result = BioThingsConnector().fetch(config, "live")
+    assert result.records == []
+    assert any("BioThings skipped" in warning for warning in result.warnings)
+
+
+def test_chembl_skips_with_warning_when_no_anchors() -> None:
+    config = _empty_anchor_config()
+    result = ChEMBLConnector().fetch(config, "live")
+    assert result.records == []
+    assert any("ChEMBL skipped" in warning for warning in result.warnings)
+
+
+def test_opentargets_skips_with_warning_when_no_anchors() -> None:
+    config = _empty_anchor_config()
+    result = OpenTargetsConnector().fetch(config, "live")
+    assert result.records == []
+    assert any("Open Targets skipped" in warning for warning in result.warnings)
+
+
+def test_gwas_and_pharmgkb_skip_without_gene_symbol_anchor() -> None:
+    config = _empty_anchor_config()
+    gwas_result = GwasConnector().fetch(config, "live")
+    pharm_result = PharmGkbConnector().fetch(config, "live")
+    assert gwas_result.records == []
+    assert pharm_result.records == []
+    assert any("GWAS skipped" in warning for warning in gwas_result.warnings)
+    assert any("PharmGKB skipped" in warning for warning in pharm_result.warnings)

@@ -95,11 +95,19 @@ def utc_now_iso() -> str:
 
 
 def build_raw_query(target: Any, indication: Any) -> str:
-    target_terms = [target.name, *target.aliases]
-    indication_terms = [indication.name, *indication.aliases]
-    target_clause = " OR ".join(dict.fromkeys(target_terms))
-    indication_clause = " OR ".join(dict.fromkeys(indication_terms))
-    return f"({target_clause}) AND ({indication_clause})"
+    target_terms = [str(target.name or "").strip(), *(str(v).strip() for v in target.aliases)]
+    indication_terms = [str(indication.name or "").strip(), *(str(v).strip() for v in indication.aliases)]
+    target_terms = [term for term in dict.fromkeys(target_terms) if term]
+    indication_terms = [term for term in dict.fromkeys(indication_terms) if term]
+    target_clause = " OR ".join(target_terms)
+    indication_clause = " OR ".join(indication_terms)
+    if target_clause and indication_clause:
+        return f"({target_clause}) AND ({indication_clause})"
+    if target_clause:
+        return f"({target_clause})"
+    if indication_clause:
+        return f"({indication_clause})"
+    return ""
 
 
 def build_query(config: CaseConfig) -> ConnectorQuery:

@@ -37,6 +37,17 @@ class ClinicalTrialsConnector(FixtureCapableConnector):
     def _fetch_live(self, config: CaseConfig, provenance: ConnectorProvenance) -> ConnectorResult:
         result = empty_result(self.name, config, "live", provenance)
         query = build_query(config)
+        if not query.raw_query.strip():
+            return result.model_copy(
+                update={
+                    "query": query,
+                    "retrieved_at": utc_now_iso(),
+                    "warnings": [
+                        *result.warnings,
+                        "ClinicalTrials skipped: no target/indication anchor provided; add either field for retrieval.",
+                    ],
+                }
+            )
         if _use_biomcp_backend():
             biomcp_records, biomcp_payload, biomcp_warnings = _fetch_via_biomcp(config)
             if biomcp_records:
@@ -274,15 +285,19 @@ def _build_search_terms(config: CaseConfig, raw_query: str) -> list[str]:
     indication_clause = " OR ".join(indication_terms)
     short_target = target_terms[:2] if len(target_terms) > 2 else target_terms
     short_indication = indication_terms[:2] if len(indication_terms) > 2 else indication_terms
-    terms = [
-        raw_query,
-        f"({target_clause}) AND ({config.indication.name})",
-        f"({short_target[0]}) AND ({indication_clause})" if short_target else raw_query,
-        f"({target_clause}) AND (solid tumor OR cancer)",
-        f"(STING agonist OR TMEM173 agonist) AND ({' OR '.join(short_indication)})"
-        if short_indication
-        else raw_query,
-    ]
+    terms: list[str] = []
+    if raw_query.strip():
+        terms.append(raw_query)
+    if target_clause and config.indication.name.strip():
+        terms.append(f"({target_clause}) AND ({config.indication.name.strip()})")
+    if short_target and indication_clause:
+        terms.append(f"({short_target[0]}) AND ({indication_clause})")
+    if target_clause:
+        terms.append(f"({target_clause}) AND (solid tumor OR cancer)")
+    if short_target and short_indication:
+        terms.append(f"({short_target[0]}) AND ({' OR '.join(short_indication)})")
+    if not terms:
+        terms.append("solid tumor")
     return _dedupe(terms)
 
 
@@ -355,28 +370,29 @@ def _fetch_via_biomcp(config: CaseConfig) -> tuple[list[dict[str, Any]], dict[st
             rows.extend(_biomcp_rows_to_trials(extract_records(payload), term))
 
     indication = config.indication.name.strip()
-    for target_term in [config.target.name, *config.target.aliases]:
-        text = target_term.strip()
-        if not text:
-            continue
-        for offset in offsets:
-            payload, err = run_biomcp_search(
-                "trial",
-                None,
-                limit=per_page,
-                offset=offset,
-                options=["-c", indication, "-i", text],
-            )
-            if err:
-                warnings.append(
-                    f"BioMCP clinicaltrials intervention warning ({text}, offset={offset}): {err}"
+    if indication:
+        for target_term in [config.target.name, *config.target.aliases]:
+            text = target_term.strip()
+            if not text:
+                continue
+            for offset in offsets:
+                payload, err = run_biomcp_search(
+                    "trial",
+                    None,
+                    limit=per_page,
+                    offset=offset,
+                    options=["-c", indication, "-i", text],
                 )
-                continue
-            if payload is None:
-                continue
-            key = f"condition={indication}|intervention={text}|offset={offset}"
-            payloads[key] = payload
-            rows.extend(_biomcp_rows_to_trials(extract_records(payload), key))
+                if err:
+                    warnings.append(
+                        f"BioMCP clinicaltrials intervention warning ({text}, offset={offset}): {err}"
+                    )
+                    continue
+                if payload is None:
+                    continue
+                key = f"condition={indication}|intervention={text}|offset={offset}"
+                payloads[key] = payload
+                rows.extend(_biomcp_rows_to_trials(extract_records(payload), key))
     deduped: list[dict[str, Any]] = []
     seen: set[str] = set()
     for row in rows:

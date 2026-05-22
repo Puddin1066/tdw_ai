@@ -10,6 +10,7 @@ import { RiskMap } from "@/components/RiskMap";
 import { KnowledgeGraph } from "@/components/KnowledgeGraph";
 import { SourceManifest } from "@/components/SourceManifest";
 import { EvalPanel } from "@/components/EvalPanel";
+import { ProcessingFlow } from "@/components/ProcessingFlow";
 import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
@@ -90,6 +91,7 @@ export function CaseDashboard({ packet }: CaseDashboardProps) {
       <Tabs defaultValue="overview" className="w-full">
         <TabsList className="flex h-auto w-full flex-wrap justify-start gap-1">
           <TabsTrigger value="overview">Overview</TabsTrigger>
+          <TabsTrigger value="flow">Flow</TabsTrigger>
           <TabsTrigger value="evidence">Evidence</TabsTrigger>
           <TabsTrigger value="trials">Trials</TabsTrigger>
           <TabsTrigger value="risks">Risks</TabsTrigger>
@@ -107,6 +109,9 @@ export function CaseDashboard({ packet }: CaseDashboardProps) {
             sourceManifest={packet.sourceManifest}
             clinicalTrials={packet.clinicalTrials}
           />
+        </TabsContent>
+        <TabsContent value="flow">
+          <ProcessingFlow packet={packet} />
         </TabsContent>
         <TabsContent value="evidence">
           <EvidenceTable evidenceRows={packet.evidenceTable} />

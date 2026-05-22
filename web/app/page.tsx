@@ -1,5 +1,7 @@
 import { CaseCard } from "@/components/CaseCard";
 import { loadAllCaseMetadata } from "@/lib/loadCase";
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 export default async function CaseLibraryPage() {
   const cases = await loadAllCaseMetadata();
@@ -15,6 +17,11 @@ export default async function CaseLibraryPage() {
           Static case packets loaded from audited artifacts. Select a target–indication dossier to
           open the diligence cockpit.
         </p>
+        <div className="pt-2">
+          <Button asChild variant="outline">
+            <Link href="/onboarding">New case onboarding flow</Link>
+          </Button>
+        </div>
       </header>
 
       {cases.length === 0 ? (

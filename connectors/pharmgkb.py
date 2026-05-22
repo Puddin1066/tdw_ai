@@ -19,6 +19,18 @@ class PharmGkbConnector(FixtureCapableConnector):
         result = empty_result(self.name, config, "live", provenance)
         if not should_use_biomcp_backend(self.name):
             return self._live_fixture_fallback(config, provenance, reason="native backend not implemented")
+        symbol_terms = _gene_symbol_terms(config)
+        if not symbol_terms:
+            return result.model_copy(
+                update={
+                    "query": build_query(config),
+                    "retrieved_at": utc_now_iso(),
+                    "warnings": [
+                        "PharmGKB skipped: no gene-symbol-like target anchor provided.",
+                    ],
+                    "raw_payload": {"backend": "biomcp", "payload": {}},
+                }
+            )
         records, payload, warnings = fetch_records(
             connector_name=self.name,
             source_name=self.source_name,
@@ -26,7 +38,7 @@ class PharmGkbConnector(FixtureCapableConnector):
             config=config,
             limit=25,
             offsets=(0,),
-            terms=_gene_symbol_terms(config),
+            terms=symbol_terms,
         )
         return result.model_copy(
             update={

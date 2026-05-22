@@ -35,6 +35,19 @@ class OpenTargetsConnector(FixtureCapableConnector):
     def _fetch_live(self, config: CaseConfig, provenance: ConnectorProvenance) -> ConnectorResult:
         result = empty_result(self.name, config, "live", provenance)
         query = build_query(config)
+        terms = _build_terms(config)
+        if not terms:
+            return result.model_copy(
+                update={
+                    "query": query,
+                    "retrieved_at": utc_now_iso(),
+                    "warnings": [
+                        *result.warnings,
+                        "Open Targets skipped: no target/indication anchors provided for retrieval.",
+                    ],
+                    "raw_payload": {"query_terms": [], "responses": []},
+                }
+            )
         if should_use_biomcp_backend(self.name):
             biomcp_records, biomcp_payload, biomcp_warnings = _fetch_via_biomcp(config)
             if biomcp_records:
@@ -50,7 +63,6 @@ class OpenTargetsConnector(FixtureCapableConnector):
             # Fall through to native path to avoid hard-failing live runs.
             if biomcp_warnings:
                 result = result.model_copy(update={"warnings": biomcp_warnings})
-        terms = _build_terms(config)
         records: list[dict[str, Any]] = []
         raw_payloads: list[dict[str, Any]] = []
         warnings: list[str] = list(result.warnings)

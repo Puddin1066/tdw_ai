@@ -55,6 +55,13 @@ def _optional_str(data: dict[str, Any], key: str) -> str | None:
     return text or None
 
 
+def _str_or_empty(data: dict[str, Any], key: str) -> str:
+    value = data.get(key)
+    if value is None:
+        return ""
+    return str(value).strip()
+
+
 def _optional_str_list(data: dict[str, Any], key: str) -> list[str]:
     value = data.get(key)
     if not isinstance(value, list):
@@ -176,12 +183,12 @@ def load_case_config(config_path: Path | str) -> CaseConfig:
     commercial_raw = raw.get("commercial") if isinstance(raw.get("commercial"), dict) else {}
 
     target = TargetConfig(
-        name=_require_str(target_raw, "name"),
+        name=_str_or_empty(target_raw, "name"),
         canonical_id=target_raw.get("canonical_id"),
         aliases=[str(alias) for alias in target_raw.get("aliases", [])],
     )
     indication = IndicationConfig(
-        name=_require_str(indication_raw, "name"),
+        name=_str_or_empty(indication_raw, "name"),
         aliases=[str(alias) for alias in indication_raw.get("aliases", [])],
     )
 
