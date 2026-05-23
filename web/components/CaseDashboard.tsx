@@ -11,6 +11,11 @@ import { KnowledgeGraph } from "@/components/KnowledgeGraph";
 import { SourceManifest } from "@/components/SourceManifest";
 import { EvalPanel } from "@/components/EvalPanel";
 import { ProcessingFlow } from "@/components/ProcessingFlow";
+import { ComparabilityPanel } from "@/components/ComparabilityPanel";
+import { ReliabilityLedger } from "@/components/ReliabilityLedger";
+import { DataDepthPanel } from "@/components/DataDepthPanel";
+import { FramingTracePanel } from "@/components/FramingTracePanel";
+import { TrustTerminology } from "@/components/TrustTerminology";
 import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
@@ -86,6 +91,16 @@ export function CaseDashboard({ packet }: CaseDashboardProps) {
             </ul>
           </div>
         ) : null}
+        <div className="rounded-md border border-border/60 bg-card/40 px-4 py-3 text-xs text-muted-foreground">
+          <p className="font-medium text-foreground/90">How to read this cockpit</p>
+          <p className="mt-1">
+            Flow explains platform operation. Sources and Reliability show where data came from and
+            whether retrieval was live or fallback. Depth shows how rich the sourced records are.
+            Framing shows how source IDs become evidence and risks. Comparability and Evals show
+            whether this case can be trusted for benchmark comparison.
+          </p>
+        </div>
+        <TrustTerminology />
       </header>
 
       <Tabs defaultValue="overview" className="w-full">
@@ -97,6 +112,10 @@ export function CaseDashboard({ packet }: CaseDashboardProps) {
           <TabsTrigger value="risks">Risks</TabsTrigger>
           <TabsTrigger value="graph">Graph</TabsTrigger>
           <TabsTrigger value="sources">Sources</TabsTrigger>
+          <TabsTrigger value="reliability">Reliability</TabsTrigger>
+          <TabsTrigger value="depth">Depth</TabsTrigger>
+          <TabsTrigger value="framing">Framing</TabsTrigger>
+          <TabsTrigger value="comparability">Comparability</TabsTrigger>
           <TabsTrigger value="evals">Evals</TabsTrigger>
         </TabsList>
 
@@ -127,6 +146,18 @@ export function CaseDashboard({ packet }: CaseDashboardProps) {
         </TabsContent>
         <TabsContent value="sources">
           <SourceManifest manifest={packet.sourceManifest} />
+        </TabsContent>
+        <TabsContent value="reliability">
+          <ReliabilityLedger manifest={packet.sourceManifest} evalResults={packet.evalResults} />
+        </TabsContent>
+        <TabsContent value="depth">
+          <DataDepthPanel packet={packet} />
+        </TabsContent>
+        <TabsContent value="framing">
+          <FramingTracePanel evidenceRows={packet.evidenceTable} riskMap={packet.riskMap} />
+        </TabsContent>
+        <TabsContent value="comparability">
+          <ComparabilityPanel evalResults={packet.evalResults} sourceManifest={packet.sourceManifest} />
         </TabsContent>
         <TabsContent value="evals">
           <EvalPanel evalResults={packet.evalResults} />

@@ -1,0 +1,67 @@
+case_id: dupilumab_atopic_dermatitis_benchmark
+display_name: Dupilumab / Atopic Dermatitis (Benchmark)
+workflow: translational_diligence
+version: v0.5
+
+benchmark:
+  enabled: true
+  cohort: approved_us_efficient_effective_v1
+
+target:
+  name: IL4R
+  canonical_id: null
+  aliases:
+    - IL-4 receptor alpha
+    - interleukin 4 receptor alpha
+
+indication:
+  name: moderate-to-severe atopic dermatitis
+  aliases:
+    - atopic dermatitis
+    - eczema
+
+biology:
+  mechanism_direction: inhibit
+  modality: monoclonal antibody
+  target_alias: IL-4 receptor alpha
+
+disease:
+  patient_segment: inadequately controlled moderate-to-severe AD adults
+  geography: US
+
+program:
+  asset: dupilumab IL4R blockade program
+  company: Regeneron/Sanofi
+  development_stage: approved
+  comparators:
+    - topical corticosteroids
+    - tralokinumab
+    - JAK inhibitors for AD
+
+commercial:
+  strategic_question: Which efficacy and safety profile made dupilumab a benchmark immunology launch?
+  licensing_question: Which lifecycle expansion strategy accelerated market durability?
+  investment_question: What benchmark attributes should new inflammatory biologics emulate?
+
+sources:
+  pubmed: true
+  clinicaltrials: true
+  opentargets: true
+  chembl: true
+  biothings: true
+  uniprot: true
+  reactome: true
+  gwas: true
+  pharmgkb: true
+  openfda: true
+  octagon_market: false
+  local_docs: false
+
+limits:
+  max_literature_records: 50
+  max_trials: 100
+  max_evidence_rows: 100
+
+run_mode_defaults:
+  fixture_allowed: true
+  live_allowed: true

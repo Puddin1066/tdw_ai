@@ -1,0 +1,67 @@
+case_id: entresto_hf_benchmark
+display_name: Sacubitril/Valsartan / Heart Failure (Benchmark)
+workflow: translational_diligence
+version: v0.5
+
+benchmark:
+  enabled: true
+  cohort: approved_us_efficient_effective_v1
+
+target:
+  name: neprilysin
+  canonical_id: null
+  aliases:
+    - MME
+    - neutral endopeptidase
+
+indication:
+  name: heart failure with reduced ejection fraction
+  aliases:
+    - HFrEF
+    - chronic heart failure
+
+biology:
+  mechanism_direction: inhibit
+  modality: combination small molecule therapy
+  target_alias: neprilysin
+
+disease:
+  patient_segment: symptomatic chronic HFrEF adults
+  geography: US
+
+program:
+  asset: sacubitril valsartan ARNI program
+  company: Novartis
+  development_stage: approved
+  comparators:
+    - enalapril
+    - valsartan
+    - ACE inhibitor baseline regimens
+
+commercial:
+  strategic_question: What drove Entresto's benchmark efficacy and adoption trajectory in HFrEF?
+  licensing_question: Which endpoint and outcomes strategy supported approval efficiency?
+  investment_question: Which benchmark lessons apply to cardiometabolic combination programs?
+
+sources:
+  pubmed: true
+  clinicaltrials: true
+  opentargets: true
+  chembl: true
+  biothings: true
+  uniprot: true
+  reactome: true
+  gwas: true
+  pharmgkb: true
+  openfda: true
+  octagon_market: false
+  local_docs: false
+
+limits:
+  max_literature_records: 50
+  max_trials: 100
+  max_evidence_rows: 100
+
+run_mode_defaults:
+  fixture_allowed: true
+  live_allowed: true

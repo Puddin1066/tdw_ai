@@ -13,6 +13,10 @@ export interface CaseCardProps {
   confidenceScore: number;
   evidenceDensity: EvidenceDensity;
   topRisk: string;
+  isBenchmark?: boolean;
+  comparabilityPassed?: boolean;
+  comparabilityScore?: number;
+  fallbackConnectorCount?: number;
 }
 
 const densityVariant: Record<EvidenceDensity, "success" | "warning" | "danger"> = {
@@ -29,6 +33,10 @@ export function CaseCard({
   confidenceScore,
   evidenceDensity,
   topRisk,
+  isBenchmark = false,
+  comparabilityPassed,
+  comparabilityScore,
+  fallbackConnectorCount,
 }: CaseCardProps) {
   return (
     <Link href={`/cases/${caseId}`} className="group block h-full">
@@ -60,6 +68,20 @@ export function CaseCard({
             <Badge variant={densityVariant[evidenceDensity]}>
               Evidence: {evidenceDensity}
             </Badge>
+            {isBenchmark ? <Badge variant="outline">Benchmark</Badge> : null}
+            {typeof comparabilityPassed === "boolean" ? (
+              <Badge variant={comparabilityPassed ? "success" : "danger"}>
+                {comparabilityPassed ? "Comparable" : "Not comparable"}
+              </Badge>
+            ) : null}
+            {typeof comparabilityScore === "number" ? (
+              <Badge variant="outline">Contract: {formatConfidence(comparabilityScore)}</Badge>
+            ) : null}
+            {typeof fallbackConnectorCount === "number" ? (
+              <Badge variant={fallbackConnectorCount === 0 ? "success" : "warning"}>
+                Fallback: {fallbackConnectorCount}
+              </Badge>
+            ) : null}
           </div>
           <div>
             <p className="text-xs text-muted-foreground">Top risk</p>

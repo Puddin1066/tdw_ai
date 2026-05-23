@@ -1,0 +1,67 @@
+case_id: nivolumab_nsclc_benchmark
+display_name: Nivolumab / NSCLC (Benchmark)
+workflow: translational_diligence
+version: v0.5
+
+benchmark:
+  enabled: true
+  cohort: approved_us_efficient_effective_v1
+
+target:
+  name: PDCD1
+  canonical_id: null
+  aliases:
+    - PD-1
+    - programmed cell death protein 1
+
+indication:
+  name: non-small cell lung cancer
+  aliases:
+    - NSCLC
+    - advanced NSCLC
+
+biology:
+  mechanism_direction: inhibit
+  modality: monoclonal antibody
+  target_alias: PD-1
+
+disease:
+  patient_segment: previously treated advanced NSCLC
+  geography: US
+
+program:
+  asset: nivolumab anti-PD-1 program
+  company: Bristol Myers Squibb
+  development_stage: approved
+  comparators:
+    - pembrolizumab
+    - atezolizumab
+    - docetaxel
+
+commercial:
+  strategic_question: Which evidence package enabled nivolumab's rapid NSCLC benchmark profile?
+  licensing_question: Which development pathways improved checkpoint expansion velocity?
+  investment_question: What benchmark insights are transferable to next-wave IO programs?
+
+sources:
+  pubmed: true
+  clinicaltrials: true
+  opentargets: true
+  chembl: true
+  biothings: true
+  uniprot: true
+  reactome: true
+  gwas: true
+  pharmgkb: true
+  openfda: true
+  octagon_market: false
+  local_docs: false
+
+limits:
+  max_literature_records: 50
+  max_trials: 100
+  max_evidence_rows: 100
+
+run_mode_defaults:
+  fixture_allowed: true
+  live_allowed: true

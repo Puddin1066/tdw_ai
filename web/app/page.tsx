@@ -1,4 +1,5 @@
 import { CaseCard } from "@/components/CaseCard";
+import { CompareWorkbench } from "@/components/CompareWorkbench";
 import { loadAllCaseMetadata } from "@/lib/loadCase";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
@@ -14,8 +15,12 @@ export default async function CaseLibraryPage() {
         </p>
         <h1 className="text-3xl font-semibold tracking-tight sm:text-4xl">Case library</h1>
         <p className="max-w-2xl text-sm text-muted-foreground">
-          Static case packets loaded from audited artifacts. Select a target–indication dossier to
-          open the diligence cockpit.
+          Compare target-indication cases against benchmarks using one evidence standard. Each card
+          is built from cached source artifacts, connector diagnostics, and contract-based quality gates.
+        </p>
+        <p className="max-w-3xl text-xs text-muted-foreground">
+          Value proposition: transparent data sourcing + explicit framing lineage + consistent
+          comparability rules, so scientific and investment decisions are made on auditable evidence.
         </p>
         <div className="pt-2">
           <Button asChild variant="outline">
@@ -40,10 +45,17 @@ export default async function CaseLibraryPage() {
               confidenceScore={meta.confidence_score}
               evidenceDensity={meta.evidence_density}
               topRisk={meta.top_risk}
+              isBenchmark={meta.is_benchmark}
+              comparabilityPassed={meta.comparability_passed}
+              comparabilityScore={meta.comparability_score}
+              fallbackConnectorCount={meta.fallback_connector_count}
             />
           ))}
         </div>
       )}
+      <section className="mt-10">
+        <CompareWorkbench cases={cases} />
+      </section>
     </main>
   );
 }

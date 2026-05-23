@@ -8,7 +8,7 @@ from typing import Any
 import httpx
 
 from connectors._shared import FixtureCapableConnector
-from connectors.biomcp_adapter import extract_records, run_biomcp_search
+from connectors.biomcp_adapter import extract_records, run_biomcp_search, run_biomcp_trial_get
 from connectors.base import (
     CaseConfig,
     ConnectorProvenance,
@@ -401,6 +401,7 @@ def _fetch_via_biomcp(config: CaseConfig) -> tuple[list[dict[str, Any]], dict[st
             continue
         seen.add(sid)
         deduped.append(row)
+    _enrich_biomcp_trial_records(deduped, payloads, warnings)
     return deduped[: config.limits.max_trials], payloads, warnings
 
 
@@ -440,3 +441,137 @@ def _biomcp_rows_to_trials(rows: list[dict[str, Any]], term: str) -> list[dict[s
             }
         )
     return out
+
+
+def _enrich_biomcp_trial_records(
+    records: list[dict[str, Any]],
+    payloads: dict[str, Any],
+    warnings: list[str],
+) -> None:
+    detail_limit = _trial_detail_limit()
+    if detail_limit <= 0 or not records:
+        return
+    nct_ids: list[str] = []
+    seen: set[str] = set()
+    for row in records:
+        nct_id = str(row.get("nct_id") or "").strip().upper()
+        if not nct_id.startswith("NCT") or nct_id in seen:
+            continue
+        seen.add(nct_id)
+        nct_ids.append(nct_id)
+        if len(nct_ids) >= detail_limit:
+            break
+    details_by_nct: dict[str, dict[str, Any]] = {}
+    for nct_id in nct_ids:
+        detail_payload, err = run_biomcp_trial_get(nct_id, module="all")
+        if err:
+            warnings.append(f"BioMCP clinicaltrials detail warning ({nct_id}): {err}")
+            continue
+        if detail_payload is None:
+            continue
+        payloads[f"detail:{nct_id}"] = detail_payload
+        detail = _coerce_trial_detail(detail_payload)
+        if detail:
+            details_by_nct[nct_id] = detail
+
+    for row in records:
+        nct_id = str(row.get("nct_id") or "").strip().upper()
+        detail = details_by_nct.get(nct_id)
+        if not detail:
+            continue
+        protocol = _dict(detail.get("protocolSection"))
+        if not protocol:
+            continue
+        ident = _dict(protocol.get("identificationModule"))
+        status_mod = _dict(protocol.get("statusModule"))
+        design_mod = _dict(protocol.get("designModule"))
+        sponsor_mod = _dict(protocol.get("sponsorCollaboratorsModule"))
+        conditions_mod = _dict(protocol.get("conditionsModule"))
+        arms_mod = _dict(protocol.get("armsInterventionsModule"))
+        desc_mod = _dict(protocol.get("descriptionModule"))
+        elig_mod = _dict(protocol.get("eligibilityModule"))
+        outcomes_mod = _dict(_dict(detail.get("resultsSection")).get("outcomeMeasuresModule"))
+
+        if not row.get("official_title"):
+            row["official_title"] = _str(ident.get("officialTitle"))
+        if not row.get("phase"):
+            row["phase"] = _extract_phase(design_mod)
+        if not row.get("study_type"):
+            row["study_type"] = _str(design_mod.get("studyType"))
+        if not row.get("sponsor"):
+            lead = sponsor_mod.get("leadSponsor")
+            if isinstance(lead, dict):
+                row["sponsor"] = _str(lead.get("name"))
+        if not row.get("start_date"):
+            date_struct = status_mod.get("startDateStruct")
+            if isinstance(date_struct, dict):
+                row["start_date"] = _str(date_struct.get("date"))
+        if not row.get("completion_date"):
+            date_struct = status_mod.get("completionDateStruct")
+            if isinstance(date_struct, dict):
+                row["completion_date"] = _str(date_struct.get("date"))
+        if not row.get("enrollment_count"):
+            row["enrollment_count"] = _extract_enrollment(design_mod)
+        if not row.get("interventions"):
+            row["interventions"] = _extract_interventions(arms_mod)
+        if not row.get("conditions"):
+            row["conditions"] = _list_of_str(conditions_mod.get("conditions"))
+        if not row.get("overall_status"):
+            row["overall_status"] = _str(status_mod.get("overallStatus")) or "Unknown"
+
+        detailed_description = _module_text(desc_mod.get("detailedDescription"))
+        if detailed_description and not row.get("detailed_description"):
+            row["detailed_description"] = detailed_description
+        eligibility = _module_text(elig_mod.get("eligibilityCriteria"))
+        if eligibility and not row.get("eligibility_criteria"):
+            row["eligibility_criteria"] = eligibility
+        outcome_names = _extract_outcome_names(outcomes_mod)
+        if outcome_names and not row.get("outcome_measures"):
+            row["outcome_measures"] = outcome_names
+
+
+def _coerce_trial_detail(payload: dict[str, Any]) -> dict[str, Any] | None:
+    if "protocolSection" in payload:
+        return payload
+    studies = payload.get("studies")
+    if isinstance(studies, list) and studies and isinstance(studies[0], dict):
+        first = studies[0]
+        if "protocolSection" in first:
+            return first
+    return None
+
+
+def _extract_outcome_names(outcomes_mod: dict[str, Any]) -> list[str]:
+    out: list[str] = []
+    for key in ("primaryOutcomes", "secondaryOutcomes", "otherOutcomes"):
+        values = outcomes_mod.get(key)
+        if not isinstance(values, list):
+            continue
+        for item in values:
+            if not isinstance(item, dict):
+                continue
+            name = _str(item.get("measure"))
+            if name:
+                out.append(name)
+    return out
+
+
+def _trial_detail_limit() -> int:
+    raw = (os.environ.get("BIOMCP_TRIAL_DETAIL_LIMIT") or "").strip()
+    if not raw:
+        return 15
+    try:
+        return max(0, int(raw))
+    except ValueError:
+        return 15
+
+
+def _module_text(value: Any) -> str | None:
+    if isinstance(value, str):
+        return _str(value)
+    if isinstance(value, dict):
+        for key in ("text", "description", "value"):
+            text = _str(value.get(key))
+            if text:
+                return text
+    return _str(value)

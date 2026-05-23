@@ -132,6 +132,14 @@
             }
           }
         },
+        "benchmark": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "enabled": { "type": "boolean" },
+            "cohort": { "type": ["string", "null"] }
+          }
+        },
         "maturity_stage": { "type": "string" },
         "confidence_score": { "type": "number", "minimum": 0, "maximum": 1 },
         "evidence_density": {

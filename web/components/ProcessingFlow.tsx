@@ -20,6 +20,10 @@ export function ProcessingFlow({ packet }: ProcessingFlowProps) {
   const trialCount = packet.clinicalTrials.length;
   const riskCount = packet.riskMap?.risks.length ?? 0;
   const hasReport = !!packet.diligenceReport;
+  const contractScore = packet.evalResults?.metrics?.benchmark_contract_score;
+  const contractPassed = packet.evalResults?.metrics?.benchmark_contract_passed;
+  const contractIssues = packet.evalResults?.metrics?.benchmark_contract_issue_count ?? 0;
+  const contractFallback = packet.evalResults?.metrics?.contract_fallback_entries ?? 0;
 
   return (
     <div className="space-y-4">
@@ -27,7 +31,8 @@ export function ProcessingFlow({ packet }: ProcessingFlowProps) {
         <CardHeader>
           <CardTitle>How this case is processed</CardTitle>
           <CardDescription>
-            This walkthrough maps your inputs to BioMCP retrieval, artifact generation, and final diligence outputs.
+            End-to-end operation: case inputs are converted to connector queries, source data is
+            cached as artifacts, and outputs are evaluated for trust before comparison.
           </CardDescription>
         </CardHeader>
         <CardContent className="grid gap-4 md:grid-cols-2">
@@ -93,9 +98,24 @@ export function ProcessingFlow({ packet }: ProcessingFlowProps) {
             title="4) Cockpit outputs"
             copy="Dashboard tabs display the cached artifacts so users can audit provenance, evidence depth, risks, and execution outcomes."
             badge={
-              <Badge variant="outline">
-                Evidence {literatureCount} · Trials {trialCount} · Risks {riskCount}
-              </Badge>
+              <div className="flex flex-wrap items-center gap-2">
+                <Badge variant="outline">
+                  Evidence {literatureCount} · Trials {trialCount} · Risks {riskCount}
+                </Badge>
+                {typeof contractScore === "number" ? (
+                  <>
+                    <Badge variant={contractPassed ? "success" : "danger"}>
+                      Contract {contractPassed ? "pass" : "fail"} ({contractScore.toFixed(2)})
+                    </Badge>
+                    <Badge variant={contractIssues === 0 ? "success" : "warning"}>
+                      {contractIssues} contract issues
+                    </Badge>
+                    <Badge variant={contractFallback === 0 ? "success" : "warning"}>
+                      {contractFallback} fallback connectors
+                    </Badge>
+                  </>
+                ) : null}
+              </div>
             }
           />
         </CardContent>

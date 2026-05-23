@@ -68,7 +68,20 @@
           "type": "number",
           "minimum": 0,
           "maximum": 1
-        }
+        },
+        "benchmark_contract_score": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "benchmark_contract_passed": { "type": "boolean" },
+        "benchmark_contract_issue_count": { "type": "integer", "minimum": 0 },
+        "contract_connectors_with_records": { "type": "integer", "minimum": 0 },
+        "contract_total_records": { "type": "integer", "minimum": 0 },
+        "contract_fallback_entries": { "type": "integer", "minimum": 0 },
+        "contract_broken_evidence_links": { "type": "integer", "minimum": 0 },
+        "contract_generic_risk_titles": { "type": "integer", "minimum": 0 },
+        "contract_duplicate_risk_titles": { "type": "integer", "minimum": 0 }
       }
     },
     "evalResultsData": {

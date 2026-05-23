@@ -2,12 +2,20 @@
 
 from __future__ import annotations
 
+import os
 from typing import Any
 
 import httpx
 
 from connectors._shared import FixtureCapableConnector
-from connectors.biomcp_adapter import extract_records, run_biomcp_search, should_use_biomcp_backend
+from connectors.biomcp_adapter import (
+    extract_records,
+    run_biomcp_disease_get,
+    run_biomcp_drug_get,
+    run_biomcp_gene_get,
+    run_biomcp_search,
+    should_use_biomcp_backend,
+)
 from connectors.base import (
     CaseConfig,
     ConnectorProvenance,
@@ -226,7 +234,9 @@ def _fetch_via_biomcp(config: CaseConfig) -> tuple[list[dict[str, Any]], dict[st
                 key = f"{entity}:{term}|offset={offset}"
                 payloads[key] = payload
                 records.extend(_biomcp_records_to_ot(extract_records(payload), key))
-    return _dedupe_records(records), payloads, warnings
+    deduped = _dedupe_records(records)
+    _enrich_biomcp_opentargets_records(deduped, payloads, warnings)
+    return deduped, payloads, warnings
 
 
 def _biomcp_records_to_ot(rows: list[dict[str, Any]], term: str) -> list[dict[str, Any]]:
@@ -267,3 +277,77 @@ def _biomcp_records_to_ot(rows: list[dict[str, Any]], term: str) -> list[dict[st
             }
         )
     return out
+
+
+def _enrich_biomcp_opentargets_records(
+    records: list[dict[str, Any]],
+    payloads: dict[str, Any],
+    warnings: list[str],
+) -> None:
+    detail_limit = _detail_limit()
+    if detail_limit <= 0 or not records:
+        return
+
+    queue: list[tuple[str, str]] = []
+    seen: set[str] = set()
+    for row in records:
+        source_record_id = str(row.get("source_record_id") or "")
+        parts = source_record_id.split(":")
+        entity = parts[1] if len(parts) > 2 else ""
+        token = str(row.get("target_id") or row.get("disease_id") or row.get("title") or "").strip()
+        if entity not in {"target", "disease", "drug", "compound"} or not token:
+            continue
+        key = f"{entity}:{token}"
+        if key in seen:
+            continue
+        seen.add(key)
+        queue.append((entity, token))
+        if len(queue) >= detail_limit:
+            break
+
+    details: dict[str, dict[str, Any]] = {}
+    for entity, token in queue:
+        payload, err = _run_opentargets_detail(entity, token)
+        if err:
+            warnings.append(f"BioMCP opentargets detail warning ({entity}:{token}): {err}")
+            continue
+        if payload is None:
+            continue
+        payloads[f"detail:{entity}:{token}"] = payload
+        rows = extract_records(payload)
+        if rows:
+            details[f"{entity}:{token}"] = rows[0]
+
+    for row in records:
+        source_record_id = str(row.get("source_record_id") or "")
+        parts = source_record_id.split(":")
+        entity = parts[1] if len(parts) > 2 else ""
+        token = str(row.get("target_id") or row.get("disease_id") or row.get("title") or "").strip()
+        detail = details.get(f"{entity}:{token}")
+        if not detail:
+            continue
+        summary = str(detail.get("summary") or detail.get("description") or "").strip()
+        if summary and not row.get("activity_summary"):
+            row["activity_summary"] = summary[:300]
+        if summary and not row.get("mechanism_of_action"):
+            row["mechanism_of_action"] = summary[:300]
+
+
+def _run_opentargets_detail(entity: str, token: str) -> tuple[dict[str, Any] | None, str | None]:
+    if entity == "target":
+        return run_biomcp_gene_get(token)
+    if entity in {"drug", "compound"}:
+        return run_biomcp_drug_get(token)
+    if entity == "disease":
+        return run_biomcp_disease_get(token)
+    return None, f"unsupported detail entity: {entity}"
+
+
+def _detail_limit() -> int:
+    raw = (os.environ.get("BIOMCP_OPENTARGETS_DETAIL_LIMIT") or "").strip()
+    if not raw:
+        return 18
+    try:
+        return max(0, int(raw))
+    except ValueError:
+        return 18

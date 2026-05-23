@@ -2,10 +2,16 @@
 
 from __future__ import annotations
 
+import os
 from typing import Any
 
 from connectors.base import CaseConfig, utc_now_iso
-from connectors.biomcp_adapter import extract_records, run_biomcp_search
+from connectors.biomcp_adapter import (
+    extract_records,
+    run_biomcp_gene_get,
+    run_biomcp_search,
+    run_biomcp_variant_get,
+)
 
 
 def build_biomcp_terms(config: CaseConfig) -> list[str]:
@@ -71,7 +77,9 @@ def fetch_records(
             payloads[key] = payload
             rows = extract_records(payload)
             records.extend(_rows_to_records(rows, connector_name, source_name, entity, key))
-    return _dedupe_records(records), payloads, warnings
+    deduped = _dedupe_records(records)
+    _enrich_records(connector_name, entity, deduped, payloads, warnings)
+    return deduped, payloads, warnings
 
 
 def _rows_to_records(
@@ -141,3 +149,102 @@ def _dedupe_records(records: list[dict[str, Any]]) -> list[dict[str, Any]]:
         seen.add(source_record_id)
         out.append(record)
     return out
+
+
+def _enrich_records(
+    connector_name: str,
+    entity: str,
+    records: list[dict[str, Any]],
+    payloads: dict[str, Any],
+    warnings: list[str],
+) -> None:
+    detail_limit = _detail_limit(connector_name)
+    if detail_limit <= 0 or not records:
+        return
+    tokens: list[str] = []
+    seen: set[str] = set()
+    for row in records:
+        token = _record_token(row)
+        if not token or token in seen:
+            continue
+        seen.add(token)
+        tokens.append(token)
+        if len(tokens) >= detail_limit:
+            break
+
+    details: dict[str, dict[str, Any]] = {}
+    for token in tokens:
+        payload, err = _run_detail(connector_name, entity, token)
+        if err:
+            warnings.append(f"BioMCP {connector_name} detail warning ({token}): {err}")
+            continue
+        if payload is None:
+            continue
+        payloads[f"detail:{entity}:{token}"] = payload
+        rows = extract_records(payload)
+        if rows:
+            details[token] = rows[0]
+
+    for row in records:
+        token = _record_token(row)
+        detail = details.get(token)
+        if not detail:
+            continue
+        summary = str(
+            detail.get("summary")
+            or detail.get("description")
+            or detail.get("mechanism")
+            or detail.get("evidence")
+            or ""
+        ).strip()
+        if summary and not row.get("activity_summary"):
+            row["activity_summary"] = summary[:300]
+        if not row.get("title"):
+            title = str(detail.get("name") or detail.get("title") or detail.get("symbol") or "").strip()
+            if title:
+                row["title"] = title
+
+
+def _run_detail(
+    connector_name: str,
+    entity: str,
+    token: str,
+) -> tuple[dict[str, Any] | None, str | None]:
+    if connector_name in {"uniprot", "reactome"} or entity in {"protein", "pathway"}:
+        return run_biomcp_gene_get(token, enrich="reactome")
+    if connector_name == "gwas" or entity == "gwas":
+        return run_biomcp_gene_get(token, enrich="gwas")
+    if connector_name == "pharmgkb" or entity == "pgx":
+        if token.lower().startswith("rs") or token.lower().startswith("chr"):
+            payload, err = run_biomcp_variant_get(token, extensive=True)
+            if payload is not None:
+                return payload, None
+            if err and "not found" not in err.lower():
+                return None, err
+        return run_biomcp_gene_get(token, enrich="gwas")
+    return None, "no configured detail path"
+
+
+def _record_token(record: dict[str, Any]) -> str:
+    source_record_id = str(record.get("source_record_id") or "").strip()
+    if source_record_id:
+        parts = source_record_id.split(":", 2)
+        if len(parts) == 3 and parts[2].strip():
+            return parts[2].strip()
+    for key in ("subject", "title"):
+        text = str(record.get(key) or "").strip()
+        if text:
+            return text
+    return ""
+
+
+def _detail_limit(connector_name: str) -> int:
+    default = 10
+    env_key = f"BIOMCP_{connector_name.upper()}_DETAIL_LIMIT"
+    raw = (os.environ.get(env_key) or "").strip()
+    if not raw:
+        return default
+    try:
+        return max(0, int(raw))
+    except ValueError:
+        return default

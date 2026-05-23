@@ -2,12 +2,18 @@
 
 from __future__ import annotations
 
+import os
 from typing import Any
 
 import httpx
 
 from connectors._shared import FixtureCapableConnector
-from connectors.biomcp_adapter import extract_records, run_biomcp_search, should_use_biomcp_backend
+from connectors.biomcp_adapter import (
+    extract_records,
+    run_biomcp_gene_get,
+    run_biomcp_search,
+    should_use_biomcp_backend,
+)
 from connectors.base import (
     CaseConfig,
     ConnectorProvenance,
@@ -202,7 +208,9 @@ def _fetch_via_biomcp(config: CaseConfig) -> tuple[list[dict[str, Any]], dict[st
                 key = f"{entity}:{term}|offset={offset}"
                 payloads[key] = payload
                 records.extend(_biomcp_rows_to_biothings(extract_records(payload), key))
-    return _dedupe_records(records), payloads, warnings
+    deduped = _dedupe_records(records)
+    _enrich_biomcp_biothings_records(deduped, payloads, warnings)
+    return deduped, payloads, warnings
 
 
 def _biomcp_rows_to_biothings(rows: list[dict[str, Any]], term: str) -> list[dict[str, Any]]:
@@ -238,3 +246,61 @@ def _biomcp_rows_to_biothings(rows: list[dict[str, Any]], term: str) -> list[dic
             }
         )
     return out
+
+
+def _enrich_biomcp_biothings_records(
+    records: list[dict[str, Any]],
+    payloads: dict[str, Any],
+    warnings: list[str],
+) -> None:
+    detail_limit = _detail_limit()
+    if detail_limit <= 0 or not records:
+        return
+    tokens: list[str] = []
+    seen: set[str] = set()
+    for row in records:
+        token = str(row.get("target_id") or row.get("title") or "").strip()
+        if not token or token in seen:
+            continue
+        seen.add(token)
+        tokens.append(token)
+        if len(tokens) >= detail_limit:
+            break
+
+    details_by_token: dict[str, dict[str, Any]] = {}
+    for token in tokens:
+        detail_payload, err = run_biomcp_gene_get(token)
+        if err:
+            warnings.append(f"BioMCP biothings detail warning ({token}): {err}")
+            continue
+        if detail_payload is None:
+            continue
+        payloads[f"detail:{token}"] = detail_payload
+        rows = extract_records(detail_payload)
+        if rows:
+            details_by_token[token] = rows[0]
+
+    for row in records:
+        token = str(row.get("target_id") or row.get("title") or "").strip()
+        detail = details_by_token.get(token)
+        if not detail:
+            continue
+        if not row.get("target_id"):
+            gene_id = str(detail.get("gene_id") or detail.get("id") or "").strip()
+            if gene_id:
+                row["target_id"] = gene_id
+        summary = str(detail.get("summary") or detail.get("description") or "").strip()
+        if summary and not row.get("mechanism_of_action"):
+            row["mechanism_of_action"] = summary[:240]
+        if summary and not row.get("activity_summary"):
+            row["activity_summary"] = summary[:240]
+
+
+def _detail_limit() -> int:
+    raw = (os.environ.get("BIOMCP_BIOTHINGS_DETAIL_LIMIT") or "").strip()
+    if not raw:
+        return 15
+    try:
+        return max(0, int(raw))
+    except ValueError:
+        return 15

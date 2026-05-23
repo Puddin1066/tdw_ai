@@ -10,6 +10,7 @@ import pytest
 from evals.citation_fidelity import evaluate as evaluate_citation_fidelity
 from evals.evidence_coverage import evaluate as evaluate_evidence_coverage
 from evals.artifacts import clinical_trial_nct_ids
+from evals.benchmark_contract import evaluate as evaluate_benchmark_contract
 from evals.run_evals import run_evaluations, write_eval_results
 from evals.trial_hallucination import evaluate as evaluate_trial_hallucination
 from evals.unsupported_claims import evaluate as evaluate_unsupported_claims
@@ -34,6 +35,7 @@ def test_good_fixture_passes_all_evaluators(fixture_sting_pdac: Path) -> None:
     assert evaluate_unsupported_claims(fixture_sting_pdac).passed
     assert evaluate_trial_hallucination(fixture_sting_pdac).passed
     assert evaluate_evidence_coverage(fixture_sting_pdac).passed
+    assert evaluate_benchmark_contract(fixture_sting_pdac).passed
 
 
 def test_bad_nct_fixture_fails_trial_hallucination(fixture_sting_pdac_bad_nct: Path) -> None:
@@ -52,7 +54,7 @@ def test_run_evals_writes_eval_results(fixture_sting_pdac: Path, tmp_path: Path)
     assert saved["artifact_type"] == "eval_results"
     assert saved["data"]["overall_passed"] is True
     assert saved["data"]["metrics"]["citation_fidelity_score"] >= 0
-    assert len(saved["data"]["evaluations"]) >= 4
+    assert len(saved["data"]["evaluations"]) >= 5
 
 
 def test_run_evals_overall_failure_on_hallucinated_nct(
@@ -78,3 +80,45 @@ def test_clinical_trial_nct_ids_supports_trials_key() -> None:
         },
     }
     assert clinical_trial_nct_ids(artifact) == {"NCT01234567", "NCT07654321"}
+
+
+def test_benchmark_contract_fails_live_packet_with_fallback_and_generic_risk(tmp_path: Path) -> None:
+    packet = base_packet("live_contract_fail")
+    packet["metadata.yaml"] = (
+        "case_id: live_contract_fail\n"
+        "display_name: Live contract fail\n"
+        "run:\n"
+        "  mode: live\n"
+    )
+    packet["source_manifest.json"]["data"] = {
+        "entries": [
+            {
+                "connector_name": "pubmed",
+                "source_name": "PubMed",
+                "mode": "live",
+                "query": {"target": "STING", "indication": "PDAC", "raw_query": "STING PDAC"},
+                "retrieved_at": "2026-05-15T00:00:00Z",
+                "record_count": 5,
+                "raw_record_ref": "raw/pubmed_raw.json",
+                "warnings": ["MOCK/SYNTHETIC fallback in live mode"],
+                "errors": [],
+            },
+            {
+                "connector_name": "clinicaltrials",
+                "source_name": "ClinicalTrials.gov",
+                "mode": "live",
+                "query": {"target": "STING", "indication": "PDAC", "raw_query": "STING PDAC"},
+                "retrieved_at": "2026-05-15T00:00:00Z",
+                "record_count": 1,
+                "raw_record_ref": "raw/clinicaltrials_raw.json",
+                "warnings": [],
+                "errors": [],
+            },
+        ]
+    }
+    packet["risk_map.json"]["data"]["risks"][0]["title"] = "Unspecified risk"
+    case_dir = write_packet(tmp_path / "live_contract_fail", packet)
+    result = evaluate_benchmark_contract(case_dir)
+    assert result.passed is False
+    assert any("Contract(data_reality)" in msg for msg in result.errors)
+    assert any("Contract(specificity)" in msg for msg in result.errors)

@@ -8,7 +8,9 @@ import subprocess
 import sys
 from dataclasses import dataclass
 from pathlib import Path
+from typing import Any
 
+import yaml
 from evals.run_evals import run_evaluations, write_eval_results
 from pipeline.artifact_writer import copy_to_web
 from pipeline.config_loader import load_case_config
@@ -23,6 +25,15 @@ class PublishResult:
     web_dir: Path
     eval_passed: bool | None
     eval_score: float | None
+    comparability_passed: bool | None
+
+
+COMPARABILITY_THRESHOLDS = {
+    "min_connectors_with_records": 3,
+    "min_total_records": 10,
+    "max_fallback_entries": 0,
+    "max_generic_risk_titles": 0,
+}
 
 
 def discover_case_configs(config_dir: Path) -> list[Path]:
@@ -70,6 +81,7 @@ def publish_cases(
     mode: RunMode,
     run_evals: bool,
     allow_failed_evals: bool,
+    allow_comparability_fail: bool,
     validate_schemas: bool,
     require_biomcp: bool,
 ) -> list[PublishResult]:
@@ -83,6 +95,11 @@ def publish_cases(
 
         eval_passed: bool | None = None
         eval_score: float | None = None
+        comparability_passed: bool | None = None
+        if _comparability_required(mode) and not run_evals:
+            raise RuntimeError(
+                f"Comparability policy requires evals for {config.case_id}; remove --skip-evals or run in fixture mode."
+            )
         if run_evals:
             payload = run_evaluations(case_dir)
             write_eval_results(case_dir, payload)
@@ -90,6 +107,14 @@ def publish_cases(
             eval_passed = bool(eval_data.get("overall_passed"))
             raw_score = eval_data.get("aggregate_score")
             eval_score = float(raw_score) if isinstance(raw_score, (int, float)) else None
+            comparability_issues = _comparability_issues(payload, mode=mode)
+            comparability_passed = len(comparability_issues) == 0
+            _write_comparability_context(case_dir, payload, comparability_issues, mode=mode)
+            if comparability_issues and not allow_comparability_fail:
+                raise RuntimeError(
+                    f"Comparability policy failed for {config.case_id}; "
+                    "re-run with --allow-comparability-fail to publish anyway."
+                )
             if not eval_passed and not allow_failed_evals:
                 raise RuntimeError(
                     f"Eval failed for {config.case_id}; re-run with --allow-failed-evals "
@@ -104,9 +129,76 @@ def publish_cases(
                 web_dir=web_dir,
                 eval_passed=eval_passed,
                 eval_score=eval_score,
+                comparability_passed=comparability_passed,
             )
         )
     return results
+
+
+def _comparability_required(mode: RunMode) -> bool:
+    return mode == "live"
+
+
+def _comparability_issues(payload: dict[str, Any], *, mode: RunMode) -> list[str]:
+    if not _comparability_required(mode):
+        return []
+    data = payload.get("data", {})
+    if not isinstance(data, dict):
+        return ["eval payload missing data block"]
+    metrics = data.get("metrics", {})
+    if not isinstance(metrics, dict):
+        return ["eval payload missing metrics block"]
+    issues: list[str] = []
+    if metrics.get("benchmark_contract_passed") is not True:
+        issues.append("benchmark_contract_passed=false")
+    if int(metrics.get("contract_connectors_with_records", 0)) < COMPARABILITY_THRESHOLDS["min_connectors_with_records"]:
+        issues.append("insufficient connectors_with_records")
+    if int(metrics.get("contract_total_records", 0)) < COMPARABILITY_THRESHOLDS["min_total_records"]:
+        issues.append("insufficient total_records")
+    if int(metrics.get("contract_fallback_entries", 0)) > COMPARABILITY_THRESHOLDS["max_fallback_entries"]:
+        issues.append("fallback connector entries present")
+    if int(metrics.get("contract_generic_risk_titles", 0)) > COMPARABILITY_THRESHOLDS["max_generic_risk_titles"]:
+        issues.append("generic risk titles present")
+    return issues
+
+
+def _write_comparability_context(
+    case_dir: Path,
+    payload: dict[str, Any],
+    issues: list[str],
+    *,
+    mode: RunMode,
+) -> None:
+    data = payload.get("data", {})
+    metrics = data.get("metrics", {}) if isinstance(data, dict) else {}
+    report = {
+        "policy_version": "v1",
+        "mode": mode,
+        "required": _comparability_required(mode),
+        "passed": len(issues) == 0,
+        "issues": issues,
+        "thresholds": COMPARABILITY_THRESHOLDS,
+        "metrics": metrics if isinstance(metrics, dict) else {},
+    }
+    report_path = case_dir / "comparability_contract.json"
+    report_path.write_text(json.dumps(report, indent=2) + "\n", encoding="utf-8")
+
+    metadata_path = case_dir / "metadata.yaml"
+    if not metadata_path.exists():
+        return
+    metadata = yaml.safe_load(metadata_path.read_text(encoding="utf-8")) or {}
+    if not isinstance(metadata, dict):
+        metadata = {}
+    metadata["comparability_contract"] = {
+        "policy_version": report["policy_version"],
+        "required": report["required"],
+        "passed": report["passed"],
+        "issues": report["issues"],
+        "benchmark_contract_score": (metrics.get("benchmark_contract_score") if isinstance(metrics, dict) else None),
+        "connectors_with_records": (metrics.get("contract_connectors_with_records") if isinstance(metrics, dict) else None),
+        "total_records": (metrics.get("contract_total_records") if isinstance(metrics, dict) else None),
+    }
+    metadata_path.write_text(yaml.safe_dump(metadata, sort_keys=False), encoding="utf-8")
 
 
 def _required_biomcp_connectors(config: object) -> list[str]:
@@ -241,6 +333,11 @@ def main(argv: list[str] | None = None) -> int:
         help="Publish even when evals report overall_passed=false.",
     )
     parser.add_argument(
+        "--allow-comparability-fail",
+        action="store_true",
+        help="Publish even when comparability policy fails (live mode only).",
+    )
+    parser.add_argument(
         "--validate-schemas",
         action="store_true",
         help="Enable strict schema validation before copy-to-web.",
@@ -265,6 +362,7 @@ def main(argv: list[str] | None = None) -> int:
             mode=args.mode,
             run_evals=not args.skip_evals,
             allow_failed_evals=args.allow_failed_evals,
+            allow_comparability_fail=args.allow_comparability_fail,
             validate_schemas=args.validate_schemas,
             require_biomcp=(args.mode == "live" and not args.allow_biomcp_fallback),
         )
@@ -281,7 +379,12 @@ def main(argv: list[str] | None = None) -> int:
         else:
             status = "pass" if result.eval_passed else "failed"
             score = f"{result.eval_score:.3f}" if result.eval_score is not None else "n/a"
-            eval_text = f"evals={status} (score={score})"
+            contract = (
+                "contract=skipped"
+                if result.comparability_passed is None
+                else ("contract=pass" if result.comparability_passed else "contract=fail")
+            )
+            eval_text = f"evals={status} (score={score}; {contract})"
         print(f"- {result.case_id}: {result.web_dir} [{eval_text}]")
     if args.build_web:
         print("Web build completed: web/out")

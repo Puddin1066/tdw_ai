@@ -25,6 +25,16 @@ export function SourceManifest({ manifest }: SourceManifestProps) {
   return (
     <div className="space-y-4">
       <Badge variant="outline">{totalRecords} total records</Badge>
+      <Card>
+        <CardHeader className="pb-2">
+          <CardTitle className="text-sm">What data is sourced here</CardTitle>
+        </CardHeader>
+        <CardContent className="text-sm text-muted-foreground">
+          The source manifest is the connector-level retrieval log for this case: query intent,
+          backend used, records returned, warnings/errors, and benchmark prompt cache traces. Use it
+          to confirm where data came from before interpreting evidence or risk conclusions.
+        </CardContent>
+      </Card>
       {benchmarkPlan ? (
         <Card>
           <CardHeader className="pb-2">

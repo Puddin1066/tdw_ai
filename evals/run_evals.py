@@ -9,6 +9,7 @@ from pathlib import Path
 from typing import Any
 
 from evals.artifacts import REQUIRED_ARTIFACTS, missing_artifacts
+from evals.benchmark_contract import evaluate as evaluate_benchmark_contract
 from evals.citation_fidelity import evaluate as evaluate_citation_fidelity
 from evals.evidence_coverage import evaluate as evaluate_evidence_coverage
 from evals.trial_hallucination import evaluate as evaluate_trial_hallucination
@@ -20,6 +21,7 @@ EVALUATORS = [
     evaluate_unsupported_claims,
     evaluate_trial_hallucination,
     evaluate_evidence_coverage,
+    evaluate_benchmark_contract,
 ]
 
 SECTION_15_GATES = [
@@ -57,6 +59,12 @@ SECTION_15_GATES = [
         "description": "Unsupported or contradicted claims are not promoted to supported status.",
         "section": "15",
         "evaluator": "unsupported_claims",
+    },
+    {
+        "gate_id": "benchmark_contract_consistency",
+        "description": "Benchmark/future-case comparison contract passes data reality, grounding, specificity, and consistency checks.",
+        "section": "15",
+        "evaluator": "benchmark_contract",
     },
 ]
 
@@ -109,6 +117,8 @@ def run_evaluations(case_dir: Path) -> dict[str, Any]:
     overall_passed = all(gate["passed"] for gate in gates)
     scores = {result.evaluator_name: result.score for result in evaluator_results}
     aggregate_score = sum(scores.values()) / len(scores) if scores else 0.0
+    results_by_name = {result.evaluator_name: result for result in evaluator_results}
+    benchmark_contract = results_by_name.get("benchmark_contract")
 
     evaluations = [
         {k: v for k, v in result.to_dict().items() if k != "metrics"}
@@ -131,6 +141,21 @@ def run_evaluations(case_dir: Path) -> dict[str, Any]:
         ),
         "evidence_coverage_score": float(scores.get("evidence_coverage", 0.0)),
     }
+    if benchmark_contract is not None:
+        contract_metrics = benchmark_contract.metrics if isinstance(benchmark_contract.metrics, dict) else {}
+        metrics.update(
+            {
+                "benchmark_contract_score": float(benchmark_contract.score),
+                "benchmark_contract_passed": bool(benchmark_contract.passed),
+                "benchmark_contract_issue_count": len(benchmark_contract.errors),
+                "contract_connectors_with_records": int(contract_metrics.get("connectors_with_records", 0)),
+                "contract_total_records": int(contract_metrics.get("total_records", 0)),
+                "contract_fallback_entries": int(contract_metrics.get("fallback_entries", 0)),
+                "contract_broken_evidence_links": int(contract_metrics.get("broken_evidence_links", 0)),
+                "contract_generic_risk_titles": int(contract_metrics.get("generic_risk_titles", 0)),
+                "contract_duplicate_risk_titles": int(contract_metrics.get("duplicate_risk_titles", 0)),
+            }
+        )
 
     payload: dict[str, Any] = {
         "artifact_type": "eval_results",

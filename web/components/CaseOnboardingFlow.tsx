@@ -270,7 +270,7 @@ ${sourceLines}
             <div className="rounded-md border border-border/60 bg-background/60 p-3 text-xs">
               <p className="font-medium text-foreground">Run command</p>
               <code className="mt-2 block whitespace-pre-wrap text-muted-foreground">
-                python -m pipeline.publish_static --case {draft.caseId} --mode live --allow-failed-evals --build-web
+                python -m pipeline.publish_static --case {draft.caseId} --mode live --build-web
               </code>
             </div>
             <div className="rounded-md border border-border/60 bg-background/60 p-3 text-xs">

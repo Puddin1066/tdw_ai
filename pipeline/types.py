@@ -161,6 +161,7 @@ class CaseMetadataData(BaseModel):
     limits: CaseLimits
     run_mode_defaults: RunModeDefaults | None = None
     input_profile: dict[str, object] | None = None
+    benchmark: dict[str, object] | None = None
     maturity_stage: str | None = None
     confidence_score: float | None = Field(default=None, ge=0, le=1)
     evidence_density: EvidenceDensity | None = None
@@ -424,6 +425,15 @@ class EvalMetrics(BaseModel):
     hallucinated_trial_count: int = Field(ge=0)
     hallucinated_pmid_count: int = Field(ge=0)
     evidence_coverage_score: float = Field(ge=0, le=1)
+    benchmark_contract_score: float | None = Field(default=None, ge=0, le=1)
+    benchmark_contract_passed: bool | None = None
+    benchmark_contract_issue_count: int | None = Field(default=None, ge=0)
+    contract_connectors_with_records: int | None = Field(default=None, ge=0)
+    contract_total_records: int | None = Field(default=None, ge=0)
+    contract_fallback_entries: int | None = Field(default=None, ge=0)
+    contract_broken_evidence_links: int | None = Field(default=None, ge=0)
+    contract_generic_risk_titles: int | None = Field(default=None, ge=0)
+    contract_duplicate_risk_titles: int | None = Field(default=None, ge=0)
 
 
 class EvalResultsData(BaseModel):
@@ -605,6 +615,12 @@ class InputProfile:
 
 
 @dataclass(frozen=True)
+class BenchmarkConfig:
+    enabled: bool = False
+    cohort: str | None = None
+
+
+@dataclass(frozen=True)
 class CaseConfig:
     case_id: str
     display_name: str
@@ -616,6 +632,7 @@ class CaseConfig:
     limits: LimitsConfig
     run_mode_defaults: RunModeDefaults
     input_profile: InputProfile = field(default_factory=InputProfile)
+    benchmark: BenchmarkConfig = field(default_factory=BenchmarkConfig)
     config_path: Path | None = None
 
     def to_metadata_dict(self) -> dict[str, object]:
@@ -673,6 +690,10 @@ class CaseConfig:
                     "licensing_question": self.input_profile.commercial.licensing_question,
                     "investment_question": self.input_profile.commercial.investment_question,
                 },
+            },
+            "benchmark": {
+                "enabled": self.benchmark.enabled,
+                "cohort": self.benchmark.cohort,
             },
         }
 

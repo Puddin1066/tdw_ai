@@ -48,6 +48,25 @@ export function EvalPanel({ evalResults }: EvalPanelProps) {
           alert={metrics.hallucinated_trial_count > 0}
         />
       </div>
+      {typeof metrics.benchmark_contract_score === "number" ? (
+        <div className="grid gap-4 sm:grid-cols-3">
+          <MetricCard
+            label="Benchmark contract"
+            value={formatConfidence(metrics.benchmark_contract_score)}
+            alert={metrics.benchmark_contract_passed === false}
+          />
+          <MetricCard
+            label="Contract issues"
+            value={String(metrics.benchmark_contract_issue_count ?? 0)}
+            alert={(metrics.benchmark_contract_issue_count ?? 0) > 0}
+          />
+          <MetricCard
+            label="Fallback connectors"
+            value={String(metrics.contract_fallback_entries ?? 0)}
+            alert={(metrics.contract_fallback_entries ?? 0) > 0}
+          />
+        </div>
+      ) : null}
 
       {evaluations.length > 0 ? (
         <div className="overflow-x-auto rounded-lg border border-border">

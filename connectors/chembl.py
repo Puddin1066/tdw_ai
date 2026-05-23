@@ -2,12 +2,18 @@
 
 from __future__ import annotations
 
+import os
 from typing import Any
 
 import httpx
 
 from connectors._shared import FixtureCapableConnector
-from connectors.biomcp_adapter import extract_records, run_biomcp_search, should_use_biomcp_backend
+from connectors.biomcp_adapter import (
+    extract_records,
+    run_biomcp_drug_get,
+    run_biomcp_search,
+    should_use_biomcp_backend,
+)
 from connectors.base import (
     CaseConfig,
     ConnectorProvenance,
@@ -231,7 +237,9 @@ def _fetch_via_biomcp(config: CaseConfig) -> tuple[list[dict[str, Any]], dict[st
                 continue
             payloads[f"{term}|offset={offset}"] = payload
             rows.extend(_biomcp_rows_to_chembl(extract_records(payload), term))
-    return _dedupe_records(rows), payloads, warnings
+    deduped = _dedupe_records(rows)
+    _enrich_biomcp_chembl_records(deduped, payloads, warnings)
+    return deduped, payloads, warnings
 
 
 def _biomcp_rows_to_chembl(rows: list[dict[str, Any]], term: str) -> list[dict[str, Any]]:
@@ -278,3 +286,61 @@ def _biomcp_rows_to_chembl(rows: list[dict[str, Any]], term: str) -> list[dict[s
 
 def config_indication_hint(term: str) -> str:
     return term
+
+
+def _enrich_biomcp_chembl_records(
+    records: list[dict[str, Any]],
+    payloads: dict[str, Any],
+    warnings: list[str],
+) -> None:
+    detail_limit = _detail_limit("BIOMCP_CHEMBL_DETAIL_LIMIT", 12)
+    if detail_limit <= 0 or not records:
+        return
+    tokens: list[str] = []
+    seen: set[str] = set()
+    for row in records:
+        token = str(row.get("molecule_chembl_id") or row.get("title") or "").strip()
+        if not token or token in seen:
+            continue
+        seen.add(token)
+        tokens.append(token)
+        if len(tokens) >= detail_limit:
+            break
+
+    details_by_token: dict[str, dict[str, Any]] = {}
+    for token in tokens:
+        detail_payload, err = run_biomcp_drug_get(token)
+        if err:
+            warnings.append(f"BioMCP chembl detail warning ({token}): {err}")
+            continue
+        if detail_payload is None:
+            continue
+        payloads[f"detail:{token}"] = detail_payload
+        rows = extract_records(detail_payload)
+        if rows:
+            details_by_token[token] = rows[0]
+
+    for row in records:
+        token = str(row.get("molecule_chembl_id") or row.get("title") or "").strip()
+        detail = details_by_token.get(token)
+        if not detail:
+            continue
+        description = str(detail.get("description") or "").strip()
+        if description and not row.get("activity_summary"):
+            row["activity_summary"] = description[:300]
+        if description and not row.get("mechanism_of_action"):
+            row["mechanism_of_action"] = description[:300]
+        if not row.get("molecule_chembl_id"):
+            chembl_id = str(detail.get("chembl_id") or detail.get("drugbank_id") or "").strip()
+            if chembl_id:
+                row["molecule_chembl_id"] = chembl_id
+
+
+def _detail_limit(env_var: str, default: int) -> int:
+    raw = (os.environ.get(env_var) or "").strip()
+    if not raw:
+        return default
+    try:
+        return max(0, int(raw))
+    except ValueError:
+        return default

@@ -54,7 +54,14 @@ def test_opentargets_biomcp_backend_path(monkeypatch) -> None:
         del entity, term, limit, offset, options
         return {"results": [{"id": "ENSG000001", "name": "TMEM173", "entity": "target"}]}, None
 
+    def _fake_gene_get(identifier: str, *, enrich: str | None = None):
+        del identifier, enrich
+        return {"results": [{"id": "ENSG000001", "summary": "STING pathway biology"}]}, None
+
     monkeypatch.setattr("connectors.opentargets.run_biomcp_search", _fake_search)
+    monkeypatch.setattr("connectors.opentargets.run_biomcp_gene_get", _fake_gene_get)
+    monkeypatch.setattr("connectors.opentargets.run_biomcp_drug_get", lambda token: (None, f"missing {token}"))
+    monkeypatch.setattr("connectors.opentargets.run_biomcp_disease_get", lambda token: (None, f"missing {token}"))
     result = OpenTargetsConnector().fetch(config, "live")
     assert result.records
     assert result.records[0]["source_record_id"].startswith("opentargets:")
@@ -69,7 +76,12 @@ def test_chembl_biomcp_backend_path(monkeypatch) -> None:
         del entity, term, limit, offset, options
         return {"results": [{"id": "CHEMBL123", "name": "Example Compound", "entity": "drug"}]}, None
 
+    def _fake_drug_get(identifier: str):
+        del identifier
+        return {"results": [{"chembl_id": "CHEMBL123", "description": "Kinase inhibitor"}]}, None
+
     monkeypatch.setattr("connectors.chembl.run_biomcp_search", _fake_search)
+    monkeypatch.setattr("connectors.chembl.run_biomcp_drug_get", _fake_drug_get)
     result = ChEMBLConnector().fetch(config, "live")
     assert result.records
     assert result.records[0]["source_record_id"].startswith("chembl:")
@@ -84,7 +96,12 @@ def test_biothings_biomcp_backend_path(monkeypatch) -> None:
         del entity, term, limit, offset, options
         return {"results": [{"id": "6737", "symbol": "TMEM173", "summary": "STING gene"}]}, None
 
+    def _fake_gene_get(identifier: str, *, enrich: str | None = None):
+        del identifier, enrich
+        return {"results": [{"gene_id": "6737", "summary": "STING biology details"}]}, None
+
     monkeypatch.setattr("connectors.biothings.run_biomcp_search", _fake_search)
+    monkeypatch.setattr("connectors.biothings.run_biomcp_gene_get", _fake_gene_get)
     result = BioThingsConnector().fetch(config, "live")
     assert result.records
     assert result.records[0]["source_record_id"].startswith("biothings:")
@@ -141,6 +158,17 @@ def test_uniprot_biomcp_backend_path(monkeypatch) -> None:
 
     monkeypatch.setattr("connectors.uniprot.run_biomcp_search", _fake_search, raising=False)
     monkeypatch.setattr("connectors.biomcp_generic.run_biomcp_search", _fake_search)
+    monkeypatch.setattr(
+        "connectors.biomcp_generic.run_biomcp_gene_get",
+        lambda identifier, enrich=None: (
+            {"results": [{"id": identifier, "summary": "Reactome gene detail"}]},
+            None,
+        ),
+    )
+    monkeypatch.setattr(
+        "connectors.biomcp_generic.run_biomcp_variant_get",
+        lambda identifier, extensive=True: (None, f"not a variant: {identifier}"),
+    )
     result = UniProtConnector().fetch(config, "live")
     assert result.records
     assert result.records[0]["source_record_id"].startswith("uniprot:protein:")
@@ -156,15 +184,36 @@ def test_other_new_connectors_biomcp_backend_path(monkeypatch) -> None:
 
     def _fake_search(entity: str, term: str | None, *, limit: int = 25, offset: int = 0, options=None):
         del term, limit, offset, options
+        if entity == "fda-label":
+            return {"results": [{"label_id": "label-1", "title": "Imatinib label"}]}, None
         return {"results": [{"id": f"{entity}-1", "name": f"{entity} signal"}]}, None
 
     monkeypatch.setattr("connectors.biomcp_generic.run_biomcp_search", _fake_search)
+    monkeypatch.setattr(
+        "connectors.biomcp_generic.run_biomcp_gene_get",
+        lambda identifier, enrich=None: (
+            {"results": [{"id": identifier, "summary": f"gene detail {enrich or 'none'}"}]},
+            None,
+        ),
+    )
+    monkeypatch.setattr(
+        "connectors.biomcp_generic.run_biomcp_variant_get",
+        lambda identifier, extensive=True: (
+            {"results": [{"id": identifier, "summary": "variant detail"}]},
+            None,
+        ),
+    )
+    monkeypatch.setattr("connectors.openfda.run_biomcp_search", _fake_search)
+    monkeypatch.setattr(
+        "connectors.openfda.run_biomcp_openfda_label_get",
+        lambda label_id, sections=None: ({"results": [{"id": label_id, "summary": "label details"}]}, None),
+    )
 
     for connector, prefix in [
         (ReactomeConnector(), "reactome:pathway:"),
         (GwasConnector(), "gwas:gwas:"),
         (PharmGkbConnector(), "pharmgkb:pgx:"),
-        (OpenFdaConnector(), "openfda:adverse-event:"),
+        (OpenFdaConnector(), "openfda:"),
     ]:
         result = connector.fetch(config, "live")
         assert result.records

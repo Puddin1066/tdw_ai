@@ -10,6 +10,231 @@ from pipeline._artifacts import copy_fixture_artifact
 from pipeline.provenance import build_provenance, utc_now_iso
 from pipeline.types import SCHEMA_VERSION, CaseConfig, RunMode
 
+BENCHMARK_SET_VERSION = "v1.0"
+
+PROMPT_CATALOG: list[dict[str, object]] = [
+    {
+        "prompt_id": "BIO_01",
+        "category": "biology",
+        "connector_name": "opentargets",
+        "entity": "disease/gene/drug",
+        "goal": "target_indication_biology_strength",
+        "query_template": (
+            "Assess biological support linking {target} to {indication}, prioritize direct disease-target evidence."
+        ),
+        "min_relevant_records": 3,
+    },
+    {
+        "prompt_id": "BIO_02",
+        "category": "biology",
+        "connector_name": "reactome",
+        "entity": "pathway",
+        "goal": "mechanism_pathway_coherence",
+        "query_template": (
+            "Identify pathways supporting {mechanism} of {target} in {indication}."
+        ),
+        "min_relevant_records": 3,
+    },
+    {
+        "prompt_id": "BIO_03",
+        "category": "biology",
+        "connector_name": "biothings",
+        "entity": "gene/disease",
+        "goal": "biomarker_translational_support",
+        "query_template": (
+            "Find biomarker-relevant gene or disease signals for {target} in {indication}."
+        ),
+        "min_relevant_records": 3,
+    },
+    {
+        "prompt_id": "BIO_04",
+        "category": "biology",
+        "connector_name": "uniprot",
+        "entity": "protein",
+        "goal": "protein_functional_plausibility",
+        "query_template": (
+            "Retrieve protein-level evidence for {target} aligned with {mechanism} and {indication}."
+        ),
+        "min_relevant_records": 3,
+    },
+    {
+        "prompt_id": "BIO_05",
+        "category": "biology",
+        "connector_name": "pubmed",
+        "entity": "article",
+        "goal": "contradictory_biology_signals",
+        "query_template": (
+            "Surface supportive and contradictory biology evidence for {target} in {indication}."
+        ),
+        "min_relevant_records": 4,
+    },
+    {
+        "prompt_id": "CLN_01",
+        "category": "clinical",
+        "connector_name": "clinicaltrials",
+        "entity": "trial",
+        "goal": "interventional_landscape",
+        "query_template": (
+            "List interventional clinical programs for {target} in {indication}, focusing on active studies."
+        ),
+        "min_relevant_records": 3,
+    },
+    {
+        "prompt_id": "CLN_02",
+        "category": "clinical",
+        "connector_name": "clinicaltrials",
+        "entity": "trial",
+        "goal": "stage_quality_and_design",
+        "query_template": (
+            "Evaluate stage and trial design quality for {target} {modality} programs in {indication}."
+        ),
+        "min_relevant_records": 3,
+    },
+    {
+        "prompt_id": "CLN_03",
+        "category": "clinical",
+        "connector_name": "pubmed",
+        "entity": "article",
+        "goal": "clinical_efficacy_signals",
+        "query_template": (
+            "Find clinical efficacy outcome evidence for {target} in {indication}."
+        ),
+        "min_relevant_records": 4,
+    },
+    {
+        "prompt_id": "CLN_04",
+        "category": "clinical",
+        "connector_name": "openfda",
+        "entity": "adverse-event",
+        "goal": "safety_liability_signals",
+        "query_template": (
+            "Extract safety and adverse-event signals relevant to {target} programs in {indication}."
+        ),
+        "min_relevant_records": 2,
+    },
+    {
+        "prompt_id": "CLN_05",
+        "category": "clinical",
+        "connector_name": "chembl",
+        "entity": "drug",
+        "goal": "clinical_peer_assets",
+        "query_template": (
+            "Identify clinically advanced peer assets related to {target} in {indication}."
+        ),
+        "min_relevant_records": 2,
+    },
+    {
+        "prompt_id": "CMP_01",
+        "category": "competitive",
+        "connector_name": "chembl",
+        "entity": "drug",
+        "goal": "competitive_density",
+        "query_template": (
+            "Quantify competitive density for {target} and comparator mechanisms in {indication}."
+        ),
+        "min_relevant_records": 3,
+    },
+    {
+        "prompt_id": "CMP_02",
+        "category": "competitive",
+        "connector_name": "clinicaltrials",
+        "entity": "trial",
+        "goal": "peer_stage_positioning",
+        "query_template": (
+            "Benchmark development stage of {target} program versus peers in {indication}."
+        ),
+        "min_relevant_records": 3,
+    },
+    {
+        "prompt_id": "CMP_03",
+        "category": "competitive",
+        "connector_name": "opentargets",
+        "entity": "disease/gene/drug",
+        "goal": "differentiation_rationale",
+        "query_template": (
+            "Assess differentiation potential for {target} {modality} against known peers in {indication}."
+        ),
+        "min_relevant_records": 2,
+    },
+    {
+        "prompt_id": "CMP_04",
+        "category": "competitive",
+        "connector_name": "pubmed",
+        "entity": "article",
+        "goal": "competitor_evidence_depth",
+        "query_template": (
+            "Compare evidence depth for {target} against comparator programs ({comparators}) in {indication}."
+        ),
+        "min_relevant_records": 4,
+    },
+    {
+        "prompt_id": "CMP_05",
+        "category": "competitive",
+        "connector_name": "openfda",
+        "entity": "adverse-event",
+        "goal": "class_risk_differentiation",
+        "query_template": (
+            "Contrast class-risk and safety differentiation for {target} modality in {indication}."
+        ),
+        "min_relevant_records": 2,
+    },
+    {
+        "prompt_id": "INV_01",
+        "category": "investment",
+        "connector_name": "clinicaltrials",
+        "entity": "trial",
+        "goal": "value_inflection_milestones",
+        "query_template": (
+            "Identify next 12-24 month clinical milestones for {target} in {indication}."
+        ),
+        "min_relevant_records": 2,
+    },
+    {
+        "prompt_id": "INV_02",
+        "category": "investment",
+        "connector_name": "pubmed",
+        "entity": "article",
+        "goal": "technical_risk_review",
+        "query_template": (
+            "Extract technical and translational risks for {target} in {indication}."
+        ),
+        "min_relevant_records": 3,
+    },
+    {
+        "prompt_id": "INV_03",
+        "category": "investment",
+        "connector_name": "openfda",
+        "entity": "adverse-event",
+        "goal": "execution_and_safety_risks",
+        "query_template": (
+            "Summarize execution-relevant safety risks for {target} programs in {indication}."
+        ),
+        "min_relevant_records": 2,
+    },
+    {
+        "prompt_id": "INV_04",
+        "category": "investment",
+        "connector_name": "opentargets",
+        "entity": "disease/gene/drug",
+        "goal": "benchmark_success_alignment",
+        "query_template": (
+            "Estimate how closely {target} in {indication} aligns with successful benchmark mechanisms."
+        ),
+        "min_relevant_records": 2,
+    },
+    {
+        "prompt_id": "INV_05",
+        "category": "investment",
+        "connector_name": "pubmed",
+        "entity": "article",
+        "goal": "investability_supporting_signal",
+        "query_template": (
+            "Gather evidence supporting or weakening investability for {target} in {indication}; strategic focus: {strategic_question}."
+        ),
+        "min_relevant_records": 4,
+    },
+]
+
 
 def _envelope(
     config: CaseConfig,
@@ -201,28 +426,6 @@ def _build_benchmark_plan(
     mechanism = config.input_profile.biology.mechanism_direction
     dev_stage = config.input_profile.program.development_stage
 
-    topics: list[str] = [
-        f"{target} in {indication}",
-        f"{target} {indication} development programs",
-        f"{target} mechanism peers in {indication}",
-    ]
-    if modality:
-        topics.append(f"{modality} peers for {target} in {indication}")
-    if comparators:
-        topics.extend(comparators[:5])
-
-    deduped_topics: list[str] = []
-    seen_topics: set[str] = set()
-    for topic in topics:
-        text = str(topic).strip()
-        if not text:
-            continue
-        key = text.lower()
-        if key in seen_topics:
-            continue
-        seen_topics.add(key)
-        deduped_topics.append(text)
-
     enabled_connectors = [
         entry.get("connector_name", "unknown")
         for entry in entries
@@ -241,18 +444,13 @@ def _build_benchmark_plan(
             "openfda",
         }
     ]
-    prompt_set: list[dict[str, Any]] = []
-    for connector_name in enabled_connectors:
-        for topic in deduped_topics[:4]:
-            prompt_set.append(
-                {
-                    "connector_name": connector_name,
-                    "entity": _connector_entity_hint(connector_name),
-                    "goal": "comparable_benchmark_generation",
-                    "query_text": topic,
-                    "options": _connector_options_hint(connector_name, modality, mechanism, dev_stage),
-                }
-            )
+    prompt_set = _build_prompt_set(
+        config=config,
+        enabled_connectors=enabled_connectors,
+        modality=modality,
+        mechanism=mechanism,
+        dev_stage=dev_stage,
+    )
 
     payload_by_connector: dict[str, dict[str, Any]] = {}
     for payload in connector_payloads:
@@ -264,16 +462,20 @@ def _build_benchmark_plan(
     for idx, prompt in enumerate(prompt_set):
         connector_name = prompt["connector_name"]
         payload = payload_by_connector.get(connector_name, {})
+        min_records = int(prompt.get("min_relevant_records", 1))
         records = payload.get("records", [])
         warnings = payload.get("warnings", [])
         errors = payload.get("errors", [])
+        sample_records = records if isinstance(records, list) else []
+        relevant_rows = _relevant_rows(sample_records, prompt)
+        top_rows = relevant_rows[:3]
         status = "ok"
         if isinstance(errors, list) and errors:
             status = "error"
+        elif len(relevant_rows) < min_records:
+            status = "warning"
         elif isinstance(warnings, list) and warnings:
             status = "warning"
-        sample_records = records if isinstance(records, list) else []
-        top_rows = [row for row in sample_records if isinstance(row, dict)][:3]
         source_ids = [str(row.get("source_record_id", "")) for row in top_rows if row.get("source_record_id")]
         evidence_lines = [str(row.get("title") or row.get("name") or row.get("id") or "").strip() for row in top_rows]
         evidence_lines = [line for line in evidence_lines if line]
@@ -286,15 +488,21 @@ def _build_benchmark_plan(
             str(warnings[0]) if isinstance(warnings, list) and warnings else None
         )
         response_error = str(errors[0]) if isinstance(errors, list) and errors else None
+        score, confidence = _prompt_score(status, len(relevant_rows), min_records)
         prompt_runs.append(
             {
-                "prompt_id": f"mcp_prompt_{idx + 1:03d}",
+                "prompt_id": prompt["prompt_id"],
+                "category": prompt["category"],
                 "connector_name": connector_name,
                 "status": status,
                 "cached_at": utc_now_iso(),
                 "query_text": prompt["query_text"],
                 "response_text": response_text,
                 "source_record_ids": source_ids,
+                "relevance_pass_count": len(relevant_rows),
+                "relevance_min_required": min_records,
+                "score_0_5": score,
+                "confidence_0_1": confidence,
                 "warning": response_warning,
                 "error": response_error,
             }
@@ -317,10 +525,92 @@ def _build_benchmark_plan(
             "licensing_question": config.input_profile.commercial.licensing_question,
             "investment_question": config.input_profile.commercial.investment_question,
         },
-        "comparable_topics": deduped_topics,
+        "benchmark_set_version": BENCHMARK_SET_VERSION,
+        "comparable_topics": [str(prompt["query_text"]) for prompt in prompt_set[:10]],
         "mcp_prompt_set": prompt_set,
         "mcp_prompt_runs": prompt_runs,
     }
+
+
+def _build_prompt_set(
+    *,
+    config: CaseConfig,
+    enabled_connectors: list[str],
+    modality: str | None,
+    mechanism: str | None,
+    dev_stage: str | None,
+) -> list[dict[str, Any]]:
+    target = config.target.name or "target"
+    indication = config.indication.name or "indication"
+    comparators = ", ".join(config.input_profile.program.comparators[:3]) or "none listed"
+    strategic = config.input_profile.commercial.strategic_question or "not provided"
+    rendered: list[dict[str, Any]] = []
+    for spec in PROMPT_CATALOG:
+        connector_name = str(spec["connector_name"])
+        if connector_name not in enabled_connectors:
+            continue
+        query_text = str(spec["query_template"]).format(
+            target=target,
+            indication=indication,
+            modality=modality or "modality",
+            mechanism=mechanism or "mechanism",
+            dev_stage=dev_stage or "stage",
+            comparators=comparators,
+            strategic_question=strategic,
+        )
+        rendered.append(
+            {
+                "prompt_id": str(spec["prompt_id"]),
+                "category": str(spec["category"]),
+                "connector_name": connector_name,
+                "entity": str(spec["entity"]),
+                "goal": str(spec["goal"]),
+                "query_text": query_text,
+                "min_relevant_records": int(spec["min_relevant_records"]),
+                "options": _connector_options_hint(connector_name, modality, mechanism, dev_stage),
+            }
+        )
+    return rendered
+
+
+def _relevant_rows(rows: list[dict[str, Any]], prompt: dict[str, Any]) -> list[dict[str, Any]]:
+    query_terms = [token.lower() for token in str(prompt.get("query_text", "")).split() if len(token) > 3]
+    if not query_terms:
+        return [row for row in rows if isinstance(row, dict)]
+    out: list[dict[str, Any]] = []
+    for row in rows:
+        if not isinstance(row, dict):
+            continue
+        text = " ".join(
+            [
+                str(row.get("title") or ""),
+                str(row.get("name") or ""),
+                str(row.get("summary") or ""),
+                str(row.get("abstract") or ""),
+                str(row.get("mechanism_of_action") or ""),
+            ]
+        ).lower()
+        overlap = sum(1 for token in query_terms if token in text)
+        if overlap >= 2 or (query_terms and query_terms[0] in text):
+            out.append(row)
+    return out
+
+
+def _prompt_score(status: str, relevant_count: int, min_records: int) -> tuple[int, float]:
+    if status == "error":
+        return 0, 0.1
+    ratio = (relevant_count / max(1, min_records))
+    if ratio >= 2.0:
+        return 5, 0.95
+    if ratio >= 1.5:
+        return 4, 0.85
+    if ratio >= 1.0:
+        return 3, 0.75
+    if ratio >= 0.5:
+        return 2, 0.55
+    if relevant_count > 0:
+        return 1, 0.35
+    return 0, 0.2
 
 
 def _backend_used(payload: dict[str, Any]) -> str:

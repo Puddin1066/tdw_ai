@@ -9,7 +9,7 @@ from xml.etree import ElementTree
 import httpx
 
 from connectors._shared import FixtureCapableConnector
-from connectors.biomcp_adapter import extract_records, run_biomcp_search
+from connectors.biomcp_adapter import extract_records, run_biomcp_article_get, run_biomcp_search
 from connectors.base import (
     CaseConfig,
     ConnectorProvenance,
@@ -213,6 +213,7 @@ def _fetch_via_biomcp(config: CaseConfig) -> tuple[list[dict[str, Any]], dict[st
             continue
         seen.add(sid)
         deduped.append(row)
+    _enrich_biomcp_pubmed_records(deduped, payloads, warnings)
     return deduped, payloads, warnings
 
 
@@ -273,3 +274,87 @@ def _biomcp_rows_to_pubmed(rows: list[dict[str, Any]], term: str) -> list[dict[s
             }
         )
     return out
+
+
+def _enrich_biomcp_pubmed_records(
+    records: list[dict[str, Any]],
+    payloads: dict[str, Any],
+    warnings: list[str],
+) -> None:
+    """Best-effort enrichment via `biomcp article get --full`.
+
+    This augments search-level PubMed rows with deeper article fields when the
+    BioMCP deployment supports article-detail retrieval.
+    """
+    detail_limit = _article_detail_limit()
+    if detail_limit <= 0 or not records:
+        return
+    pmids: list[str] = []
+    seen: set[str] = set()
+    for row in records:
+        pmid = str(row.get("pmid") or "").strip()
+        if not pmid.isdigit() or pmid in seen:
+            continue
+        seen.add(pmid)
+        pmids.append(pmid)
+        if len(pmids) >= detail_limit:
+            break
+    if not pmids:
+        return
+
+    details_by_pmid: dict[str, dict[str, Any]] = {}
+    for pmid in pmids:
+        detail_payload, err = run_biomcp_article_get(pmid, full=True)
+        if err:
+            warnings.append(f"BioMCP pubmed detail warning ({pmid}): {err}")
+            continue
+        if detail_payload is None:
+            continue
+        payloads[f"detail:{pmid}"] = detail_payload
+        rows = extract_records(detail_payload)
+        if not rows:
+            continue
+        detail = rows[0]
+        detail_pmid = str(detail.get("pmid") or detail.get("id") or detail.get("identifier") or pmid).strip()
+        if detail_pmid.isdigit():
+            details_by_pmid[detail_pmid] = detail
+
+    for row in records:
+        pmid = str(row.get("pmid") or "").strip()
+        if not pmid:
+            continue
+        detail = details_by_pmid.get(pmid)
+        if not detail:
+            continue
+        if not row.get("abstract"):
+            abstract = str(detail.get("abstract") or "").strip()
+            if abstract:
+                row["abstract"] = abstract
+        if not row.get("journal"):
+            row["journal"] = detail.get("journal")
+        if not row.get("publication_date"):
+            row["publication_date"] = detail.get("date") or detail.get("publication_date")
+        if not row.get("doi"):
+            row["doi"] = detail.get("doi")
+        if not isinstance(row.get("authors"), list) or not row.get("authors"):
+            authors = detail.get("authors")
+            if isinstance(authors, list):
+                row["authors"] = [str(author) for author in authors if str(author).strip()]
+        if not isinstance(row.get("publication_types"), list) or not row.get("publication_types"):
+            publication_types = detail.get("publication_types")
+            if isinstance(publication_types, list):
+                row["publication_types"] = [str(item) for item in publication_types if str(item).strip()]
+        if not isinstance(row.get("mesh_terms"), list) or not row.get("mesh_terms"):
+            mesh_terms = detail.get("mesh_terms")
+            if isinstance(mesh_terms, list):
+                row["mesh_terms"] = [str(item) for item in mesh_terms if str(item).strip()]
+
+
+def _article_detail_limit() -> int:
+    raw = (os.environ.get("BIOMCP_ARTICLE_DETAIL_LIMIT") or "").strip()
+    if not raw:
+        return 20
+    try:
+        return max(0, int(raw))
+    except ValueError:
+        return 20

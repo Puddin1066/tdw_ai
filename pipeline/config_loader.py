@@ -8,6 +8,7 @@ from typing import Any
 import yaml
 
 from pipeline.types import (
+    BenchmarkConfig,
     CaseConfig,
     InputBiology,
     InputCommercial,
@@ -181,6 +182,7 @@ def load_case_config(config_path: Path | str) -> CaseConfig:
     disease_input_raw = raw.get("disease") if isinstance(raw.get("disease"), dict) else {}
     program_raw = raw.get("program") if isinstance(raw.get("program"), dict) else {}
     commercial_raw = raw.get("commercial") if isinstance(raw.get("commercial"), dict) else {}
+    benchmark_raw = raw.get("benchmark") if isinstance(raw.get("benchmark"), dict) else {}
 
     target = TargetConfig(
         name=_str_or_empty(target_raw, "name"),
@@ -239,6 +241,10 @@ def load_case_config(config_path: Path | str) -> CaseConfig:
             investment_question=_optional_str(commercial_raw, "investment_question"),
         ),
     )
+    benchmark = BenchmarkConfig(
+        enabled=bool(benchmark_raw.get("enabled", False)),
+        cohort=_optional_str(benchmark_raw, "cohort"),
+    )
 
     return CaseConfig(
         case_id=case_id,
@@ -251,5 +257,6 @@ def load_case_config(config_path: Path | str) -> CaseConfig:
         limits=limits,
         run_mode_defaults=run_mode_defaults,
         input_profile=input_profile,
+        benchmark=benchmark,
         config_path=path,
     )

@@ -1,0 +1,67 @@
+case_id: imatinib_cml_benchmark
+display_name: Imatinib / CML (Benchmark)
+workflow: translational_diligence
+version: v0.5
+
+benchmark:
+  enabled: true
+  cohort: approved_us_efficient_effective_v1
+
+target:
+  name: BCR-ABL1
+  canonical_id: null
+  aliases:
+    - ABL1 fusion kinase
+    - Philadelphia chromosome
+
+indication:
+  name: chronic myeloid leukemia
+  aliases:
+    - CML
+    - Philadelphia chromosome-positive leukemia
+
+biology:
+  mechanism_direction: inhibit
+  modality: small molecule kinase inhibitor
+  target_alias: ABL1 fusion kinase
+
+disease:
+  patient_segment: newly diagnosed chronic-phase CML
+  geography: US
+
+program:
+  asset: imatinib first-line CML program
+  company: Novartis
+  development_stage: approved
+  comparators:
+    - dasatinib
+    - nilotinib
+    - bosutinib
+
+commercial:
+  strategic_question: What made imatinib a high-efficiency benchmark in CML?
+  licensing_question: Which development choices improved speed and durability of approval?
+  investment_question: What benchmark features should new kinase programs replicate?
+
+sources:
+  pubmed: true
+  clinicaltrials: true
+  opentargets: true
+  chembl: true
+  biothings: true
+  uniprot: true
+  reactome: true
+  gwas: true
+  pharmgkb: true
+  openfda: true
+  octagon_market: false
+  local_docs: false
+
+limits:
+  max_literature_records: 50
+  max_trials: 100
+  max_evidence_rows: 100
+
+run_mode_defaults:
+  fixture_allowed: true
+  live_allowed: true

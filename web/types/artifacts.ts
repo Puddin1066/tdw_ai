@@ -147,6 +147,10 @@ export interface CaseMetadataData {
       investment_question?: string | null;
     };
   };
+  benchmark?: {
+    enabled?: boolean;
+    cohort?: string | null;
+  };
   maturity_stage?: string;
   confidence_score?: number;
   evidence_density?: EvidenceDensity;
@@ -203,20 +207,28 @@ export interface SourceManifestData {
     };
     comparable_topics?: string[];
     mcp_prompt_set?: Array<{
+      prompt_id?: string;
+      category?: string;
       connector_name: string;
       entity: string;
       goal: string;
       query_text: string;
+      min_relevant_records?: number;
       options: string[];
     }>;
     mcp_prompt_runs?: Array<{
       prompt_id: string;
+      category?: string;
       connector_name: string;
       status: "ok" | "warning" | "error";
       cached_at: string;
       query_text: string;
       response_text: string;
       source_record_ids: string[];
+      relevance_pass_count?: number;
+      relevance_min_required?: number;
+      score_0_5?: number;
+      confidence_0_1?: number;
       warning?: string | null;
       error?: string | null;
     }>;
@@ -448,6 +460,15 @@ export interface EvalMetrics {
   hallucinated_trial_count: number;
   hallucinated_pmid_count: number;
   evidence_coverage_score: number;
+  benchmark_contract_score?: number;
+  benchmark_contract_passed?: boolean;
+  benchmark_contract_issue_count?: number;
+  contract_connectors_with_records?: number;
+  contract_total_records?: number;
+  contract_fallback_entries?: number;
+  contract_broken_evidence_links?: number;
+  contract_generic_risk_titles?: number;
+  contract_duplicate_risk_titles?: number;
 }
 
 export interface EvalResultsData {
@@ -483,11 +504,19 @@ export interface CaseMetadata {
   target_name: string;
   indication_name: string;
   input_profile?: CaseMetadataData["input_profile"];
+  is_benchmark?: boolean;
+  benchmark_cohort?: string | null;
   maturity_stage: string;
   confidence_score: number;
   evidence_density: EvidenceDensity;
   top_risk: string;
   description?: string;
+  comparability_passed?: boolean;
+  comparability_score?: number;
+  connectors_with_records?: number;
+  total_records?: number;
+  fallback_connector_count?: number;
+  mock_fallback_warning_count?: number;
 }
 
 export type CaseArtifactFile =
@@ -514,5 +543,23 @@ export interface CasePacket {
   knowledgeGraph: KnowledgeGraphData | null;
   sourceManifest: SourceManifestData | null;
   evalResults: EvalResultsData | null;
+  depthAudit?: {
+    overall: {
+      connectorsAudited: number;
+      connectorsWithRawPayload: number;
+      totalRecords: number;
+      deepRecords: number;
+      deepCoverage: number;
+    };
+    byConnector: Array<{
+      connectorName: string;
+      recordsSourced: number;
+      recordsWithDeepFields: number;
+      deepCoverage: number;
+      attributedRecordCount: number;
+      rawPayloadPresent: boolean;
+      sampledDeepFields: string[];
+    }>;
+  };
   loadErrors: string[];
 }

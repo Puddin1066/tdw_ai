@@ -49,6 +49,7 @@ def test_publish_cases_runs_eval_and_copy(monkeypatch: pytest.MonkeyPatch, tmp_p
         mode="fixture",
         run_evals=True,
         allow_failed_evals=False,
+        allow_comparability_fail=False,
         validate_schemas=False,
         require_biomcp=False,
     )
@@ -59,6 +60,7 @@ def test_publish_cases_runs_eval_and_copy(monkeypatch: pytest.MonkeyPatch, tmp_p
     assert first.web_dir == web_dir
     assert first.eval_passed is True
     assert first.eval_score == pytest.approx(0.91)
+    assert first.comparability_passed is True
 
 
 def test_publish_cases_fails_when_eval_fails(monkeypatch: pytest.MonkeyPatch, tmp_path: Path) -> None:
@@ -92,6 +94,7 @@ def test_publish_cases_fails_when_eval_fails(monkeypatch: pytest.MonkeyPatch, tm
             mode="fixture",
             run_evals=True,
             allow_failed_evals=False,
+            allow_comparability_fail=False,
             validate_schemas=False,
             require_biomcp=False,
         )
@@ -151,6 +154,88 @@ def test_publish_cases_fails_strict_biomcp_on_warning(
             mode="live",
             run_evals=True,
             allow_failed_evals=False,
+            allow_comparability_fail=False,
             validate_schemas=False,
             require_biomcp=True,
+        )
+
+
+def test_publish_cases_live_requires_evals_for_comparability(
+    monkeypatch: pytest.MonkeyPatch, tmp_path: Path
+) -> None:
+    config_path = tmp_path / "sting_pdac.yaml"
+    config_path.write_text("case_id: sting_pdac\n", encoding="utf-8")
+    case_dir = tmp_path / "generated" / "sting_pdac"
+    case_dir.mkdir(parents=True)
+
+    class _Config:
+        case_id = "sting_pdac"
+        class sources:
+            pubmed = True
+            clinicaltrials = True
+            opentargets = True
+            chembl = True
+            biothings = True
+
+    monkeypatch.setattr(publish_static, "load_case_config", lambda _: _Config())
+    monkeypatch.setattr(publish_static, "run_case_workflow", lambda config, mode: case_dir)
+    monkeypatch.setattr(publish_static, "copy_to_web", lambda *_args, **_kwargs: case_dir)
+
+    with pytest.raises(RuntimeError, match="Comparability policy requires evals"):
+        publish_static.publish_cases(
+            [config_path],
+            mode="live",
+            run_evals=False,
+            allow_failed_evals=False,
+            allow_comparability_fail=False,
+            validate_schemas=False,
+            require_biomcp=False,
+        )
+
+
+def test_publish_cases_live_blocks_on_comparability_failure(
+    monkeypatch: pytest.MonkeyPatch, tmp_path: Path
+) -> None:
+    config_path = tmp_path / "sting_pdac.yaml"
+    config_path.write_text("case_id: sting_pdac\n", encoding="utf-8")
+    case_dir = tmp_path / "generated" / "sting_pdac"
+    case_dir.mkdir(parents=True)
+
+    class _Config:
+        case_id = "sting_pdac"
+        class sources:
+            pubmed = True
+            clinicaltrials = True
+            opentargets = True
+            chembl = True
+            biothings = True
+
+    payload = {
+        "data": {
+            "overall_passed": True,
+            "aggregate_score": 0.88,
+            "metrics": {
+                "benchmark_contract_passed": False,
+                "contract_connectors_with_records": 2,
+                "contract_total_records": 8,
+                "contract_fallback_entries": 1,
+                "contract_generic_risk_titles": 1,
+            },
+        }
+    }
+    monkeypatch.setattr(publish_static, "load_case_config", lambda _: _Config())
+    monkeypatch.setattr(publish_static, "run_case_workflow", lambda config, mode: case_dir)
+    monkeypatch.setattr(publish_static, "run_evaluations", lambda _: payload)
+    monkeypatch.setattr(publish_static, "write_eval_results", lambda _, __: case_dir / "eval_results.json")
+    monkeypatch.setattr(publish_static, "copy_to_web", lambda *_args, **_kwargs: case_dir)
+
+    with pytest.raises(RuntimeError, match="Comparability policy failed"):
+        publish_static.publish_cases(
+            [config_path],
+            mode="live",
+            run_evals=True,
+            allow_failed_evals=False,
+            allow_comparability_fail=False,
+            validate_schemas=False,
+            require_biomcp=False,
         )

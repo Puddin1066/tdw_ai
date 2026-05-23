@@ -89,6 +89,12 @@ def minimal_examples() -> dict[str, dict]:
                     "opentargets": True,
                     "chembl": True,
                     "biothings": True,
+                    "uniprot": True,
+                    "reactome": True,
+                    "gwas": True,
+                    "pharmgkb": True,
+                    "openfda": True,
+                    "octagon_market": False,
                     "local_docs": False,
                 },
                 "limits": {
