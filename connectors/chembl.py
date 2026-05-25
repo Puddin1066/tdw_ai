@@ -236,7 +236,10 @@ def _fetch_via_biomcp(config: CaseConfig) -> tuple[list[dict[str, Any]], dict[st
             if payload is None:
                 continue
             payloads[f"{term}|offset={offset}"] = payload
-            rows.extend(_biomcp_rows_to_chembl(extract_records(payload), term))
+            payload_rows = extract_records(payload)
+            if not payload_rows and isinstance(payload, dict):
+                payload_rows = [payload]
+            rows.extend(_biomcp_rows_to_chembl(payload_rows, term))
     deduped = _dedupe_records(rows)
     _enrich_biomcp_chembl_records(deduped, payloads, warnings)
     return deduped, payloads, warnings
@@ -245,10 +248,17 @@ def _fetch_via_biomcp(config: CaseConfig) -> tuple[list[dict[str, Any]], dict[st
 def _biomcp_rows_to_chembl(rows: list[dict[str, Any]], term: str) -> list[dict[str, Any]]:
     out: list[dict[str, Any]] = []
     for idx, row in enumerate(rows):
-        name = str(row.get("name") or row.get("label") or row.get("title") or "").strip()
+        tradename = row.get("tradename")
+        tradename_value = (
+            tradename[0]
+            if isinstance(tradename, list) and tradename and isinstance(tradename[0], str)
+            else None
+        )
+        name = str(row.get("name") or row.get("label") or row.get("title") or tradename_value or "").strip()
         raw_id = str(
             row.get("chembl_id")
             or row.get("molecule_chembl_id")
+            or row.get("drug_id")
             or row.get("id")
             or row.get("_id")
             or ""

@@ -23,9 +23,14 @@ export default async function CaseLibraryPage() {
           comparability rules, so scientific and investment decisions are made on auditable evidence.
         </p>
         <div className="pt-2">
-          <Button asChild variant="outline">
-            <Link href="/onboarding">New case onboarding flow</Link>
-          </Button>
+          <div className="flex flex-wrap gap-2">
+            <Button asChild variant="outline">
+              <Link href="/onboarding">New case onboarding flow</Link>
+            </Button>
+            <Button asChild>
+              <Link href="/evaluate">Deal evaluation workflow</Link>
+            </Button>
+          </div>
         </div>
       </header>
 

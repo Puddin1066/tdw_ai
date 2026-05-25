@@ -408,38 +408,78 @@ def _fetch_via_biomcp(config: CaseConfig) -> tuple[list[dict[str, Any]], dict[st
 def _biomcp_rows_to_trials(rows: list[dict[str, Any]], term: str) -> list[dict[str, Any]]:
     out: list[dict[str, Any]] = []
     for idx, row in enumerate(rows):
-        nct = str(row.get("nct_id") or row.get("id") or row.get("identifier") or "").strip().upper()
+        nct = str(
+            row.get("nct_id")
+            or row.get("NCT Number")
+            or row.get("id")
+            or row.get("identifier")
+            or ""
+        ).strip().upper()
         if not nct.startswith("NCT") or len(nct) != 11:
             # keep deterministic id for schema; this preserves nonstandard rows as low-confidence.
             continue
-        title = str(row.get("title") or row.get("brief_title") or f"Trial {nct}").strip()
-        status = str(row.get("overall_status") or row.get("status") or "Unknown").strip() or "Unknown"
+        title = str(row.get("title") or row.get("brief_title") or row.get("Study Title") or f"Trial {nct}").strip()
+        status = str(
+            row.get("overall_status") or row.get("status") or row.get("Study Status") or "Unknown"
+        ).strip() or "Unknown"
         interventions = row.get("interventions")
+        if not isinstance(interventions, list):
+            interventions = _split_text_list(row.get("Interventions"))
         conditions = row.get("conditions")
+        if not isinstance(conditions, list):
+            conditions = _split_text_list(row.get("Conditions"))
+        study_type = row.get("study_type") or row.get("Study Type")
+        sponsor = row.get("sponsor") or row.get("Sponsor")
+        phase = row.get("phase") or row.get("Phases")
+        completion_date = row.get("completion_date") or row.get("Completion Date")
+        start_date = row.get("start_date") or row.get("Start Date")
+        enrollment = row.get("enrollment_count")
+        if enrollment is None:
+            raw_enrollment = str(row.get("Enrollment") or "").strip()
+            if raw_enrollment.isdigit():
+                enrollment = int(raw_enrollment)
         out.append(
             {
                 "source_record_id": f"clinicaltrials:{nct}",
                 "source_type": "clinical_trial",
                 "source_name": "ClinicalTrials.gov",
                 "title": title,
-                "url": row.get("url") or f"https://clinicaltrials.gov/study/{nct}",
-                "publication_date": row.get("publication_date"),
+                "url": row.get("url") or row.get("Study URL") or f"https://clinicaltrials.gov/study/{nct}",
+                "publication_date": row.get("publication_date") or completion_date,
                 "retrieved_at": utc_now_iso(),
                 "raw_record_ref": f"raw/clinicaltrials_raw.json#biomcp/{term}/{idx}",
                 "nct_id": nct,
                 "brief_title": title,
-                "official_title": row.get("official_title"),
-                "phase": row.get("phase"),
+                "official_title": row.get("official_title") or row.get("Study Title"),
+                "phase": phase,
                 "overall_status": status,
-                "study_type": row.get("study_type"),
-                "sponsor": row.get("sponsor"),
+                "study_type": str(study_type).strip() if study_type is not None else None,
+                "sponsor": str(sponsor).strip() if sponsor is not None else None,
                 "interventions": interventions if isinstance(interventions, list) else [],
                 "conditions": conditions if isinstance(conditions, list) else [],
-                "start_date": row.get("start_date"),
-                "completion_date": row.get("completion_date"),
-                "enrollment_count": row.get("enrollment_count"),
+                "start_date": start_date,
+                "completion_date": completion_date,
+                "enrollment_count": enrollment,
             }
         )
+    return out
+
+
+def _split_text_list(value: Any) -> list[str]:
+    text = str(value or "").strip()
+    if not text:
+        return []
+    if "|" in text:
+        parts = text.split("|")
+    elif ";" in text:
+        parts = text.split(";")
+    else:
+        parts = [text]
+    out: list[str] = []
+    for part in parts:
+        token = str(part).strip()
+        if token:
+            out.append(token)
     return out
 
 

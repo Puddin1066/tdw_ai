@@ -59,6 +59,24 @@ RISK_CATEGORIES = {
 }
 
 RISK_SEVERITIES = {"low", "medium", "high", "critical"}
+GENERIC_RISK_TITLES = {"unspecified risk", "risk", "unknown risk", "n/a", "na"}
+EVIDENCE_STATUS_BASE_CONFIDENCE = {
+    "supported": 0.82,
+    "partially_supported": 0.64,
+    "insufficient_evidence": 0.32,
+    "unsupported": 0.22,
+    "contradicted": 0.18,
+}
+RISK_CATEGORY_IMPACT = {
+    "evidence_gap": 0.35,
+    "competition": 0.45,
+    "biomarker": 0.5,
+    "translational": 0.55,
+    "manufacturing": 0.55,
+    "clinical": 0.65,
+    "regulatory": 0.7,
+    "safety": 0.75,
+}
 
 
 def _prompt_hash(text: str) -> str:
@@ -170,6 +188,99 @@ def _clamp_confidence(value: Any, default: float = 0.5) -> float:
     return max(0.0, min(1.0, parsed))
 
 
+def _is_generic_risk_title(title: str) -> bool:
+    text = title.strip().lower()
+    if not text:
+        return True
+    return text in GENERIC_RISK_TITLES
+
+
+def _derive_risk_title(
+    title: str,
+    description: str,
+    category: str,
+    idx: int,
+) -> str:
+    candidate = title.strip()
+    if not _is_generic_risk_title(candidate):
+        return candidate
+
+    base = description.strip()
+    if not base:
+        base = f"{category.replace('_', ' ').title()} risk"
+    sentence = base.split(".")[0].strip(" -:;,.")
+    words = [word for word in sentence.split() if word.strip()]
+    if not words:
+        return f"{category.replace('_', ' ').title()} risk {idx + 1}"
+    short = " ".join(words[:8]).strip()
+    if not short:
+        return f"{category.replace('_', ' ').title()} risk {idx + 1}"
+    return short[0].upper() + short[1:]
+
+
+def _calibrate_evidence_confidence(
+    model_confidence: float,
+    support_status: str,
+    source_record_ids: list[str],
+    quoted_evidence: list[dict[str, Any]],
+    limitations: list[str],
+) -> float:
+    base = EVIDENCE_STATUS_BASE_CONFIDENCE.get(support_status, 0.4)
+    source_bonus = min(0.12, 0.04 * len(source_record_ids))
+    quote_bonus = min(0.1, 0.05 * len(quoted_evidence))
+    quote_text_bonus = 0.0
+    if quoted_evidence:
+        avg_len = sum(len(str(item.get("text") or "")) for item in quoted_evidence) / len(quoted_evidence)
+        if avg_len >= 140:
+            quote_text_bonus = 0.04
+        elif avg_len >= 80:
+            quote_text_bonus = 0.02
+    weak_limit_penalty = 0.0
+    weak_markers = ("omitted", "insufficient", "missing", "limited", "sparse")
+    if any(any(marker in entry.lower() for marker in weak_markers) for entry in limitations):
+        weak_limit_penalty = 0.05
+    signal = base + source_bonus + quote_bonus + quote_text_bonus - weak_limit_penalty
+    signal = _clamp_confidence(signal, default=base)
+
+    # If model emits the common flat fallback around 0.4, trust calibrated signal.
+    if abs(model_confidence - 0.4) <= 0.03:
+        return round(signal, 2)
+    # Otherwise blend model confidence with deterministic evidence signal.
+    blended = (0.6 * model_confidence) + (0.4 * signal)
+    return round(_clamp_confidence(blended, default=signal), 2)
+
+
+def _risk_impact_score(category: str, inferred: bool, evidence_ids: list[str], source_record_ids: list[str]) -> float:
+    category_impact = RISK_CATEGORY_IMPACT.get(category, 0.5)
+    evidence_signal = min(0.2, (0.06 * len(evidence_ids)) + (0.04 * len(source_record_ids)))
+    inference_adjustment = -0.08 if inferred else 0.04
+    return max(0.0, min(1.0, category_impact + evidence_signal + inference_adjustment))
+
+
+def _severity_from_impact(impact: float) -> str:
+    if impact >= 0.8:
+        return "critical"
+    if impact >= 0.62:
+        return "high"
+    if impact >= 0.4:
+        return "medium"
+    return "low"
+
+
+def _calibrate_risk_confidence(
+    model_confidence: float,
+    category: str,
+    inferred: bool,
+    evidence_ids: list[str],
+    source_record_ids: list[str],
+) -> float:
+    impact = _risk_impact_score(category, inferred, evidence_ids, source_record_ids)
+    if abs(model_confidence - 0.5) <= 0.03:
+        return round(impact, 2)
+    blended = (0.65 * model_confidence) + (0.35 * impact)
+    return round(_clamp_confidence(blended, default=impact), 2)
+
+
 def _sanitize_evidence_data(data: dict[str, Any], case_id: str) -> dict[str, Any]:
     rows = data.get("rows")
     if not isinstance(rows, list):
@@ -203,6 +314,20 @@ def _sanitize_evidence_data(data: dict[str, Any], case_id: str) -> dict[str, Any
                     cleaned_quoted.append(
                         {"source_record_id": source_id, "text": text, "location": location}
                     )
+        if not source_record_ids and cleaned_quoted:
+            seen_quote_sources: set[str] = set()
+            inferred_sources: list[str] = []
+            for item in cleaned_quoted:
+                source_id = str(item.get("source_record_id") or "").strip()
+                if not source_id or source_id in seen_quote_sources:
+                    continue
+                seen_quote_sources.add(source_id)
+                inferred_sources.append(source_id)
+            source_record_ids = inferred_sources
+        # Enforce grounding contract: ungrounded rows are excluded rather than
+        # emitted as free-floating claims with no attributable source.
+        if not source_record_ids:
+            continue
         limitations = row.get("limitations")
         if not isinstance(limitations, list):
             limitations = []
@@ -215,7 +340,13 @@ def _sanitize_evidence_data(data: dict[str, Any], case_id: str) -> dict[str, Any
                 "claim_text": str(row.get("claim_text") or "Evidence claim not provided by model."),
                 "claim_type": claim_type,
                 "support_status": support_status,
-                "confidence": _clamp_confidence(row.get("confidence"), default=0.4),
+                "confidence": _calibrate_evidence_confidence(
+                    _clamp_confidence(row.get("confidence"), default=0.4),
+                    support_status,
+                    source_record_ids,
+                    cleaned_quoted,
+                    limitations,
+                ),
                 "source_record_ids": source_record_ids,
                 "quoted_evidence": cleaned_quoted,
                 "limitations": limitations,
@@ -244,6 +375,7 @@ def _sanitize_risk_data(data: dict[str, Any], case_id: str) -> dict[str, Any]:
     if not isinstance(risks, list):
         risks = []
     cleaned: list[dict[str, Any]] = []
+    seen_titles: dict[str, int] = {}
     for idx, risk in enumerate(risks):
         if not isinstance(risk, dict):
             continue
@@ -259,16 +391,46 @@ def _sanitize_risk_data(data: dict[str, Any], case_id: str) -> dict[str, Any]:
         source_record_ids = risk.get("source_record_ids")
         if not isinstance(source_record_ids, list):
             source_record_ids = []
+        description = str(
+            risk.get("description") or "Model did not provide additional risk detail."
+        )
+        title = _derive_risk_title(
+            str(risk.get("title") or ""),
+            description,
+            category,
+            idx,
+        )
+        title_key = title.strip().lower()
+        seen_titles[title_key] = seen_titles.get(title_key, 0) + 1
+        if seen_titles[title_key] > 1:
+            title = f"{title} ({seen_titles[title_key]})"
+        model_confidence = _clamp_confidence(risk.get("confidence"), default=0.5)
+        calibrated_confidence = _calibrate_risk_confidence(
+            model_confidence,
+            category,
+            bool(risk.get("inferred", True)),
+            [str(v) for v in evidence_ids if str(v).strip()],
+            [str(v) for v in source_record_ids if str(v).strip()],
+        )
+        # If the model output is flattened to the default medium bucket, derive
+        # severity from risk impact so downstream comparisons are discriminative.
+        if severity == "medium":
+            severity = _severity_from_impact(
+                _risk_impact_score(
+                    category,
+                    bool(risk.get("inferred", True)),
+                    [str(v) for v in evidence_ids if str(v).strip()],
+                    [str(v) for v in source_record_ids if str(v).strip()],
+                )
+            )
         cleaned.append(
             {
                 "risk_id": str(risk.get("risk_id") or f"risk:{case_id}:{idx + 1:04d}"),
-                "title": str(risk.get("title") or "Unspecified risk"),
-                "description": str(
-                    risk.get("description") or "Model did not provide additional risk detail."
-                ),
+                "title": title,
+                "description": description,
                 "category": category,
                 "severity": severity,
-                "confidence": _clamp_confidence(risk.get("confidence"), default=0.5),
+                "confidence": calibrated_confidence,
                 "inferred": bool(risk.get("inferred", True)),
                 "evidence_ids": [str(v) for v in evidence_ids if str(v).strip()],
                 "source_record_ids": [str(v) for v in source_record_ids if str(v).strip()],

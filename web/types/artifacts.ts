@@ -517,6 +517,8 @@ export interface CaseMetadata {
   total_records?: number;
   fallback_connector_count?: number;
   mock_fallback_warning_count?: number;
+  mocked_api_calls?: boolean;
+  using_live_api?: boolean;
 }
 
 export type CaseArtifactFile =

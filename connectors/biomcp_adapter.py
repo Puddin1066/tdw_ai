@@ -10,8 +10,10 @@ import json
 import os
 import re
 import hashlib
+import importlib.util
 import shutil
 import subprocess
+import sys
 from typing import Any
 
 DEFAULT_BIOMCP_CONNECTORS = {
@@ -50,6 +52,25 @@ def should_use_biomcp_backend(connector_name: str) -> bool:
     return connector_name.strip().lower() in DEFAULT_BIOMCP_CONNECTORS
 
 
+def _biomcp_prefix() -> list[str] | None:
+    executable = shutil.which("biomcp")
+    if executable:
+        return ["biomcp"]
+    if importlib.util.find_spec("biomcp") is not None:
+        return [sys.executable, "-m", "biomcp"]
+    return None
+
+
+def _command_core(command: list[str]) -> list[str]:
+    if not command:
+        return command
+    if command[0] == "biomcp":
+        return command
+    if len(command) >= 4 and command[1] == "-m" and command[2] == "biomcp":
+        return ["biomcp", *command[3:]]
+    return command
+
+
 def run_biomcp_search(
     entity: str,
     term: str | None,
@@ -63,13 +84,14 @@ def run_biomcp_search(
     Supports both legacy CLI (`biomcp search ...`) and newer CLI shapes
     for BioMCP python CLI domains.
     """
-    if not shutil.which("biomcp"):
+    prefix = _biomcp_prefix()
+    if prefix is None:
         return None, "biomcp executable not found in PATH"
     safe_limit = _normalize_limit(entity, limit)
     safe_offset = max(0, int(offset))
     safe_page = (safe_offset // max(1, safe_limit)) + 1
 
-    legacy_command = ["biomcp", "search", entity]
+    legacy_command = [*prefix, "search", entity]
     if term and term.strip():
         legacy_command.append(term.strip())
     if options:
@@ -97,12 +119,13 @@ def run_biomcp_article_get(
     full: bool = True,
 ) -> tuple[dict[str, Any] | None, str | None]:
     """Fetch article details by PMID/DOI using modern BioMCP article command."""
-    if not shutil.which("biomcp"):
+    prefix = _biomcp_prefix()
+    if prefix is None:
         return None, "biomcp executable not found in PATH"
     token = str(identifier or "").strip()
     if not token:
         return None, "missing article identifier"
-    command = ["biomcp", "article", "get", token, "-j"]
+    command = [*prefix, "article", "get", token, "-j"]
     if full:
         command.append("--full")
     return _run_biomcp_commands([command])
@@ -114,12 +137,13 @@ def run_biomcp_trial_get(
     module: str = "all",
 ) -> tuple[dict[str, Any] | None, str | None]:
     """Fetch rich trial details with module-level payloads."""
-    if not shutil.which("biomcp"):
+    prefix = _biomcp_prefix()
+    if prefix is None:
         return None, "biomcp executable not found in PATH"
     token = str(nct_id or "").strip().upper()
     if not token:
         return None, "missing trial identifier"
-    command = ["biomcp", "trial", "get", token, module, "-j"]
+    command = [*prefix, "trial", "get", token, module, "-j"]
     return _run_biomcp_commands([command])
 
 
@@ -129,12 +153,13 @@ def run_biomcp_gene_get(
     enrich: str | None = None,
 ) -> tuple[dict[str, Any] | None, str | None]:
     """Fetch detailed gene annotations and optional enrichment."""
-    if not shutil.which("biomcp"):
+    prefix = _biomcp_prefix()
+    if prefix is None:
         return None, "biomcp executable not found in PATH"
     token = str(identifier or "").strip()
     if not token:
         return None, "missing gene identifier"
-    command = ["biomcp", "gene", "get", token, "-j"]
+    command = [*prefix, "gene", "get", token, "-j"]
     if enrich:
         command.extend(["--enrich", str(enrich).strip()])
     return _run_biomcp_commands([command])
@@ -142,12 +167,13 @@ def run_biomcp_gene_get(
 
 def run_biomcp_drug_get(identifier: str) -> tuple[dict[str, Any] | None, str | None]:
     """Fetch detailed drug annotations from BioMCP MyChem path."""
-    if not shutil.which("biomcp"):
+    prefix = _biomcp_prefix()
+    if prefix is None:
         return None, "biomcp executable not found in PATH"
     token = str(identifier or "").strip()
     if not token:
         return None, "missing drug identifier"
-    command = ["biomcp", "drug", "get", token, "-j"]
+    command = [*prefix, "drug", "get", token, "-j"]
     return _run_biomcp_commands([command])
 
 
@@ -157,12 +183,13 @@ def run_biomcp_variant_get(
     extensive: bool = True,
 ) -> tuple[dict[str, Any] | None, str | None]:
     """Fetch detailed variant annotations from BioMCP MyVariant path."""
-    if not shutil.which("biomcp"):
+    prefix = _biomcp_prefix()
+    if prefix is None:
         return None, "biomcp executable not found in PATH"
     token = str(identifier or "").strip()
     if not token:
         return None, "missing variant identifier"
-    command = ["biomcp", "variant", "get", token, "--json"]
+    command = [*prefix, "variant", "get", token, "--json"]
     if extensive:
         command.append("--extensive")
     return _run_biomcp_commands([command])
@@ -170,12 +197,13 @@ def run_biomcp_variant_get(
 
 def run_biomcp_disease_get(identifier: str) -> tuple[dict[str, Any] | None, str | None]:
     """Fetch disease details from BioMCP disease domain."""
-    if not shutil.which("biomcp"):
+    prefix = _biomcp_prefix()
+    if prefix is None:
         return None, "biomcp executable not found in PATH"
     token = str(identifier or "").strip()
     if not token:
         return None, "missing disease identifier"
-    command = ["biomcp", "disease", "get", token]
+    command = [*prefix, "disease", "get", token]
     return _run_biomcp_commands([command])
 
 
@@ -185,12 +213,13 @@ def run_biomcp_openfda_label_get(
     sections: str | None = None,
 ) -> tuple[dict[str, Any] | None, str | None]:
     """Fetch detailed OpenFDA label text for a specific label id."""
-    if not shutil.which("biomcp"):
+    prefix = _biomcp_prefix()
+    if prefix is None:
         return None, "biomcp executable not found in PATH"
     token = str(label_id or "").strip()
     if not token:
         return None, "missing openfda label identifier"
-    command = ["biomcp", "openfda", "label", "get", token]
+    command = [*prefix, "openfda", "label", "get", token]
     if sections:
         command.extend(["--sections", str(sections).strip()])
     return _run_biomcp_commands([command])
@@ -259,21 +288,24 @@ def _modern_search_commands(
     page: int,
     options: list[str],
 ) -> list[list[str]]:
+    prefix = _biomcp_prefix()
+    if prefix is None:
+        return []
     token = (term or "").strip()
     if entity == "article":
-        cmd = ["biomcp", "article", "search", "-l", str(limit), "-p", str(page), "-j"]
+        cmd = [*prefix, "article", "search", "-l", str(limit), "-p", str(page), "-j"]
         if token:
             cmd.extend(["-k", token])
+        # Ignore legacy options (e.g., --source / --ranking-mode) that are not
+        # supported by biomcp article search in current CLI versions.
         return [cmd]
     if entity == "trial":
         cmd = [
-            "biomcp",
+            *prefix,
             "trial",
             "search",
             "--page-size",
             str(limit),
-            "--page",
-            str(page),
             "-j",
         ]
         if token:
@@ -282,7 +314,7 @@ def _modern_search_commands(
         return [cmd]
     if entity in {"gene", "drug"} and token:
         return [[
-            "biomcp",
+            *prefix,
             entity,
             "search",
             token,
@@ -293,16 +325,16 @@ def _modern_search_commands(
             "-j",
         ]]
     if entity == "variant" and token:
-        return [["biomcp", "variant", "search", "--gene", token, "--size", str(limit), "-j"]]
+        return [[*prefix, "variant", "search", "--gene", token, "--size", str(limit), "-j"]]
     if entity == "gwas" and token:
-        return [["biomcp", "gene", "get", token, "--enrich", "gwas", "-j"]]
+        return [[*prefix, "gene", "get", token, "--enrich", "gwas", "-j"]]
     if entity in {"pathway", "protein"} and token:
-        return [["biomcp", "gene", "get", token, "--enrich", "reactome", "-j"]]
+        return [[*prefix, "gene", "get", token, "--enrich", "reactome", "-j"]]
     if entity == "pgx" and token:
-        return [["biomcp", "variant", "search", "--gene", token, "--size", str(limit), "-j"]]
+        return [[*prefix, "variant", "search", "--gene", token, "--size", str(limit), "-j"]]
     if entity == "adverse-event" and token:
         return [[
-            "biomcp",
+            *prefix,
             "openfda",
             "adverse",
             "search",
@@ -314,10 +346,10 @@ def _modern_search_commands(
             str(page),
         ]]
     if entity == "disease" and token:
-        return [["biomcp", "disease", "search", token, "--page-size", str(limit), "--page", str(page)]]
+        return [[*prefix, "disease", "search", token, "--page-size", str(limit), "--page", str(page)]]
     if entity == "fda-label" and token:
         return [[
-            "biomcp",
+            *prefix,
             "openfda",
             "label",
             "search",
@@ -397,7 +429,8 @@ def _parse_output(command: list[str], text: str) -> dict[str, Any] | None:
 
 
 def _accepts_plain_text(command: list[str]) -> bool:
-    prefix = command[:4]
+    core = _command_core(command)
+    prefix = core[:4]
     if prefix == ["biomcp", "openfda", "adverse", "search"]:
         return True
     if prefix == ["biomcp", "openfda", "label", "search"]:
@@ -406,20 +439,21 @@ def _accepts_plain_text(command: list[str]) -> bool:
         return True
     if prefix == ["biomcp", "openfda", "recall", "get"]:
         return True
-    if prefix == ["biomcp", "disease", "search"]:
+    if core[:3] == ["biomcp", "disease", "search"]:
         return True
-    if command[:3] == ["biomcp", "disease", "get"]:
+    if core[:3] == ["biomcp", "disease", "get"]:
         return True
     return False
 
 
 def _parse_plain_text_output(command: list[str], body: str) -> dict[str, Any] | None:
-    if command[:4] == ["biomcp", "openfda", "label", "search"]:
+    core = _command_core(command)
+    if core[:4] == ["biomcp", "openfda", "label", "search"]:
         rows = _extract_openfda_label_rows(body)
         if rows:
             return {"results": rows, "_raw_text": body}
-    if command[:4] == ["biomcp", "openfda", "label", "get"]:
-        token = command[4] if len(command) > 4 else "openfda-label"
+    if core[:4] == ["biomcp", "openfda", "label", "get"]:
+        token = core[4] if len(core) > 4 else "openfda-label"
         return {
             "results": [
                 {
