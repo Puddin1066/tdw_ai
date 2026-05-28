@@ -1,0 +1,21 @@
+{
+  "case_id": "auto_brown_university_biomaterials_cocktails_custom_delivered_ischemic",
+  "display_name": "PROANGIOGENIC PROTEIN COCKTAILS DELIVERED CUSTOM BIOMATERIALS Technology Platform Opportunity",
+  "llm_inferred_label": "PROANGIOGENIC PROTEIN COCKTAILS DELIVERED CUSTOM BIOMATERIALS Technology Platform Opportunity",
+  "ri_notes": "Deduped patent family (2 of 3 records); review scope and naming.",
+  "ri_physician_lead": "TBD",
+  "conflict_tags": [],
+  "ri_institution": "Rhode Island ecosystem",
+  "ri_ip_source": "lens:065-912-725-550-270",
+  "ip_assets": [
+    {
+      "asset_id": "asset_7a8b372bbe08",
+      "title": "PROANGIOGENIC PROTEIN COCKTAILS DELIVERED IN CUSTOM BIOMATERIALS TO REVASCULARIZE ISCHEMIC TISSUE",
+      "lens_id": "065-912-725-550-270",
+      "url": "https://lens.org/065-912-725-550-270",
+      "owners": "BROWN UNIVERSITY (2021-07-14)",
+      "legal_status": "PENDING",
+      "publication_date": "2024-11-14"
+    }
+  ]
+}

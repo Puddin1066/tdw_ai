@@ -1,0 +1,21 @@
+{
+  "case_id": "auto_sanford_burnham_alcohol_binding_corticotropin_disorder_factor_mo",
+  "display_name": "COMPOSITIONS AND METHODS FOR THE MODULATION Technology Platform Opportunity",
+  "llm_inferred_label": "COMPOSITIONS AND METHODS FOR THE MODULATION Technology Platform Opportunity",
+  "ri_notes": "Deduped patent family (2 of 3 records); review scope and naming.",
+  "ri_physician_lead": "TBD",
+  "conflict_tags": [],
+  "ri_institution": "Rhode Island ecosystem",
+  "ri_ip_source": "lens:019-262-754-851-419",
+  "ip_assets": [
+    {
+      "asset_id": "asset_d1b013855ef8",
+      "title": "COMPOSITIONS AND METHODS FOR THE MODULATION OF THE CORTICOTROPIN RELEASING FACTOR BINDING PROTEIN AND THE TREATMENT OF ALCOHOL USE DISORDER",
+      "lens_id": "019-262-754-851-419",
+      "url": "https://lens.org/019-262-754-851-419",
+      "owners": "SANFORD BURNHAM PREBYS MEDICAL DISCOVERY INSTITUTE (2025-01-14);;BROWN UNIVERSITY (2019-06-11)",
+      "legal_status": "PENDING",
+      "publication_date": "2024-02-29"
+    }
+  ]
+}

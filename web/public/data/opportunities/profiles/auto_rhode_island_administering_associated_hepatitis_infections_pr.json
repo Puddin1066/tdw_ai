@@ -1,0 +1,21 @@
+{
+  "case_id": "auto_rhode_island_administering_associated_hepatitis_infections_pr",
+  "display_name": "Treating hepatitis virus infections administering receptor Technology Platform Opportunity",
+  "llm_inferred_label": "Treating hepatitis virus infections administering receptor Technology Platform Opportunity",
+  "ri_notes": "Deduped patent family (1 of 1 records); review scope and naming.",
+  "ri_physician_lead": "TBD",
+  "conflict_tags": [],
+  "ri_institution": "Rhode Island ecosystem",
+  "ri_ip_source": "lens:136-607-428-890-001",
+  "ip_assets": [
+    {
+      "asset_id": "asset_b19c33d32554",
+      "title": "Treating hepatitis B virus infections by administering receptor associated protein (RAP)",
+      "lens_id": "136-607-428-890-001",
+      "url": "https://lens.org/136-607-428-890-001",
+      "owners": "RHODE ISLAND HOSPITAL A LIFESPAN-PARTNER (2015-12-10)",
+      "legal_status": "ACTIVE",
+      "publication_date": "2019-10-15"
+    }
+  ]
+}

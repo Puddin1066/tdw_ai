@@ -1,0 +1,3 @@
+source_id,source_name,source_type,check_min_usd,check_max_usd,stage_fit,ri_focus,match_eligible,decision_cycle_weeks,mocked,source_type_detail
+cap_physician_50,RI Physician Syndicate (Policy 50%),physician_syndicate,50000,3000000,discovery|validation|pilot launch|pilot clinical deployment|prototype to pilot,true,true,6,false,static_policy
+cap_slater_ssbci_50,Slater SSBCI Match (Policy 50%),public_program,50000,3000000,discovery|validation|pilot launch|pilot clinical deployment|prototype to pilot,true,true,8,false,static_policy

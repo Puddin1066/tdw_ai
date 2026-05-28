@@ -1,0 +1,30 @@
+{
+  "case_id": "auto_mallinckrodt_limited_acth_disorders_prophylactic_renal",
+  "display_name": "ACTH prophylactic treatment renal disorders Technology Platform Opportunity",
+  "llm_inferred_label": "ACTH prophylactic treatment renal disorders Technology Platform Opportunity",
+  "ri_notes": "Deduped patent family (2 of 5 records); review scope and naming.",
+  "ri_physician_lead": "TBD",
+  "conflict_tags": [],
+  "ri_institution": "Rhode Island ecosystem",
+  "ri_ip_source": "lens:162-148-895-966-012",
+  "ip_assets": [
+    {
+      "asset_id": "asset_13c9756be47b",
+      "title": "ACTH prophylactic treatment of renal disorders",
+      "lens_id": "162-148-895-966-012",
+      "url": "https://lens.org/162-148-895-966-012",
+      "owners": "MALLINCKRODT ARD IP LIMITED (2017-02-27);;RHODE ISLAND HOSPITAL (2014-07-22);;ACTHAR IP (2017-02-27);;QUESTCOR PHARMACEUTICALS INC (2014-07-21)",
+      "legal_status": "ACTIVE",
+      "publication_date": "2019-05-14"
+    },
+    {
+      "asset_id": "asset_9fe6ab6b93d2",
+      "title": "ACTH PROPHYLACTIC TREATMENT OF RENAL DISORDERS",
+      "lens_id": "061-726-760-317-007",
+      "url": "https://lens.org/061-726-760-317-007",
+      "owners": "MALLINCKRODT ARD IP LIMITED (2017-02-27);;RHODE ISLAND HOSPITAL (2014-07-22);;ACTHAR IP (2017-02-27);;QUESTCOR PHARMACEUTICALS INC (2014-07-21)",
+      "legal_status": "ACTIVE",
+      "publication_date": "2017-04-20"
+    }
+  ]
+}

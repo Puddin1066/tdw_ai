@@ -1,0 +1,21 @@
+{
+  "case_id": "monaghan_sepsis_diagnostic_ri",
+  "display_name": "Monaghan / Host-Response RNA Dx (RI)",
+  "llm_inferred_label": "PREDICTING COVID ANTIBODIES AMONG SURVIVORS WITH Diagnostic Opportunity",
+  "ri_notes": "Monaghan Lab; NIH-funded deep RNA platform (Inflammatix-like). No spinout yet.",
+  "ri_physician_lead": "SEAN MONAGHAN",
+  "conflict_tags": [],
+  "ri_institution": "Rhode Island Hospital / Brown",
+  "ri_ip_source": "lens:085-655-703-999-246",
+  "ip_assets": [
+    {
+      "asset_id": "asset_edd43d321151",
+      "title": "PREDICTING COVID-19 ANTIBODIES AMONG SURVIVORS WITH DEEP RNA SEQUENCING",
+      "lens_id": "085-655-703-999-246",
+      "url": "https://lens.org/085-655-703-999-246",
+      "owners": "RHODE ISLAND HOSPITAL (2021-12-02)",
+      "legal_status": "PENDING",
+      "publication_date": "2025-01-30"
+    }
+  ]
+}

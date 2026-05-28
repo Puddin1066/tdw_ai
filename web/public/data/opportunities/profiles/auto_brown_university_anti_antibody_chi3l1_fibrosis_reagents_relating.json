@@ -1,0 +1,30 @@
+{
+  "case_id": "auto_brown_university_anti_antibody_chi3l1_fibrosis_reagents_relating",
+  "display_name": "METHODS AND COMPOSITIONS RELATING ANTI CHI3L1 Therapeutic Opportunity",
+  "llm_inferred_label": "METHODS AND COMPOSITIONS RELATING ANTI CHI3L1 Therapeutic Opportunity",
+  "ri_notes": "Deduped patent family (2 of 5 records); review scope and naming.",
+  "ri_physician_lead": "TBD",
+  "conflict_tags": [],
+  "ri_institution": "Rhode Island ecosystem",
+  "ri_ip_source": "lens:075-002-409-949-634",
+  "ip_assets": [
+    {
+      "asset_id": "asset_cd02c3f2f317",
+      "title": "METHODS AND COMPOSITIONS RELATING TO ANTI-CHI3L1 ANTIBODY REAGENTS FOR THE TREATMENT OF FIBROSIS",
+      "lens_id": "075-002-409-949-634",
+      "url": "https://lens.org/075-002-409-949-634",
+      "owners": "BROWN UNIVERSITY (2018-12-20)",
+      "legal_status": "PENDING",
+      "publication_date": "2021-12-23"
+    },
+    {
+      "asset_id": "asset_c0ce694039b3",
+      "title": "METHODS AND COMPOSITIONS RELATING TO ANTI-CHI3L1 ANTIBODY REAGENTS",
+      "lens_id": "172-634-252-110-604",
+      "url": "https://lens.org/172-634-252-110-604",
+      "owners": "BROWN UNIVERSITY (2018-03-07)",
+      "legal_status": "ACTIVE",
+      "publication_date": "2019-04-25"
+    }
+  ]
+}

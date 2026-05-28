@@ -1,0 +1,21 @@
+{
+  "case_id": "auto_brown_university_glycogen_inhibition_kinase_synthase",
+  "display_name": "INHIBITION GLYCOGEN SYNTHASE KINASE GSK Technology Platform Opportunity",
+  "llm_inferred_label": "INHIBITION GLYCOGEN SYNTHASE KINASE GSK Technology Platform Opportunity",
+  "ri_notes": "Deduped patent family (1 of 1 records); review scope and naming.",
+  "ri_physician_lead": "TBD",
+  "conflict_tags": [],
+  "ri_institution": "Rhode Island ecosystem",
+  "ri_ip_source": "lens:044-084-704-854-299",
+  "ip_assets": [
+    {
+      "asset_id": "asset_59f379b6d844",
+      "title": "INHIBITION OF GLYCOGEN SYNTHASE KINASE-3 (GSK-3)",
+      "lens_id": "044-084-704-854-299",
+      "url": "https://lens.org/044-084-704-854-299",
+      "owners": "BROWN UNIVERSITY (2020-12-02)",
+      "legal_status": "PENDING",
+      "publication_date": "2024-01-11"
+    }
+  ]
+}

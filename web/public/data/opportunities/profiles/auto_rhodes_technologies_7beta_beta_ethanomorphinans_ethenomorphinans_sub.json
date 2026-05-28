@@ -1,0 +1,21 @@
+{
+  "case_id": "auto_rhodes_technologies_7beta_beta_ethanomorphinans_ethenomorphinans_sub",
+  "display_name": "beta substituted 14a ethenomorphinans and 7beta Technology Platform Opportunity",
+  "llm_inferred_label": "beta substituted 14a ethenomorphinans and 7beta Technology Platform Opportunity",
+  "ri_notes": "Deduped patent family (1 of 1 records); review scope and naming.",
+  "ri_physician_lead": "TBD",
+  "conflict_tags": [],
+  "ri_institution": "Rhode Island ecosystem",
+  "ri_ip_source": "lens:023-477-770-172-224",
+  "ip_assets": [
+    {
+      "asset_id": "asset_109a0943d28e",
+      "title": "7 beta-substituted 6a, 14a-ethenomorphinans and 7beta-substituted 6a, 14a-ethanomorphinans",
+      "lens_id": "023-477-770-172-224",
+      "url": "https://lens.org/023-477-770-172-224",
+      "owners": "RHODES TECHNOLOGIES (2015-11-18)",
+      "legal_status": "ACTIVE",
+      "publication_date": "2017-12-05"
+    }
+  ]
+}

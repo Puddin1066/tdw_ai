@@ -1,0 +1,21 @@
+{
+  "case_id": "auto_montana_state_agent_imaging_nanobubble_protein",
+  "display_name": "Protein based nanobubble ray imaging method Technology Platform Opportunity",
+  "llm_inferred_label": "Protein based nanobubble ray imaging method Technology Platform Opportunity",
+  "ri_notes": "Deduped patent family (2 of 2 records); review scope and naming.",
+  "ri_physician_lead": "TBD",
+  "conflict_tags": [],
+  "ri_institution": "Rhode Island ecosystem",
+  "ri_ip_source": "lens:022-747-950-956-924",
+  "ip_assets": [
+    {
+      "asset_id": "asset_9189148860a4",
+      "title": "Protein-based nanobubble x-ray imaging method and agent",
+      "lens_id": "022-747-950-956-924",
+      "url": "https://lens.org/022-747-950-956-924",
+      "owners": "MONTANA STATE UNIVERSITY (2017-05-05);;BROWN UNIVERSITY (2014-07-24)",
+      "legal_status": "ACTIVE",
+      "publication_date": "2019-06-04"
+    }
+  ]
+}

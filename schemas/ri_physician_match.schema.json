@@ -1,0 +1,79 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://tdw.ai/schemas/ri_physician_match.schema.json",
+  "title": "RiPhysicianMatchArtifact",
+  "allOf": [
+    { "$ref": "./_common.definitions.json#/$defs/artifactEnvelope" },
+    {
+      "type": "object",
+      "properties": {
+        "artifact_type": { "const": "ri_physician_match" },
+        "data": { "$ref": "#/$defs/riPhysicianMatchData" }
+      },
+      "required": ["artifact_type", "data"]
+    }
+  ],
+  "$defs": {
+    "candidatePhysician": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "physician_id",
+        "name",
+        "specialty",
+        "institution",
+        "roles_matched",
+        "availability_hours_month",
+        "compensation_floor_usd",
+        "investor_interest_level",
+        "match_score_0_100",
+        "mocked",
+        "source_type",
+        "confidence_0_1"
+      ],
+      "properties": {
+        "physician_id": { "type": ["string", "null"] },
+        "name": { "type": ["string", "null"] },
+        "specialty": { "type": ["string", "null"] },
+        "institution": { "type": ["string", "null"] },
+        "roles_matched": { "type": "array", "items": { "type": "string" } },
+        "availability_hours_month": { "type": "integer", "minimum": 0 },
+        "compensation_floor_usd": { "type": "integer", "minimum": 0 },
+        "investor_interest_level": { "type": "string" },
+        "match_score_0_100": { "type": "number", "minimum": 0, "maximum": 100 },
+        "mocked": { "type": "boolean" },
+        "source_type": { "type": "string" },
+        "confidence_0_1": { "type": "number", "minimum": 0, "maximum": 1 }
+      }
+    },
+    "riPhysicianMatchData": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "required_roles",
+        "required_specialties",
+        "role_coverage",
+        "staffing_feasibility_score_0_100",
+        "candidate_physicians",
+        "staffing_gaps",
+        "source_type",
+        "mocked",
+        "confidence_0_1"
+      ],
+      "properties": {
+        "required_roles": { "type": "array", "items": { "type": "string" } },
+        "required_specialties": { "type": "array", "items": { "type": "string" } },
+        "role_coverage": {
+          "type": "object",
+          "additionalProperties": { "type": "boolean" }
+        },
+        "staffing_feasibility_score_0_100": { "type": "number", "minimum": 0, "maximum": 100 },
+        "candidate_physicians": { "type": "array", "items": { "$ref": "#/$defs/candidatePhysician" } },
+        "staffing_gaps": { "type": "array", "items": { "type": "string" } },
+        "source_type": { "type": "string" },
+        "mocked": { "type": "boolean" },
+        "confidence_0_1": { "type": "number", "minimum": 0, "maximum": 1 }
+      }
+    }
+  }
+}

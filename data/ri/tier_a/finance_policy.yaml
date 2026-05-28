@@ -1,0 +1,37 @@
+# Tier A finance inference policy (editable).
+# Used when registry.csv leaves capital_gap_usd empty.
+
+version: 1
+
+capital_gap_buckets:
+  # median_usd_upper_exclusive -> gap_usd
+  - max_median_usd: 5000000
+    gap_usd: 900000
+  - max_median_usd: 50000000
+    gap_usd: 1200000
+  - max_median_usd: 500000000
+    gap_usd: 1800000
+  - max_median_usd: null
+    gap_usd: 2400000
+
+defaults:
+  gap_usd_no_anchor: 1200000
+  pharma_chemistry_gap_usd: 2100000
+  budget_ceiling_multiplier: 1.15
+  clinical_cost_fraction_of_gap: 0.45
+
+syndicate_split:
+  physician_fraction: 0.5
+  slater_fraction: 0.5
+
+clinical_weeks:
+  digital_therapeutic: 36
+  default_validation: 40
+  clinical_stage: 52
+  discovery_stage: 24
+
+program_families_using_pharma_gap:
+  - ri_pharma_chemistry
+
+opportunity_types_using_pharma_gap:
+  - pharma_manufacturing

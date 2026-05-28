@@ -13,6 +13,7 @@ from typing import Any
 import yaml
 from evals.run_evals import run_evaluations, write_eval_results
 from pipeline.artifact_writer import copy_to_web
+from pipeline.build_opportunity_bundle import build_bundle
 from pipeline.config_loader import load_case_config
 from pipeline.run_workflow import run_case_workflow
 from pipeline.types import RunMode, repo_root
@@ -365,6 +366,12 @@ def main(argv: list[str] | None = None) -> int:
             allow_comparability_fail=args.allow_comparability_fail,
             validate_schemas=args.validate_schemas,
             require_biomcp=(args.mode == "live" and not args.allow_biomcp_fallback),
+        )
+        web_cases_root = repo_root() / "web" / "public" / "data" / "cases"
+        bundle_counts = build_bundle(cases_root=web_cases_root, out_dir=repo_root() / "web" / "public" / "data" / "opportunities")
+        print(
+            "Opportunity bundle:",
+            f"{bundle_counts.get('index_count', 0)} index rows",
         )
         if args.build_web:
             _run_web_build()

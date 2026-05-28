@@ -1,0 +1,21 @@
+{
+  "case_id": "auto_rhode_island_anterior_cruciate_invasive_ligament_measurement",
+  "display_name": "Non invasive measurement predict post surgery Technology Platform Opportunity",
+  "llm_inferred_label": "Non invasive measurement predict post surgery Technology Platform Opportunity",
+  "ri_notes": "Deduped patent family (2 of 2 records); review scope and naming.",
+  "ri_physician_lead": "TBD",
+  "conflict_tags": [],
+  "ri_institution": "Rhode Island ecosystem",
+  "ri_ip_source": "lens:028-631-157-829-827",
+  "ip_assets": [
+    {
+      "asset_id": "asset_46231d071e45",
+      "title": "Non-invasive measurement to predict post-surgery anterior cruciate ligament success",
+      "lens_id": "028-631-157-829-827",
+      "url": "https://lens.org/028-631-157-829-827",
+      "owners": "RHODE ISLAND HOSPITAL (2021-01-19);;CHILDREN'S MEDICAL CENTER CORPORATION (2018-08-29)",
+      "legal_status": "ACTIVE",
+      "publication_date": "2022-02-01"
+    }
+  ]
+}

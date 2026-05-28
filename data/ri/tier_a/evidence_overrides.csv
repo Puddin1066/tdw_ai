@@ -1,0 +1,25 @@
+case_id,evidence_depth_score_0_100,evidence_grade,review_status,reviewer_note,canonical_evidence_status,min_publication_count
+auto_brown_university_annulus_biocompatible_brain_catheter_coupled_ele,60,B,pending,Backfilled from catalog; confirm after BioMCP refresh.,patent_linked,4
+auto_brown_university_anti_antibody_bispecific_chi3l1_reagents_relatin,30,B,pending,Backfilled from catalog; confirm after BioMCP refresh.,patent_linked,2
+auto_brown_university_biomedical_biosensor_diagnostics_large_networks,45,B,pending,Backfilled from catalog; confirm after BioMCP refresh.,patent_linked,3
+auto_brown_university_brain_chemotherapeutic_drug_enhancing_tumors_upt,30,B,pending,Backfilled from catalog; confirm after BioMCP refresh.,patent_linked,2
+auto_brown_university_drug_overdose,60,B,pending,Backfilled from catalog; confirm after BioMCP refresh.,patent_linked,4
+auto_brown_university_implantable_neural_wireless,30,B,pending,Backfilled from catalog; confirm after BioMCP refresh.,patent_linked,2
+auto_noramco_2020_hydrochloride_methylphenidate_synthesis_temperat,0,draft,pending,Backfilled from catalog; confirm after BioMCP refresh.,partial,0
+auto_regents_university_anti_compounds_inflammatory_inhibition_making_qu,45,B,pending,Backfilled from catalog; confirm after BioMCP refresh.,patent_linked,3
+auto_rhode_island_alloy_array_brain_cord_electrode_invasive_memory,60,B,pending,Backfilled from catalog; confirm after BioMCP refresh.,patent_linked,4
+auto_rhode_island_anterior_cruciate_invasive_ligament_measurement,15,draft,pending,Backfilled from catalog; confirm after BioMCP refresh.,patent_linked,1
+auto_rhode_island_antibacterial_antibiofilm_auranofin_catheter_coa,60,B,pending,Backfilled from catalog; confirm after BioMCP refresh.,patent_linked,4
+auto_rhode_island_behavioral_biomarkers_brain_closed_deep_features,60,B,pending,Backfilled from catalog; confirm after BioMCP refresh.,patent_linked,4
+auto_rhode_island_biomedical_detecting_electrical_electrode_locali,60,B,pending,Backfilled from catalog; confirm after BioMCP refresh.,patent_linked,4
+auto_rhode_island_connective_evaluate_pipeline_reinjury_risk_tissu,15,draft,pending,Backfilled from catalog; confirm after BioMCP refresh.,patent_linked,1
+auto_rhode_island_detection_large_occlusion_prediction_vessel,60,B,pending,Backfilled from catalog; confirm after BioMCP refresh.,patent_linked,4
+auto_rhodes_technologies_compounds_novel_opioid_thereof,0,draft,pending,Backfilled from catalog; confirm after BioMCP refresh.,partial,0
+auto_rhodes_technologies_improved_oxycodone_synthesis,45,B,pending,Backfilled from catalog; confirm after BioMCP refresh.,patent_linked,3
+auto_united_states_communication_facilitating_individuals_speak_spe,60,B,pending,Backfilled from catalog; confirm after BioMCP refresh.,patent_linked,4
+auto_university_rhode_biomedical_brassylate_copolymers_dioxanone_ethyl,60,B,pending,Backfilled from catalog; confirm after BioMCP refresh.,patent_linked,4
+cbt_pain_digital_platform_ri,60,B,pending,Backfilled from catalog; confirm after BioMCP refresh.,patent_linked,4
+monaghan_sepsis_diagnostic_ri,30,B,pending,Backfilled from catalog; confirm after BioMCP refresh.,patent_linked,2
+nanode_ri,60,B,pending,Backfilled from catalog; confirm after BioMCP refresh.,patent_linked,4
+theromics_ri,60,B,pending,Backfilled from catalog; confirm after BioMCP refresh.,patent_linked,4
+phlip_therapeutics_ri,45,B,pending,Backfilled from catalog; confirm after BioMCP refresh.,patent_linked,3

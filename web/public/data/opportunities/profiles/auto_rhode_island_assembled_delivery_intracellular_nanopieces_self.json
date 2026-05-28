@@ -1,0 +1,21 @@
+{
+  "case_id": "auto_rhode_island_assembled_delivery_intracellular_nanopieces_self",
+  "display_name": "VITRO AND VIVO INTRACELLULAR DELIVERY SIRNA Technology Platform Opportunity",
+  "llm_inferred_label": "VITRO AND VIVO INTRACELLULAR DELIVERY SIRNA Technology Platform Opportunity",
+  "ri_notes": "Deduped patent family (2 of 3 records); review scope and naming.",
+  "ri_physician_lead": "TBD",
+  "conflict_tags": [],
+  "ri_institution": "Rhode Island ecosystem",
+  "ri_ip_source": "lens:008-231-790-422-477",
+  "ip_assets": [
+    {
+      "asset_id": "asset_9cc16bb87916",
+      "title": "IN VITRO AND IN VIVO INTRACELLULAR DELIVERY OF SIRNA VIA SELF-ASSEMBLED NANOPIECES",
+      "lens_id": "008-231-790-422-477",
+      "url": "https://lens.org/008-231-790-422-477",
+      "owners": "RHODE ISLAND HOSPITAL (2020-11-05)",
+      "legal_status": "PENDING",
+      "publication_date": "2024-05-16"
+    }
+  ]
+}

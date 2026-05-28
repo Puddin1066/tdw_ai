@@ -1,0 +1,21 @@
+{
+  "case_id": "auto_brown_university_neurogenesis",
+  "display_name": "NEUROGENESIS Technology Platform Opportunity",
+  "llm_inferred_label": "NEUROGENESIS Technology Platform Opportunity",
+  "ri_notes": "Deduped patent family (1 of 1 records); review scope and naming.",
+  "ri_physician_lead": "TBD",
+  "conflict_tags": [],
+  "ri_institution": "Rhode Island ecosystem",
+  "ri_ip_source": "lens:107-664-598-396-267",
+  "ip_assets": [
+    {
+      "asset_id": "asset_edc2c0c2930d",
+      "title": "NEUROGENESIS",
+      "lens_id": "107-664-598-396-267",
+      "url": "https://lens.org/107-664-598-396-267",
+      "owners": "BROWN UNIVERSITY (2020-04-16)",
+      "legal_status": "PENDING",
+      "publication_date": "2022-06-23"
+    }
+  ]
+}

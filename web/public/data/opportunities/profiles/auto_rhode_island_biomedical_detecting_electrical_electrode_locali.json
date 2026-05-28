@@ -1,0 +1,30 @@
+{
+  "case_id": "auto_rhode_island_biomedical_detecting_electrical_electrode_locali",
+  "display_name": "Biomedical electrode system and method for Medical Device Opportunity",
+  "llm_inferred_label": "Biomedical electrode system and method for Medical Device Opportunity",
+  "ri_notes": "Deduped patent family (2 of 3 records); review scope and naming.",
+  "ri_physician_lead": "TBD",
+  "conflict_tags": [],
+  "ri_institution": "Rhode Island ecosystem",
+  "ri_ip_source": "lens:054-598-697-690-839",
+  "ip_assets": [
+    {
+      "asset_id": "asset_4ae06cc9e91f",
+      "title": "Biomedical electrode system and method for detecting localized electrical signals and providing electrical stimulation",
+      "lens_id": "054-598-697-690-839",
+      "url": "https://lens.org/054-598-697-690-839",
+      "owners": "RHODE ISLAND BOARD OF EDUCATION STATE OF RHODE ISLAND AND PROVIDENCE PLANTATIONS (2012-02-01);;BOARD OF GOVERNORS FOR HIGHER EDUCATION STATE OF RHODE ISLAND AND PROVIDENCE PLANTATIONS (2012-02-01)",
+      "legal_status": "ACTIVE",
+      "publication_date": "2013-12-24"
+    },
+    {
+      "asset_id": "asset_4b8c56707460",
+      "title": "BIOMEDICAL ELECTRODE SYSTEM AND METHOD FOR DETECTING LOCALIZED ELECTRICAL SIGNALS AND PROVIDING ELECTRICAL STIMULATION",
+      "lens_id": "126-140-992-269-137",
+      "url": "https://lens.org/126-140-992-269-137",
+      "owners": "RHODE ISLAND BOARD OF EDUCATION STATE OF RHODE ISLAND AND PROVIDENCE PLANTATIONS (2012-02-01);;BOARD OF GOVERNORS FOR HIGHER EDUCATION STATE OF RHODE ISLAND AND PROVIDENCE PLANTATIONS (2012-02-01)",
+      "legal_status": "ACTIVE",
+      "publication_date": "2013-03-28"
+    }
+  ]
+}

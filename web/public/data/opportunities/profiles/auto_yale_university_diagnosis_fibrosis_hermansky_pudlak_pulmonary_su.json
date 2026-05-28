@@ -1,0 +1,30 @@
+{
+  "case_id": "auto_yale_university_diagnosis_fibrosis_hermansky_pudlak_pulmonary_su",
+  "display_name": "Methods for the diagnosis and treatment Technology Platform Opportunity",
+  "llm_inferred_label": "Methods for the diagnosis and treatment Technology Platform Opportunity",
+  "ri_notes": "Deduped patent family (2 of 2 records); review scope and naming.",
+  "ri_physician_lead": "TBD",
+  "conflict_tags": [],
+  "ri_institution": "Rhode Island ecosystem",
+  "ri_ip_source": "lens:098-043-872-166-565",
+  "ip_assets": [
+    {
+      "asset_id": "asset_ea8a822490e5",
+      "title": "Methods for the diagnosis and treatment of pulmonary fibrosis in subjects with hermansky pudlak syndrome",
+      "lens_id": "098-043-872-166-565",
+      "url": "https://lens.org/098-043-872-166-565",
+      "owners": "YALE UNIVERSITY (2015-09-03);;BROWN UNIVERSITY (2015-09-03)",
+      "legal_status": "ACTIVE",
+      "publication_date": "2018-06-12"
+    },
+    {
+      "asset_id": "asset_99ae04cd3e76",
+      "title": "METHODS FOR THE DIAGNOSIS AND TREATMENT OF PULMONARY FIBROSIS IN SUBJECTS WITH HERMANSKY PUDLAK SYNDROME",
+      "lens_id": "061-968-867-194-395",
+      "url": "https://lens.org/061-968-867-194-395",
+      "owners": "YALE UNIVERSITY (2015-09-03);;BROWN UNIVERSITY (2015-09-03)",
+      "legal_status": "ACTIVE",
+      "publication_date": "2017-05-04"
+    }
+  ]
+}

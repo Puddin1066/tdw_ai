@@ -1,0 +1,21 @@
+{
+  "case_id": "auto_massachusetts_institute_cells_control_endothelial_optogenetic",
+  "display_name": "Optogenetic control endothelial cells Technology Platform Opportunity",
+  "llm_inferred_label": "Optogenetic control endothelial cells Technology Platform Opportunity",
+  "ri_notes": "Deduped patent family (2 of 4 records); review scope and naming.",
+  "ri_physician_lead": "TBD",
+  "conflict_tags": [],
+  "ri_institution": "Rhode Island ecosystem",
+  "ri_ip_source": "lens:175-249-300-601-175",
+  "ip_assets": [
+    {
+      "asset_id": "asset_e8e4b362b335",
+      "title": "Optogenetic control of endothelial cells",
+      "lens_id": "175-249-300-601-175",
+      "url": "https://lens.org/175-249-300-601-175",
+      "owners": "MASSACHUSETTS INSTITUTE OF TECHNOLOGY (2014-01-27);;BROWN UNIVERSITY (2014-01-27)",
+      "legal_status": "ACTIVE",
+      "publication_date": "2018-12-11"
+    }
+  ]
+}

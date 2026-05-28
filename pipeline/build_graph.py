@@ -26,18 +26,25 @@ def _entity_nodes(entities: list[dict[str, Any]]) -> list[dict[str, Any]]:
 
 
 def _entity_edges(entities: list[dict[str, Any]], case_id: str) -> list[dict[str, Any]]:
-    genes = [e for e in entities if e.get("entity_type") in {"gene", "protein"}]
+    primary_entities = [
+        e for e in entities if e.get("entity_type") in {"gene", "protein", "modality", "compound", "biomarker"}
+    ]
     diseases = [e for e in entities if e.get("entity_type") == "disease"]
     edges: list[dict[str, Any]] = []
-    for gene in genes:
+    for primary in primary_entities:
         for disease in diseases:
+            relationship = (
+                "associated_with"
+                if str(primary.get("entity_id", "")).startswith(("gene:", "protein:"))
+                else "applied_in"
+            )
             edges.append(
                 {
-                    "edge_id": f"edge:{case_id}:{gene['entity_id']}->{disease['entity_id']}",
-                    "source": gene["entity_id"],
+                    "edge_id": f"edge:{case_id}:{primary['entity_id']}->{disease['entity_id']}",
+                    "source": primary["entity_id"],
                     "target": disease["entity_id"],
-                    "relationship": "associated_with",
-                    "confidence": min(gene.get("confidence", 0.5), disease.get("confidence", 0.5)),
+                    "relationship": relationship,
+                    "confidence": min(primary.get("confidence", 0.5), disease.get("confidence", 0.5)),
                 }
             )
     return edges
@@ -95,14 +102,17 @@ def _evidence_edges(
     case_id: str,
     node_ids: set[str],
     source_to_entity: dict[str, str],
-    gene_ids: list[str],
+    primary_ids: list[str],
     disease_ids: list[str],
 ) -> list[dict[str, Any]]:
     edges: list[dict[str, Any]] = []
     seen: set[str] = set()
-    if not gene_ids or not disease_ids:
+    if not primary_ids or not disease_ids:
         return edges
-    gene_id = gene_ids[0]
+    primary_id = primary_ids[0]
+    supports_relationship = (
+        "supports_target" if str(primary_id).startswith(("gene:", "protein:")) else "supports_opportunity"
+    )
     disease_id = disease_ids[0]
     for idx, row in enumerate(evidence_rows):
         source_ids = row.get("source_record_ids", [])
@@ -117,10 +127,10 @@ def _evidence_edges(
             _append_edge(
                 edges,
                 seen,
-                edge_id=f"edge:{case_id}:evidence:{idx}:{source_node}->{gene_id}",
+                edge_id=f"edge:{case_id}:evidence:{idx}:{source_node}->{primary_id}",
                 source=source_node,
-                target=gene_id,
-                relationship="supports_target",
+                target=primary_id,
+                relationship=supports_relationship,
                 confidence=confidence,
                 source_record_ids=[sid_text],
             )
@@ -143,14 +153,14 @@ def _trial_context_edges(
     case_id: str,
     node_ids: set[str],
     source_to_entity: dict[str, str],
-    gene_ids: list[str],
+    primary_ids: list[str],
     disease_ids: list[str],
 ) -> list[dict[str, Any]]:
     edges: list[dict[str, Any]] = []
     seen: set[str] = set()
-    if not gene_ids or not disease_ids:
+    if not primary_ids or not disease_ids:
         return edges
-    gene_id = gene_ids[0]
+    primary_id = primary_ids[0]
     disease_id = disease_ids[0]
     for trial in trials:
         sid = str(trial.get("source_record_id", ""))
@@ -172,10 +182,10 @@ def _trial_context_edges(
         _append_edge(
             edges,
             seen,
-            edge_id=f"edge:{case_id}:trial:{trial_node}->{gene_id}",
+            edge_id=f"edge:{case_id}:trial:{trial_node}->{primary_id}",
             source=trial_node,
-            target=gene_id,
-            relationship="targets",
+            target=primary_id,
+            relationship="targets" if str(primary_id).startswith(("gene:", "protein:")) else "evaluates",
             confidence=0.65,
             source_record_ids=[sid],
         )
@@ -203,7 +213,11 @@ def build_knowledge_graph(config: CaseConfig, case_dir: Path) -> Path:
         for sid in entity.get("source_record_ids", []) if isinstance(entity.get("source_record_ids"), list) else []:
             source_to_entity[str(sid)] = entity_id
 
-    gene_ids = [e["entity_id"] for e in entities if e.get("entity_type") in {"gene", "protein"}]
+    primary_ids = [
+        e["entity_id"]
+        for e in entities
+        if e.get("entity_type") in {"gene", "protein", "modality", "compound", "biomarker"}
+    ]
     disease_ids = [e["entity_id"] for e in entities if e.get("entity_type") == "disease"]
 
     evidence_rows: list[dict[str, Any]] = []
@@ -229,7 +243,7 @@ def build_knowledge_graph(config: CaseConfig, case_dir: Path) -> Path:
             case_id=config.case_id,
             node_ids=node_ids,
             source_to_entity=source_to_entity,
-            gene_ids=gene_ids,
+            primary_ids=primary_ids,
             disease_ids=disease_ids,
         )
     )
@@ -239,7 +253,7 @@ def build_knowledge_graph(config: CaseConfig, case_dir: Path) -> Path:
             case_id=config.case_id,
             node_ids=node_ids,
             source_to_entity=source_to_entity,
-            gene_ids=gene_ids,
+            primary_ids=primary_ids,
             disease_ids=disease_ids,
         )
     )

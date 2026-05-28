@@ -1,0 +1,21 @@
+{
+  "case_id": "auto_biosurfaces_2013_article_electrospinning_making_medical_suitable_",
+  "display_name": "Electrospinning process for making textile suitable Technology Platform Opportunity",
+  "llm_inferred_label": "Electrospinning process for making textile suitable Technology Platform Opportunity",
+  "ri_notes": "Deduped patent family (1 of 1 records); review scope and naming.",
+  "ri_physician_lead": "TBD",
+  "conflict_tags": [],
+  "ri_institution": "Rhode Island ecosystem",
+  "ri_ip_source": "lens:062-183-457-030-474",
+  "ip_assets": [
+    {
+      "asset_id": "asset_04e6362dfa04",
+      "title": "Electrospinning process for making a textile suitable for use as a medical article",
+      "lens_id": "062-183-457-030-474",
+      "url": "https://lens.org/062-183-457-030-474",
+      "owners": "BIOSURFACES INC (2013-10-09);;CLEMSON UNIVERSITY (2013-12-12);;RHODE ISLAND BOARD OF EDUCATION (2013-11-08)",
+      "legal_status": "ACTIVE",
+      "publication_date": "2014-07-08"
+    }
+  ]
+}

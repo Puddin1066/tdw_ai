@@ -1,0 +1,21 @@
+{
+  "case_id": "auto_rhodes_technologies_conditions_ophthalmic_pharmaceutical",
+  "display_name": "PHARMACEUTICAL COMPOSITIONS FOR THE TREATMENT OPHTHALMIC Technology Platform Opportunity",
+  "llm_inferred_label": "PHARMACEUTICAL COMPOSITIONS FOR THE TREATMENT OPHTHALMIC Technology Platform Opportunity",
+  "ri_notes": "Deduped patent family (2 of 3 records); review scope and naming.",
+  "ri_physician_lead": "TBD",
+  "conflict_tags": [],
+  "ri_institution": "Rhode Island ecosystem",
+  "ri_ip_source": "lens:044-341-510-130-190",
+  "ip_assets": [
+    {
+      "asset_id": "asset_d9f02b501950",
+      "title": "PHARMACEUTICAL COMPOSITIONS FOR THE TREATMENT OF OPHTHALMIC CONDITIONS",
+      "lens_id": "044-341-510-130-190",
+      "url": "https://lens.org/044-341-510-130-190",
+      "owners": "RHODES TECHNOLOGIES (2018-06-01)",
+      "legal_status": "PENDING",
+      "publication_date": "2023-12-14"
+    }
+  ]
+}

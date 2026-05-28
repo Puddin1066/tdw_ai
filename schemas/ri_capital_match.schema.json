@@ -1,0 +1,68 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://tdw.ai/schemas/ri_capital_match.schema.json",
+  "title": "RiCapitalMatchArtifact",
+  "allOf": [
+    { "$ref": "./_common.definitions.json#/$defs/artifactEnvelope" },
+    {
+      "type": "object",
+      "properties": {
+        "artifact_type": { "const": "ri_capital_match" },
+        "data": { "$ref": "#/$defs/riCapitalMatchData" }
+      },
+      "required": ["artifact_type", "data"]
+    }
+  ],
+  "$defs": {
+    "potentialSource": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "source_id",
+        "source_name",
+        "source_type",
+        "ri_focus",
+        "match_eligible",
+        "decision_cycle_weeks",
+        "projected_commitment_usd",
+        "mocked",
+        "source_type_detail"
+      ],
+      "properties": {
+        "source_id": { "type": ["string", "null"] },
+        "source_name": { "type": ["string", "null"] },
+        "source_type": { "type": ["string", "null"] },
+        "ri_focus": { "type": "boolean" },
+        "match_eligible": { "type": "boolean" },
+        "decision_cycle_weeks": { "type": "integer", "minimum": 0 },
+        "projected_commitment_usd": { "type": "integer", "minimum": 0 },
+        "mocked": { "type": "boolean" },
+        "source_type_detail": { "type": "string" }
+      }
+    },
+    "riCapitalMatchData": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "private_match_needed_usd",
+        "capital_committed_usd",
+        "capital_gap_remaining_usd",
+        "capital_path_score_0_100",
+        "potential_sources",
+        "source_type",
+        "mocked",
+        "confidence_0_1"
+      ],
+      "properties": {
+        "private_match_needed_usd": { "type": "integer", "minimum": 0 },
+        "capital_committed_usd": { "type": "integer", "minimum": 0 },
+        "capital_gap_remaining_usd": { "type": "integer", "minimum": 0 },
+        "capital_path_score_0_100": { "type": "number", "minimum": 0, "maximum": 100 },
+        "potential_sources": { "type": "array", "items": { "$ref": "#/$defs/potentialSource" } },
+        "source_type": { "type": "string" },
+        "mocked": { "type": "boolean" },
+        "confidence_0_1": { "type": "number", "minimum": 0, "maximum": 1 }
+      }
+    }
+  }
+}

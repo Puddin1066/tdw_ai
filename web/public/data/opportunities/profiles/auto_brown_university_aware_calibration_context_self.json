@@ -1,0 +1,21 @@
+{
+  "case_id": "auto_brown_university_aware_calibration_context_self",
+  "display_name": "Context aware self calibration Technology Platform Opportunity",
+  "llm_inferred_label": "Context aware self calibration Technology Platform Opportunity",
+  "ri_notes": "Deduped patent family (2 of 2 records); review scope and naming.",
+  "ri_physician_lead": "TBD",
+  "conflict_tags": [],
+  "ri_institution": "Rhode Island ecosystem",
+  "ri_ip_source": "lens:147-071-266-542-536",
+  "ip_assets": [
+    {
+      "asset_id": "asset_fce352e39e68",
+      "title": "Context-aware self-calibration",
+      "lens_id": "147-071-266-542-536",
+      "url": "https://lens.org/147-071-266-542-536",
+      "owners": "BROWN UNIVERSITY (2015-06-09)",
+      "legal_status": "ACTIVE",
+      "publication_date": "2017-12-26"
+    }
+  ]
+}

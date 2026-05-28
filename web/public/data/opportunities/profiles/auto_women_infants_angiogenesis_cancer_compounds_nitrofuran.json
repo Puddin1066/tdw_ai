@@ -1,0 +1,21 @@
+{
+  "case_id": "auto_women_infants_angiogenesis_cancer_compounds_nitrofuran",
+  "display_name": "Nitrofuran compounds for the treatment cancer Therapeutic Opportunity",
+  "llm_inferred_label": "Nitrofuran compounds for the treatment cancer Therapeutic Opportunity",
+  "ri_notes": "Deduped patent family (2 of 4 records); review scope and naming.",
+  "ri_physician_lead": "TBD",
+  "conflict_tags": [],
+  "ri_institution": "Rhode Island ecosystem",
+  "ri_ip_source": "lens:069-246-031-417-663",
+  "ip_assets": [
+    {
+      "asset_id": "asset_fe82ed222fc8",
+      "title": "Nitrofuran compounds for the treatment of cancer and angiogenesis",
+      "lens_id": "069-246-031-417-663",
+      "url": "https://lens.org/069-246-031-417-663",
+      "owners": "WOMEN AND INFANTS' HOSPITAL RHODE ISLAND (2009-11-10);;BROWN UNIVERSITY (2009-11-10)",
+      "legal_status": "ACTIVE",
+      "publication_date": "2015-12-29"
+    }
+  ]
+}

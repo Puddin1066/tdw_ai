@@ -1,0 +1,21 @@
+{
+  "case_id": "auto_governors_university_nanotubes_thereof",
+  "display_name": "Nanotubes and compositions thereof Technology Platform Opportunity",
+  "llm_inferred_label": "Nanotubes and compositions thereof Technology Platform Opportunity",
+  "ri_notes": "Deduped patent family (2 of 4 records); review scope and naming.",
+  "ri_physician_lead": "TBD",
+  "conflict_tags": [],
+  "ri_institution": "Rhode Island ecosystem",
+  "ri_ip_source": "lens:090-325-911-076-55X",
+  "ip_assets": [
+    {
+      "asset_id": "asset_b3ffe17e6933",
+      "title": "Nanotubes and compositions thereof",
+      "lens_id": "090-325-911-076-55X",
+      "url": "https://lens.org/090-325-911-076-55X",
+      "owners": "THE GOVERNORS OF THE UNIVERSITY OF ALBERTA (2012-12-03);;NATIONAL RESEARCH COUNCIL OF CANADA (2012-10-04);;BROWN UNIVERSITY (2012-11-19)",
+      "legal_status": "ACTIVE",
+      "publication_date": "2019-02-12"
+    }
+  ]
+}

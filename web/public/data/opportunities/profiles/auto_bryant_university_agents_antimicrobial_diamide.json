@@ -1,0 +1,30 @@
+{
+  "case_id": "auto_bryant_university_agents_antimicrobial_diamide",
+  "display_name": "Diamide antimicrobial agents Technology Platform Opportunity",
+  "llm_inferred_label": "Diamide antimicrobial agents Technology Platform Opportunity",
+  "ri_notes": "Deduped patent family (2 of 2 records); review scope and naming.",
+  "ri_physician_lead": "TBD",
+  "conflict_tags": [],
+  "ri_institution": "Rhode Island ecosystem",
+  "ri_ip_source": "lens:011-740-391-255-185",
+  "ip_assets": [
+    {
+      "asset_id": "asset_3f8a38e358f6",
+      "title": "Diamide antimicrobial agents",
+      "lens_id": "011-740-391-255-185",
+      "url": "https://lens.org/011-740-391-255-185",
+      "owners": "BRYANT UNIVERSITY (2020-03-04);;BROWN UNIVERSITY (2020-03-05)",
+      "legal_status": "ACTIVE",
+      "publication_date": "2023-01-17"
+    },
+    {
+      "asset_id": "asset_b3796de10216",
+      "title": "DIAMIDE ANTIMICROBIAL AGENTS",
+      "lens_id": "041-408-838-897-314",
+      "url": "https://lens.org/041-408-838-897-314",
+      "owners": "BRYANT UNIVERSITY (2020-03-04);;BROWN UNIVERSITY (2020-03-05)",
+      "legal_status": "ACTIVE",
+      "publication_date": "2021-01-28"
+    }
+  ]
+}

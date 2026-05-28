@@ -1,0 +1,21 @@
+{
+  "case_id": "auto_university_rhode_compounds_delivery_immuno_intracellular_mediated",
+  "display_name": "PHLIP MEDIATED INTRACELLULAR DELIVERY IMMUNO STIMULATORY Therapeutic Opportunity",
+  "llm_inferred_label": "PHLIP MEDIATED INTRACELLULAR DELIVERY IMMUNO STIMULATORY Therapeutic Opportunity",
+  "ri_notes": "Deduped patent family (1 of 1 records); review scope and naming.",
+  "ri_physician_lead": "TBD",
+  "conflict_tags": [],
+  "ri_institution": "Rhode Island ecosystem",
+  "ri_ip_source": "lens:065-455-175-332-736",
+  "ip_assets": [
+    {
+      "asset_id": "asset_8d1d75c6c2bd",
+      "title": "PHLIP\u00ae-MEDIATED INTRACELLULAR DELIVERY OF IMMUNO-STIMULATORY COMPOUNDS",
+      "lens_id": "065-455-175-332-736",
+      "url": "https://lens.org/065-455-175-332-736",
+      "owners": "UNIVERSITY OF RHODE ISLAND BOARD OF TRUSTEES (2022-02-18);;YALE UNIVERSITY (2022-03-18)",
+      "legal_status": "PENDING",
+      "publication_date": "2022-03-24"
+    }
+  ]
+}

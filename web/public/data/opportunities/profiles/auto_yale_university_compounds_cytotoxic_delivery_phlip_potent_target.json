@@ -1,0 +1,21 @@
+{
+  "case_id": "auto_yale_university_compounds_cytotoxic_delivery_phlip_potent_target",
+  "display_name": "pHLIP targeted delivery potent cytotoxic compounds Therapeutic Opportunity",
+  "llm_inferred_label": "pHLIP targeted delivery potent cytotoxic compounds Therapeutic Opportunity",
+  "ri_notes": "Deduped patent family (1 of 1 records); review scope and naming.",
+  "ri_physician_lead": "TBD",
+  "conflict_tags": [],
+  "ri_institution": "Rhode Island ecosystem",
+  "ri_ip_source": "lens:001-966-060-475-801",
+  "ip_assets": [
+    {
+      "asset_id": "asset_5f3c0c6f3890",
+      "title": "pHLIP\u00ae targeted delivery of potent cytotoxic compounds",
+      "lens_id": "001-966-060-475-801",
+      "url": "https://lens.org/001-966-060-475-801",
+      "owners": "YALE UNIVERSITY (2020-05-21);;UNIVERSITY OF RHODE ISLAND BOARD OF TRUSTEES (2020-05-22)",
+      "legal_status": "ACTIVE",
+      "publication_date": "2020-07-30"
+    }
+  ]
+}

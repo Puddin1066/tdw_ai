@@ -1,0 +1,21 @@
+{
+  "case_id": "auto_brown_university_anti_antibody_chi3l1_disease_fatty_liver_metabol",
+  "display_name": "Methods and compositions relating anti CHI3L1 Therapeutic Opportunity",
+  "llm_inferred_label": "Methods and compositions relating anti CHI3L1 Therapeutic Opportunity",
+  "ri_notes": "Deduped patent family (1 of 1 records); review scope and naming.",
+  "ri_physician_lead": "TBD",
+  "conflict_tags": [],
+  "ri_institution": "Rhode Island ecosystem",
+  "ri_ip_source": "lens:037-092-024-856-852",
+  "ip_assets": [
+    {
+      "asset_id": "asset_c0ce694039b3",
+      "title": "Methods and compositions relating to anti-CHI3L1 antibody reagents to treat nonalcoholic steatohepatitis (NASH), nonalcoholic fatty liver disease (NFALD) or metabolic syndrome",
+      "lens_id": "037-092-024-856-852",
+      "url": "https://lens.org/037-092-024-856-852",
+      "owners": "BROWN UNIVERSITY (2018-03-07)",
+      "legal_status": "ACTIVE",
+      "publication_date": "2020-08-25"
+    }
+  ]
+}

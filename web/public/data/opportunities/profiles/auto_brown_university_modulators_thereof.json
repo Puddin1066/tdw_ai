@@ -1,0 +1,21 @@
+{
+  "case_id": "auto_brown_university_modulators_thereof",
+  "display_name": "HIF MODULATORS AND USES THEREOF Technology Platform Opportunity",
+  "llm_inferred_label": "HIF MODULATORS AND USES THEREOF Technology Platform Opportunity",
+  "ri_notes": "Deduped patent family (1 of 1 records); review scope and naming.",
+  "ri_physician_lead": "TBD",
+  "conflict_tags": [],
+  "ri_institution": "Rhode Island ecosystem",
+  "ri_ip_source": "lens:031-225-441-915-647",
+  "ip_assets": [
+    {
+      "asset_id": "asset_9364be24cb99",
+      "title": "HIF-1a MODULATORS AND USES THEREOF",
+      "lens_id": "031-225-441-915-647",
+      "url": "https://lens.org/031-225-441-915-647",
+      "owners": "BROWN UNIVERSITY (2024-01-21)",
+      "legal_status": "PENDING",
+      "publication_date": "2023-06-15"
+    }
+  ]
+}

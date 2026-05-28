@@ -1,0 +1,21 @@
+{
+  "case_id": "auto_rhode_island_disease_injury_orthopedic",
+  "display_name": "Compositions and methods for the treatment Technology Platform Opportunity",
+  "llm_inferred_label": "Compositions and methods for the treatment Technology Platform Opportunity",
+  "ri_notes": "Deduped patent family (2 of 2 records); review scope and naming.",
+  "ri_physician_lead": "TBD",
+  "conflict_tags": [],
+  "ri_institution": "Rhode Island ecosystem",
+  "ri_ip_source": "lens:173-220-008-462-33X",
+  "ip_assets": [
+    {
+      "asset_id": "asset_f725e884e503",
+      "title": "Compositions and methods for the treatment of orthopedic disease or injury",
+      "lens_id": "173-220-008-462-33X",
+      "url": "https://lens.org/173-220-008-462-33X",
+      "owners": "RHODE ISLAND HOSPITAL (2012-01-18)",
+      "legal_status": "ACTIVE",
+      "publication_date": "2018-11-20"
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "case_id": "auto_brown_university_cell_isolation_progenitor_recruitment",
+  "display_name": "Methods for progenitor cell recruitment and Technology Platform Opportunity",
+  "llm_inferred_label": "Methods for progenitor cell recruitment and Technology Platform Opportunity",
+  "ri_notes": "Deduped patent family (2 of 2 records); review scope and naming.",
+  "ri_physician_lead": "TBD",
+  "conflict_tags": [],
+  "ri_institution": "Rhode Island ecosystem",
+  "ri_ip_source": "lens:195-756-534-761-624",
+  "ip_assets": [
+    {
+      "asset_id": "asset_a2acf05afade",
+      "title": "Methods for progenitor cell recruitment and isolation",
+      "lens_id": "195-756-534-761-624",
+      "url": "https://lens.org/195-756-534-761-624",
+      "owners": "BROWN UNIVERSITY (2006-10-03)",
+      "legal_status": "ACTIVE",
+      "publication_date": "2013-07-16"
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "case_id": "auto_university_rhode_biomedical_brassylate_copolymers_dioxanone_ethyl",
+  "display_name": "POLY ETHYLENE BRASSYLATE DIOXANONE COPOLYMERS METHOD Medical Device Opportunity",
+  "llm_inferred_label": "POLY ETHYLENE BRASSYLATE DIOXANONE COPOLYMERS METHOD Medical Device Opportunity",
+  "ri_notes": "Deduped patent family (1 of 1 records); review scope and naming.",
+  "ri_physician_lead": "TBD",
+  "conflict_tags": [],
+  "ri_institution": "Rhode Island ecosystem",
+  "ri_ip_source": "lens:016-951-596-182-057",
+  "ip_assets": [
+    {
+      "asset_id": "asset_d23ae041e768",
+      "title": "POLY(ETHYLENE BRASSYLATE-CO-DIOXANONE) COPOLYMERS, METHOD OF SYNTHESIS AND BIOMEDICAL DEVICES MADE THEREFROM",
+      "lens_id": "016-951-596-182-057",
+      "url": "https://lens.org/016-951-596-182-057",
+      "owners": "UNIVERSITY OF RHODE ISLAND BOARD OF TRUSTEES (2024-04-08)",
+      "legal_status": "PENDING",
+      "publication_date": "2024-10-17"
+    }
+  ]
+}

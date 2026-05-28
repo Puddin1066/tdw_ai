@@ -1,0 +1,21 @@
+{
+  "case_id": "auto_rhode_island_cartilage_cell_derived_lines_progenitor",
+  "display_name": "CARTILAGE DERIVED PROGENITOR CELL LINES Technology Platform Opportunity",
+  "llm_inferred_label": "CARTILAGE DERIVED PROGENITOR CELL LINES Technology Platform Opportunity",
+  "ri_notes": "Deduped patent family (2 of 3 records); review scope and naming.",
+  "ri_physician_lead": "TBD",
+  "conflict_tags": [],
+  "ri_institution": "Rhode Island ecosystem",
+  "ri_ip_source": "lens:175-254-464-740-928",
+  "ip_assets": [
+    {
+      "asset_id": "asset_f8f08a79e7b0",
+      "title": "CARTILAGE-DERIVED PROGENITOR CELL LINES",
+      "lens_id": "175-254-464-740-928",
+      "url": "https://lens.org/175-254-464-740-928",
+      "owners": "RHODE ISLAND HOSPITAL (2018-12-12)",
+      "legal_status": "PENDING",
+      "publication_date": "2024-05-30"
+    }
+  ]
+}

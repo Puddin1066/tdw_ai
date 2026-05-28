@@ -1,0 +1,21 @@
+{
+  "case_id": "auto_rhode_island_beta_cancer_hydroxylase_inhibitors",
+  "display_name": "Inhibitors beta hydroxylase for treatment cancer Technology Platform Opportunity",
+  "llm_inferred_label": "Inhibitors beta hydroxylase for treatment cancer Technology Platform Opportunity",
+  "ri_notes": "Deduped patent family (2 of 2 records); review scope and naming.",
+  "ri_physician_lead": "TBD",
+  "conflict_tags": [],
+  "ri_institution": "Rhode Island ecosystem",
+  "ri_ip_source": "lens:174-770-845-908-864",
+  "ip_assets": [
+    {
+      "asset_id": "asset_70cf52b402a6",
+      "title": "Inhibitors of beta-hydroxylase for treatment of cancer",
+      "lens_id": "174-770-845-908-864",
+      "url": "https://lens.org/174-770-845-908-864",
+      "owners": "RHODE ISLAND HOSPITAL (2015-06-25);;MIDWESTERN UNIVERSITY (2015-06-24)",
+      "legal_status": "ACTIVE",
+      "publication_date": "2017-09-26"
+    }
+  ]
+}

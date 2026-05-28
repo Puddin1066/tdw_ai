@@ -1,0 +1,30 @@
+{
+  "case_id": "theromics_ri",
+  "display_name": "Theromics / Thermal Ablation Platform (RI)",
+  "llm_inferred_label": "Thermal accelerant compositions and methods use Technology Platform Opportunity",
+  "ri_notes": "Park Lab spinout; albumin-based gel for RF/microwave ablation (HeatSYNC).",
+  "ri_physician_lead": "BLAISE BAXTER",
+  "conflict_tags": [],
+  "ri_institution": "Rhode Island Hospital / Brown",
+  "ri_ip_source": "lens:185-839-533-093-266",
+  "ip_assets": [
+    {
+      "asset_id": "asset_bb5b6b11814a",
+      "title": "Thermal accelerant compositions and methods of use",
+      "lens_id": "185-839-533-093-266",
+      "url": "https://lens.org/185-839-533-093-266",
+      "owners": "RHODE ISLAND HOSPITAL (2020-01-15);;BROWN UNIVERSITY (2020-01-15)",
+      "legal_status": "ACTIVE",
+      "publication_date": "2021-08-03"
+    },
+    {
+      "asset_id": "asset_297d527f93fc",
+      "title": "Thermal Accelerant Compositions and Methods of Use",
+      "lens_id": "115-872-208-456-081",
+      "url": "https://lens.org/115-872-208-456-081",
+      "owners": "RHODE ISLAND HOSPITAL (2020-01-15);;BROWN UNIVERSITY (2020-01-15)",
+      "legal_status": "ACTIVE",
+      "publication_date": "2020-06-11"
+    }
+  ]
+}

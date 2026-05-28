@@ -1,0 +1,21 @@
+{
+  "case_id": "auto_rhode_island_glioblastoma_multiforme_treatments",
+  "display_name": "Glioblastoma Multiforme Treatments Technology Platform Opportunity",
+  "llm_inferred_label": "Glioblastoma Multiforme Treatments Technology Platform Opportunity",
+  "ri_notes": "Deduped patent family (1 of 1 records); review scope and naming.",
+  "ri_physician_lead": "TBD",
+  "conflict_tags": [],
+  "ri_institution": "Rhode Island ecosystem",
+  "ri_ip_source": "lens:195-072-267-482-833",
+  "ip_assets": [
+    {
+      "asset_id": "asset_39a37bde3c07",
+      "title": "Glioblastoma Multiforme Treatments",
+      "lens_id": "195-072-267-482-833",
+      "url": "https://lens.org/195-072-267-482-833",
+      "owners": "RHODE ISLAND HOSPITAL (2023-12-01);;BROWN UNIVERSITY (2023-12-13)",
+      "legal_status": "PENDING",
+      "publication_date": "2025-01-02"
+    }
+  ]
+}

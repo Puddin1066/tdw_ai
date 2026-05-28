@@ -1,0 +1,21 @@
+{
+  "case_id": "auto_rhode_island_acrylamides_nitrophenyl_thereof",
+  "display_name": "NITROPHENYL ACRYLAMIDES AND USES THEREOF Technology Platform Opportunity",
+  "llm_inferred_label": "NITROPHENYL ACRYLAMIDES AND USES THEREOF Technology Platform Opportunity",
+  "ri_notes": "Deduped patent family (1 of 1 records); review scope and naming.",
+  "ri_physician_lead": "TBD",
+  "conflict_tags": [],
+  "ri_institution": "Rhode Island ecosystem",
+  "ri_ip_source": "lens:076-493-550-070-19X",
+  "ip_assets": [
+    {
+      "asset_id": "asset_512ab9851410",
+      "title": "NITROPHENYL-ACRYLAMIDES AND USES THEREOF",
+      "lens_id": "076-493-550-070-19X",
+      "url": "https://lens.org/076-493-550-070-19X",
+      "owners": "RHODE ISLAND HOSPITAL (2023-12-01);;BROWN UNIVERSITY (2023-12-15)",
+      "legal_status": "PENDING",
+      "publication_date": "2025-03-06"
+    }
+  ]
+}

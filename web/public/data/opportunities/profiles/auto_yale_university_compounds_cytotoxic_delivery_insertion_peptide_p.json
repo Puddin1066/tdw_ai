@@ -1,0 +1,30 @@
+{
+  "case_id": "auto_yale_university_compounds_cytotoxic_delivery_insertion_peptide_p",
+  "display_name": "LOW INSERTION PEPTIDE TARGETED DELIVERY POTENT Therapeutic Opportunity",
+  "llm_inferred_label": "LOW INSERTION PEPTIDE TARGETED DELIVERY POTENT Therapeutic Opportunity",
+  "ri_notes": "Deduped patent family (2 of 2 records); review scope and naming.",
+  "ri_physician_lead": "TBD",
+  "conflict_tags": [],
+  "ri_institution": "Rhode Island ecosystem",
+  "ri_ip_source": "lens:035-474-427-504-289",
+  "ip_assets": [
+    {
+      "asset_id": "asset_66eab4bb6af2",
+      "title": "pH LOW INSERTION PEPTIDE TARGETED DELIVERY OF POTENT CYTOTOXIC COMPOUNDS",
+      "lens_id": "035-474-427-504-289",
+      "url": "https://lens.org/035-474-427-504-289",
+      "owners": "YALE UNIVERSITY (2020-05-21);;UNIVERSITY OF RHODE ISLAND BOARD OF TRUSTEES (2020-05-22)",
+      "legal_status": "PENDING",
+      "publication_date": "2024-10-17"
+    },
+    {
+      "asset_id": "asset_303c5abd5c81",
+      "title": "pH low insertion peptide targeted delivery of potent cytotoxic compounds",
+      "lens_id": "164-627-791-920-598",
+      "url": "https://lens.org/164-627-791-920-598",
+      "owners": "YALE UNIVERSITY (2020-05-21);;UNIVERSITY OF RHODE ISLAND BOARD OF TRUSTEES (2020-05-22)",
+      "legal_status": "ACTIVE",
+      "publication_date": "2024-07-09"
+    }
+  ]
+}

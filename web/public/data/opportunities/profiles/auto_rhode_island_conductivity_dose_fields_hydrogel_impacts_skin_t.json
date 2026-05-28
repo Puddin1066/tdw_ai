@@ -1,0 +1,21 @@
+{
+  "case_id": "auto_rhode_island_conductivity_dose_fields_hydrogel_impacts_skin_t",
+  "display_name": "HYDROGEL CONDUCTIVITY IMPACTS SKIN DOSE FROM Technology Platform Opportunity",
+  "llm_inferred_label": "HYDROGEL CONDUCTIVITY IMPACTS SKIN DOSE FROM Technology Platform Opportunity",
+  "ri_notes": "Deduped patent family (1 of 1 records); review scope and naming.",
+  "ri_physician_lead": "TBD",
+  "conflict_tags": [],
+  "ri_institution": "Rhode Island ecosystem",
+  "ri_ip_source": "lens:166-122-517-000-683",
+  "ip_assets": [
+    {
+      "asset_id": "asset_f14cd2a3425b",
+      "title": "HYDROGEL CONDUCTIVITY IMPACTS SKIN DOSE FROM TUMOR TREATING FIELDS",
+      "lens_id": "166-122-517-000-683",
+      "url": "https://lens.org/166-122-517-000-683",
+      "owners": "RHODE ISLAND HOSPITAL (2022-03-01)",
+      "legal_status": "PENDING",
+      "publication_date": "2025-05-29"
+    }
+  ]
+}

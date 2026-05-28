@@ -1,0 +1,21 @@
+{
+  "case_id": "auto_rhode_island_environmentally_sensitive_thereof",
+  "display_name": "Environmentally Sensitive Compositions and Methods Use Technology Platform Opportunity",
+  "llm_inferred_label": "Environmentally Sensitive Compositions and Methods Use Technology Platform Opportunity",
+  "ri_notes": "Deduped patent family (2 of 2 records); review scope and naming.",
+  "ri_physician_lead": "TBD",
+  "conflict_tags": [],
+  "ri_institution": "Rhode Island ecosystem",
+  "ri_ip_source": "lens:170-293-809-658-816",
+  "ip_assets": [
+    {
+      "asset_id": "asset_ccd89602034f",
+      "title": "Environmentally Sensitive Compositions and Methods of Use Thereof",
+      "lens_id": "170-293-809-658-816",
+      "url": "https://lens.org/170-293-809-658-816",
+      "owners": "RHODE ISLAND COUNCIL ON POSTSECONDARY EDUCATION (2011-09-22);;YALE UNIVERSITY (2011-10-04);;UNIVERSITY OF RHODE ISLAND BOARD OF TRUSTEES (2021-04-09);;RHODE ISLAND BOARD OF GOVERNORS FOR HIGHER EDUCATION (2011-09-22)",
+      "legal_status": "ACTIVE",
+      "publication_date": "2018-08-09"
+    }
+  ]
+}

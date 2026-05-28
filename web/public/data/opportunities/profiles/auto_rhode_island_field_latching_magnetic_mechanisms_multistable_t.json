@@ -1,0 +1,30 @@
+{
+  "case_id": "auto_rhode_island_field_latching_magnetic_mechanisms_multistable_t",
+  "display_name": "Time varying magnetic field therapy using Technology Platform Opportunity",
+  "llm_inferred_label": "Time varying magnetic field therapy using Technology Platform Opportunity",
+  "ri_notes": "Deduped patent family (2 of 2 records); review scope and naming.",
+  "ri_physician_lead": "TBD",
+  "conflict_tags": [],
+  "ri_institution": "Rhode Island ecosystem",
+  "ri_ip_source": "lens:039-450-656-570-721",
+  "ip_assets": [
+    {
+      "asset_id": "asset_478889e6b5b2",
+      "title": "Time-varying magnetic field therapy using multistable latching mechanisms",
+      "lens_id": "039-450-656-570-721",
+      "url": "https://lens.org/039-450-656-570-721",
+      "owners": "RHODE ISLAND BOARD OF EDUCATION STATE OF RHODE ISLAND AND PROVIDENCE PLANTATIONS (2016-05-09)",
+      "legal_status": "ACTIVE",
+      "publication_date": "2020-05-05"
+    },
+    {
+      "asset_id": "asset_016688190572",
+      "title": "Time-Varying Magnetic Field Therapy Using Multistable Latching Mechanisms",
+      "lens_id": "105-326-531-462-536",
+      "url": "https://lens.org/105-326-531-462-536",
+      "owners": "RHODE ISLAND BOARD OF EDUCATION STATE OF RHODE ISLAND AND PROVIDENCE PLANTATIONS (2016-05-09)",
+      "legal_status": "ACTIVE",
+      "publication_date": "2018-03-22"
+    }
+  ]
+}

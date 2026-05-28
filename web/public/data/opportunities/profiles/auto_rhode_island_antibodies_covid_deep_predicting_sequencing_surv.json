@@ -1,0 +1,21 @@
+{
+  "case_id": "auto_rhode_island_antibodies_covid_deep_predicting_sequencing_surv",
+  "display_name": "PREDICTING COVID ANTIBODIES AMONG SURVIVORS WITH Diagnostic Opportunity",
+  "llm_inferred_label": "PREDICTING COVID ANTIBODIES AMONG SURVIVORS WITH Diagnostic Opportunity",
+  "ri_notes": "Deduped patent family (1 of 1 records); review scope and naming.",
+  "ri_physician_lead": "TBD",
+  "conflict_tags": [],
+  "ri_institution": "Rhode Island ecosystem",
+  "ri_ip_source": "lens:085-655-703-999-246",
+  "ip_assets": [
+    {
+      "asset_id": "asset_edd43d321151",
+      "title": "PREDICTING COVID-19 ANTIBODIES AMONG SURVIVORS WITH DEEP RNA SEQUENCING",
+      "lens_id": "085-655-703-999-246",
+      "url": "https://lens.org/085-655-703-999-246",
+      "owners": "RHODE ISLAND HOSPITAL (2021-12-02)",
+      "legal_status": "PENDING",
+      "publication_date": "2025-01-30"
+    }
+  ]
+}

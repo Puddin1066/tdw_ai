@@ -136,6 +136,34 @@ Behavior:
 - validates and copies packets to `web/public/data/cases/{case_id}/`
 - optional `--build-web` compiles static output in `web/out`
 
+## RI physician/IP CSV intake (static-first)
+
+For Rhode Island physician-led and IP-sourced opportunities, use the baked-in CSV seed path:
+
+- template/data file: `data/ri/ri_physicians_ip_seed.csv`
+- normalize raw RI source exports (clinicians + patents + CTG trials): `python -m pipeline.normalize_ri_sources`
+- optional normalization controls: `python -m pipeline.normalize_ri_sources --max-assets-per-opportunity 2 --max-generated-opportunities 0`
+- importer: `python -m pipeline.import_ri_csv --csv data/ri/ri_physicians_ip_seed.csv --overwrite`
+
+This writes case configs into `configs/cases/` with static defaults (`fixture_allowed: true`, `live_allowed: false`).
+
+Then run fixture publish per case (or all cases) to populate `web/public/data/cases/`.
+
+Optional mocked RI lens scoring payload:
+
+- source CSV: `data/ri/ri_lens_mock_signals.csv`
+- export command: `python -m pipeline.export_ri_lens_mock`
+- static output: `web/public/data/ri/ri_lens_mock_signals.json`
+
+RI case workflow runs also emit per-case RI artifacts in each packet:
+
+- `ri_clinical_inflection.json`
+- `ri_physician_match.json`
+- `ri_capital_match.json`
+- `ri_financing_readiness.json`
+
+Detailed guidance: `docs/RI_CSV_STATIC_INTAKE.md`
+
 ## Validation
 
 ```bash

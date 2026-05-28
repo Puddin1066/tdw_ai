@@ -1,0 +1,21 @@
+{
+  "case_id": "auto_purdue_pharma_allyl_catalyzed_compounds_metal_preparation_ther",
+  "display_name": "Transition metal catalyzed processes for the Therapeutic Opportunity",
+  "llm_inferred_label": "Transition metal catalyzed processes for the Therapeutic Opportunity",
+  "ri_notes": "Deduped patent family (2 of 10 records); review scope and naming.",
+  "ri_physician_lead": "TBD",
+  "conflict_tags": [],
+  "ri_institution": "Rhode Island ecosystem",
+  "ri_ip_source": "lens:054-959-301-698-764",
+  "ip_assets": [
+    {
+      "asset_id": "asset_3b471d58e113",
+      "title": "Transition metal-catalyzed processes for the preparation of N-allyl compounds and use thereof",
+      "lens_id": "054-959-301-698-764",
+      "url": "https://lens.org/054-959-301-698-764",
+      "owners": "PURDUE PHARMA L.P (2011-02-28);;NORAMCO LLC (2020-12-31);;RHODES TECHNOLOGIES (2011-04-12)",
+      "legal_status": "ACTIVE",
+      "publication_date": "2017-05-23"
+    }
+  ]
+}

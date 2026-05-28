@@ -1,0 +1,21 @@
+{
+  "case_id": "auto_rhode_island_analysis_color_invasive_registering_surface_tiss",
+  "display_name": "REGISTERING HUE AND COLOR FOR NON Technology Platform Opportunity",
+  "llm_inferred_label": "REGISTERING HUE AND COLOR FOR NON Technology Platform Opportunity",
+  "ri_notes": "Deduped patent family (1 of 1 records); review scope and naming.",
+  "ri_physician_lead": "TBD",
+  "conflict_tags": [],
+  "ri_institution": "Rhode Island ecosystem",
+  "ri_ip_source": "lens:120-005-355-734-024",
+  "ip_assets": [
+    {
+      "asset_id": "asset_bff174abf287",
+      "title": "REGISTERING HUE AND/OR COLOR FOR NON-INVASIVE TISSUE SURFACE ANALYSIS",
+      "lens_id": "120-005-355-734-024",
+      "url": "https://lens.org/120-005-355-734-024",
+      "owners": "RHODE ISLAND HOSPITAL (2020-12-16)",
+      "legal_status": "PENDING",
+      "publication_date": "2023-02-02"
+    }
+  ]
+}

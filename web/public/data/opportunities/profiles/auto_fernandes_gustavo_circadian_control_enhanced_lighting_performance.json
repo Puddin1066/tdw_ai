@@ -1,0 +1,21 @@
+{
+  "case_id": "auto_fernandes_gustavo_circadian_control_enhanced_lighting_performance",
+  "display_name": "Lighting system for circadian control and Technology Platform Opportunity",
+  "llm_inferred_label": "Lighting system for circadian control and Technology Platform Opportunity",
+  "ri_notes": "Deduped patent family (2 of 2 records); review scope and naming.",
+  "ri_physician_lead": "TBD",
+  "conflict_tags": [],
+  "ri_institution": "Rhode Island ecosystem",
+  "ri_ip_source": "lens:075-098-854-224-614",
+  "ip_assets": [
+    {
+      "asset_id": "asset_f34bebb552df",
+      "title": "Lighting system for circadian control and enhanced performance",
+      "lens_id": "075-098-854-224-614",
+      "url": "https://lens.org/075-098-854-224-614",
+      "owners": "FERNANDES GUSTAVO E (2022-10-04);;EMMA PENDLETON BRADLEY HOSPITAL (2022-09-12);;XU JINGMING (2022-10-04);;CARSKADON MARY A (2022-10-04);;VAN REEN ELIZA (2022-10-04);;BROWN UNIVERSITY (2022-09-14)",
+      "legal_status": "ACTIVE",
+      "publication_date": "2020-12-01"
+    }
+  ]
+}

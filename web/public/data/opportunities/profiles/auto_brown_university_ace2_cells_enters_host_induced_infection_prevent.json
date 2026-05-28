@@ -1,0 +1,21 @@
+{
+  "case_id": "auto_brown_university_ace2_cells_enters_host_induced_infection_prevent",
+  "display_name": "METHODS FOR PREVENTING REVERSING TREATING INFECTION Technology Platform Opportunity",
+  "llm_inferred_label": "METHODS FOR PREVENTING REVERSING TREATING INFECTION Technology Platform Opportunity",
+  "ri_notes": "Deduped patent family (1 of 1 records); review scope and naming.",
+  "ri_physician_lead": "TBD",
+  "conflict_tags": [],
+  "ri_institution": "Rhode Island ecosystem",
+  "ri_ip_source": "lens:077-960-637-991-633",
+  "ip_assets": [
+    {
+      "asset_id": "asset_4e379df85a22",
+      "title": "METHODS FOR PREVENTING, REVERSING OR TREATING AN INFECTION INDUCED BY A VIRUS THAT ENTERS HOST CELLS VIA ACE2 RECEPTOR",
+      "lens_id": "077-960-637-991-633",
+      "url": "https://lens.org/077-960-637-991-633",
+      "owners": "BROWN UNIVERSITY (2023-03-07)",
+      "legal_status": "PENDING",
+      "publication_date": "2023-10-05"
+    }
+  ]
+}

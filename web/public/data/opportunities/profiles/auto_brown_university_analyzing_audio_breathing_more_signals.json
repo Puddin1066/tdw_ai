@@ -1,0 +1,21 @@
+{
+  "case_id": "auto_brown_university_analyzing_audio_breathing_more_signals",
+  "display_name": "ANALYZING PATIENT BREATHING BASED ONE MORE Technology Platform Opportunity",
+  "llm_inferred_label": "ANALYZING PATIENT BREATHING BASED ONE MORE Technology Platform Opportunity",
+  "ri_notes": "Deduped patent family (1 of 1 records); review scope and naming.",
+  "ri_physician_lead": "TBD",
+  "conflict_tags": [],
+  "ri_institution": "Rhode Island ecosystem",
+  "ri_ip_source": "lens:056-969-541-015-450",
+  "ip_assets": [
+    {
+      "asset_id": "asset_ac2368b515ce",
+      "title": "ANALYZING A PATIENT'S BREATHING BASED ON ONE OR MORE AUDIO SIGNALS",
+      "lens_id": "056-969-541-015-450",
+      "url": "https://lens.org/056-969-541-015-450",
+      "owners": "BROWN UNIVERSITY (2023-03-22)",
+      "legal_status": "PENDING",
+      "publication_date": "2023-07-20"
+    }
+  ]
+}

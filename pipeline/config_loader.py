@@ -56,6 +56,15 @@ def _optional_str(data: dict[str, Any], key: str) -> str | None:
     return text or None
 
 
+def _optional_bool(data: dict[str, Any], key: str) -> bool | None:
+    value = data.get(key)
+    if value is None:
+        return None
+    if isinstance(value, bool):
+        return value
+    raise ConfigValidationError(f"Expected boolean for {key} when provided")
+
+
 def _str_or_empty(data: dict[str, Any], key: str) -> str:
     value = data.get(key)
     if value is None:
@@ -89,6 +98,7 @@ def summarize_input_quality(config: CaseConfig) -> dict[str, Any]:
         config.input_profile.disease.geography,
         config.input_profile.program.asset,
         config.input_profile.program.company,
+        config.input_profile.program.opportunity_type,
         config.input_profile.program.development_stage,
         config.input_profile.program.comparators,
         config.input_profile.commercial.strategic_question,
@@ -127,6 +137,7 @@ def summarize_input_quality(config: CaseConfig) -> dict[str, Any]:
             bool(config.input_profile.biology.modality),
             bool(config.input_profile.program.asset),
             bool(config.input_profile.program.company),
+            bool(config.input_profile.program.opportunity_type),
             bool(config.input_profile.program.development_stage),
         ]
     )
@@ -232,6 +243,8 @@ def load_case_config(config_path: Path | str) -> CaseConfig:
         program=InputProgram(
             asset=_optional_str(program_raw, "asset"),
             company=_optional_str(program_raw, "company"),
+            opportunity_type=_optional_str(program_raw, "opportunity_type"),
+            slater_invested=_optional_bool(program_raw, "slater_invested"),
             development_stage=_optional_str(program_raw, "development_stage"),
             comparators=_optional_str_list(program_raw, "comparators"),
         ),

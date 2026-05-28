@@ -1,0 +1,21 @@
+{
+  "case_id": "auto_brown_university_bacterial_biofilm_making_nanoparticles_using",
+  "display_name": "Methods Making and Using Nanoparticles for Technology Platform Opportunity",
+  "llm_inferred_label": "Methods Making and Using Nanoparticles for Technology Platform Opportunity",
+  "ri_notes": "Deduped patent family (1 of 1 records); review scope and naming.",
+  "ri_physician_lead": "TBD",
+  "conflict_tags": [],
+  "ri_institution": "Rhode Island ecosystem",
+  "ri_ip_source": "lens:109-368-802-661-141",
+  "ip_assets": [
+    {
+      "asset_id": "asset_d68c770d98c8",
+      "title": "Methods of Making and Using Nanoparticles for Treatment of Bacterial Biofilm",
+      "lens_id": "109-368-802-661-141",
+      "url": "https://lens.org/109-368-802-661-141",
+      "owners": "BROWN UNIVERSITY (2022-06-03)",
+      "legal_status": "PENDING",
+      "publication_date": "2023-09-07"
+    }
+  ]
+}

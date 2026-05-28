@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
 import { CaseDashboard } from "@/components/CaseDashboard";
+import { SiteNav } from "@/components/SiteNav";
 import { listCaseIds, loadCaseMetadata, loadCasePacket } from "@/lib/loadCase";
 
 export function generateStaticParams() {
@@ -20,5 +21,10 @@ export default async function CasePage({ params }: CasePageProps) {
 
   const packet = await loadCasePacket(caseId);
 
-  return <CaseDashboard packet={packet} />;
+  return (
+    <>
+      <SiteNav />
+      <CaseDashboard packet={packet} />
+    </>
+  );
 }

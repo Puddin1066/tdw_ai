@@ -1,0 +1,21 @@
+{
+  "case_id": "auto_purdue_pharmaceuticals_having_hydrochloride_hydroxycodeinone_less_oxyco",
+  "display_name": "Oxycodone hydrochloride having less than PPM Technology Platform Opportunity",
+  "llm_inferred_label": "Oxycodone hydrochloride having less than PPM Technology Platform Opportunity",
+  "ri_notes": "Deduped patent family (2 of 2 records); review scope and naming.",
+  "ri_physician_lead": "TBD",
+  "conflict_tags": [],
+  "ri_institution": "Rhode Island ecosystem",
+  "ri_ip_source": "lens:183-546-839-542-835",
+  "ip_assets": [
+    {
+      "asset_id": "asset_f55638de1752",
+      "title": "Oxycodone hydrochloride having less than 25 PPM 14-hydroxycodeinone",
+      "lens_id": "183-546-839-542-835",
+      "url": "https://lens.org/183-546-839-542-835",
+      "owners": "PURDUE PHARMACEUTICALS L.P (2010-05-05);;EURO-CELTIQUE S.A (2005-04-01);;PURDUE PHARMA L.P (2010-05-05);;RHODES TECHNOLOGIES (2010-05-05);;THE P.F. LABORATORIES INC (2010-05-05)",
+      "legal_status": "ACTIVE",
+      "publication_date": "2015-07-07"
+    }
+  ]
+}

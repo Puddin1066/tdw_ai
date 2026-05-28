@@ -1,0 +1,21 @@
+{
+  "case_id": "auto_brown_university_assay_diagnostic_virus",
+  "display_name": "RNA VIRUS DIAGNOSTIC ASSAY Diagnostic Opportunity",
+  "llm_inferred_label": "RNA VIRUS DIAGNOSTIC ASSAY Diagnostic Opportunity",
+  "ri_notes": "Deduped patent family (1 of 1 records); review scope and naming.",
+  "ri_physician_lead": "TBD",
+  "conflict_tags": [],
+  "ri_institution": "Rhode Island ecosystem",
+  "ri_ip_source": "lens:149-093-272-688-064",
+  "ip_assets": [
+    {
+      "asset_id": "asset_39dfbb69e668",
+      "title": "RNA VIRUS DIAGNOSTIC ASSAY",
+      "lens_id": "149-093-272-688-064",
+      "url": "https://lens.org/149-093-272-688-064",
+      "owners": "BROWN UNIVERSITY (2022-09-30)",
+      "legal_status": "PENDING",
+      "publication_date": "2023-06-01"
+    }
+  ]
+}

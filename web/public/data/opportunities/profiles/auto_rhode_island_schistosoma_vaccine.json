@@ -1,0 +1,21 @@
+{
+  "case_id": "auto_rhode_island_schistosoma_vaccine",
+  "display_name": "Schistosoma vaccine Therapeutic Opportunity",
+  "llm_inferred_label": "Schistosoma vaccine Therapeutic Opportunity",
+  "ri_notes": "Deduped patent family (2 of 2 records); review scope and naming.",
+  "ri_physician_lead": "TBD",
+  "conflict_tags": [],
+  "ri_institution": "Rhode Island ecosystem",
+  "ri_ip_source": "lens:147-800-308-704-95X",
+  "ip_assets": [
+    {
+      "asset_id": "asset_c1d2842a9978",
+      "title": "Schistosoma vaccine",
+      "lens_id": "147-800-308-704-95X",
+      "url": "https://lens.org/147-800-308-704-95X",
+      "owners": "RHODE ISLAND HOSPITAL (2010-11-16)",
+      "legal_status": "ACTIVE",
+      "publication_date": "2016-03-15"
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "case_id": "auto_united_states_communication_facilitating_individuals_speak_spe",
+  "display_name": "System for facilitating speech based communication Technology Platform Opportunity",
+  "llm_inferred_label": "System for facilitating speech based communication Technology Platform Opportunity",
+  "ri_notes": "Deduped patent family (2 of 2 records); review scope and naming.",
+  "ri_physician_lead": "TBD",
+  "conflict_tags": [],
+  "ri_institution": "Rhode Island ecosystem",
+  "ri_ip_source": "lens:132-876-212-164-238",
+  "ip_assets": [
+    {
+      "asset_id": "asset_81b610118387",
+      "title": "System for facilitating speech-based communication for individuals unable to speak or write",
+      "lens_id": "132-876-212-164-238",
+      "url": "https://lens.org/132-876-212-164-238",
+      "owners": "THE UNITED STATES GOVERNMENT AS REPRESENTED BY THE DEPARTMENT OF VETERANS AFFAIRS (2020-08-07);;UNIVERSITY OF MASSACHUSETTS MEDICAL SCHOOL (2019-03-13);;BROWN UNIVERSITY (2020-08-07)",
+      "legal_status": "ACTIVE",
+      "publication_date": "2024-07-23"
+    }
+  ]
+}

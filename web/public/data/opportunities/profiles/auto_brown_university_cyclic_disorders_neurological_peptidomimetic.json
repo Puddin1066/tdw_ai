@@ -1,0 +1,21 @@
+{
+  "case_id": "auto_brown_university_cyclic_disorders_neurological_peptidomimetic",
+  "display_name": "Cyclic peptidomimetic for the treatment neurological Technology Platform Opportunity",
+  "llm_inferred_label": "Cyclic peptidomimetic for the treatment neurological Technology Platform Opportunity",
+  "ri_notes": "Deduped patent family (2 of 4 records); review scope and naming.",
+  "ri_physician_lead": "TBD",
+  "conflict_tags": [],
+  "ri_institution": "Rhode Island ecosystem",
+  "ri_ip_source": "lens:013-366-534-420-404",
+  "ip_assets": [
+    {
+      "asset_id": "asset_058c293b6238",
+      "title": "Cyclic peptidomimetic for the treatment of neurological disorders",
+      "lens_id": "013-366-534-420-404",
+      "url": "https://lens.org/013-366-534-420-404",
+      "owners": "BROWN UNIVERSITY (2020-10-28)",
+      "legal_status": "ACTIVE",
+      "publication_date": "2025-03-04"
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "case_id": "auto_rhodes_technologies_improved_oxycodone_synthesis",
+  "display_name": "Process for improved oxycodone synthesis Technology Platform Opportunity",
+  "llm_inferred_label": "Process for improved oxycodone synthesis Technology Platform Opportunity",
+  "ri_notes": "Deduped patent family (2 of 6 records); review scope and naming.",
+  "ri_physician_lead": "TBD",
+  "conflict_tags": [],
+  "ri_institution": "Rhode Island ecosystem",
+  "ri_ip_source": "lens:001-644-598-968-817",
+  "ip_assets": [
+    {
+      "asset_id": "asset_06d237e7aeb5",
+      "title": "Process for improved oxycodone synthesis",
+      "lens_id": "001-644-598-968-817",
+      "url": "https://lens.org/001-644-598-968-817",
+      "owners": "RHODES TECHNOLOGIES (2014-06-11)",
+      "legal_status": "ACTIVE",
+      "publication_date": "2020-11-24"
+    }
+  ]
+}

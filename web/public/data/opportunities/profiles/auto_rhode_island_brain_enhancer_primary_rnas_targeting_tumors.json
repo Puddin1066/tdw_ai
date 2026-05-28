@@ -1,0 +1,30 @@
+{
+  "case_id": "auto_rhode_island_brain_enhancer_primary_rnas_targeting_tumors",
+  "display_name": "Targeting enhancer RNAs for the treatment Technology Platform Opportunity",
+  "llm_inferred_label": "Targeting enhancer RNAs for the treatment Technology Platform Opportunity",
+  "ri_notes": "Deduped patent family (2 of 2 records); review scope and naming.",
+  "ri_physician_lead": "TBD",
+  "conflict_tags": [],
+  "ri_institution": "Rhode Island ecosystem",
+  "ri_ip_source": "lens:007-072-329-032-532",
+  "ip_assets": [
+    {
+      "asset_id": "asset_223c745223db",
+      "title": "Targeting enhancer RNAs for the treatment of primary brain tumors",
+      "lens_id": "007-072-329-032-532",
+      "url": "https://lens.org/007-072-329-032-532",
+      "owners": "RHODE ISLAND HOSPITAL (2020-09-20);;BROWN UNIVERSITY (2020-09-18)",
+      "legal_status": "ACTIVE",
+      "publication_date": "2024-08-13"
+    },
+    {
+      "asset_id": "asset_5ee4e09cb92f",
+      "title": "TARGETING ENHANCER RNAS FOR THE TREATMENT OF PRIMARY BRAIN TUMORS",
+      "lens_id": "132-589-635-107-057",
+      "url": "https://lens.org/132-589-635-107-057",
+      "owners": "RHODE ISLAND HOSPITAL (2020-09-20);;BROWN UNIVERSITY (2020-09-18)",
+      "legal_status": "ACTIVE",
+      "publication_date": "2023-10-12"
+    }
+  ]
+}

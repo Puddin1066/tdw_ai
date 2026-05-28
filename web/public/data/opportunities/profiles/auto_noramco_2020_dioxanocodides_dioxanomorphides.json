@@ -1,0 +1,21 @@
+{
+  "case_id": "auto_noramco_2020_dioxanocodides_dioxanomorphides",
+  "display_name": "dioxanomorphides and dioxanocodides Technology Platform Opportunity",
+  "llm_inferred_label": "dioxanomorphides and dioxanocodides Technology Platform Opportunity",
+  "ri_notes": "Deduped patent family (2 of 2 records); review scope and naming.",
+  "ri_physician_lead": "TBD",
+  "conflict_tags": [],
+  "ri_institution": "Rhode Island ecosystem",
+  "ri_ip_source": "lens:109-331-095-459-390",
+  "ip_assets": [
+    {
+      "asset_id": "asset_178036c387d4",
+      "title": "1,3-dioxanomorphides and 1,3-dioxanocodides",
+      "lens_id": "109-331-095-459-390",
+      "url": "https://lens.org/109-331-095-459-390",
+      "owners": "NORAMCO LLC (2020-12-31);;RHODES TECHNOLOGIES (2013-11-26)",
+      "legal_status": "ACTIVE",
+      "publication_date": "2016-04-19"
+    }
+  ]
+}

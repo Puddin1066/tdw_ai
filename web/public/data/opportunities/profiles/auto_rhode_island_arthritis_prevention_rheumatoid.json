@@ -1,0 +1,21 @@
+{
+  "case_id": "auto_rhode_island_arthritis_prevention_rheumatoid",
+  "display_name": "COMPOSITIONS AND METHODS FOR THE PREVENTION Technology Platform Opportunity",
+  "llm_inferred_label": "COMPOSITIONS AND METHODS FOR THE PREVENTION Technology Platform Opportunity",
+  "ri_notes": "Deduped patent family (1 of 1 records); review scope and naming.",
+  "ri_physician_lead": "TBD",
+  "conflict_tags": [],
+  "ri_institution": "Rhode Island ecosystem",
+  "ri_ip_source": "lens:030-621-068-795-496",
+  "ip_assets": [
+    {
+      "asset_id": "asset_c7c7aec8de9f",
+      "title": "COMPOSITIONS AND METHODS FOR THE PREVENTION OR TREATMENT OF RHEUMATOID ARTHRITIS",
+      "lens_id": "030-621-068-795-496",
+      "url": "https://lens.org/030-621-068-795-496",
+      "owners": "RHODE ISLAND HOSPITAL (2021-04-05)",
+      "legal_status": "PENDING",
+      "publication_date": "2024-06-20"
+    }
+  ]
+}

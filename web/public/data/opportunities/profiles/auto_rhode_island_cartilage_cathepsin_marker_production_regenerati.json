@@ -1,0 +1,21 @@
+{
+  "case_id": "auto_rhode_island_cartilage_cathepsin_marker_production_regenerati",
+  "display_name": "Cathepsin marker for cartilage production repair Technology Platform Opportunity",
+  "llm_inferred_label": "Cathepsin marker for cartilage production repair Technology Platform Opportunity",
+  "ri_notes": "Deduped patent family (2 of 2 records); review scope and naming.",
+  "ri_physician_lead": "TBD",
+  "conflict_tags": [],
+  "ri_institution": "Rhode Island ecosystem",
+  "ri_ip_source": "lens:011-911-354-396-636",
+  "ip_assets": [
+    {
+      "asset_id": "asset_f4dc00fc2175",
+      "title": "Cathepsin K as a marker for cartilage production, repair and regeneration",
+      "lens_id": "011-911-354-396-636",
+      "url": "https://lens.org/011-911-354-396-636",
+      "owners": "RHODE ISLAND HOSPITAL (2013-06-05)",
+      "legal_status": "ACTIVE",
+      "publication_date": "2020-06-09"
+    }
+  ]
+}

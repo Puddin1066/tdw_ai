@@ -1,7 +1,13 @@
 import { DealEvaluationWorkflow } from "@/components/DealEvaluationWorkflow";
-import { loadAllCaseMetadata } from "@/lib/loadCase";
+import { SiteNav } from "@/components/SiteNav";
+import { loadEvaluationCases } from "@/lib/loadCase";
 
 export default async function DealEvaluationPage() {
-  const cases = await loadAllCaseMetadata();
-  return <DealEvaluationWorkflow cases={cases} />;
+  const cases = await loadEvaluationCases();
+  return (
+    <>
+      <SiteNav />
+      <DealEvaluationWorkflow cases={cases} />
+    </>
+  );
 }

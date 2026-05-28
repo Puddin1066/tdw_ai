@@ -1,0 +1,59 @@
+case_id: auto_therapyx_2015_delivering_proteins_stabilizing
+display_name: COMPOSITIONS FOR STABILIZING AND DELIVERING PROTEINS Technology Platform Opportunity
+workflow: translational_diligence
+version: v0.5
+
+target:
+  name: COMPOSITIONS FOR STABILIZING AND DELIVERING PROTEINS
+  canonical_id: null
+  aliases: []
+
+indication:
+  name: RI technology opportunity from patent corpus
+  aliases: []
+
+biology:
+  mechanism_direction: null
+  modality: null
+  target_alias: null
+
+disease:
+  patient_segment: null
+  geography: "Rhode Island"
+
+program:
+  asset: null
+  company: "TBD"
+  opportunity_type: "platform"
+  slater_invested: false
+  development_stage: "validation"
+  comparators:
+    - TBD comparator
+
+commercial:
+  strategic_question: null
+  licensing_question: null
+  investment_question: null
+
+sources:
+  pubmed: true
+  clinicaltrials: true
+  opentargets: false
+  chembl: false
+  biothings: false
+  uniprot: false
+  reactome: false
+  gwas: false
+  pharmgkb: false
+  openfda: true
+  octagon_market: true
+  local_docs: true
+
+limits:
+  max_literature_records: 60
+  max_trials: 80
+  max_evidence_rows: 100
+
+run_mode_defaults:
+  fixture_allowed: true
+  live_allowed: false

@@ -138,6 +138,8 @@ export interface CaseMetadataData {
     program?: {
       asset?: string | null;
       company?: string | null;
+      opportunity_type?: string | null;
+      slater_invested?: boolean | null;
       development_stage?: string | null;
       comparators?: string[];
     };
@@ -482,6 +484,113 @@ export type EvalResults = ArtifactEnvelope<EvalResultsData> & {
   artifact_type: "eval_results";
 };
 
+export interface RiClinicalInflectionData {
+  clinical_decision_changed: boolean;
+  clinical_inflection_score_0_100: number;
+  best_validation_event: {
+    template_id?: string | null;
+    study_type?: string | null;
+    primary_endpoint_type?: string | null;
+    duration_weeks: number;
+    cost_usd: number;
+    required_roles: string[];
+    required_specialties: string[];
+    estimated_inflection_score_0_100: number;
+    mocked: boolean;
+    source_type: string;
+  } | null;
+  candidate_validation_events: Array<{
+    template_id?: string | null;
+    study_type?: string | null;
+    primary_endpoint_type?: string | null;
+    duration_weeks: number;
+    cost_usd: number;
+    required_roles: string[];
+    required_specialties: string[];
+    estimated_inflection_score_0_100: number;
+    mocked: boolean;
+    source_type: string;
+  }>;
+  required_specialties: string[];
+  required_physician_roles: string[];
+  estimated_cost_usd: number;
+  estimated_duration_weeks: number;
+  financing_milestone: string;
+  source_type: string;
+  mocked: boolean;
+  confidence_0_1: number;
+}
+
+export interface RiPhysicianMatchData {
+  required_roles: string[];
+  required_specialties: string[];
+  required_clinical_tags?: string[];
+  role_coverage: Record<string, boolean>;
+  assignment_policy?: {
+    max_physicians_per_opportunity: number;
+    max_opportunities_per_physician: number;
+    matching: string;
+  };
+  staffing_feasibility_score_0_100: number;
+  candidate_physicians: Array<{
+    physician_id?: string | null;
+    name?: string | null;
+    specialty?: string | null;
+    institution?: string | null;
+    roles_matched: string[];
+    clinical_tags_matched?: string[];
+    relevance_rationale?: string;
+    availability_hours_month: number;
+    compensation_floor_usd: number;
+    investor_interest_level: string;
+    match_score_0_100: number;
+    mocked: boolean;
+    source_type: string;
+    confidence_0_1: number;
+  }>;
+  staffing_gaps: string[];
+  source_type: string;
+  mocked: boolean;
+  confidence_0_1: number;
+}
+
+export interface RiCapitalMatchData {
+  private_match_needed_usd: number;
+  capital_committed_usd: number;
+  capital_gap_remaining_usd: number;
+  capital_path_score_0_100: number;
+  potential_sources: Array<{
+    source_id?: string | null;
+    source_name?: string | null;
+    source_type?: string | null;
+    ri_focus: boolean;
+    match_eligible: boolean;
+    decision_cycle_weeks: number;
+    projected_commitment_usd: number;
+    mocked: boolean;
+    source_type_detail: string;
+  }>;
+  source_type: string;
+  mocked: boolean;
+  confidence_0_1: number;
+}
+
+export interface RiFinancingReadinessData {
+  financing_readiness_state: "financeable_now" | "financeable_post_inflection" | "not_financeable_yet";
+  financing_readiness_score_0_100: number;
+  clinical_inflection_score_0_100: number;
+  staffing_feasibility_score_0_100: number;
+  capital_path_score_0_100: number;
+  ri_anchor_score_0_100: number;
+  private_match_needed_usd: number;
+  capital_gap_remaining_usd: number;
+  slater_invested: boolean;
+  next_actions: string[];
+  source_type: string;
+  mocked: boolean;
+  confidence_0_1: number;
+}
+
 export type CaseArtifact =
   | CaseMetadataArtifact
   | SourceManifestArtifact
@@ -493,7 +602,11 @@ export type CaseArtifact =
   | DiligenceReport
   | RiskMap
   | KnowledgeGraph
-  | EvalResults;
+  | EvalResults
+  | (ArtifactEnvelope<RiClinicalInflectionData> & { artifact_type: "ri_clinical_inflection" })
+  | (ArtifactEnvelope<RiPhysicianMatchData> & { artifact_type: "ri_physician_match" })
+  | (ArtifactEnvelope<RiCapitalMatchData> & { artifact_type: "ri_capital_match" })
+  | (ArtifactEnvelope<RiFinancingReadinessData> & { artifact_type: "ri_financing_readiness" });
 
 export type ArtifactType = CaseArtifact["artifact_type"];
 
@@ -531,7 +644,11 @@ export type CaseArtifactFile =
   | "diligence_report.json"
   | "risk_map.json"
   | "knowledge_graph.json"
-  | "eval_results.json";
+  | "eval_results.json"
+  | "ri_clinical_inflection.json"
+  | "ri_physician_match.json"
+  | "ri_capital_match.json"
+  | "ri_financing_readiness.json";
 
 /** PRD §12 trials table row (ClinicalTrials.gov normalized record). */
 export type ClinicalTrial = ClinicalTrialRecord;
@@ -545,6 +662,10 @@ export interface CasePacket {
   knowledgeGraph: KnowledgeGraphData | null;
   sourceManifest: SourceManifestData | null;
   evalResults: EvalResultsData | null;
+  riClinicalInflection: RiClinicalInflectionData | null;
+  riPhysicianMatch: RiPhysicianMatchData | null;
+  riCapitalMatch: RiCapitalMatchData | null;
+  riFinancingReadiness: RiFinancingReadinessData | null;
   depthAudit?: {
     overall: {
       connectorsAudited: number;
@@ -564,4 +685,30 @@ export interface CasePacket {
     }>;
   };
   loadErrors: string[];
+}
+
+export type QualitativeDimensionKey =
+  | "science"
+  | "differentiation"
+  | "regulatory"
+  | "execution"
+  | "strategicFit";
+
+export interface QualitativeDimensionResult {
+  score_1_5: number;
+  confidence_0_1: number;
+  rationale: string;
+  source_record_ids: string[];
+}
+
+export interface GeneratedQualitativeAssessment {
+  generated_from: "cached_artifacts_v1";
+  mocked_data_present: boolean;
+  dimensions: Record<QualitativeDimensionKey, QualitativeDimensionResult>;
+}
+
+export interface EvaluationCaseData {
+  metadata: CaseMetadata;
+  qualitative_assessment: GeneratedQualitativeAssessment;
+  ri_financing_readiness?: RiFinancingReadinessData | null;
 }

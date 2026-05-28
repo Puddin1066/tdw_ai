@@ -1,0 +1,21 @@
+{
+  "case_id": "auto_rhode_island_agent_anti_inflammatory_prg4",
+  "display_name": "Use PRG4 anti inflammatory agent Technology Platform Opportunity",
+  "llm_inferred_label": "Use PRG4 anti inflammatory agent Technology Platform Opportunity",
+  "ri_notes": "Deduped patent family (2 of 4 records); review scope and naming.",
+  "ri_physician_lead": "TBD",
+  "conflict_tags": [],
+  "ri_institution": "Rhode Island ecosystem",
+  "ri_ip_source": "lens:130-662-839-673-398",
+  "ip_assets": [
+    {
+      "asset_id": "asset_ce4b413d483c",
+      "title": "Use of PRG4 as an anti-inflammatory agent",
+      "lens_id": "130-662-839-673-398",
+      "url": "https://lens.org/130-662-839-673-398",
+      "owners": "RHODE ISLAND HOSPITAL (2017-08-22);;LUBRIS LLC (2017-07-18)",
+      "legal_status": "ACTIVE",
+      "publication_date": "2023-08-08"
+    }
+  ]
+}

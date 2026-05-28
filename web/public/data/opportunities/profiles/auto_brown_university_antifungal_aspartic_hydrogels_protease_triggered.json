@@ -1,0 +1,21 @@
+{
+  "case_id": "auto_brown_university_antifungal_aspartic_hydrogels_protease_triggered",
+  "display_name": "ASPARTIC PROTEASE TRIGGERED ANTIFUNGAL HYDROGELS Technology Platform Opportunity",
+  "llm_inferred_label": "ASPARTIC PROTEASE TRIGGERED ANTIFUNGAL HYDROGELS Technology Platform Opportunity",
+  "ri_notes": "Deduped patent family (1 of 1 records); review scope and naming.",
+  "ri_physician_lead": "TBD",
+  "conflict_tags": [],
+  "ri_institution": "Rhode Island ecosystem",
+  "ri_ip_source": "lens:069-798-178-512-417",
+  "ip_assets": [
+    {
+      "asset_id": "asset_9e1227ebccaf",
+      "title": "ASPARTIC PROTEASE-TRIGGERED ANTIFUNGAL HYDROGELS",
+      "lens_id": "069-798-178-512-417",
+      "url": "https://lens.org/069-798-178-512-417",
+      "owners": "BROWN UNIVERSITY (2017-11-30)",
+      "legal_status": "PENDING",
+      "publication_date": "2022-08-25"
+    }
+  ]
+}

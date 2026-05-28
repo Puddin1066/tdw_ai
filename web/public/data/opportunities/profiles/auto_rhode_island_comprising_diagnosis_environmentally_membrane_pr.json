@@ -1,0 +1,21 @@
+{
+  "case_id": "auto_rhode_island_comprising_diagnosis_environmentally_membrane_pr",
+  "display_name": "Environmentally sensitive compositions comprising triggered membrane Technology Platform Opportunity",
+  "llm_inferred_label": "Environmentally sensitive compositions comprising triggered membrane Technology Platform Opportunity",
+  "ri_notes": "Deduped patent family (1 of 1 records); review scope and naming.",
+  "ri_physician_lead": "TBD",
+  "conflict_tags": [],
+  "ri_institution": "Rhode Island ecosystem",
+  "ri_ip_source": "lens:075-122-654-914-183",
+  "ip_assets": [
+    {
+      "asset_id": "asset_ccd89602034f",
+      "title": "Environmentally sensitive compositions comprising a pH-triggered membrane protein and methods of use thereof in the treatment and diagnosis of tumors",
+      "lens_id": "075-122-654-914-183",
+      "url": "https://lens.org/075-122-654-914-183",
+      "owners": "RHODE ISLAND COUNCIL ON POSTSECONDARY EDUCATION (2011-09-22);;YALE UNIVERSITY (2011-10-04);;UNIVERSITY OF RHODE ISLAND BOARD OF TRUSTEES (2021-04-09);;RHODE ISLAND BOARD OF GOVERNORS FOR HIGHER EDUCATION (2011-09-22)",
+      "legal_status": "ACTIVE",
+      "publication_date": "2022-01-25"
+    }
+  ]
+}

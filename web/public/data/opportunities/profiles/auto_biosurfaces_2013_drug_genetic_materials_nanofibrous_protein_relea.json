@@ -1,0 +1,21 @@
+{
+  "case_id": "auto_biosurfaces_2013_drug_genetic_materials_nanofibrous_protein_relea",
+  "display_name": "Nanofibrous materials drug protein genetic release Therapeutic Opportunity",
+  "llm_inferred_label": "Nanofibrous materials drug protein genetic release Therapeutic Opportunity",
+  "ri_notes": "Deduped patent family (2 of 2 records); review scope and naming.",
+  "ri_physician_lead": "TBD",
+  "conflict_tags": [],
+  "ri_institution": "Rhode Island ecosystem",
+  "ri_ip_source": "lens:120-556-008-723-84X",
+  "ip_assets": [
+    {
+      "asset_id": "asset_04e6362dfa04",
+      "title": "Nanofibrous materials as drug, protein, or genetic release vehicles",
+      "lens_id": "120-556-008-723-84X",
+      "url": "https://lens.org/120-556-008-723-84X",
+      "owners": "BIOSURFACES INC (2013-10-09);;CLEMSON UNIVERSITY (2013-12-12);;RHODE ISLAND BOARD OF EDUCATION (2013-11-08)",
+      "legal_status": "ACTIVE",
+      "publication_date": "2019-06-25"
+    }
+  ]
+}

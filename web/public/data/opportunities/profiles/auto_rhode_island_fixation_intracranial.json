@@ -1,0 +1,21 @@
+{
+  "case_id": "auto_rhode_island_fixation_intracranial",
+  "display_name": "Intracranial fixation device Medical Device Opportunity",
+  "llm_inferred_label": "Intracranial fixation device Medical Device Opportunity",
+  "ri_notes": "Deduped patent family (2 of 2 records); review scope and naming.",
+  "ri_physician_lead": "TBD",
+  "conflict_tags": [],
+  "ri_institution": "Rhode Island ecosystem",
+  "ri_ip_source": "lens:099-809-198-435-630",
+  "ip_assets": [
+    {
+      "asset_id": "asset_3f90d5742ea9",
+      "title": "Intracranial fixation device",
+      "lens_id": "099-809-198-435-630",
+      "url": "https://lens.org/099-809-198-435-630",
+      "owners": "RHODE ISLAND HOSPITAL (2014-10-30);;BROWN UNIVERSITY (2014-10-30)",
+      "legal_status": "ACTIVE",
+      "publication_date": "2017-06-13"
+    }
+  ]
+}

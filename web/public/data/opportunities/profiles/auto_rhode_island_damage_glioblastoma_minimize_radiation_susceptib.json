@@ -1,0 +1,21 @@
+{
+  "case_id": "auto_rhode_island_damage_glioblastoma_minimize_radiation_susceptib",
+  "display_name": "METHODS FOR THE TREATMENT GLIOBLASTOMA THAT Technology Platform Opportunity",
+  "llm_inferred_label": "METHODS FOR THE TREATMENT GLIOBLASTOMA THAT Technology Platform Opportunity",
+  "ri_notes": "Deduped patent family (1 of 1 records); review scope and naming.",
+  "ri_physician_lead": "TBD",
+  "conflict_tags": [],
+  "ri_institution": "Rhode Island ecosystem",
+  "ri_ip_source": "lens:026-560-744-658-606",
+  "ip_assets": [
+    {
+      "asset_id": "asset_06fd21903217",
+      "title": "METHODS FOR THE TREATMENT OF GLIOBLASTOMA THAT MINIMIZE RADIATION DAMAGE IN SUSCEPTIBLE PATIENTS",
+      "lens_id": "026-560-744-658-606",
+      "url": "https://lens.org/026-560-744-658-606",
+      "owners": "RHODE ISLAND HOSPITAL (2021-12-31)",
+      "legal_status": "PENDING",
+      "publication_date": "2025-02-13"
+    }
+  ]
+}

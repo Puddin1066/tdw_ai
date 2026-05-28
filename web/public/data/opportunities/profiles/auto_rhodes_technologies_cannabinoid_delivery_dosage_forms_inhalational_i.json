@@ -1,0 +1,21 @@
+{
+  "case_id": "auto_rhodes_technologies_cannabinoid_delivery_dosage_forms_inhalational_i",
+  "display_name": "CANNABINOID COMPOSITIONS AND DOSAGE FORMS FOR Technology Platform Opportunity",
+  "llm_inferred_label": "CANNABINOID COMPOSITIONS AND DOSAGE FORMS FOR Technology Platform Opportunity",
+  "ri_notes": "Deduped patent family (1 of 1 records); review scope and naming.",
+  "ri_physician_lead": "TBD",
+  "conflict_tags": [],
+  "ri_institution": "Rhode Island ecosystem",
+  "ri_ip_source": "lens:037-717-271-782-00X",
+  "ip_assets": [
+    {
+      "asset_id": "asset_6def14022b6b",
+      "title": "CANNABINOID COMPOSITIONS AND DOSAGE FORMS FOR INTRANASAL OR INHALATIONAL DELIVERY",
+      "lens_id": "037-717-271-782-00X",
+      "url": "https://lens.org/037-717-271-782-00X",
+      "owners": "RHODES TECHNOLOGIES (2020-08-25);;UNIVERSITY OF SOUTH FLORIDA (2021-07-12)",
+      "legal_status": "PENDING",
+      "publication_date": "2023-07-27"
+    }
+  ]
+}

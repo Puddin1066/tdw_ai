@@ -1,0 +1,21 @@
+{
+  "case_id": "auto_rhode_island_anchor_buckle_electrode",
+  "display_name": "ELECTRODE BUCKLE ANCHOR DEVICE Medical Device Opportunity",
+  "llm_inferred_label": "ELECTRODE BUCKLE ANCHOR DEVICE Medical Device Opportunity",
+  "ri_notes": "Deduped patent family (1 of 1 records); review scope and naming.",
+  "ri_physician_lead": "TBD",
+  "conflict_tags": [],
+  "ri_institution": "Rhode Island ecosystem",
+  "ri_ip_source": "lens:013-014-345-318-583",
+  "ip_assets": [
+    {
+      "asset_id": "asset_4a98e1394c2f",
+      "title": "ELECTRODE BUCKLE ANCHOR DEVICE",
+      "lens_id": "013-014-345-318-583",
+      "url": "https://lens.org/013-014-345-318-583",
+      "owners": "RHODE ISLAND HOSPITAL (2023-10-05)",
+      "legal_status": "PENDING",
+      "publication_date": "2025-04-03"
+    }
+  ]
+}

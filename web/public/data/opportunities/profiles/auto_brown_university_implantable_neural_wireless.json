@@ -1,0 +1,21 @@
+{
+  "case_id": "auto_brown_university_implantable_neural_wireless",
+  "display_name": "Implantable wireless neural device Medical Device Opportunity",
+  "llm_inferred_label": "Implantable wireless neural device Medical Device Opportunity",
+  "ri_notes": "Deduped patent family (2 of 2 records); review scope and naming.",
+  "ri_physician_lead": "TBD",
+  "conflict_tags": [],
+  "ri_institution": "Rhode Island ecosystem",
+  "ri_ip_source": "lens:086-564-880-656-79X",
+  "ip_assets": [
+    {
+      "asset_id": "asset_0ebacc25f29f",
+      "title": "Implantable wireless neural device",
+      "lens_id": "086-564-880-656-79X",
+      "url": "https://lens.org/086-564-880-656-79X",
+      "owners": "BROWN UNIVERSITY (2016-02-24)",
+      "legal_status": "ACTIVE",
+      "publication_date": "2019-10-08"
+    }
+  ]
+}

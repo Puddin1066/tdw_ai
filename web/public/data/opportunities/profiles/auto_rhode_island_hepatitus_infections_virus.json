@@ -1,0 +1,21 @@
+{
+  "case_id": "auto_rhode_island_hepatitus_infections_virus",
+  "display_name": "Treating Hepatitus Virus Infections Technology Platform Opportunity",
+  "llm_inferred_label": "Treating Hepatitus Virus Infections Technology Platform Opportunity",
+  "ri_notes": "Deduped patent family (1 of 1 records); review scope and naming.",
+  "ri_physician_lead": "TBD",
+  "conflict_tags": [],
+  "ri_institution": "Rhode Island ecosystem",
+  "ri_ip_source": "lens:096-758-724-646-002",
+  "ip_assets": [
+    {
+      "asset_id": "asset_b19c33d32554",
+      "title": "Treating Hepatitus B Virus Infections",
+      "lens_id": "096-758-724-646-002",
+      "url": "https://lens.org/096-758-724-646-002",
+      "owners": "RHODE ISLAND HOSPITAL A LIFESPAN-PARTNER (2015-12-10)",
+      "legal_status": "ACTIVE",
+      "publication_date": "2016-01-28"
+    }
+  ]
+}

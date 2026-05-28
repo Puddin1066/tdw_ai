@@ -1,0 +1,30 @@
+{
+  "case_id": "auto_rhode_island_human_immunodeficiency_infections_virus",
+  "display_name": "Treating human immunodeficiency virus infections Technology Platform Opportunity",
+  "llm_inferred_label": "Treating human immunodeficiency virus infections Technology Platform Opportunity",
+  "ri_notes": "Deduped patent family (2 of 2 records); review scope and naming.",
+  "ri_physician_lead": "TBD",
+  "conflict_tags": [],
+  "ri_institution": "Rhode Island ecosystem",
+  "ri_ip_source": "lens:175-450-758-147-466",
+  "ip_assets": [
+    {
+      "asset_id": "asset_90a495678b51",
+      "title": "Treating human immunodeficiency virus infections",
+      "lens_id": "175-450-758-147-466",
+      "url": "https://lens.org/175-450-758-147-466",
+      "owners": "RHODE ISLAND HOSPITAL A LIFESPAN-PARTNER (2014-11-06)",
+      "legal_status": "ACTIVE",
+      "publication_date": "2016-12-20"
+    },
+    {
+      "asset_id": "asset_68d9037b2b8a",
+      "title": "TREATING HUMAN IMMUNODEFICIENCY VIRUS INFECTIONS",
+      "lens_id": "151-259-050-288-638",
+      "url": "https://lens.org/151-259-050-288-638",
+      "owners": "RHODE ISLAND HOSPITAL A LIFESPAN-PARTNER (2014-11-06)",
+      "legal_status": "ACTIVE",
+      "publication_date": "2016-01-07"
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "case_id": "auto_guru_nanak_artificial_depression_detection_early_electroenc",
+  "display_name": "ARTIFICIAL INTELLIGENCE AND MACHINE LEARNING BASED Diagnostic Opportunity",
+  "llm_inferred_label": "ARTIFICIAL INTELLIGENCE AND MACHINE LEARNING BASED Diagnostic Opportunity",
+  "ri_notes": "Deduped patent family (1 of 1 records); review scope and naming.",
+  "ri_physician_lead": "TBD",
+  "conflict_tags": [],
+  "ri_institution": "Rhode Island ecosystem",
+  "ri_ip_source": "lens:035-926-779-082-758",
+  "ip_assets": [
+    {
+      "asset_id": "asset_38754732c9e8",
+      "title": "ARTIFICIAL INTELLIGENCE (AI) AND MACHINE LEARNING (ML) BASED GRAPHICAL USER INTERFACE (GUI) SYSTEM FOR EARLY DETECTION OF DEPRESSION SYMPTOMS USING FACIAL EXPRESSION RECOGNITION AND ELECTROENCEPHALOGRAM",
+      "lens_id": "035-926-779-082-758",
+      "url": "https://lens.org/035-926-779-082-758",
+      "owners": "GURU NANAK DEV UNIVERSITY (2024-02-07);;BROWN UNIVERSITY (2024-02-06)",
+      "legal_status": "PENDING",
+      "publication_date": "2024-10-24"
+    }
+  ]
+}

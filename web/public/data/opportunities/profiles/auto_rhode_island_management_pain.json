@@ -1,0 +1,21 @@
+{
+  "case_id": "auto_rhode_island_management_pain",
+  "display_name": "Pain management Technology Platform Opportunity",
+  "llm_inferred_label": "Pain management Technology Platform Opportunity",
+  "ri_notes": "Deduped patent family (2 of 4 records); review scope and naming.",
+  "ri_physician_lead": "TBD",
+  "conflict_tags": [],
+  "ri_institution": "Rhode Island ecosystem",
+  "ri_ip_source": "lens:097-225-405-141-167",
+  "ip_assets": [
+    {
+      "asset_id": "asset_a39757d9d11a",
+      "title": "Pain management",
+      "lens_id": "097-225-405-141-167",
+      "url": "https://lens.org/097-225-405-141-167",
+      "owners": "RHODE ISLAND HOSPITAL (2011-05-10)",
+      "legal_status": "ACTIVE",
+      "publication_date": "2016-11-08"
+    }
+  ]
+}

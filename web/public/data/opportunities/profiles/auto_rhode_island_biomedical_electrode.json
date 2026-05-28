@@ -1,0 +1,21 @@
+{
+  "case_id": "auto_rhode_island_biomedical_electrode",
+  "display_name": "BIOMEDICAL ELECTRODE Medical Device Opportunity",
+  "llm_inferred_label": "BIOMEDICAL ELECTRODE Medical Device Opportunity",
+  "ri_notes": "Deduped patent family (1 of 1 records); review scope and naming.",
+  "ri_physician_lead": "TBD",
+  "conflict_tags": [],
+  "ri_institution": "Rhode Island ecosystem",
+  "ri_ip_source": "lens:007-308-860-932-189",
+  "ip_assets": [
+    {
+      "asset_id": "asset_4b8c56707460",
+      "title": "BIOMEDICAL ELECTRODE",
+      "lens_id": "007-308-860-932-189",
+      "url": "https://lens.org/007-308-860-932-189",
+      "owners": "RHODE ISLAND BOARD OF EDUCATION STATE OF RHODE ISLAND AND PROVIDENCE PLANTATIONS (2012-02-01);;BOARD OF GOVERNORS FOR HIGHER EDUCATION STATE OF RHODE ISLAND AND PROVIDENCE PLANTATIONS (2012-02-01)",
+      "legal_status": "ACTIVE",
+      "publication_date": "2012-06-14"
+    }
+  ]
+}

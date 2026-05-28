@@ -13,8 +13,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Translational Diligence Workbench",
-  description: "Scientific diligence cockpit for target–indication case packets",
+  title: "RI Physician-Led Venture Syndicates",
+  description:
+    "Rhode Island technology opportunities with physician syndicates, clinical validation paths, and Slater SSBCI match financing",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

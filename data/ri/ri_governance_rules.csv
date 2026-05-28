@@ -1,0 +1,4 @@
+rule_id,category,rule_text,applies_to,source_type,mocked
+gov_001,coi,Exclude clinicians with direct company equity conflict from reviewer role.,all_opportunities,static_policy,false
+gov_002,coi,Require conflict tag overlap check between opportunity and physician before role assignment.,all_opportunities,static_policy,false
+gov_003,role_compatibility,At least one investigator and one reviewer required for financeable readiness.,all_opportunities,static_policy,false

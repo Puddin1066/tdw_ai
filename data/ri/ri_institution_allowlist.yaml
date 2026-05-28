@@ -1,0 +1,28 @@
+# RI affiliation allowlist for publication lead authors (strict rule).
+version: 1
+
+publication_affiliations:
+  - Brown University
+  - Rhode Island Hospital
+  - Lifespan
+  - Women and Infants
+  - Care New England
+  - University of Rhode Island
+  - URI
+  - Rhode Island Council on Postsecondary Education
+  - Butler Hospital
+  - Miriam Hospital
+  - Kent Hospital
+  - Roger Williams Medical Center
+  - Providence VA Medical Center
+  - Rhode Island
+
+physician_institutions:
+  - Rhode Island Hospital
+  - Brown University
+  - Lifespan
+  - University of Rhode Island
+  - Women and Infants
+  - Care New England
+  - Providence
+  - Rhode Island

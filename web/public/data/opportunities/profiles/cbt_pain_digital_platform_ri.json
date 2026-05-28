@@ -1,0 +1,11 @@
+{
+  "case_id": "cbt_pain_digital_platform_ri",
+  "display_name": "Petzchner / SOMA Pain Management (RI)",
+  "llm_inferred_label": "Petzchner / SOMA Pain Management (RI)",
+  "ri_notes": "Digital therapeutic; App Store SOMA Pain Management beta.",
+  "ri_physician_lead": "LAERT RUSHA",
+  "conflict_tags": [],
+  "ri_institution": "Brown University / RI health systems",
+  "ri_ip_source": "",
+  "ip_assets": []
+}

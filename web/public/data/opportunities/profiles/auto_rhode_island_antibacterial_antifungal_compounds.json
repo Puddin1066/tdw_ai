@@ -1,0 +1,30 @@
+{
+  "case_id": "auto_rhode_island_antibacterial_antifungal_compounds",
+  "display_name": "Antibacterial and antifungal compounds Therapeutic Opportunity",
+  "llm_inferred_label": "Antibacterial and antifungal compounds Therapeutic Opportunity",
+  "ri_notes": "Deduped patent family (2 of 2 records); review scope and naming.",
+  "ri_physician_lead": "TBD",
+  "conflict_tags": [],
+  "ri_institution": "Rhode Island ecosystem",
+  "ri_ip_source": "lens:019-527-588-389-898",
+  "ip_assets": [
+    {
+      "asset_id": "asset_544980baaeec",
+      "title": "Antibacterial and antifungal compounds",
+      "lens_id": "019-527-588-389-898",
+      "url": "https://lens.org/019-527-588-389-898",
+      "owners": "RHODE ISLAND HOSPITAL A LIFESPAN-PARTNER (2019-04-30);;THE GENERAL HOSPITAL CORPORATION (2019-05-14)",
+      "legal_status": "ACTIVE",
+      "publication_date": "2023-07-25"
+    },
+    {
+      "asset_id": "asset_b1cc9b4676a4",
+      "title": "ANTIBACTERIAL AND ANTIFUNGAL COMPOUNDS",
+      "lens_id": "137-613-970-754-613",
+      "url": "https://lens.org/137-613-970-754-613",
+      "owners": "RHODE ISLAND HOSPITAL A LIFESPAN-PARTNER (2019-04-30);;THE GENERAL HOSPITAL CORPORATION (2019-05-14)",
+      "legal_status": "ACTIVE",
+      "publication_date": "2019-02-21"
+    }
+  ]
+}

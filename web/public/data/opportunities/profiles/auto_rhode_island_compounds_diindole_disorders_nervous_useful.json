@@ -1,0 +1,21 @@
+{
+  "case_id": "auto_rhode_island_compounds_diindole_disorders_nervous_useful",
+  "display_name": "Diindole compounds useful treatment nervous system Therapeutic Opportunity",
+  "llm_inferred_label": "Diindole compounds useful treatment nervous system Therapeutic Opportunity",
+  "ri_notes": "Deduped patent family (2 of 4 records); review scope and naming.",
+  "ri_physician_lead": "TBD",
+  "conflict_tags": [],
+  "ri_institution": "Rhode Island ecosystem",
+  "ri_ip_source": "lens:089-601-285-796-121",
+  "ip_assets": [
+    {
+      "asset_id": "asset_3875207edd09",
+      "title": "Diindole compounds useful in treatment of nervous system disorders",
+      "lens_id": "089-601-285-796-121",
+      "url": "https://lens.org/089-601-285-796-121",
+      "owners": "RHODE ISLAND BOARD OF EDUCATION (2015-04-17)",
+      "legal_status": "ACTIVE",
+      "publication_date": "2021-04-20"
+    }
+  ]
+}

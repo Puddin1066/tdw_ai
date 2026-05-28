@@ -1,0 +1,21 @@
+{
+  "case_id": "auto_yale_university_cell_epitope_mediated_membrane_peptide_surfaces_",
+  "display_name": "triggered membrane peptide mediated epitope tethering Technology Platform Opportunity",
+  "llm_inferred_label": "triggered membrane peptide mediated epitope tethering Technology Platform Opportunity",
+  "ri_notes": "Deduped patent family (2 of 2 records); review scope and naming.",
+  "ri_physician_lead": "TBD",
+  "conflict_tags": [],
+  "ri_institution": "Rhode Island ecosystem",
+  "ri_ip_source": "lens:087-438-230-188-671",
+  "ip_assets": [
+    {
+      "asset_id": "asset_85c68bbf28a4",
+      "title": "pH-triggered membrane peptide-mediated epitope tethering at cell surfaces",
+      "lens_id": "087-438-230-188-671",
+      "url": "https://lens.org/087-438-230-188-671",
+      "owners": "YALE UNIVERSITY (2020-07-10);;UNIVERSITY OF RHODE ISLAND BOARD OF TRUSTEES (2020-07-31)",
+      "legal_status": "ACTIVE",
+      "publication_date": "2025-04-29"
+    }
+  ]
+}

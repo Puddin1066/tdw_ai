@@ -1,0 +1,172 @@
+Seed Tier A — 5 programs
+1. theromics_ri — Tumor thermal ablation
+Current data (my starting point):
+
+Patents: US 11076916 / thermal accelerant (Park/Dupuy, Brown/RI Hospital + Theromics Inc)
+Comps: Theromics Inc, Profound Medical, Neuwave
+Draft PI: Blaise Baxter (IR, RI Hospital)
+#	Your rough answer
+T1. What is this, in one sentence?
+its an albumin-based gel that makes RF/microwave ablation work better and more precisely
+T2. Company
+e.g. “Theromics” / “same” / “Brown spinout still Theromics Inc from Park Lab
+T3. IP anchor
+e.g. “Dupuy/Park thermal accelerant”
+T4. Who should care clinically?
+    IR doing liver/kidney ablation and any physicians being targeted by the associated Profound Medical comparable company
+T5. Physician champion
+A Rhode Island based inteventional radiologist who is doing liver/kidney ablation and any physicians being targeted by the associated comparable company
+T6. Closest commercial analog
+Profound TULSA is good
+T7. Literature vibe
+thermal ablation adjuvant and HeatSYNC
+I will resolve: thermal accelerant family → Lens IDs; IR/oncology NPIs; precedents from theromics_ablation.
+
+2. monaghan_sepsis_diagnostic_ri — Sepsis RNA diagnostic
+Current data (problem): pubmed RI hospital and Monaghan authored article on sepsis RNA diagnostic
+
+Linked patent: malaria vaccine (wrong)
+Only Monaghan-named patent in corpus: COVID deep RNA sequencing (separate Tier B case)
+It may not be specifically about sepsis, but the inventor will be Sean Monaghan and relate to RNA sequencing and diagnostics
+Draft PI: Sean Monaghan (already set)
+#	Your rough answer
+M1. What is the product?  A deep seq RNA test for sepsis in ED/ICU and possibly other infectious diseases
+“host RNA blood test for sepsis in ED/ICU”
+M2. Lab / entity
+e.g. “Monaghan lab at RI Hospital, no company yet but many grants to associate from NIH and through BioMCP
+M3. IP story
+Pick one + add detail:
+A) Monaghan lab RNA work: RNA sequencing produces large data sets, our lab usually aims for 100 million reads per sample. There is incredible information in not only the data that aligns to the genome, but also the un-mapped reads. We attempt to analyze the data in unique was to give outputs that are relevant for clinical practice. Using the RNA sequencing data from blood samples in humans we will look at gene expression, alternative RNA splicing, antibody production, and pathogens. This data will be used to generate diagnostic and therapeutic tools.  Very similar to Inflammatix
+
+M4. Is COVID RNA-seq case the same program?
+yes
+M5. Physician champion
+Sean Monaghan
+M6. Comparables
+e.g. “Inflammatix” / “Immunexpress” “Presymptom”  and maybe Coulter monocyte analysis platform
+M7. If no RI patent found
+your choice from G2
+I will resolve: search Monaghan, sepsis, RNA, host response, RI Hospital; if none → flag + caveat; split from COVID case if you say “no”.
+
+3. cbt_pain_digital_platform_ri — Petzchner chronic pain digital
+Current data (problem): Pubmed Petzchner authored article on chronic pain digital platform
+
+Linked patents: Rhodes Technologies opioid chemistry (wrong)
+No Petzchner / digital CBT patent in corpus
+Enrichment title: “Petzchner — chronic pain digital”
+Draft PI: Laert Rusha (pain)
+#	Your rough answer
+C1. What is it?
+e.g. “app delivering CBT for chronic pain called SOMA Pain Management and its available on the appstore in some beta version
+C2. Company / PI name
+Federika Petzchner at Brown” / “SOMA Pain Management”
+C3. IP anchor
+Pick one:
+A) No patent—digital/program only (software + clinical protocol, reference the app store link)
+C4. Physician champion
+e.g. “pain management or back pain specialist at orthopedic RI practice
+C5. Comparables
+e.g. “Hinge Health” / “Kaia” / “Sword” / “Pear reSET” / are all good comparables
+C6. If no patent
+G2 choice
+I will resolve: search pain, digital, CBT, Petzchner, Saab; may anchor to auto_rhode_island_activity_brain_detecting_pain_using only if you confirm.
+
+4. nanode_ri — Janus / nucleotide delivery
+Current data: Chen Qian nanotube nucleic acid carriers (US 10364440 / 10344300)
+
+Linked: Chen Qian nanotube nucleic acid carriers (US 10364440 / 10344300)
+Also in corpus (not on Nanode): Nanopieces siRNA (008-231-790-422-477), nanomaterial assembly
+Comps: Eascra, Ionis, Alnylam
+#	Your rough answer
+N1. What is Nanode?
+e.g. “Chen Nanopieces spinout” 
+N2. Company stage
+e.g. “Nanode Therapeutics preclinical” / “Brown lab only”
+N3. IP anchor
+Pick one + detail:
+C) Both—Nanopieces primary, nanotubes secondary, Nanopieces is the Janus base oligo delivery and NanoDe is the name of the company 
+
+N4. Inventor / institution
+e.g. “Qian Chen, Brown/RI Hospital” and Dana Ono was the one time CEO
+e.g. “nucleic acid therapeutics” / “critical care monitoring” / “oncology delivery”
+N6. Physician champion
+oncology, osteosarcoma and any RI based physician associated with RNA therapeutics
+N7. Comparables
+e.g. “Eascra Janus nanoparticles at UConn is the best comparable" / “Ionis” “Alnylam”  “other oligo delivery are potential partners
+I will resolve: Chen/Nanopieces vs nanotube family; merge or split auto-generated auto_rhode_island_assembled_delivery_* cases.
+
+5. phlip_therapeutics_ri — pH-sensitive imaging
+Current data:
+
+Linked: US 12290575 fluorophore (Reshetnyak/Engelman, Yale/URI) ✓
+Company in enrichment: pHLIP Inc (phlipinc.com)
+Comps: pHLIP Inc, On Target (Cytalux), PerkinElmer NIR
+Draft PI: Blaise Baxter (IR)—placeholder
+#	Your rough answer
+P1. Company name
+e.g. “pHLIP Inc” / “PHLIP Therapeutics”—same thing yes, its the same company
+P2. Product focus
+ BOTH intraoperative tumor fluorescence and therapeutic delivery via pHLIP” / “both”
+P3. IP scope
+B) Whole Reshetnyak pHLIP family (delivery + imaging though a portion of imaging may be licensed to Cybrexa
+P4. Physician champion
+e.g. “surgical oncology” / “IR” / “pathology” / name
+P5. Comparables
+indocyanine green is a incumbent technology,  “Cybrexa alphalex and Cytalux/On Target are competitors and maybe cybrexa is a licensee
+P6. Same company as URI/Yale spinout pHLIP Inc?
+yes, but not the same as Eascra
+I will resolve: Reshetnyak patent cluster; pHLIP Inc naming; IR vs surg-onc NPIs.
+
+Optional — Auto Tier A (only if G5 = B)
+One line for any you care about; otherwise I only fix sync:
+
+“auto_brown_university_annulus_… = ClearPoint-style neuro navigation; comp ClearPoint OK”
+
+Or: “use title_clean as truth for all auto Tier A”.
+
+Copy-paste answer template
+
+G1: 
+G2: A/B/C
+G3: A/B/C
+G4: A/B/C
+G5: A/B/C
+--- theromics_ri ---
+T1:
+T2:
+T3:
+T4:
+T5:
+T6:
+T7:
+--- monaghan_sepsis_diagnostic_ri ---
+M1:
+M2:
+M3: (A/B/C/D + detail)
+M4:
+M5:
+M6:
+M7:
+--- cbt_pain_digital_platform_ri ---
+C1:
+C2:
+C3: (A/B/C/D + detail)
+C4:
+C5:
+C6:
+--- nanode_ri ---
+N1:
+N2:
+N3: (A/B/C/D + detail)
+N4:
+N5:
+N6:
+N7:
+--- phlip_therapeutics_ri ---
+P1:
+P2:
+P3: (A/B/C)
+P4:
+P5:
+P6:
+--- auto tier A notes (optional) ---

@@ -1,0 +1,21 @@
+{
+  "case_id": "auto_brown_university_drug_overdose",
+  "display_name": "METHODS AND COMPOSITIONS FOR THE TREATMENT Therapeutic Opportunity",
+  "llm_inferred_label": "METHODS AND COMPOSITIONS FOR THE TREATMENT Therapeutic Opportunity",
+  "ri_notes": "Deduped patent family (1 of 1 records); review scope and naming.",
+  "ri_physician_lead": "TBD",
+  "conflict_tags": [],
+  "ri_institution": "Rhode Island ecosystem",
+  "ri_ip_source": "lens:181-952-140-739-838",
+  "ip_assets": [
+    {
+      "asset_id": "asset_290956eabd7c",
+      "title": "METHODS AND COMPOSITIONS FOR THE TREATMENT OF DRUG OVERDOSE",
+      "lens_id": "181-952-140-739-838",
+      "url": "https://lens.org/181-952-140-739-838",
+      "owners": "BROWN UNIVERSITY (2023-06-19)",
+      "legal_status": "PENDING",
+      "publication_date": "2024-12-19"
+    }
+  ]
+}

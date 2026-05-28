@@ -1,0 +1,30 @@
+{
+  "case_id": "auto_brown_university_anti_antibody_bispecific_chi3l1_reagents_relatin",
+  "display_name": "METHODS AND COMPOSITIONS RELATING BISPECIFIC ANTI Therapeutic Opportunity",
+  "llm_inferred_label": "METHODS AND COMPOSITIONS RELATING BISPECIFIC ANTI Therapeutic Opportunity",
+  "ri_notes": "Deduped patent family (2 of 7 records); review scope and naming.",
+  "ri_physician_lead": "TBD",
+  "conflict_tags": [],
+  "ri_institution": "Rhode Island ecosystem",
+  "ri_ip_source": "lens:151-994-099-652-139",
+  "ip_assets": [
+    {
+      "asset_id": "asset_be01a799b22e",
+      "title": "METHODS AND COMPOSITIONS RELATING TO BISPECIFIC ANTI-CHI3L1 ANTIBODY REAGENTS",
+      "lens_id": "151-994-099-652-139",
+      "url": "https://lens.org/151-994-099-652-139",
+      "owners": "BROWN UNIVERSITY (2018-09-06)",
+      "legal_status": "PENDING",
+      "publication_date": "2024-03-07"
+    },
+    {
+      "asset_id": "asset_c0ce694039b3",
+      "title": "METHODS AND COMPOSITIONS RELATING TO ANTI-CHI3L1 ANTIBODY REAGENTS",
+      "lens_id": "167-106-335-943-097",
+      "url": "https://lens.org/167-106-335-943-097",
+      "owners": "BROWN UNIVERSITY (2018-03-07)",
+      "legal_status": "PENDING",
+      "publication_date": "2023-12-21"
+    }
+  ]
+}

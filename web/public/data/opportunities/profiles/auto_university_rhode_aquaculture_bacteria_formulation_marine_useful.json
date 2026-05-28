@@ -1,0 +1,21 @@
+{
+  "case_id": "auto_university_rhode_aquaculture_bacteria_formulation_marine_useful",
+  "display_name": "Marine bacteria formulation useful aquaculture Technology Platform Opportunity",
+  "llm_inferred_label": "Marine bacteria formulation useful aquaculture Technology Platform Opportunity",
+  "ri_notes": "Deduped patent family (2 of 2 records); review scope and naming.",
+  "ri_physician_lead": "TBD",
+  "conflict_tags": [],
+  "ri_institution": "Rhode Island ecosystem",
+  "ri_ip_source": "lens:109-526-639-700-999",
+  "ip_assets": [
+    {
+      "asset_id": "asset_a389a309f77e",
+      "title": "Marine bacteria formulation useful in aquaculture",
+      "lens_id": "109-526-639-700-999",
+      "url": "https://lens.org/109-526-639-700-999",
+      "owners": "UNIVERSITY OF RHODE ISLAND BOARD OF TRUSTEES (2020-08-20)",
+      "legal_status": "ACTIVE",
+      "publication_date": "2023-12-26"
+    }
+  ]
+}

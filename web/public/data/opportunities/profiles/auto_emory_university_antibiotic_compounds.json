@@ -1,0 +1,21 @@
+{
+  "case_id": "auto_emory_university_antibiotic_compounds",
+  "display_name": "ANTIBIOTIC COMPOUNDS Therapeutic Opportunity",
+  "llm_inferred_label": "ANTIBIOTIC COMPOUNDS Therapeutic Opportunity",
+  "ri_notes": "Deduped patent family (1 of 1 records); review scope and naming.",
+  "ri_physician_lead": "TBD",
+  "conflict_tags": [],
+  "ri_institution": "Rhode Island ecosystem",
+  "ri_ip_source": "lens:097-596-008-558-391",
+  "ip_assets": [
+    {
+      "asset_id": "asset_2107bedb045d",
+      "title": "ANTIBIOTIC COMPOUNDS",
+      "lens_id": "097-596-008-558-391",
+      "url": "https://lens.org/097-596-008-558-391",
+      "owners": "EMORY UNIVERSITY (2021-12-14);;RHODE ISLAND HOSPITAL A LIFESPAN-PARTNER (2021-12-23);;THE GENERAL HOSPITAL CORPORATION (2021-12-20)",
+      "legal_status": "PENDING",
+      "publication_date": "2022-10-13"
+    }
+  ]
+}

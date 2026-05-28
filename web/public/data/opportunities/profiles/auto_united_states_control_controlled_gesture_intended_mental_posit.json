@@ -1,0 +1,21 @@
+{
+  "case_id": "auto_united_states_control_controlled_gesture_intended_mental_posit",
+  "display_name": "PROVIDING MENTAL CONTROL POSITION AND GESTURE Technology Platform Opportunity",
+  "llm_inferred_label": "PROVIDING MENTAL CONTROL POSITION AND GESTURE Technology Platform Opportunity",
+  "ri_notes": "Deduped patent family (1 of 1 records); review scope and naming.",
+  "ri_physician_lead": "TBD",
+  "conflict_tags": [],
+  "ri_institution": "Rhode Island ecosystem",
+  "ri_ip_source": "lens:090-186-650-832-224",
+  "ip_assets": [
+    {
+      "asset_id": "asset_4369de0efbf8",
+      "title": "PROVIDING MENTAL CONTROL OF POSITION AND/OR GESTURE CONTROLLED TECHNOLOGIES VIA INTENDED POSTURES",
+      "lens_id": "090-186-650-832-224",
+      "url": "https://lens.org/090-186-650-832-224",
+      "owners": "THE UNITED STATES GOVERNMENT AS REPRESENTED BY THE DEPARTMENT OF VETERANS AFFAIRS (2023-05-01);;THE GENERAL HOSPITAL CORPORATION (2023-05-01);;BROWN UNIVERSITY (2023-05-02)",
+      "legal_status": "PENDING",
+      "publication_date": "2023-06-08"
+    }
+  ]
+}

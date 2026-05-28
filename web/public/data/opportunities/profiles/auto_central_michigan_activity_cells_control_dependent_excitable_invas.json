@@ -1,0 +1,21 @@
+{
+  "case_id": "auto_central_michigan_activity_cells_control_dependent_excitable_invas",
+  "display_name": "Minimally invasive and activity dependent control Technology Platform Opportunity",
+  "llm_inferred_label": "Minimally invasive and activity dependent control Technology Platform Opportunity",
+  "ri_notes": "Deduped patent family (2 of 2 records); review scope and naming.",
+  "ri_physician_lead": "TBD",
+  "conflict_tags": [],
+  "ri_institution": "Rhode Island ecosystem",
+  "ri_ip_source": "lens:063-476-323-869-341",
+  "ip_assets": [
+    {
+      "asset_id": "asset_8900be87c895",
+      "title": "Minimally-invasive and activity-dependent control of excitable cells",
+      "lens_id": "063-476-323-869-341",
+      "url": "https://lens.org/063-476-323-869-341",
+      "owners": "CENTRAL MICHIGAN UNIVERSITY (2017-08-14);;BROWN UNIVERSITY (2017-08-10)",
+      "legal_status": "ACTIVE",
+      "publication_date": "2022-02-08"
+    }
+  ]
+}

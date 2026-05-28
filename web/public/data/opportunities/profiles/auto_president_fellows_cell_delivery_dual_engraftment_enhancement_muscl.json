@@ -1,0 +1,21 @@
+{
+  "case_id": "auto_president_fellows_cell_delivery_dual_engraftment_enhancement_muscl",
+  "display_name": "Enhancement skeletal muscle stem cell engraftment Technology Platform Opportunity",
+  "llm_inferred_label": "Enhancement skeletal muscle stem cell engraftment Technology Platform Opportunity",
+  "ri_notes": "Deduped patent family (2 of 2 records); review scope and naming.",
+  "ri_physician_lead": "TBD",
+  "conflict_tags": [],
+  "ri_institution": "Rhode Island ecosystem",
+  "ri_ip_source": "lens:124-543-368-241-273",
+  "ip_assets": [
+    {
+      "asset_id": "asset_261d204e16f2",
+      "title": "Enhancement of skeletal muscle stem cell engraftment by dual delivery of VEGF and IGF-1",
+      "lens_id": "124-543-368-241-273",
+      "url": "https://lens.org/124-543-368-241-273",
+      "owners": "PRESIDENT AND FELLOWS OF HARVARD COLLEGE (2013-05-01);;BROWN UNIVERSITY (2012-10-15)",
+      "legal_status": "ACTIVE",
+      "publication_date": "2017-04-04"
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "case_id": "auto_rhode_island_diagnosis_differential_eosinophilic_esophagitis_",
+  "display_name": "Differential expression protein markers for the Technology Platform Opportunity",
+  "llm_inferred_label": "Differential expression protein markers for the Technology Platform Opportunity",
+  "ri_notes": "Deduped patent family (2 of 2 records); review scope and naming.",
+  "ri_physician_lead": "TBD",
+  "conflict_tags": [],
+  "ri_institution": "Rhode Island ecosystem",
+  "ri_ip_source": "lens:009-384-834-237-702",
+  "ip_assets": [
+    {
+      "asset_id": "asset_ad30b33ca703",
+      "title": "Differential expression of protein markers for the diagnosis and treatment of eosinophilic esophagitis",
+      "lens_id": "009-384-834-237-702",
+      "url": "https://lens.org/009-384-834-237-702",
+      "owners": "RHODE ISLAND HOSPITAL (2015-07-01)",
+      "legal_status": "ACTIVE",
+      "publication_date": "2018-11-20"
+    }
+  ]
+}

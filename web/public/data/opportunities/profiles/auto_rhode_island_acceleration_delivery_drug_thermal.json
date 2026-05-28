@@ -1,0 +1,21 @@
+{
+  "case_id": "auto_rhode_island_acceleration_delivery_drug_thermal",
+  "display_name": "DEVICES METHODS AND COMPOSITIONS FOR THERMAL Medical Device Opportunity",
+  "llm_inferred_label": "DEVICES METHODS AND COMPOSITIONS FOR THERMAL Medical Device Opportunity",
+  "ri_notes": "Deduped patent family (1 of 1 records); review scope and naming.",
+  "ri_physician_lead": "TBD",
+  "conflict_tags": [],
+  "ri_institution": "Rhode Island ecosystem",
+  "ri_ip_source": "lens:039-380-765-965-916",
+  "ip_assets": [
+    {
+      "asset_id": "asset_8bd6ebc32c82",
+      "title": "DEVICES, METHODS, AND COMPOSITIONS FOR THERMAL ACCELERATION AND DRUG DELIVERY",
+      "lens_id": "039-380-765-965-916",
+      "url": "https://lens.org/039-380-765-965-916",
+      "owners": "RHODE ISLAND HOSPITAL (2022-11-09);;THEROMICS INC (2022-06-01);;BROWN UNIVERSITY (2022-11-09)",
+      "legal_status": "PENDING",
+      "publication_date": "2022-09-08"
+    }
+  ]
+}

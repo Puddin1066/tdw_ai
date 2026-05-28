@@ -1,0 +1,30 @@
+{
+  "case_id": "auto_rhode_island_alcohol_disease_induced_liver_prevention_reversa",
+  "display_name": "Treatment prevention and reversal alcohol induced Technology Platform Opportunity",
+  "llm_inferred_label": "Treatment prevention and reversal alcohol induced Technology Platform Opportunity",
+  "ri_notes": "Deduped patent family (2 of 4 records); review scope and naming.",
+  "ri_physician_lead": "TBD",
+  "conflict_tags": [],
+  "ri_institution": "Rhode Island ecosystem",
+  "ri_ip_source": "lens:189-204-217-537-474",
+  "ip_assets": [
+    {
+      "asset_id": "asset_2b5abd7fa14b",
+      "title": "Treatment, prevention, and reversal of alcohol-induced liver disease",
+      "lens_id": "189-204-217-537-474",
+      "url": "https://lens.org/189-204-217-537-474",
+      "owners": "RHODE ISLAND HOSPITAL (2009-09-22)",
+      "legal_status": "ACTIVE",
+      "publication_date": "2017-08-01"
+    },
+    {
+      "asset_id": "asset_3565dbb74070",
+      "title": "Treatment, prevention, and reversal of alcohol-induced brain disease",
+      "lens_id": "145-913-768-946-229",
+      "url": "https://lens.org/145-913-768-946-229",
+      "owners": "RHODE ISLAND HOSPITAL (2009-08-21)",
+      "legal_status": "ACTIVE",
+      "publication_date": "2016-04-12"
+    }
+  ]
+}

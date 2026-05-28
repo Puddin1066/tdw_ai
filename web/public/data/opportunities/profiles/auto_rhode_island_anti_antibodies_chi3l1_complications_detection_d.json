@@ -1,0 +1,21 @@
+{
+  "case_id": "auto_rhode_island_anti_antibodies_chi3l1_complications_detection_d",
+  "display_name": "Anti CHI3L1 antibodies for the detection Diagnostic Opportunity",
+  "llm_inferred_label": "Anti CHI3L1 antibodies for the detection Diagnostic Opportunity",
+  "ri_notes": "Deduped patent family (2 of 4 records); review scope and naming.",
+  "ri_physician_lead": "TBD",
+  "conflict_tags": [],
+  "ri_institution": "Rhode Island ecosystem",
+  "ri_ip_source": "lens:188-329-033-633-480",
+  "ip_assets": [
+    {
+      "asset_id": "asset_d973bdbe2c04",
+      "title": "Anti-CHI3L1 antibodies for the detection and/or treatment of nonalcoholic fatty liver disease/nonalcoholic steatonhepatitis and subsequent complications",
+      "lens_id": "188-329-033-633-480",
+      "url": "https://lens.org/188-329-033-633-480",
+      "owners": "RHODE ISLAND HOSPITAL (2018-06-11)",
+      "legal_status": "ACTIVE",
+      "publication_date": "2024-06-18"
+    }
+  ]
+}

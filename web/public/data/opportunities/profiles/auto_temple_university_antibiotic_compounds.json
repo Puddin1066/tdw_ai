@@ -1,0 +1,21 @@
+{
+  "case_id": "auto_temple_university_antibiotic_compounds",
+  "display_name": "Antibiotic compounds Therapeutic Opportunity",
+  "llm_inferred_label": "Antibiotic compounds Therapeutic Opportunity",
+  "ri_notes": "Deduped patent family (2 of 4 records); review scope and naming.",
+  "ri_physician_lead": "TBD",
+  "conflict_tags": [],
+  "ri_institution": "Rhode Island ecosystem",
+  "ri_ip_source": "lens:010-667-859-507-655",
+  "ip_assets": [
+    {
+      "asset_id": "asset_6ff1f80080c5",
+      "title": "Antibiotic compounds",
+      "lens_id": "010-667-859-507-655",
+      "url": "https://lens.org/010-667-859-507-655",
+      "owners": "TEMPLE UNIVERSITY-OF THE COMMONWEALTH SYSTEM OF HIGHER EDUCATION (2019-12-04);;RHODE ISLAND HOSPITAL A LIFESPAN-PARTNER (2019-04-06);;THE GENERAL HOSPITAL CORPORATION (2018-10-03)",
+      "legal_status": "ACTIVE",
+      "publication_date": "2025-01-14"
+    }
+  ]
+}

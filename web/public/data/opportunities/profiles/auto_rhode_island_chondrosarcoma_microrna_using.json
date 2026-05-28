@@ -1,0 +1,21 @@
+{
+  "case_id": "auto_rhode_island_chondrosarcoma_microrna_using",
+  "display_name": "Methods for treating chondrosarcoma using microrna Technology Platform Opportunity",
+  "llm_inferred_label": "Methods for treating chondrosarcoma using microrna Technology Platform Opportunity",
+  "ri_notes": "Deduped patent family (1 of 1 records); review scope and naming.",
+  "ri_physician_lead": "TBD",
+  "conflict_tags": [],
+  "ri_institution": "Rhode Island ecosystem",
+  "ri_ip_source": "lens:154-654-510-817-457",
+  "ip_assets": [
+    {
+      "asset_id": "asset_05ca9d0ec63b",
+      "title": "Methods for treating chondrosarcoma using microrna(miR)",
+      "lens_id": "154-654-510-817-457",
+      "url": "https://lens.org/154-654-510-817-457",
+      "owners": "RHODE ISLAND HOSPITAL (2018-10-11)",
+      "legal_status": "ACTIVE",
+      "publication_date": "2022-06-21"
+    }
+  ]
+}

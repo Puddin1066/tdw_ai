@@ -25,11 +25,19 @@ def _fixture_entities(case_id: str) -> dict[str, Any] | None:
     return None
 
 
+def _primary_entity_type(config: CaseConfig) -> str:
+    opportunity_type = (config.input_profile.program.opportunity_type or "").strip().lower()
+    if opportunity_type in {"diagnostic", "medical_device", "digital_therapeutic", "digital_health", "platform"}:
+        return "modality"
+    return "gene"
+
+
 def _light_normalize(config: CaseConfig, connector_payloads: list[dict[str, Any]]) -> dict[str, Any]:
+    primary_entity_type = _primary_entity_type(config)
     entities: list[dict[str, Any]] = [
         {
-            "entity_id": f"gene:{config.target.name}",
-            "entity_type": "gene",
+            "entity_id": f"{primary_entity_type}:{config.target.name}",
+            "entity_type": primary_entity_type,
             "canonical_name": config.target.name,
             "display_name": config.target.name,
             "aliases": list(config.target.aliases),

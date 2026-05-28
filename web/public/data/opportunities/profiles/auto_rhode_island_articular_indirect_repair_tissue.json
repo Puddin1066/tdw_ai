@@ -1,0 +1,21 @@
+{
+  "case_id": "auto_rhode_island_articular_indirect_repair_tissue",
+  "display_name": "INDIRECT METHOD ARTICULAR TISSUE REPAIR Technology Platform Opportunity",
+  "llm_inferred_label": "INDIRECT METHOD ARTICULAR TISSUE REPAIR Technology Platform Opportunity",
+  "ri_notes": "Deduped patent family (1 of 1 records); review scope and naming.",
+  "ri_physician_lead": "TBD",
+  "conflict_tags": [],
+  "ri_institution": "Rhode Island ecosystem",
+  "ri_ip_source": "lens:107-506-227-972-866",
+  "ip_assets": [
+    {
+      "asset_id": "asset_ece7e1288180",
+      "title": "INDIRECT METHOD OF ARTICULAR TISSUE REPAIR",
+      "lens_id": "107-506-227-972-866",
+      "url": "https://lens.org/107-506-227-972-866",
+      "owners": "RHODE ISLAND HOSPITAL (2017-07-11);;THE CHILDREN'S MEDICAL CENTER CORPORATION (2017-07-11)",
+      "legal_status": "PENDING",
+      "publication_date": "2019-05-09"
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "case_id": "auto_rhode_island_cancer_microrna_targeting",
+  "display_name": "TARGETING MICRORNA FOR CANCER TREATMENT Technology Platform Opportunity",
+  "llm_inferred_label": "TARGETING MICRORNA FOR CANCER TREATMENT Technology Platform Opportunity",
+  "ri_notes": "Deduped patent family (2 of 2 records); review scope and naming.",
+  "ri_physician_lead": "TBD",
+  "conflict_tags": [],
+  "ri_institution": "Rhode Island ecosystem",
+  "ri_ip_source": "lens:019-560-209-089-591",
+  "ip_assets": [
+    {
+      "asset_id": "asset_05ca9d0ec63b",
+      "title": "TARGETING MICRORNA FOR CANCER TREATMENT",
+      "lens_id": "019-560-209-089-591",
+      "url": "https://lens.org/019-560-209-089-591",
+      "owners": "RHODE ISLAND HOSPITAL (2018-10-11)",
+      "legal_status": "PENDING",
+      "publication_date": "2023-02-09"
+    }
+  ]
+}

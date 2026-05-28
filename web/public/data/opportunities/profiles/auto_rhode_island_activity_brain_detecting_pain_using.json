@@ -1,0 +1,21 @@
+{
+  "case_id": "auto_rhode_island_activity_brain_detecting_pain_using",
+  "display_name": "Methods for detecting and treating pain Technology Platform Opportunity",
+  "llm_inferred_label": "Methods for detecting and treating pain Technology Platform Opportunity",
+  "ri_notes": "Deduped patent family (2 of 2 records); review scope and naming.",
+  "ri_physician_lead": "TBD",
+  "conflict_tags": [],
+  "ri_institution": "Rhode Island ecosystem",
+  "ri_ip_source": "lens:066-078-851-468-459",
+  "ip_assets": [
+    {
+      "asset_id": "asset_8173bdba9b98",
+      "title": "Methods for detecting and treating pain using brain activity",
+      "lens_id": "066-078-851-468-459",
+      "url": "https://lens.org/066-078-851-468-459",
+      "owners": "RHODE ISLAND HOSPITAL (2016-08-24)",
+      "legal_status": "ACTIVE",
+      "publication_date": "2021-07-20"
+    }
+  ]
+}

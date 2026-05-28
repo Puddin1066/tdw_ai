@@ -1,0 +1,21 @@
+{
+  "case_id": "auto_rhode_island_androgen_cancer_immune_innate_killing_modulation",
+  "display_name": "MODULATION ANDROGEN SIGNALING INNATE IMMUNE KILLING Technology Platform Opportunity",
+  "llm_inferred_label": "MODULATION ANDROGEN SIGNALING INNATE IMMUNE KILLING Technology Platform Opportunity",
+  "ri_notes": "Deduped patent family (1 of 1 records); review scope and naming.",
+  "ri_physician_lead": "TBD",
+  "conflict_tags": [],
+  "ri_institution": "Rhode Island ecosystem",
+  "ri_ip_source": "lens:113-795-490-239-013",
+  "ip_assets": [
+    {
+      "asset_id": "asset_517fd31fab96",
+      "title": "MODULATION OF ANDROGEN SIGNALING TO INNATE IMMUNE KILLING OF PROSTATE CANCER",
+      "lens_id": "113-795-490-239-013",
+      "url": "https://lens.org/113-795-490-239-013",
+      "owners": "RHODE ISLAND HOSPITAL (2024-01-09);;BROWN UNIVERSITY (2024-01-12)",
+      "legal_status": "PENDING",
+      "publication_date": "2024-09-19"
+    }
+  ]
+}

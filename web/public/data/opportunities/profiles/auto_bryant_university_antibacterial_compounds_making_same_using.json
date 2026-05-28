@@ -1,0 +1,21 @@
+{
+  "case_id": "auto_bryant_university_antibacterial_compounds_making_same_using",
+  "display_name": "Antibacterial compounds and methods making and Therapeutic Opportunity",
+  "llm_inferred_label": "Antibacterial compounds and methods making and Therapeutic Opportunity",
+  "ri_notes": "Deduped patent family (2 of 2 records); review scope and naming.",
+  "ri_physician_lead": "TBD",
+  "conflict_tags": [],
+  "ri_institution": "Rhode Island ecosystem",
+  "ri_ip_source": "lens:059-233-465-923-592",
+  "ip_assets": [
+    {
+      "asset_id": "asset_9150814a6400",
+      "title": "Antibacterial compounds and methods of making and using same",
+      "lens_id": "059-233-465-923-592",
+      "url": "https://lens.org/059-233-465-923-592",
+      "owners": "BRYANT UNIVERSITY (2018-09-02);;BROWN UNIVERSITY (2017-11-20)",
+      "legal_status": "ACTIVE",
+      "publication_date": "2020-11-10"
+    }
+  ]
+}

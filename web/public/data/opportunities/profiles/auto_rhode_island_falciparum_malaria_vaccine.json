@@ -1,0 +1,21 @@
+{
+  "case_id": "auto_rhode_island_falciparum_malaria_vaccine",
+  "display_name": "Vaccine for falciparum malaria Therapeutic Opportunity",
+  "llm_inferred_label": "Vaccine for falciparum malaria Therapeutic Opportunity",
+  "ri_notes": "Deduped patent family (2 of 12 records); review scope and naming.",
+  "ri_physician_lead": "TBD",
+  "conflict_tags": [],
+  "ri_institution": "Rhode Island ecosystem",
+  "ri_ip_source": "lens:063-586-913-488-802",
+  "ip_assets": [
+    {
+      "asset_id": "asset_a5079cca9dde",
+      "title": "Vaccine for falciparum malaria",
+      "lens_id": "063-586-913-488-802",
+      "url": "https://lens.org/063-586-913-488-802",
+      "owners": "RHODE ISLAND HOSPITAL (2014-08-20);;SEATTLE CHILDREN'S HOSPITAL DBA SEATTLE CHILDREN'S RESEARCH INSTITUTE (2019-02-25);;SEATTLE BIOMEDICAL RESEARCH INSTITUTE (2014-08-19)",
+      "legal_status": "ACTIVE",
+      "publication_date": "2025-02-04"
+    }
+  ]
+}

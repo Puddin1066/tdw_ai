@@ -424,6 +424,7 @@ def _build_benchmark_plan(
     indication = config.indication.name
     modality = config.input_profile.biology.modality
     mechanism = config.input_profile.biology.mechanism_direction
+    opportunity_type = config.input_profile.program.opportunity_type
     dev_stage = config.input_profile.program.development_stage
 
     enabled_connectors = [
@@ -449,6 +450,7 @@ def _build_benchmark_plan(
         enabled_connectors=enabled_connectors,
         modality=modality,
         mechanism=mechanism,
+        opportunity_type=opportunity_type,
         dev_stage=dev_stage,
     )
 
@@ -519,6 +521,8 @@ def _build_benchmark_plan(
             "geography": config.input_profile.disease.geography,
             "asset": config.input_profile.program.asset,
             "company": config.input_profile.program.company,
+            "opportunity_type": opportunity_type,
+            "slater_invested": config.input_profile.program.slater_invested,
             "development_stage": dev_stage,
             "comparators": comparators,
             "strategic_question": config.input_profile.commercial.strategic_question,
@@ -538,6 +542,7 @@ def _build_prompt_set(
     enabled_connectors: list[str],
     modality: str | None,
     mechanism: str | None,
+    opportunity_type: str | None,
     dev_stage: str | None,
 ) -> list[dict[str, Any]]:
     target = config.target.name or "target"
@@ -554,6 +559,7 @@ def _build_prompt_set(
             indication=indication,
             modality=modality or "modality",
             mechanism=mechanism or "mechanism",
+            opportunity_type=opportunity_type or "opportunity",
             dev_stage=dev_stage or "stage",
             comparators=comparators,
             strategic_question=strategic,

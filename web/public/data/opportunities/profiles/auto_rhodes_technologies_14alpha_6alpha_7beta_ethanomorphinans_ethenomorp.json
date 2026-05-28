@@ -1,0 +1,21 @@
+{
+  "case_id": "auto_rhodes_technologies_14alpha_6alpha_7beta_ethanomorphinans_ethenomorp",
+  "display_name": "PROCESS FOR PREPARING 7BETA SUBSTITUTED 6ALPHA Technology Platform Opportunity",
+  "llm_inferred_label": "PROCESS FOR PREPARING 7BETA SUBSTITUTED 6ALPHA Technology Platform Opportunity",
+  "ri_notes": "Deduped patent family (1 of 1 records); review scope and naming.",
+  "ri_physician_lead": "TBD",
+  "conflict_tags": [],
+  "ri_institution": "Rhode Island ecosystem",
+  "ri_ip_source": "lens:188-234-774-680-08X",
+  "ip_assets": [
+    {
+      "asset_id": "asset_ca052df33b01",
+      "title": "PROCESS FOR PREPARING 7BETA-SUBSTITUTED 6ALPHA,14ALPHA-ETHENOMORPHINANS AND 7BETA-SUBSTITUTED 6ALPHA,14ALPHA-ETHANOMORPHINANS",
+      "lens_id": "188-234-774-680-08X",
+      "url": "https://lens.org/188-234-774-680-08X",
+      "owners": "RHODES TECHNOLOGIES (2015-11-18)",
+      "legal_status": "ACTIVE",
+      "publication_date": "2016-03-10"
+    }
+  ]
+}

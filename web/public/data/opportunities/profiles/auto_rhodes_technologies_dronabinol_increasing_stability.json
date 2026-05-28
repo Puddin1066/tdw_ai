@@ -1,0 +1,21 @@
+{
+  "case_id": "auto_rhodes_technologies_dronabinol_increasing_stability",
+  "display_name": "SYSTEMS AND METHODS FOR INCREASING STABILITY Technology Platform Opportunity",
+  "llm_inferred_label": "SYSTEMS AND METHODS FOR INCREASING STABILITY Technology Platform Opportunity",
+  "ri_notes": "Deduped patent family (2 of 3 records); review scope and naming.",
+  "ri_physician_lead": "TBD",
+  "conflict_tags": [],
+  "ri_institution": "Rhode Island ecosystem",
+  "ri_ip_source": "lens:155-377-718-670-849",
+  "ip_assets": [
+    {
+      "asset_id": "asset_bb5056f6f7cb",
+      "title": "SYSTEMS AND METHODS FOR INCREASING STABILITY OF DRONABINOL COMPOSITIONS",
+      "lens_id": "155-377-718-670-849",
+      "url": "https://lens.org/155-377-718-670-849",
+      "owners": "RHODES TECHNOLOGIES (2015-06-09)",
+      "legal_status": "PENDING",
+      "publication_date": "2023-07-13"
+    }
+  ]
+}

@@ -1,0 +1,122 @@
+{
+  "artifact_type": "ri_lens_mock_signals",
+  "generated_at": "2026-05-27T14:31:28.065280+00:00",
+  "record_count": 5,
+  "records": [
+    {
+      "case_id": "theromics_ri",
+      "mocked": true,
+      "metrics": {
+        "ri_anchor_score_0_100": 88,
+        "physician_champion_score_0_100": 72,
+        "ip_provenance_score_0_100": 70,
+        "slater_stage_fit_score_0_100": 78,
+        "ssbci_match_readiness_score_0_100": 74,
+        "regulatory_path_clarity_score_0_100": 64,
+        "pilotability_score_0_100": 81,
+        "buyer_path_clarity_score_0_100": 69,
+        "time_to_inflection_months": 18
+      },
+      "qualitative": {
+        "ri_anchor_rationale": "Strong RI ecosystem alignment through in-state innovation network and translational relevance.",
+        "physician_rationale": "Physician champion listed as provisional pending final KOL designation.",
+        "ip_rationale": "IP provenance partially documented; institutional chain requires diligence hardening.",
+        "slater_ssbci_rationale": "Stage and venture profile appear Slater-compatible; SSBCI match assumptions are placeholder only.",
+        "commercialization_rationale": "Pilot pathways look plausible in oncology workflows but buyer path needs stronger validation."
+      },
+      "mock_notes": "MOCK DATA: replace with verified physician roster and partner commitments."
+    },
+    {
+      "case_id": "monaghan_sepsis_diagnostic_ri",
+      "mocked": true,
+      "metrics": {
+        "ri_anchor_score_0_100": 92,
+        "physician_champion_score_0_100": 90,
+        "ip_provenance_score_0_100": 84,
+        "slater_stage_fit_score_0_100": 80,
+        "ssbci_match_readiness_score_0_100": 77,
+        "regulatory_path_clarity_score_0_100": 72,
+        "pilotability_score_0_100": 86,
+        "buyer_path_clarity_score_0_100": 73,
+        "time_to_inflection_months": 12
+      },
+      "qualitative": {
+        "ri_anchor_rationale": "High RI anchor strength with clear institutional association to RI hospital ecosystem.",
+        "physician_rationale": "Named physician lead included from user-provided context; legal/commercial role still to confirm.",
+        "ip_rationale": "Patent and lab-origin signal is strong but spinout entity structure is TBD.",
+        "slater_ssbci_rationale": "Early commercial readiness appears promising; SSBCI eligibility remains illustrative.",
+        "commercialization_rationale": "Hospital pilotability is high given sepsis use case urgency and clear care pathway fit."
+      },
+      "mock_notes": "MOCK DATA: company legal name and cap table inputs not validated."
+    },
+    {
+      "case_id": "cbt_pain_digital_platform_ri",
+      "mocked": true,
+      "metrics": {
+        "ri_anchor_score_0_100": 76,
+        "physician_champion_score_0_100": 58,
+        "ip_provenance_score_0_100": 52,
+        "slater_stage_fit_score_0_100": 71,
+        "ssbci_match_readiness_score_0_100": 68,
+        "regulatory_path_clarity_score_0_100": 66,
+        "pilotability_score_0_100": 74,
+        "buyer_path_clarity_score_0_100": 62,
+        "time_to_inflection_months": 15
+      },
+      "qualitative": {
+        "ri_anchor_rationale": "Moderate RI fit based on intended provider-network deployment assumptions.",
+        "physician_rationale": "Physician lead not yet named; score reflects missing sponsor specificity.",
+        "ip_rationale": "IP ownership and differentiation not yet documented in source packet.",
+        "slater_ssbci_rationale": "Stage appears seed-like and potentially matchable, but financing assumptions are synthetic.",
+        "commercialization_rationale": "Commercial path plausible through payer/provider channels though evidence package is early."
+      },
+      "mock_notes": "MOCK DATA: entity identity and clinical validation evidence are placeholders."
+    },
+    {
+      "case_id": "nanode_ri",
+      "mocked": true,
+      "metrics": {
+        "ri_anchor_score_0_100": 81,
+        "physician_champion_score_0_100": 64,
+        "ip_provenance_score_0_100": 61,
+        "slater_stage_fit_score_0_100": 75,
+        "ssbci_match_readiness_score_0_100": 72,
+        "regulatory_path_clarity_score_0_100": 69,
+        "pilotability_score_0_100": 79,
+        "buyer_path_clarity_score_0_100": 67,
+        "time_to_inflection_months": 20
+      },
+      "qualitative": {
+        "ri_anchor_rationale": "Good RI operational fit for medtech deployment and local system relevance.",
+        "physician_rationale": "Physician support appears likely but formal champion alignment still open.",
+        "ip_rationale": "IP source is directional and needs formal diligence packet linkage.",
+        "slater_ssbci_rationale": "Slater fit appears reasonable for stage and modality; SSBCI figures are mocked.",
+        "commercialization_rationale": "Pilot and procurement paths are feasible but timeline confidence is moderate."
+      },
+      "mock_notes": "MOCK DATA: procurement assumptions and reimbursement posture are not verified."
+    },
+    {
+      "case_id": "phlip_therapeutics_ri",
+      "mocked": true,
+      "metrics": {
+        "ri_anchor_score_0_100": 90,
+        "physician_champion_score_0_100": 78,
+        "ip_provenance_score_0_100": 88,
+        "slater_stage_fit_score_0_100": 74,
+        "ssbci_match_readiness_score_0_100": 76,
+        "regulatory_path_clarity_score_0_100": 70,
+        "pilotability_score_0_100": 84,
+        "buyer_path_clarity_score_0_100": 71,
+        "time_to_inflection_months": 16
+      },
+      "qualitative": {
+        "ri_anchor_rationale": "Strong Yale/URI anchor with licensed pHLIP platform and RI operating company (pHLIP Inc).",
+        "physician_rationale": "Interventional radiology and pathology syndicate drafted; lead PI TBD.",
+        "ip_rationale": "US 12290575 B2 fluorophore patent explicitly linked to seed case.",
+        "slater_ssbci_rationale": "Seed-stage imaging/diagnostic profile fits Slater + physician syndicate template.",
+        "commercialization_rationale": "Fluorescence-guided surgery pilot plausible at RI cancer centers."
+      },
+      "mock_notes": "MOCK DATA: reimbursement and regulatory path assumptions not verified."
+    }
+  ]
+}

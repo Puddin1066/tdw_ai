@@ -1,0 +1,21 @@
+{
+  "case_id": "auto_rhode_island_assembly_nanomaterial_synthesis",
+  "display_name": "NANOMATERIAL COMPOSITIONS SYNTHESIS AND ASSEMBLY Technology Platform Opportunity",
+  "llm_inferred_label": "NANOMATERIAL COMPOSITIONS SYNTHESIS AND ASSEMBLY Technology Platform Opportunity",
+  "ri_notes": "Deduped patent family (2 of 3 records); review scope and naming.",
+  "ri_physician_lead": "TBD",
+  "conflict_tags": [],
+  "ri_institution": "Rhode Island ecosystem",
+  "ri_ip_source": "lens:008-630-363-858-098",
+  "ip_assets": [
+    {
+      "asset_id": "asset_0d6b149cbcf2",
+      "title": "NANOMATERIAL COMPOSITIONS, SYNTHESIS, AND ASSEMBLY",
+      "lens_id": "008-630-363-858-098",
+      "url": "https://lens.org/008-630-363-858-098",
+      "owners": "RHODE ISLAND HOSPITAL (2017-08-03)",
+      "legal_status": "PENDING",
+      "publication_date": "2023-06-15"
+    }
+  ]
+}

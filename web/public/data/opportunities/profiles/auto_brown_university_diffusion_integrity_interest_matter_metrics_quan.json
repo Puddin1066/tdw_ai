@@ -1,0 +1,21 @@
+{
+  "case_id": "auto_brown_university_diffusion_integrity_interest_matter_metrics_quan",
+  "display_name": "Quantitative tract interest metrics for white Technology Platform Opportunity",
+  "llm_inferred_label": "Quantitative tract interest metrics for white Technology Platform Opportunity",
+  "ri_notes": "Deduped patent family (2 of 2 records); review scope and naming.",
+  "ri_physician_lead": "TBD",
+  "conflict_tags": [],
+  "ri_institution": "Rhode Island ecosystem",
+  "ri_ip_source": "lens:008-348-366-140-285",
+  "ip_assets": [
+    {
+      "asset_id": "asset_9e0bc5c48db1",
+      "title": "Quantitative tract-of-interest metrics for white matter integrity based on diffusion tensor MRI data",
+      "lens_id": "008-348-366-140-285",
+      "url": "https://lens.org/008-348-366-140-285",
+      "owners": "BROWN UNIVERSITY (2008-04-28)",
+      "legal_status": "ACTIVE",
+      "publication_date": "2012-05-01"
+    }
+  ]
+}

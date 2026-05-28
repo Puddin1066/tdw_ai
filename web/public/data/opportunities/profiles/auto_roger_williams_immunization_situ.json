@@ -1,0 +1,30 @@
+{
+  "case_id": "auto_roger_williams_immunization_situ",
+  "display_name": "situ immunization Technology Platform Opportunity",
+  "llm_inferred_label": "situ immunization Technology Platform Opportunity",
+  "ri_notes": "Deduped patent family (2 of 2 records); review scope and naming.",
+  "ri_physician_lead": "TBD",
+  "conflict_tags": [],
+  "ri_institution": "Rhode Island ecosystem",
+  "ri_ip_source": "lens:112-058-982-746-20X",
+  "ip_assets": [
+    {
+      "asset_id": "asset_75e24a8d3e1d",
+      "title": "In situ immunization",
+      "lens_id": "112-058-982-746-20X",
+      "url": "https://lens.org/112-058-982-746-20X",
+      "owners": "ROGER WILLIAMS MEDICAL CENTER (2002-10-11);;PROSPECT CHARTERCARE LLC (2014-06-20)",
+      "legal_status": "ACTIVE",
+      "publication_date": "2010-07-27"
+    },
+    {
+      "asset_id": "asset_6e94c69cfbd4",
+      "title": "In situ immunization",
+      "lens_id": "090-595-623-366-958",
+      "url": "https://lens.org/090-595-623-366-958",
+      "owners": "ROGER WILLIAMS MEDICAL CENTER (2002-10-11);;PROSPECT CHARTERCARE LLC (2014-06-20)",
+      "legal_status": "ACTIVE",
+      "publication_date": "2003-10-02"
+    }
+  ]
+}

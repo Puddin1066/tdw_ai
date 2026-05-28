@@ -1,0 +1,21 @@
+{
+  "case_id": "auto_brown_university_compounds_disease_indy_neurodegenerative_type_us",
+  "display_name": "TREATMENT NEURODEGENERATIVE DISEASE USING CSA AND Therapeutic Opportunity",
+  "llm_inferred_label": "TREATMENT NEURODEGENERATIVE DISEASE USING CSA AND Therapeutic Opportunity",
+  "ri_notes": "Deduped patent family (1 of 1 records); review scope and naming.",
+  "ri_physician_lead": "TBD",
+  "conflict_tags": [],
+  "ri_institution": "Rhode Island ecosystem",
+  "ri_ip_source": "lens:102-079-436-606-840",
+  "ip_assets": [
+    {
+      "asset_id": "asset_741407f0550f",
+      "title": "TREATMENT OF NEURODEGENERATIVE DISEASE USING CSA- AND INDY-TYPE COMPOUNDS",
+      "lens_id": "102-079-436-606-840",
+      "url": "https://lens.org/102-079-436-606-840",
+      "owners": "BROWN UNIVERSITY (2024-05-30)",
+      "legal_status": "PENDING",
+      "publication_date": "2024-07-25"
+    }
+  ]
+}

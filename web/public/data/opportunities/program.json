@@ -1,0 +1,46 @@
+{
+  "title": "RI Physician-Led Venture Syndicates",
+  "subtitle": "Rhode Island technologies, clinician syndicates, and Slater SSBCI match capital",
+  "capital_sources": [
+    {
+      "source_id": "cap_physician_50",
+      "source_name": "RI Physician Syndicate (Policy 50%)",
+      "source_type": "physician_syndicate",
+      "check_min_usd": 50000,
+      "check_max_usd": 3000000,
+      "decision_cycle_weeks": 6,
+      "ri_focus": true
+    },
+    {
+      "source_id": "cap_slater_ssbci_50",
+      "source_name": "Slater SSBCI Match (Policy 50%)",
+      "source_type": "public_program",
+      "check_min_usd": 50000,
+      "check_max_usd": 3000000,
+      "decision_cycle_weeks": 8,
+      "ri_focus": true
+    }
+  ],
+  "governance_rules": [
+    {
+      "rule_id": "gov_001",
+      "category": "coi",
+      "rule_text": "Exclude clinicians with direct company equity conflict from reviewer role."
+    },
+    {
+      "rule_id": "gov_002",
+      "category": "coi",
+      "rule_text": "Require conflict tag overlap check between opportunity and physician before role assignment."
+    },
+    {
+      "rule_id": "gov_003",
+      "category": "role_compatibility",
+      "rule_text": "At least one investigator and one reviewer required for financeable readiness."
+    }
+  ],
+  "stats": {
+    "opportunity_count": 212,
+    "financeable_now_count": 133,
+    "total_capital_gap_usd": 255600000
+  }
+}

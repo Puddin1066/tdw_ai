@@ -1,0 +1,21 @@
+{
+  "case_id": "auto_rhode_island_arthritis_articular_biomaterial_cartilage_mainte",
+  "display_name": "Biomaterial for Articular Cartilage Maintenance and Technology Platform Opportunity",
+  "llm_inferred_label": "Biomaterial for Articular Cartilage Maintenance and Technology Platform Opportunity",
+  "ri_notes": "Deduped patent family (2 of 3 records); review scope and naming.",
+  "ri_physician_lead": "TBD",
+  "conflict_tags": [],
+  "ri_institution": "Rhode Island ecosystem",
+  "ri_ip_source": "lens:075-570-631-531-429",
+  "ip_assets": [
+    {
+      "asset_id": "asset_75edacc53d00",
+      "title": "Biomaterial for Articular Cartilage Maintenance and Treatment of Arthritis",
+      "lens_id": "075-570-631-531-429",
+      "url": "https://lens.org/075-570-631-531-429",
+      "owners": "RHODE ISLAND HOSPITAL (2013-03-15);;CHILDREN'S MEDICAL CENTER CORPORATION (2012-12-03)",
+      "legal_status": "PENDING",
+      "publication_date": "2023-03-16"
+    }
+  ]
+}

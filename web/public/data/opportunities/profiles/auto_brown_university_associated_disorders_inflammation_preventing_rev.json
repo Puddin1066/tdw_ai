@@ -1,0 +1,30 @@
+{
+  "case_id": "auto_brown_university_associated_disorders_inflammation_preventing_rev",
+  "display_name": "Compositions and methods for treating preventing Technology Platform Opportunity",
+  "llm_inferred_label": "Compositions and methods for treating preventing Technology Platform Opportunity",
+  "ri_notes": "Deduped patent family (2 of 6 records); review scope and naming.",
+  "ri_physician_lead": "TBD",
+  "conflict_tags": [],
+  "ri_institution": "Rhode Island ecosystem",
+  "ri_ip_source": "lens:105-955-929-631-67X",
+  "ip_assets": [
+    {
+      "asset_id": "asset_d1d670fccc52",
+      "title": "Compositions and methods for treating, preventing or reversing age associated inflammation and disorders",
+      "lens_id": "105-955-929-631-67X",
+      "url": "https://lens.org/105-955-929-631-67X",
+      "owners": "BROWN UNIVERSITY (2020-01-24)",
+      "legal_status": "ACTIVE",
+      "publication_date": "2025-03-11"
+    },
+    {
+      "asset_id": "asset_fc534f8159f0",
+      "title": "COMPOSITIONS AND METHODS FOR TREATING, PREVENTING OR REVERSING AGE-ASSOCIATED INFLAMMATION AND DISORDER",
+      "lens_id": "183-561-942-004-088",
+      "url": "https://lens.org/183-561-942-004-088",
+      "owners": "BROWN UNIVERSITY (2020-02-07)",
+      "legal_status": "PENDING",
+      "publication_date": "2024-06-27"
+    }
+  ]
+}

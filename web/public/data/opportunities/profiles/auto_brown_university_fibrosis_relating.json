@@ -1,0 +1,21 @@
+{
+  "case_id": "auto_brown_university_fibrosis_relating",
+  "display_name": "Methods and compositions relating the treatment Technology Platform Opportunity",
+  "llm_inferred_label": "Methods and compositions relating the treatment Technology Platform Opportunity",
+  "ri_notes": "Deduped patent family (2 of 4 records); review scope and naming.",
+  "ri_physician_lead": "TBD",
+  "conflict_tags": [],
+  "ri_institution": "Rhode Island ecosystem",
+  "ri_ip_source": "lens:186-464-605-272-14X",
+  "ip_assets": [
+    {
+      "asset_id": "asset_1e5e8808967f",
+      "title": "Methods and compositions relating to the treatment of fibrosis",
+      "lens_id": "186-464-605-272-14X",
+      "url": "https://lens.org/186-464-605-272-14X",
+      "owners": "BROWN UNIVERSITY (2018-08-23)",
+      "legal_status": "ACTIVE",
+      "publication_date": "2023-08-08"
+    }
+  ]
+}

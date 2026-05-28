@@ -1,0 +1,30 @@
+{
+  "case_id": "auto_governors_university_acids_carriers_cells_nanotubes_nucleic",
+  "display_name": "Nanotubes carriers nucleic acids into cells Technology Platform Opportunity",
+  "llm_inferred_label": "Nanotubes carriers nucleic acids into cells Technology Platform Opportunity",
+  "ri_notes": "Deduped patent family (2 of 4 records); review scope and naming.",
+  "ri_physician_lead": "TBD",
+  "conflict_tags": [],
+  "ri_institution": "Rhode Island ecosystem",
+  "ri_ip_source": "lens:104-876-606-446-902",
+  "ip_assets": [
+    {
+      "asset_id": "asset_2e2fd60848ce",
+      "title": "Nanotubes as carriers of nucleic acids into cells",
+      "lens_id": "104-876-606-446-902",
+      "url": "https://lens.org/104-876-606-446-902",
+      "owners": "THE GOVERNORS OF THE UNIVERSITY OF ALBERTA (2017-12-04);;RHODE ISLAND HOSPITAL (2013-07-02);;NATIONAL RESEARCH COUNCIL OF CANADA (2017-12-04);;BROWN UNIVERSITY (2013-07-02)",
+      "legal_status": "ACTIVE",
+      "publication_date": "2019-07-30"
+    },
+    {
+      "asset_id": "asset_bb6be6eb7976",
+      "title": "Nanotubes as carriers of nucleic acids into cells",
+      "lens_id": "010-367-893-976-389",
+      "url": "https://lens.org/010-367-893-976-389",
+      "owners": "THE GOVERNORS OF THE UNIVERSITY OF ALBERTA (2017-12-04);;RHODE ISLAND HOSPITAL (2013-07-02);;NATIONAL RESEARCH COUNCIL OF CANADA (2017-12-04);;BROWN UNIVERSITY (2013-07-02)",
+      "legal_status": "ACTIVE",
+      "publication_date": "2019-07-09"
+    }
+  ]
+}

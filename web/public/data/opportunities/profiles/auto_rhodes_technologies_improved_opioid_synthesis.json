@@ -1,0 +1,30 @@
+{
+  "case_id": "auto_rhodes_technologies_improved_opioid_synthesis",
+  "display_name": "PROCESS FOR IMPROVED OPIOID SYNTHESIS Technology Platform Opportunity",
+  "llm_inferred_label": "PROCESS FOR IMPROVED OPIOID SYNTHESIS Technology Platform Opportunity",
+  "ri_notes": "Deduped patent family (2 of 7 records); review scope and naming.",
+  "ri_physician_lead": "TBD",
+  "conflict_tags": [],
+  "ri_institution": "Rhode Island ecosystem",
+  "ri_ip_source": "lens:036-222-027-029-816",
+  "ip_assets": [
+    {
+      "asset_id": "asset_7197c48f958d",
+      "title": "PROCESS FOR IMPROVED OPIOID SYNTHESIS",
+      "lens_id": "036-222-027-029-816",
+      "url": "https://lens.org/036-222-027-029-816",
+      "owners": "RHODES TECHNOLOGIES (2015-10-12)",
+      "legal_status": "PENDING",
+      "publication_date": "2023-04-27"
+    },
+    {
+      "asset_id": "asset_17f30f4f0711",
+      "title": "Process for improved opioid synthesis",
+      "lens_id": "023-811-388-138-894",
+      "url": "https://lens.org/023-811-388-138-894",
+      "owners": "RHODES TECHNOLOGIES (2015-10-12)",
+      "legal_status": "ACTIVE",
+      "publication_date": "2022-07-19"
+    }
+  ]
+}

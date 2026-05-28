@@ -1,0 +1,21 @@
+{
+  "case_id": "auto_rhode_island_associated_caused_diseases_halogenated_infection",
+  "display_name": "Methods for treating diseases infections caused Technology Platform Opportunity",
+  "llm_inferred_label": "Methods for treating diseases infections caused Technology Platform Opportunity",
+  "ri_notes": "Deduped patent family (2 of 2 records); review scope and naming.",
+  "ri_physician_lead": "TBD",
+  "conflict_tags": [],
+  "ri_institution": "Rhode Island ecosystem",
+  "ri_ip_source": "lens:162-305-058-119-701",
+  "ip_assets": [
+    {
+      "asset_id": "asset_6a190800fe9e",
+      "title": "Methods for treating diseases or infections caused by or associated with H. pylori using a halogenated salicylanilide",
+      "lens_id": "162-305-058-119-701",
+      "url": "https://lens.org/162-305-058-119-701",
+      "owners": "RHODE ISLAND HOSPITAL (2019-03-15)",
+      "legal_status": "ACTIVE",
+      "publication_date": "2022-08-23"
+    }
+  ]
+}

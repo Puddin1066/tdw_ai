@@ -1,0 +1,30 @@
+{
+  "case_id": "auto_brown_university_delivery_drug_localization_prolonged",
+  "display_name": "Methods and systems for prolonged localization Therapeutic Opportunity",
+  "llm_inferred_label": "Methods and systems for prolonged localization Therapeutic Opportunity",
+  "ri_notes": "Deduped patent family (2 of 2 records); review scope and naming.",
+  "ri_physician_lead": "TBD",
+  "conflict_tags": [],
+  "ri_institution": "Rhode Island ecosystem",
+  "ri_ip_source": "lens:187-540-965-219-13X",
+  "ip_assets": [
+    {
+      "asset_id": "asset_86c4c30e1db1",
+      "title": "Methods and systems for prolonged localization of drug delivery",
+      "lens_id": "187-540-965-219-13X",
+      "url": "https://lens.org/187-540-965-219-13X",
+      "owners": "BROWN UNIVERSITY (2012-03-15)",
+      "legal_status": "ACTIVE",
+      "publication_date": "2014-07-15"
+    },
+    {
+      "asset_id": "asset_7da0d2fd75a1",
+      "title": "METHODS AND SYSTEMS FOR PROLONGED LOCALIZATION OF DRUG DELIVERY",
+      "lens_id": "049-683-504-484-971",
+      "url": "https://lens.org/049-683-504-484-971",
+      "owners": "BROWN UNIVERSITY (2012-03-15)",
+      "legal_status": "ACTIVE",
+      "publication_date": "2012-03-01"
+    }
+  ]
+}

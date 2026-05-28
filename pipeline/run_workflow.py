@@ -17,6 +17,7 @@ from pipeline._artifacts import copy_fixture_artifact
 from pipeline.build_sources import build_source_artifacts
 from pipeline.artifact_writer import ArtifactValidationError, validate_case_dir
 from pipeline.build_graph import build_knowledge_graph
+from pipeline.build_ri_lens import build_ri_lens_artifacts
 from pipeline.config_loader import ConfigValidationError, load_case_config, summarize_input_quality
 from pipeline.generate_claims import generate_claims
 from pipeline.generate_questions import generate_questions
@@ -24,11 +25,12 @@ from pipeline.generate_report import generate_report
 from pipeline.generate_risk_map import generate_risk_map
 from pipeline.llm_provider import get_provider_status
 from pipeline.normalize_entities import normalize_entities
-from pipeline.provenance import utc_now_iso
+from pipeline.provenance import build_provenance, utc_now_iso
 from pipeline.runtime_env import load_repo_env
 from pipeline.run_registry import RunRegistry
 from pipeline.types import (
     REQUIRED_ARTIFACTS,
+    SCHEMA_VERSION,
     CaseConfig,
     RunMode,
     fixture_case_dir,
@@ -229,10 +231,34 @@ def _ensure_source_artifacts(config: CaseConfig, case_dir: Path, mode: RunMode) 
         if dest.exists():
             continue
         copy_fixture_artifact(config.case_id, artifact_name, dest)
-        if not dest.exists():
-            raise FileNotFoundError(
-                f"Missing source artifact {artifact_name} and no fixture available for {config.case_id}"
-            )
+        if dest.exists():
+            continue
+        if mode == "fixture":
+            _write_empty_source_artifact(config.case_id, artifact_name, dest)
+            continue
+        raise FileNotFoundError(
+            f"Missing source artifact {artifact_name} and no fixture available for {config.case_id}"
+        )
+
+
+def _write_empty_source_artifact(case_id: str, artifact_name: str, dest: Path) -> None:
+    data_by_artifact = {
+        "source_manifest.json": {"entries": []},
+        "literature_records.json": {"records": []},
+        "clinical_trials.json": {"trials": []},
+        "target_biology.json": {"records": []},
+    }
+    if artifact_name not in data_by_artifact:
+        return
+    envelope = {
+        "artifact_type": artifact_name.replace(".json", ""),
+        "case_id": case_id,
+        "schema_version": SCHEMA_VERSION,
+        "generated_at": utc_now_iso(),
+        "provenance": build_provenance("pipeline/run_workflow.py", []),
+        "data": data_by_artifact[artifact_name],
+    }
+    dest.write_text(json.dumps(envelope, indent=2) + "\n", encoding="utf-8")
 
 
 def _ensure_eval_results(config: CaseConfig, case_dir: Path, mode: RunMode) -> None:
@@ -288,6 +314,7 @@ def run_case_workflow(config: CaseConfig, mode: RunMode, *, output_dir: Path | N
     generate_risk_map(config, case_dir, mode=mode)
     generate_report(config, case_dir, mode=mode)
     generate_questions(config, case_dir, mode=mode)
+    build_ri_lens_artifacts(config, case_dir)
     build_knowledge_graph(config, case_dir)
     _ensure_eval_results(config, case_dir, mode)
     _write_metadata_summary(case_dir / "metadata.yaml", case_dir)

@@ -1,0 +1,21 @@
+{
+  "case_id": "auto_brown_university_apparatus_detection_model_structure_view",
+  "display_name": "Methods and apparatus for model based Diagnostic Opportunity",
+  "llm_inferred_label": "Methods and apparatus for model based Diagnostic Opportunity",
+  "ri_notes": "Deduped patent family (2 of 2 records); review scope and naming.",
+  "ri_physician_lead": "TBD",
+  "conflict_tags": [],
+  "ri_institution": "Rhode Island ecosystem",
+  "ri_ip_source": "lens:016-682-190-415-073",
+  "ip_assets": [
+    {
+      "asset_id": "asset_f989e4de10d3",
+      "title": "Methods and apparatus for model-based detection of structure in view data",
+      "lens_id": "016-682-190-415-073",
+      "url": "https://lens.org/016-682-190-415-073",
+      "owners": "BROWN UNIVERSITY (2004-06-16)",
+      "legal_status": "ACTIVE",
+      "publication_date": "2009-02-17"
+    }
+  ]
+}

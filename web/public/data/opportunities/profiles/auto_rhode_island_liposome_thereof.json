@@ -1,0 +1,21 @@
+{
+  "case_id": "auto_rhode_island_liposome_thereof",
+  "display_name": "Liposome compositions and methods use thereof Technology Platform Opportunity",
+  "llm_inferred_label": "Liposome compositions and methods use thereof Technology Platform Opportunity",
+  "ri_notes": "Deduped patent family (2 of 6 records); review scope and naming.",
+  "ri_physician_lead": "TBD",
+  "conflict_tags": [],
+  "ri_institution": "Rhode Island ecosystem",
+  "ri_ip_source": "lens:073-584-507-838-743",
+  "ip_assets": [
+    {
+      "asset_id": "asset_dc511c784a86",
+      "title": "Liposome compositions and methods of use thereof",
+      "lens_id": "073-584-507-838-743",
+      "url": "https://lens.org/073-584-507-838-743",
+      "owners": "RHODE ISLAND COUNCIL ON POSTSECONDARY EDUCATION (2011-09-22);;YALE UNIVERSITY (2011-10-03);;UNIVERSITY OF RHODE ISLAND BOARD OF TRUSTEES (2021-04-09);;RHODE ISLAND BOARD OF GOVERNORS FOR HIGHER EDUCATION (2011-09-22)",
+      "legal_status": "ACTIVE",
+      "publication_date": "2024-01-02"
+    }
+  ]
+}

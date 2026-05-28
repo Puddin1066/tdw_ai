@@ -1,0 +1,21 @@
+{
+  "case_id": "auto_therapyx_2015_delivering_proteins_stabilizing",
+  "display_name": "COMPOSITIONS FOR STABILIZING AND DELIVERING PROTEINS Technology Platform Opportunity",
+  "llm_inferred_label": "COMPOSITIONS FOR STABILIZING AND DELIVERING PROTEINS Technology Platform Opportunity",
+  "ri_notes": "Deduped patent family (2 of 3 records); review scope and naming.",
+  "ri_physician_lead": "TBD",
+  "conflict_tags": [],
+  "ri_institution": "Rhode Island ecosystem",
+  "ri_ip_source": "lens:055-698-206-553-974",
+  "ip_assets": [
+    {
+      "asset_id": "asset_606ab81dde5c",
+      "title": "COMPOSITIONS FOR STABILIZING AND DELIVERING PROTEINS",
+      "lens_id": "055-698-206-553-974",
+      "url": "https://lens.org/055-698-206-553-974",
+      "owners": "THERAPYX INC (2015-08-25);;BROWN UNIVERSITY (2015-08-27)",
+      "legal_status": "ACTIVE",
+      "publication_date": "2021-01-14"
+    }
+  ]
+}

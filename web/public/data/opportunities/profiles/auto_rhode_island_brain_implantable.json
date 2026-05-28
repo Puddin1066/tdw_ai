@@ -1,0 +1,21 @@
+{
+  "case_id": "auto_rhode_island_brain_implantable",
+  "display_name": "Brain implantable device Medical Device Opportunity",
+  "llm_inferred_label": "Brain implantable device Medical Device Opportunity",
+  "ri_notes": "Deduped patent family (2 of 2 records); review scope and naming.",
+  "ri_physician_lead": "TBD",
+  "conflict_tags": [],
+  "ri_institution": "Rhode Island ecosystem",
+  "ri_ip_source": "lens:178-459-504-176-515",
+  "ip_assets": [
+    {
+      "asset_id": "asset_cd0f576ec3e7",
+      "title": "Brain implantable device",
+      "lens_id": "178-459-504-176-515",
+      "url": "https://lens.org/178-459-504-176-515",
+      "owners": "RHODE ISLAND HOSPITAL (2020-10-09);;BROWN UNIVERSITY (2020-10-08)",
+      "legal_status": "ACTIVE",
+      "publication_date": "2023-06-27"
+    }
+  ]
+}

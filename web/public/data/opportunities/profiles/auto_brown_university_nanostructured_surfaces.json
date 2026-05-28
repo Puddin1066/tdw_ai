@@ -1,0 +1,21 @@
+{
+  "case_id": "auto_brown_university_nanostructured_surfaces",
+  "display_name": "NANOSTRUCTURED SURFACES Technology Platform Opportunity",
+  "llm_inferred_label": "NANOSTRUCTURED SURFACES Technology Platform Opportunity",
+  "ri_notes": "Deduped patent family (2 of 7 records); review scope and naming.",
+  "ri_physician_lead": "TBD",
+  "conflict_tags": [],
+  "ri_institution": "Rhode Island ecosystem",
+  "ri_ip_source": "lens:057-145-181-641-734",
+  "ip_assets": [
+    {
+      "asset_id": "asset_4882ec106e38",
+      "title": "NANOSTRUCTURED SURFACES",
+      "lens_id": "057-145-181-641-734",
+      "url": "https://lens.org/057-145-181-641-734",
+      "owners": "BROWN UNIVERSITY (2013-05-03)",
+      "legal_status": "PENDING",
+      "publication_date": "2025-02-27"
+    }
+  ]
+}

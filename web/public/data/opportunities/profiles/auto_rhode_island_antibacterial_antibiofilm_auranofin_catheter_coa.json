@@ -1,0 +1,30 @@
+{
+  "case_id": "auto_rhode_island_antibacterial_antibiofilm_auranofin_catheter_coa",
+  "display_name": "Auranofin releasing antibacterial and antibiofilm polyurethane Medical Device Opportunity",
+  "llm_inferred_label": "Auranofin releasing antibacterial and antibiofilm polyurethane Medical Device Opportunity",
+  "ri_notes": "Deduped patent family (2 of 2 records); review scope and naming.",
+  "ri_physician_lead": "TBD",
+  "conflict_tags": [],
+  "ri_institution": "Rhode Island ecosystem",
+  "ri_ip_source": "lens:046-968-808-987-818",
+  "ip_assets": [
+    {
+      "asset_id": "asset_7683c20f8cc2",
+      "title": "Auranofin-releasing antibacterial and antibiofilm polyurethane intravascular catheter coatings",
+      "lens_id": "046-968-808-987-818",
+      "url": "https://lens.org/046-968-808-987-818",
+      "owners": "RHODE ISLAND HOSPITAL (2019-03-21);;BROWN UNIVERSITY (2019-03-21)",
+      "legal_status": "ACTIVE",
+      "publication_date": "2024-03-19"
+    },
+    {
+      "asset_id": "asset_a66bea7996d8",
+      "title": "AURANOFIN RELEASING ANTIBACTERIAL AND ANTIBIOFILM POLYURETHANE INTRAVASCULAR CATHETER COATINGS",
+      "lens_id": "033-074-537-620-576",
+      "url": "https://lens.org/033-074-537-620-576",
+      "owners": "RHODE ISLAND HOSPITAL (2019-03-21);;BROWN UNIVERSITY (2019-03-21)",
+      "legal_status": "ACTIVE",
+      "publication_date": "2020-09-24"
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "case_id": "auto_emma_pendleton_circadian_control_enhanced_lighting_performance",
+  "display_name": "Lighting System for Circadian Control and Technology Platform Opportunity",
+  "llm_inferred_label": "Lighting System for Circadian Control and Technology Platform Opportunity",
+  "ri_notes": "Deduped patent family (2 of 3 records); review scope and naming.",
+  "ri_physician_lead": "TBD",
+  "conflict_tags": [],
+  "ri_institution": "Rhode Island ecosystem",
+  "ri_ip_source": "lens:195-208-650-764-745",
+  "ip_assets": [
+    {
+      "asset_id": "asset_3b9c12854669",
+      "title": "Lighting System for Circadian Control and Enhanced Performance",
+      "lens_id": "195-208-650-764-745",
+      "url": "https://lens.org/195-208-650-764-745",
+      "owners": "EMMA PENDLETON BRADLEY HOSPITAL (2022-09-12);;BROWN UNIVERSITY (2022-09-12)",
+      "legal_status": "PENDING",
+      "publication_date": "2023-08-03"
+    }
+  ]
+}

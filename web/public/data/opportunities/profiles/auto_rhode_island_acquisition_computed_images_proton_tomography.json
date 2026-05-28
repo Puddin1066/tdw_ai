@@ -1,0 +1,21 @@
+{
+  "case_id": "auto_rhode_island_acquisition_computed_images_proton_tomography",
+  "display_name": "ACQUISITION PROTON COMPUTED TOMOGRAPHY IMAGES Technology Platform Opportunity",
+  "llm_inferred_label": "ACQUISITION PROTON COMPUTED TOMOGRAPHY IMAGES Technology Platform Opportunity",
+  "ri_notes": "Deduped patent family (1 of 1 records); review scope and naming.",
+  "ri_physician_lead": "TBD",
+  "conflict_tags": [],
+  "ri_institution": "Rhode Island ecosystem",
+  "ri_ip_source": "lens:041-298-975-856-311",
+  "ip_assets": [
+    {
+      "asset_id": "asset_8f8c8e532bbe",
+      "title": "ACQUISITION OF PROTON COMPUTED TOMOGRAPHY IMAGES",
+      "lens_id": "041-298-975-856-311",
+      "url": "https://lens.org/041-298-975-856-311",
+      "owners": "RHODE ISLAND HOSPITAL (2022-01-06)",
+      "legal_status": "PENDING",
+      "publication_date": "2023-07-06"
+    }
+  ]
+}

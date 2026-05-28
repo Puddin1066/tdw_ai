@@ -1,0 +1,21 @@
+{
+  "case_id": "auto_brown_university_cancer_differentiation_imipridone_neuroendocrine",
+  "display_name": "NEUROENDOCRINE DIFFERENTIATION IMIPRIDONE CANCER TREATMENT Technology Platform Opportunity",
+  "llm_inferred_label": "NEUROENDOCRINE DIFFERENTIATION IMIPRIDONE CANCER TREATMENT Technology Platform Opportunity",
+  "ri_notes": "Deduped patent family (1 of 1 records); review scope and naming.",
+  "ri_physician_lead": "TBD",
+  "conflict_tags": [],
+  "ri_institution": "Rhode Island ecosystem",
+  "ri_ip_source": "lens:026-594-385-202-505",
+  "ip_assets": [
+    {
+      "asset_id": "asset_ed655baa58fe",
+      "title": "NEUROENDOCRINE DIFFERENTIATION IN IMIPRIDONE CANCER TREATMENT",
+      "lens_id": "026-594-385-202-505",
+      "url": "https://lens.org/026-594-385-202-505",
+      "owners": "BROWN UNIVERSITY (2024-02-14)",
+      "legal_status": "PENDING",
+      "publication_date": "2024-02-15"
+    }
+  ]
+}

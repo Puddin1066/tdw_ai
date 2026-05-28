@@ -1,0 +1,30 @@
+{
+  "case_id": "auto_brown_university_compounds_infections_prevention",
+  "display_name": "Compounds for the treatment and prevention Therapeutic Opportunity",
+  "llm_inferred_label": "Compounds for the treatment and prevention Therapeutic Opportunity",
+  "ri_notes": "Deduped patent family (2 of 2 records); review scope and naming.",
+  "ri_physician_lead": "TBD",
+  "conflict_tags": [],
+  "ri_institution": "Rhode Island ecosystem",
+  "ri_ip_source": "lens:155-071-353-278-905",
+  "ip_assets": [
+    {
+      "asset_id": "asset_065fe2eaad08",
+      "title": "Compounds for the treatment and prevention of infections",
+      "lens_id": "155-071-353-278-905",
+      "url": "https://lens.org/155-071-353-278-905",
+      "owners": "BROWN UNIVERSITY (2013-08-23)",
+      "legal_status": "ACTIVE",
+      "publication_date": "2017-07-04"
+    },
+    {
+      "asset_id": "asset_b2ec95733847",
+      "title": "COMPOUNDS FOR THE TREATMENT AND PREVENTION OF INFECTIONS",
+      "lens_id": "152-690-812-617-288",
+      "url": "https://lens.org/152-690-812-617-288",
+      "owners": "BROWN UNIVERSITY (2013-08-23)",
+      "legal_status": "ACTIVE",
+      "publication_date": "2015-06-18"
+    }
+  ]
+}

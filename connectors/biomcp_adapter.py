@@ -14,6 +14,7 @@ import importlib.util
 import shutil
 import subprocess
 import sys
+from pathlib import Path
 from typing import Any
 
 DEFAULT_BIOMCP_CONNECTORS = {
@@ -53,21 +54,30 @@ def should_use_biomcp_backend(connector_name: str) -> bool:
 
 
 def _biomcp_prefix() -> list[str] | None:
-    executable = shutil.which("biomcp")
-    if executable:
-        return ["biomcp"]
-    if importlib.util.find_spec("biomcp") is not None:
-        return [sys.executable, "-m", "biomcp"]
+    """Resolve BioMCP CLI binary (biomcp.org ships as biomcp-cli on PyPI)."""
+    for name in ("biomcp-cli", "biomcp"):
+        if shutil.which(name):
+            return [name]
+    venv_cli = Path(__file__).resolve().parents[1] / ".venv" / "bin" / "biomcp-cli"
+    if venv_cli.is_file():
+        return [str(venv_cli)]
+    if importlib.util.find_spec("biomcp_cli") is not None:
+        return [sys.executable, "-m", "biomcp_cli"]
     return None
+
+
+def _is_biomcp_cli(prefix: list[str]) -> bool:
+    return bool(prefix) and Path(prefix[0]).name in {"biomcp-cli", "biomcp"}
 
 
 def _command_core(command: list[str]) -> list[str]:
     if not command:
         return command
-    if command[0] == "biomcp":
+    exe = Path(command[0]).name
+    if exe in {"biomcp", "biomcp-cli"}:
         return command
-    if len(command) >= 4 and command[1] == "-m" and command[2] == "biomcp":
-        return ["biomcp", *command[3:]]
+    if len(command) >= 4 and command[1] == "-m" and command[2] in {"biomcp", "biomcp_cli"}:
+        return [command[2], *command[3:]]
     return command
 
 
@@ -91,24 +101,23 @@ def run_biomcp_search(
     safe_offset = max(0, int(offset))
     safe_page = (safe_offset // max(1, safe_limit)) + 1
 
-    legacy_command = [*prefix, "search", entity]
-    if term and term.strip():
-        legacy_command.append(term.strip())
-    if options:
-        legacy_command.extend(str(opt) for opt in options if str(opt).strip())
-    legacy_command.extend(["--offset", str(safe_offset), "-l", str(safe_limit), "-j"])
-
-    commands: list[list[str]] = [legacy_command]
     normalized_entity = entity.strip().lower()
-    commands.extend(
-        _modern_search_commands(
-            normalized_entity,
-            term=term,
-            limit=safe_limit,
-            page=safe_page,
-            options=options or [],
-        )
+    commands = _modern_search_commands(
+        normalized_entity,
+        term=term,
+        limit=safe_limit,
+        page=safe_page,
+        options=options or [],
+        prefix=prefix,
     )
+    if not commands and not _is_biomcp_cli(prefix):
+        legacy_command = [*prefix, "search", entity]
+        if term and term.strip():
+            legacy_command.append(term.strip())
+        if options:
+            legacy_command.extend(str(opt) for opt in options if str(opt).strip())
+        legacy_command.extend(["--offset", str(safe_offset), "-l", str(safe_limit), "-j"])
+        commands = [legacy_command]
 
     return _run_biomcp_commands(commands)
 
@@ -125,9 +134,12 @@ def run_biomcp_article_get(
     token = str(identifier or "").strip()
     if not token:
         return None, "missing article identifier"
-    command = [*prefix, "article", "get", token, "-j"]
-    if full:
-        command.append("--full")
+    if _is_biomcp_cli(prefix):
+        command = [*prefix, "get", "article", token, "-j"]
+    else:
+        command = [*prefix, "article", "get", token, "-j"]
+        if full:
+            command.append("--full")
     return _run_biomcp_commands([command])
 
 
@@ -287,27 +299,31 @@ def _modern_search_commands(
     limit: int,
     page: int,
     options: list[str],
+    prefix: list[str] | None = None,
 ) -> list[list[str]]:
-    prefix = _biomcp_prefix()
+    prefix = prefix or _biomcp_prefix()
     if prefix is None:
         return []
     token = (term or "").strip()
     if entity == "article":
+        if _is_biomcp_cli(prefix):
+            cmd = [*prefix, "search", "article", "-l", str(limit), "-j"]
+            if token:
+                cmd.extend(["-k", token])
+            if page > 1:
+                cmd.extend(["-p", str(page)])
+            return [cmd]
         cmd = [*prefix, "article", "search", "-l", str(limit), "-p", str(page), "-j"]
         if token:
             cmd.extend(["-k", token])
-        # Ignore legacy options (e.g., --source / --ranking-mode) that are not
-        # supported by biomcp article search in current CLI versions.
         return [cmd]
     if entity == "trial":
-        cmd = [
-            *prefix,
-            "trial",
-            "search",
-            "--page-size",
-            str(limit),
-            "-j",
-        ]
+        if _is_biomcp_cli(prefix):
+            cmd = [*prefix, "search", "trial", "--page-size", str(limit), "-j"]
+            if token:
+                cmd.append(token)
+            return [cmd]
+        cmd = [*prefix, "trial", "search", "--page-size", str(limit), "-j"]
         if token:
             cmd.extend(["-t", token])
         cmd.extend(_map_trial_options(options))

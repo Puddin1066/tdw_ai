@@ -1,0 +1,30 @@
+{
+  "case_id": "auto_brown_university_brain_high_imaging_resolution_spatiotemporal",
+  "display_name": "High spatiotemporal resolution brain imaging Technology Platform Opportunity",
+  "llm_inferred_label": "High spatiotemporal resolution brain imaging Technology Platform Opportunity",
+  "ri_notes": "Deduped patent family (2 of 2 records); review scope and naming.",
+  "ri_physician_lead": "TBD",
+  "conflict_tags": [],
+  "ri_institution": "Rhode Island ecosystem",
+  "ri_ip_source": "lens:038-432-364-973-494",
+  "ip_assets": [
+    {
+      "asset_id": "asset_bd7a5303ec3a",
+      "title": "High spatiotemporal resolution brain imaging",
+      "lens_id": "038-432-364-973-494",
+      "url": "https://lens.org/038-432-364-973-494",
+      "owners": "BROWN UNIVERSITY (2022-11-17)",
+      "legal_status": "ACTIVE",
+      "publication_date": "2024-07-16"
+    },
+    {
+      "asset_id": "asset_59ea27107f73",
+      "title": "HIGH SPATIOTEMPORAL RESOLUTION BRAIN IMAGING",
+      "lens_id": "048-642-338-391-608",
+      "url": "https://lens.org/048-642-338-391-608",
+      "owners": "BROWN UNIVERSITY (2022-11-17)",
+      "legal_status": "ACTIVE",
+      "publication_date": "2020-08-13"
+    }
+  ]
+}

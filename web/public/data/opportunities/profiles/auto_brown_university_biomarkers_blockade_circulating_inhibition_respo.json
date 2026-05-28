@@ -1,0 +1,21 @@
+{
+  "case_id": "auto_brown_university_biomarkers_blockade_circulating_inhibition_respo",
+  "display_name": "CIRCULATING BIOMARKERS RESPONSE BLOCKADE AND GSK Diagnostic Opportunity",
+  "llm_inferred_label": "CIRCULATING BIOMARKERS RESPONSE BLOCKADE AND GSK Diagnostic Opportunity",
+  "ri_notes": "Deduped patent family (1 of 1 records); review scope and naming.",
+  "ri_physician_lead": "TBD",
+  "conflict_tags": [],
+  "ri_institution": "Rhode Island ecosystem",
+  "ri_ip_source": "lens:100-549-649-740-366",
+  "ip_assets": [
+    {
+      "asset_id": "asset_6d889c6e6c1c",
+      "title": "CIRCULATING BIOMARKERS OF RESPONSE TO PD-1/PD-L1 BLOCKADE AND GSK-3 INHIBITION",
+      "lens_id": "100-549-649-740-366",
+      "url": "https://lens.org/100-549-649-740-366",
+      "owners": "BROWN UNIVERSITY (2022-09-29)",
+      "legal_status": "PENDING",
+      "publication_date": "2024-02-08"
+    }
+  ]
+}

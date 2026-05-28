@@ -114,6 +114,8 @@
               "properties": {
                 "asset": { "type": ["string", "null"] },
                 "company": { "type": ["string", "null"] },
+                "opportunity_type": { "type": ["string", "null"] },
+                "slater_invested": { "type": ["boolean", "null"] },
                 "development_stage": { "type": ["string", "null"] },
                 "comparators": {
                   "type": "array",

@@ -1,0 +1,21 @@
+{
+  "case_id": "auto_brown_university_apparatus_impaired_navigation_visually",
+  "display_name": "Navigation methods and apparatus for the Digital Therapeutic Opportunity",
+  "llm_inferred_label": "Navigation methods and apparatus for the Digital Therapeutic Opportunity",
+  "ri_notes": "Deduped patent family (2 of 4 records); review scope and naming.",
+  "ri_physician_lead": "TBD",
+  "conflict_tags": [],
+  "ri_institution": "Rhode Island ecosystem",
+  "ri_ip_source": "lens:093-009-153-261-952",
+  "ip_assets": [
+    {
+      "asset_id": "asset_d1971f45f6f3",
+      "title": "Navigation methods and apparatus for the visually impaired",
+      "lens_id": "093-009-153-261-952",
+      "url": "https://lens.org/093-009-153-261-952",
+      "owners": "BROWN UNIVERSITY (2017-11-06)",
+      "legal_status": "ACTIVE",
+      "publication_date": "2025-04-08"
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "case_id": "auto_rhode_island_biomedical_contact_prepared_sensors_surfaces_usa",
+  "display_name": "Biomedical sensors usable prepared contact surfaces Technology Platform Opportunity",
+  "llm_inferred_label": "Biomedical sensors usable prepared contact surfaces Technology Platform Opportunity",
+  "ri_notes": "Deduped patent family (2 of 2 records); review scope and naming.",
+  "ri_physician_lead": "TBD",
+  "conflict_tags": [],
+  "ri_institution": "Rhode Island ecosystem",
+  "ri_ip_source": "lens:169-147-076-186-709",
+  "ip_assets": [
+    {
+      "asset_id": "asset_be466f5424b3",
+      "title": "Biomedical sensors usable on un-prepared contact surfaces",
+      "lens_id": "169-147-076-186-709",
+      "url": "https://lens.org/169-147-076-186-709",
+      "owners": "RHODE ISLAND BOARD OF EDUCATION STATE OF RHODE ISLAND AND PROVIDENCE PLANTATIONS (2010-11-10);;THE BOARD OF GOVERNORS FOR HIGHER EDUCATION STATE OF RHODE ISLAND AND PROVIDENCE PLANTATIONS (2010-11-10)",
+      "legal_status": "ACTIVE",
+      "publication_date": "2014-01-07"
+    }
+  ]
+}

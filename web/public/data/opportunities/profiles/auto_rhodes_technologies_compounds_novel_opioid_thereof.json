@@ -1,0 +1,21 @@
+{
+  "case_id": "auto_rhodes_technologies_compounds_novel_opioid_thereof",
+  "display_name": "NOVEL OPIOID COMPOUNDS AND USES THEREOF Therapeutic Opportunity",
+  "llm_inferred_label": "NOVEL OPIOID COMPOUNDS AND USES THEREOF Therapeutic Opportunity",
+  "ri_notes": "Deduped patent family (1 of 1 records); review scope and naming.",
+  "ri_physician_lead": "TBD",
+  "conflict_tags": [],
+  "ri_institution": "Rhode Island ecosystem",
+  "ri_ip_source": "lens:061-012-931-362-642",
+  "ip_assets": [
+    {
+      "asset_id": "asset_4f19367b3956",
+      "title": "NOVEL OPIOID COMPOUNDS AND USES THEREOF",
+      "lens_id": "061-012-931-362-642",
+      "url": "https://lens.org/061-012-931-362-642",
+      "owners": "RHODES TECHNOLOGIES (2019-02-21)",
+      "legal_status": "ACTIVE",
+      "publication_date": "2021-03-04"
+    }
+  ]
+}

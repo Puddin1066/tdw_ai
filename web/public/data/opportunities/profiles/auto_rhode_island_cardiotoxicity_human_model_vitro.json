@@ -1,0 +1,21 @@
+{
+  "case_id": "auto_rhode_island_cardiotoxicity_human_model_vitro",
+  "display_name": "HUMAN VITRO CARDIOTOXICITY MODEL Technology Platform Opportunity",
+  "llm_inferred_label": "HUMAN VITRO CARDIOTOXICITY MODEL Technology Platform Opportunity",
+  "ri_notes": "Deduped patent family (1 of 1 records); review scope and naming.",
+  "ri_physician_lead": "TBD",
+  "conflict_tags": [],
+  "ri_institution": "Rhode Island ecosystem",
+  "ri_ip_source": "lens:128-033-973-760-237",
+  "ip_assets": [
+    {
+      "asset_id": "asset_19d59fbb4e77",
+      "title": "HUMAN IN VITRO CARDIOTOXICITY MODEL",
+      "lens_id": "128-033-973-760-237",
+      "url": "https://lens.org/128-033-973-760-237",
+      "owners": "RHODE ISLAND HOSPIAL (2020-12-02);;BROWN UNIVERSITY (2020-12-02)",
+      "legal_status": "PENDING",
+      "publication_date": "2022-05-26"
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "case_id": "auto_university_rhode_compounds_containing_heterocyclic_pnictogen_thei",
+  "display_name": "PNICTOGEN CONTAINING HETEROCYCLIC COMPOUNDS AND THEIR Therapeutic Opportunity",
+  "llm_inferred_label": "PNICTOGEN CONTAINING HETEROCYCLIC COMPOUNDS AND THEIR Therapeutic Opportunity",
+  "ri_notes": "Deduped patent family (1 of 1 records); review scope and naming.",
+  "ri_physician_lead": "TBD",
+  "conflict_tags": [],
+  "ri_institution": "Rhode Island ecosystem",
+  "ri_ip_source": "lens:061-941-290-277-160",
+  "ip_assets": [
+    {
+      "asset_id": "asset_460ba7e6dfc2",
+      "title": "PNICTOGEN-CONTAINING HETEROCYCLIC COMPOUNDS AND THEIR USE",
+      "lens_id": "061-941-290-277-160",
+      "url": "https://lens.org/061-941-290-277-160",
+      "owners": "UNIVERSITY OF RHODE ISLAND BOARD OF TRUSTEES (2021-12-08);;COLGATE UNIVERSITY (2022-12-12)",
+      "legal_status": "PENDING",
+      "publication_date": "2024-08-29"
+    }
+  ]
+}

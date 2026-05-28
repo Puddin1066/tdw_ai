@@ -1,0 +1,21 @@
+{
+  "case_id": "auto_brown_university_edelgard_moving_rises",
+  "display_name": "Patient Moving Devices Edelgard Rises Medical Device Opportunity",
+  "llm_inferred_label": "Patient Moving Devices Edelgard Rises Medical Device Opportunity",
+  "ri_notes": "Deduped patent family (1 of 1 records); review scope and naming.",
+  "ri_physician_lead": "TBD",
+  "conflict_tags": [],
+  "ri_institution": "Rhode Island ecosystem",
+  "ri_ip_source": "lens:111-172-559-404-280",
+  "ip_assets": [
+    {
+      "asset_id": "asset_4b088cfe5915",
+      "title": "Patient Moving Devices (Edelgard Rises)",
+      "lens_id": "111-172-559-404-280",
+      "url": "https://lens.org/111-172-559-404-280",
+      "owners": "BROWN UNIVERSITY (2024-04-03)",
+      "legal_status": "PENDING",
+      "publication_date": "2024-09-26"
+    }
+  ]
+}

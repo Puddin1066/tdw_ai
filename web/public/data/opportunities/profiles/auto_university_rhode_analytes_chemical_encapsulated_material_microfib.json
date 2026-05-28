@@ -1,0 +1,21 @@
+{
+  "case_id": "auto_university_rhode_analytes_chemical_encapsulated_material_microfib",
+  "display_name": "WEARABLE OPTICAL MICROFIBROUS MATERIAL WITH ENCAPSULATED Technology Platform Opportunity",
+  "llm_inferred_label": "WEARABLE OPTICAL MICROFIBROUS MATERIAL WITH ENCAPSULATED Technology Platform Opportunity",
+  "ri_notes": "Deduped patent family (1 of 1 records); review scope and naming.",
+  "ri_physician_lead": "TBD",
+  "conflict_tags": [],
+  "ri_institution": "Rhode Island ecosystem",
+  "ri_ip_source": "lens:081-719-510-652-013",
+  "ip_assets": [
+    {
+      "asset_id": "asset_200a2b320ca6",
+      "title": "WEARABLE OPTICAL MICROFIBROUS MATERIAL WITH ENCAPSULATED NANOSENSORS FOR WIRELESS MONITORING OF CHEMICAL ANALYTES",
+      "lens_id": "081-719-510-652-013",
+      "url": "https://lens.org/081-719-510-652-013",
+      "owners": "UNIVERSITY OF RHODE ISLAND BOARD OF TRUSTEES (2020-08-03)",
+      "legal_status": "PENDING",
+      "publication_date": "2022-08-11"
+    }
+  ]
+}

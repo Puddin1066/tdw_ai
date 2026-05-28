@@ -25,6 +25,10 @@ ARTIFACT_SCHEMA_FILES: dict[str, str] = {
     "risk_map.json": "risk_map.schema.json",
     "knowledge_graph.json": "knowledge_graph.schema.json",
     "eval_results.json": "eval_results.schema.json",
+    "ri_clinical_inflection.json": "ri_clinical_inflection.schema.json",
+    "ri_physician_match.json": "ri_physician_match.schema.json",
+    "ri_capital_match.json": "ri_capital_match.schema.json",
+    "ri_financing_readiness.json": "ri_financing_readiness.schema.json",
 }
 
 

@@ -1,0 +1,106 @@
+{
+  "schema_version": 1,
+  "generated_by": "pipeline/enrich_ri_comp_sites.py",
+  "dossier_count": 2,
+  "by_key": {
+    "auto_brown_university_annulus_biocompatible_brain_catheter_coupled_ele::ClearPoint Neuro": {
+      "case_id": "auto_brown_university_annulus_biocompatible_brain_catheter_coupled_ele",
+      "case_title": "Brain electrode annulus + catheter system",
+      "precedent_name": "ClearPoint Neuro",
+      "precedent_rank": 3,
+      "comparable_fit": "direct",
+      "dossier_status": "partial",
+      "human_reviewed": false,
+      "fetched_at": "2026-05-27T12:00:00Z",
+      "warnings": [],
+      "ri_parallel": "For Brain electrode annulus + catheter system, ClearPoint Neuro shows a precedent path via Commercial neuro navigation (Public (NASDAQ CLPT); ~$335M market cap (May 2026)) with regulatory/clinical milestones documented on their site.",
+      "corporate_url": "https://www.clearpointneuro.com/",
+      "site_map": {
+        "corporate": "https://www.clearpointneuro.com",
+        "clinical": "https://www.clearpointneuro.com/clinical-evidence/",
+        "reimbursement": "https://www.clearpointneuro.com/reimbursement/",
+        "investors": "https://ir.clearpointneuro.com/"
+      },
+      "science_summary": "MRI-guided interventions for functional neurosurgery and biologics delivery; SmartFlow cannula and ClearPoint Neuro Navigation System for minimally invasive brain access.",
+      "key_publications": [
+        {
+          "title": "Clinical evidence library — peer-reviewed studies",
+          "url": "https://www.clearpointneuro.com/clinical-evidence/",
+          "source_page": "https://www.clearpointneuro.com/clinical-evidence/",
+          "source": "comp_site_link"
+        }
+      ],
+      "clinical_milestones": [
+        {
+          "text": "FDA-cleared navigation platform for intracranial procedures and drug delivery workflows.",
+          "source_url": "https://www.clearpointneuro.com/clinical-evidence/",
+          "source": "comp_site_extract"
+        }
+      ],
+      "kol_signals": [
+        {
+          "text": "Used at leading academic neurosurgery centers for MRI-guided deep brain access.",
+          "source_url": "https://www.clearpointneuro.com/",
+          "source": "comp_site_extract"
+        }
+      ],
+      "reimbursement_notes": [
+        {
+          "text": "Dedicated reimbursement resources for hospital coding and coverage support.",
+          "source_url": "https://www.clearpointneuro.com/reimbursement/",
+          "source": "comp_site_extract"
+        }
+      ]
+    },
+    "theromics_ri::Profound Medical (TULSA-PRO)": {
+      "case_id": "theromics_ri",
+      "case_title": "Theromics — tumor thermal ablation",
+      "precedent_name": "Profound Medical (TULSA-PRO)",
+      "precedent_rank": 1,
+      "comparable_fit": "direct",
+      "dossier_status": "partial",
+      "human_reviewed": false,
+      "fetched_at": "2026-05-27T12:00:00Z",
+      "warnings": [],
+      "ri_parallel": "For Theromics — tumor thermal ablation, Profound Medical (TULSA-PRO) shows a precedent path via Commercial ablation platform (Public (NASDAQ PROF); ~$253M market cap (May 2026)) with published reimbursement/access positioning on their site.",
+      "corporate_url": "https://www.profoundmedical.com/",
+      "site_map": {
+        "corporate": "https://www.profoundmedical.com",
+        "clinical": "https://www.profoundmedical.com/clinical-data/",
+        "reimbursement": "https://www.profoundmedical.com/reimbursement/",
+        "investors": "https://investors.profoundmedical.com/"
+      },
+      "science_summary": "Transurethral ultrasound ablation (TULSA-PRO) for prostate tissue; thermal ablation under real-time MRI guidance with established clinical adoption path.",
+      "key_publications": [
+        {
+          "title": "Clinical data and peer-reviewed outcomes",
+          "url": "https://www.profoundmedical.com/clinical-data/",
+          "source_page": "https://www.profoundmedical.com/clinical-data/",
+          "source": "comp_site_link"
+        }
+      ],
+      "clinical_milestones": [
+        {
+          "text": "FDA clearance and expanding clinical evidence for MRI-guided thermal ablation.",
+          "source_url": "https://www.profoundmedical.com/clinical-data/",
+          "source": "comp_site_extract"
+        }
+      ],
+      "kol_signals": [
+        {
+          "text": "Interventional radiology and urology KOL adoption at tertiary centers.",
+          "source_url": "https://www.profoundmedical.com/",
+          "source": "comp_site_extract"
+        }
+      ],
+      "reimbursement_notes": [
+        {
+          "text": "Hospital reimbursement support materials for procedural coding and coverage.",
+          "source_url": "https://www.profoundmedical.com/reimbursement/",
+          "source": "comp_site_extract"
+        }
+      ]
+    }
+  },
+  "by_case_id": {}
+}

@@ -1,0 +1,21 @@
+{
+  "case_id": "auto_universidad_catolica_covid_inhibitor_integrin_prevention_using",
+  "display_name": "COVID PREVENTION AND TREATMENT USING INTEGRIN Technology Platform Opportunity",
+  "llm_inferred_label": "COVID PREVENTION AND TREATMENT USING INTEGRIN Technology Platform Opportunity",
+  "ri_notes": "Deduped patent family (1 of 1 records); review scope and naming.",
+  "ri_physician_lead": "TBD",
+  "conflict_tags": [],
+  "ri_institution": "Rhode Island ecosystem",
+  "ri_ip_source": "lens:160-974-138-045-170",
+  "ip_assets": [
+    {
+      "asset_id": "asset_9eb31f2c9724",
+      "title": "COVID PREVENTION AND TREATMENT USING AN INTEGRIN INHIBITOR",
+      "lens_id": "160-974-138-045-170",
+      "url": "https://lens.org/160-974-138-045-170",
+      "owners": "UNIVERSIDAD CATOLICA DEL MAULE (2023-11-22);;BROWN UNIVERSITY (2023-08-07);;RHODE ISLAND HOSPITAL (LIFESPAN) (2023-08-14)",
+      "legal_status": "PENDING",
+      "publication_date": "2023-10-19"
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "case_id": "auto_brown_university_cardiovascular_contributions_determination_indep",
+  "display_name": "Optical determination cardiovascular variability parameter independent Technology Platform Opportunity",
+  "llm_inferred_label": "Optical determination cardiovascular variability parameter independent Technology Platform Opportunity",
+  "ri_notes": "Deduped patent family (2 of 2 records); review scope and naming.",
+  "ri_physician_lead": "TBD",
+  "conflict_tags": [],
+  "ri_institution": "Rhode Island ecosystem",
+  "ri_ip_source": "lens:111-068-306-481-982",
+  "ip_assets": [
+    {
+      "asset_id": "asset_d2c3193af034",
+      "title": "Optical determination of a cardiovascular variability parameter independent of skin contributions",
+      "lens_id": "111-068-306-481-982",
+      "url": "https://lens.org/111-068-306-481-982",
+      "owners": "BROWN UNIVERSITY (2024-10-09)",
+      "legal_status": "ACTIVE",
+      "publication_date": "2025-04-15"
+    }
+  ]
+}

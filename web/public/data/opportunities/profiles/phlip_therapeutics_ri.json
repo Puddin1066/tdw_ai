@@ -1,0 +1,30 @@
+{
+  "case_id": "phlip_therapeutics_ri",
+  "display_name": "pHLIP Inc / pH-Sensitive Platform (RI)",
+  "llm_inferred_label": "Fluorescent compound comprising fluorophore conjugated triggered Technology Platform Opportunity",
+  "ri_notes": "pHLIP Inc (phlipinc.com); Reshetnyak/Engelman Yale-URI IP.",
+  "ri_physician_lead": "BLAISE BAXTER",
+  "conflict_tags": [],
+  "ri_institution": "Yale University / URI",
+  "ri_ip_source": "lens:156-876-316-327-303",
+  "ip_assets": [
+    {
+      "asset_id": "asset_b4d4c9841b07",
+      "title": "Fluorescent compound comprising a fluorophore conjugated to a pH-triggered polypeptide",
+      "lens_id": "156-876-316-327-303",
+      "url": "https://lens.org/156-876-316-327-303",
+      "owners": "RHODE ISLAND COUNCIL ON POSTSECONDARY EDUCATION (2017-09-21);;YALE UNIVERSITY (2017-09-21);;UNIVERSITY OF RHODE ISLAND BOARD OF TRUSTEES (2021-04-09)",
+      "legal_status": "ACTIVE",
+      "publication_date": "2025-05-06"
+    },
+    {
+      "asset_id": "asset_b4d4c9841b07",
+      "title": "Method of detecting diseased or damaged tissue with a pH-triggered polypeptide fluorophore composition",
+      "lens_id": "129-685-709-438-265",
+      "url": "https://lens.org/129-685-709-438-265",
+      "owners": "RHODE ISLAND COUNCIL ON POSTSECONDARY EDUCATION (2017-09-21);;YALE UNIVERSITY (2017-09-21);;UNIVERSITY OF RHODE ISLAND BOARD OF TRUSTEES (2021-04-09)",
+      "legal_status": "ACTIVE",
+      "publication_date": "2023-08-29"
+    }
+  ]
+}

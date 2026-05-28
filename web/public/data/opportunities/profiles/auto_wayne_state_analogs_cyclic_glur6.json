@@ -1,0 +1,21 @@
+{
+  "case_id": "auto_wayne_state_analogs_cyclic_glur6",
+  "display_name": "Cyclic GluR6 analogs methods treatment and Technology Platform Opportunity",
+  "llm_inferred_label": "Cyclic GluR6 analogs methods treatment and Technology Platform Opportunity",
+  "ri_notes": "Deduped patent family (2 of 2 records); review scope and naming.",
+  "ri_physician_lead": "TBD",
+  "conflict_tags": [],
+  "ri_institution": "Rhode Island ecosystem",
+  "ri_ip_source": "lens:006-362-613-169-80X",
+  "ip_assets": [
+    {
+      "asset_id": "asset_a4120badbbec",
+      "title": "Cyclic-GluR6 analogs, methods of treatment and use",
+      "lens_id": "006-362-613-169-80X",
+      "url": "https://lens.org/006-362-613-169-80X",
+      "owners": "WAYNE STATE UNIVERSITY (2014-08-28);;BROWN UNIVERSITY (2014-09-02)",
+      "legal_status": "ACTIVE",
+      "publication_date": "2016-08-02"
+    }
+  ]
+}

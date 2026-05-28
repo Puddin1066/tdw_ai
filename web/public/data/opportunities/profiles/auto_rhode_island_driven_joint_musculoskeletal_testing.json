@@ -1,0 +1,21 @@
+{
+  "case_id": "auto_rhode_island_driven_joint_musculoskeletal_testing",
+  "display_name": "Driven musculoskeletal joint testing Technology Platform Opportunity",
+  "llm_inferred_label": "Driven musculoskeletal joint testing Technology Platform Opportunity",
+  "ri_notes": "Deduped patent family (2 of 2 records); review scope and naming.",
+  "ri_physician_lead": "TBD",
+  "conflict_tags": [],
+  "ri_institution": "Rhode Island ecosystem",
+  "ri_ip_source": "lens:005-088-912-132-593",
+  "ip_assets": [
+    {
+      "asset_id": "asset_a98d2b88bd77",
+      "title": "Driven musculoskeletal joint testing",
+      "lens_id": "005-088-912-132-593",
+      "url": "https://lens.org/005-088-912-132-593",
+      "owners": "RHODE ISLAND HOSPITAL (2006-04-05)",
+      "legal_status": "ACTIVE",
+      "publication_date": "2009-03-17"
+    }
+  ]
+}

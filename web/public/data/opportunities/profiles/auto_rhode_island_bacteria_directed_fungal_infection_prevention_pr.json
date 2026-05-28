@@ -1,0 +1,21 @@
+{
+  "case_id": "auto_rhode_island_bacteria_directed_fungal_infection_prevention_pr",
+  "display_name": "Probiotic bacteria directed prevention treatment fungal Technology Platform Opportunity",
+  "llm_inferred_label": "Probiotic bacteria directed prevention treatment fungal Technology Platform Opportunity",
+  "ri_notes": "Deduped patent family (2 of 2 records); review scope and naming.",
+  "ri_physician_lead": "TBD",
+  "conflict_tags": [],
+  "ri_institution": "Rhode Island ecosystem",
+  "ri_ip_source": "lens:092-758-608-786-07X",
+  "ip_assets": [
+    {
+      "asset_id": "asset_9ff18a852c57",
+      "title": "Probiotic bacteria-directed prevention or treatment of fungal infection",
+      "lens_id": "092-758-608-786-07X",
+      "url": "https://lens.org/092-758-608-786-07X",
+      "owners": "RHODE ISLAND HOSPITAL (2017-08-03);;UNIVERSIDADE ESTADUAL PAULISTA/UNESP (2020-07-17)",
+      "legal_status": "ACTIVE",
+      "publication_date": "2022-10-25"
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "case_id": "auto_rhode_island_hydrogel_probe_stabilizer_ultrasonography",
+  "display_name": "HYDROGEL BASED ULTRASONOGRAPHY PROBE STABILIZER Medical Device Opportunity",
+  "llm_inferred_label": "HYDROGEL BASED ULTRASONOGRAPHY PROBE STABILIZER Medical Device Opportunity",
+  "ri_notes": "Deduped patent family (1 of 1 records); review scope and naming.",
+  "ri_physician_lead": "TBD",
+  "conflict_tags": [],
+  "ri_institution": "Rhode Island ecosystem",
+  "ri_ip_source": "lens:142-654-646-782-251",
+  "ip_assets": [
+    {
+      "asset_id": "asset_c7705675d29f",
+      "title": "HYDROGEL-BASED ULTRASONOGRAPHY PROBE STABILIZER",
+      "lens_id": "142-654-646-782-251",
+      "url": "https://lens.org/142-654-646-782-251",
+      "owners": "RHODE ISLAND HOSPITAL (2022-11-15)",
+      "legal_status": "PENDING",
+      "publication_date": "2024-04-25"
+    }
+  ]
+}

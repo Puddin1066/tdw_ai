@@ -1,0 +1,21 @@
+{
+  "case_id": "auto_yale_university_carbohydrate_cell_immune_induce_response_surface",
+  "display_name": "Carbohydrate tethering cell surfaces induce immune Technology Platform Opportunity",
+  "llm_inferred_label": "Carbohydrate tethering cell surfaces induce immune Technology Platform Opportunity",
+  "ri_notes": "Deduped patent family (2 of 2 records); review scope and naming.",
+  "ri_physician_lead": "TBD",
+  "conflict_tags": [],
+  "ri_institution": "Rhode Island ecosystem",
+  "ri_ip_source": "lens:083-043-120-886-469",
+  "ip_assets": [
+    {
+      "asset_id": "asset_9ac73426b533",
+      "title": "Carbohydrate tethering at cell surfaces to induce immune response",
+      "lens_id": "083-043-120-886-469",
+      "url": "https://lens.org/083-043-120-886-469",
+      "owners": "YALE UNIVERSITY (2020-05-21);;UNIVERSITY OF RHODE ISLAND BOARD OF TRUSTEES (2020-05-22)",
+      "legal_status": "ACTIVE",
+      "publication_date": "2022-03-08"
+    }
+  ]
+}

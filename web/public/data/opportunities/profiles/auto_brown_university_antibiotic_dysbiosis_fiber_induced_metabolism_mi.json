@@ -1,0 +1,21 @@
+{
+  "case_id": "auto_brown_university_antibiotic_dysbiosis_fiber_induced_metabolism_mi",
+  "display_name": "FIBER SUPPLEMENTATION PROTECTS FROM ANTIBIOTIC INDUCED Technology Platform Opportunity",
+  "llm_inferred_label": "FIBER SUPPLEMENTATION PROTECTS FROM ANTIBIOTIC INDUCED Technology Platform Opportunity",
+  "ri_notes": "Deduped patent family (1 of 1 records); review scope and naming.",
+  "ri_physician_lead": "TBD",
+  "conflict_tags": [],
+  "ri_institution": "Rhode Island ecosystem",
+  "ri_ip_source": "lens:051-651-867-568-31X",
+  "ip_assets": [
+    {
+      "asset_id": "asset_4397cfc26e91",
+      "title": "FIBER SUPPLEMENTATION PROTECTS FROM ANTIBIOTIC-INDUCED GUT MICROBIOME DYSBIOSIS BY MODULATING REDOX METABOLISM",
+      "lens_id": "051-651-867-568-31X",
+      "url": "https://lens.org/051-651-867-568-31X",
+      "owners": "BROWN UNIVERSITY (2022-10-27)",
+      "legal_status": "PENDING",
+      "publication_date": "2024-06-06"
+    }
+  ]
+}

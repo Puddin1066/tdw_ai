@@ -1,0 +1,21 @@
+{
+  "case_id": "auto_rhode_island_facetectomy_guide_lumbar",
+  "display_name": "LUMBAR FACETECTOMY GUIDE Technology Platform Opportunity",
+  "llm_inferred_label": "LUMBAR FACETECTOMY GUIDE Technology Platform Opportunity",
+  "ri_notes": "Deduped patent family (1 of 1 records); review scope and naming.",
+  "ri_physician_lead": "TBD",
+  "conflict_tags": [],
+  "ri_institution": "Rhode Island ecosystem",
+  "ri_ip_source": "lens:137-132-664-222-734",
+  "ip_assets": [
+    {
+      "asset_id": "asset_d55f169b69f5",
+      "title": "LUMBAR FACETECTOMY GUIDE",
+      "lens_id": "137-132-664-222-734",
+      "url": "https://lens.org/137-132-664-222-734",
+      "owners": "RHODE ISLAND HOSPITAL (2020-05-29)",
+      "legal_status": "PENDING",
+      "publication_date": "2022-03-10"
+    }
+  ]
+}

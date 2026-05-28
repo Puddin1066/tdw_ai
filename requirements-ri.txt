@@ -1,0 +1,3 @@
+# Rhode Island catalog pipeline (optional; install in project venv)
+# Correct package for https://biomcp.org/ — NOT the unrelated PyPI package named "biomcp"
+biomcp-cli>=0.8.22

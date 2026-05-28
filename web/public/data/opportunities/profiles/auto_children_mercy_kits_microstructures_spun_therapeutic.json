@@ -1,0 +1,21 @@
+{
+  "case_id": "auto_children_mercy_kits_microstructures_spun_therapeutic",
+  "display_name": "Compositions methods and kits for therapeutic Therapeutic Opportunity",
+  "llm_inferred_label": "Compositions methods and kits for therapeutic Therapeutic Opportunity",
+  "ri_notes": "Deduped patent family (2 of 2 records); review scope and naming.",
+  "ri_physician_lead": "TBD",
+  "conflict_tags": [],
+  "ri_institution": "Rhode Island ecosystem",
+  "ri_ip_source": "lens:039-040-382-741-527",
+  "ip_assets": [
+    {
+      "asset_id": "asset_24bcf70aa376",
+      "title": "Compositions, methods and kits for therapeutic treatment with wet spun microstructures",
+      "lens_id": "039-040-382-741-527",
+      "url": "https://lens.org/039-040-382-741-527",
+      "owners": "THE CHILDREN'S MERCY HOSPITAL (2013-04-10);;BROWN UNIVERSITY (2013-06-03)",
+      "legal_status": "ACTIVE",
+      "publication_date": "2016-01-19"
+    }
+  ]
+}

@@ -1,0 +1,154 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://tdw.ai/schemas/comp_site_dossier.schema.json",
+  "title": "RiCompSiteDossierBundle",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "generated_by", "dossier_count", "by_key", "by_case_id"],
+  "properties": {
+    "schema_version": { "type": "integer", "minimum": 1 },
+    "generated_by": { "type": "string" },
+    "dossier_count": { "type": "integer", "minimum": 0 },
+    "by_key": {
+      "type": "object",
+      "additionalProperties": { "$ref": "#/$defs/dossierEntry" }
+    },
+    "by_case_id": {
+      "type": "object",
+      "additionalProperties": { "$ref": "#/$defs/caseBucket" }
+    }
+  },
+  "$defs": {
+    "citedText": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["text", "source_url", "source"],
+      "properties": {
+        "text": { "type": "string" },
+        "source_url": { "type": "string" },
+        "source": { "type": "string" }
+      }
+    },
+    "publicationLink": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["title", "url", "source_page", "source"],
+      "properties": {
+        "title": { "type": "string" },
+        "url": { "type": "string" },
+        "source_page": { "type": "string" },
+        "source": { "type": "string" }
+      }
+    },
+    "siteDossierPayload": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "dossier_status",
+        "human_reviewed",
+        "comparable_fit",
+        "ri_parallel",
+        "site_map",
+        "science_summary",
+        "key_publications",
+        "clinical_milestones",
+        "kol_signals",
+        "reimbursement_notes",
+        "warnings"
+      ],
+      "properties": {
+        "dossier_status": {
+          "type": "string",
+          "enum": ["pending", "partial", "reviewed"]
+        },
+        "human_reviewed": { "type": "boolean" },
+        "fetched_at": { "type": "string" },
+        "comparable_fit": {
+          "type": "string",
+          "enum": ["direct", "analog", "strategic"]
+        },
+        "ri_parallel": { "type": "string" },
+        "site_map": {
+          "type": "object",
+          "additionalProperties": { "type": "string" }
+        },
+        "science_summary": { "type": "string" },
+        "key_publications": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/publicationLink" }
+        },
+        "clinical_milestones": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/citedText" }
+        },
+        "kol_signals": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/citedText" }
+        },
+        "reimbursement_notes": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/citedText" }
+        },
+        "warnings": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      }
+    },
+    "dossierEntry": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": [
+        "case_id",
+        "precedent_name",
+        "comparable_fit",
+        "dossier_status",
+        "corporate_url",
+        "site_map"
+      ],
+      "properties": {
+        "case_id": { "type": "string" },
+        "case_title": { "type": "string" },
+        "precedent_name": { "type": "string" },
+        "precedent_rank": { "type": "integer" },
+        "comparable_fit": { "type": "string" },
+        "dossier_status": { "type": "string" },
+        "human_reviewed": { "type": "boolean" },
+        "fetched_at": { "type": "string" },
+        "warnings": { "type": "array", "items": { "type": "string" } },
+        "ri_parallel": { "type": "string" },
+        "corporate_url": { "type": "string" },
+        "site_map": { "type": "object", "additionalProperties": { "type": "string" } },
+        "science_summary": { "type": "string" },
+        "key_publications": { "type": "array" },
+        "clinical_milestones": { "type": "array" },
+        "kol_signals": { "type": "array" },
+        "reimbursement_notes": { "type": "array" }
+      }
+    },
+    "caseBucket": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["case_id", "dossier_count", "precedents", "rollup"],
+      "properties": {
+        "case_id": { "type": "string" },
+        "case_title": { "type": "string" },
+        "dossier_count": { "type": "integer" },
+        "precedents": {
+          "type": "object",
+          "additionalProperties": { "$ref": "#/$defs/dossierEntry" }
+        },
+        "rollup": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["clinical_path", "reimbursement_path", "kol_pattern"],
+          "properties": {
+            "clinical_path": { "type": "string" },
+            "reimbursement_path": { "type": "string" },
+            "kol_pattern": { "type": "string" }
+          }
+        }
+      }
+    }
+  }
+}

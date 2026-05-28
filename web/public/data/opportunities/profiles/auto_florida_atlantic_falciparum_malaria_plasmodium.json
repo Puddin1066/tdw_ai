@@ -1,0 +1,21 @@
+{
+  "case_id": "auto_florida_atlantic_falciparum_malaria_plasmodium",
+  "display_name": "COMPOSITIONS AND METHODS FOR THE TREATMENT Technology Platform Opportunity",
+  "llm_inferred_label": "COMPOSITIONS AND METHODS FOR THE TREATMENT Technology Platform Opportunity",
+  "ri_notes": "Deduped patent family (1 of 1 records); review scope and naming.",
+  "ri_physician_lead": "TBD",
+  "conflict_tags": [],
+  "ri_institution": "Rhode Island ecosystem",
+  "ri_ip_source": "lens:040-125-405-335-838",
+  "ip_assets": [
+    {
+      "asset_id": "asset_18df86ca6664",
+      "title": "COMPOSITIONS AND METHODS FOR THE TREATMENT OF PLASMODIUM FALCIPARUM MALARIA",
+      "lens_id": "040-125-405-335-838",
+      "url": "https://lens.org/040-125-405-335-838",
+      "owners": "FLORIDA ATLANTIC UNIVERSITY BOARD OF TRUSTEES (2022-02-22);;BROWN UNIVERSITY (2021-02-26)",
+      "legal_status": "PENDING",
+      "publication_date": "2024-05-16"
+    }
+  ]
+}

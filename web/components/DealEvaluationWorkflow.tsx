@@ -3,38 +3,53 @@
 import Link from "next/link";
 import { useMemo, useState } from "react";
 import { ArrowLeft, FlaskConical, Search, ShieldAlert, Target } from "lucide-react";
-import type { CaseMetadata } from "@/types/artifacts";
+import type {
+  CaseMetadata,
+  EvaluationCaseData,
+  GeneratedQualitativeAssessment,
+  QualitativeDimensionKey,
+} from "@/types/artifacts";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 
 interface DealEvaluationWorkflowProps {
-  cases: CaseMetadata[];
+  cases: EvaluationCaseData[];
 }
 
-interface QualitativeRubric {
-  science: number;
-  differentiation: number;
-  regulatory: number;
-  execution: number;
-  strategicFit: number;
-}
+const DIMENSION_ORDER: QualitativeDimensionKey[] = [
+  "science",
+  "differentiation",
+  "regulatory",
+  "execution",
+  "strategicFit",
+];
 
-const DEFAULT_RUBRIC: QualitativeRubric = {
-  science: 3,
-  differentiation: 3,
-  regulatory: 3,
-  execution: 3,
-  strategicFit: 3,
+const DIMENSION_LABELS: Record<QualitativeDimensionKey, string> = {
+  science: "Science quality",
+  differentiation: "Differentiation and moat",
+  regulatory: "Regulatory clarity",
+  execution: "Execution readiness",
+  strategicFit: "Strategic fit",
 };
 
 export function DealEvaluationWorkflow({ cases }: DealEvaluationWorkflowProps) {
-  const candidateCases = useMemo(() => cases.filter((item) => !item.is_benchmark), [cases]);
-  const benchmarkCases = useMemo(() => cases.filter((item) => item.is_benchmark), [cases]);
+  const candidateCases = useMemo(
+    () => cases.filter((item) => !item.metadata.is_benchmark),
+    [cases],
+  );
+  const benchmarkCases = useMemo(
+    () => cases.filter((item) => item.metadata.is_benchmark),
+    [cases],
+  );
   const benchmarkCohorts = useMemo(
     () =>
       Array.from(
-        new Set(benchmarkCases.map((item) => item.benchmark_cohort).filter((item): item is string => !!item)),
+        new Set(
+          benchmarkCases
+            .map((item) => item.metadata.benchmark_cohort)
+            .filter((item): item is string => !!item),
+        ),
       ).sort(),
     [benchmarkCases],
   );
@@ -42,13 +57,16 @@ export function DealEvaluationWorkflow({ cases }: DealEvaluationWorkflowProps) {
   const [query, setQuery] = useState("");
   const [stageFilter, setStageFilter] = useState("all");
   const [cohortFilter, setCohortFilter] = useState("all");
-  const [selectedCaseId, setSelectedCaseId] = useState(candidateCases[0]?.case_id ?? "");
-  const [rubric, setRubric] = useState<QualitativeRubric>(DEFAULT_RUBRIC);
+  const [selectedCaseId, setSelectedCaseId] = useState(candidateCases[0]?.metadata.case_id ?? "");
 
   const stageOptions = useMemo(
     () =>
       Array.from(
-        new Set(candidateCases.map((item) => item.maturity_stage).filter((item): item is string => !!item)),
+        new Set(
+          candidateCases
+            .map((item) => item.metadata.maturity_stage)
+            .filter((item): item is string => !!item),
+        ),
       ).sort(),
     [candidateCases],
   );
@@ -56,14 +74,14 @@ export function DealEvaluationWorkflow({ cases }: DealEvaluationWorkflowProps) {
   const filteredCandidates = useMemo(() => {
     const normalizedQuery = query.trim().toLowerCase();
     return candidateCases.filter((item) => {
-      if (stageFilter !== "all" && item.maturity_stage !== stageFilter) return false;
+      if (stageFilter !== "all" && item.metadata.maturity_stage !== stageFilter) return false;
       if (!normalizedQuery) return true;
       const fields = [
-        item.display_name,
-        item.case_id,
-        item.target_name,
-        item.indication_name,
-        item.input_profile?.biology?.modality,
+        item.metadata.display_name,
+        item.metadata.case_id,
+        item.metadata.target_name,
+        item.metadata.indication_name,
+        item.metadata.input_profile?.biology?.modality,
       ]
         .filter((value): value is string => !!value)
         .map((value) => value.toLowerCase());
@@ -71,45 +89,53 @@ export function DealEvaluationWorkflow({ cases }: DealEvaluationWorkflowProps) {
     });
   }, [candidateCases, query, stageFilter]);
 
-  const selectedCase = useMemo(
+  const selectedCaseEntry = useMemo(
     () =>
-      filteredCandidates.find((item) => item.case_id === selectedCaseId) ??
-      candidateCases.find((item) => item.case_id === selectedCaseId) ??
+      filteredCandidates.find((item) => item.metadata.case_id === selectedCaseId) ??
+      candidateCases.find((item) => item.metadata.case_id === selectedCaseId) ??
       filteredCandidates[0] ??
       candidateCases[0] ??
       null,
     [candidateCases, filteredCandidates, selectedCaseId],
   );
 
+  const selectedCase = selectedCaseEntry?.metadata ?? null;
+  const selectedQualitative = selectedCaseEntry?.qualitative_assessment ?? null;
+  const selectedRiReadiness = selectedCaseEntry?.ri_financing_readiness ?? null;
+
   const activeBenchmarks = useMemo(() => {
     if (cohortFilter === "all") return benchmarkCases;
-    return benchmarkCases.filter((item) => item.benchmark_cohort === cohortFilter);
+    return benchmarkCases.filter((item) => item.metadata.benchmark_cohort === cohortFilter);
   }, [benchmarkCases, cohortFilter]);
 
   const nearestBenchmarks = useMemo(() => {
-    if (!selectedCase) return [];
+    if (!selectedCaseEntry) return [];
     return [...activeBenchmarks]
-      .sort((a, b) => similarityScore(b, selectedCase) - similarityScore(a, selectedCase))
+      .sort(
+        (a, b) =>
+          similarityScore(b.metadata, selectedCaseEntry.metadata) -
+          similarityScore(a.metadata, selectedCaseEntry.metadata),
+      )
       .slice(0, 5);
-  }, [activeBenchmarks, selectedCase]);
+  }, [activeBenchmarks, selectedCaseEntry]);
 
   const quantScore = useMemo(() => {
     if (!selectedCase || activeBenchmarks.length === 0) return 0;
     const confidencePercentile = percentileRank(selectedCase.confidence_score ?? 0, activeBenchmarks, (item) =>
-      safeNumber(item.confidence_score),
+      safeNumber(item.metadata.confidence_score),
     );
     const comparabilityPercentile = percentileRank(
       selectedCase.comparability_score ?? 0,
       activeBenchmarks,
-      (item) => safeNumber(item.comparability_score),
+      (item) => safeNumber(item.metadata.comparability_score),
     );
     const recordsPercentile = percentileRank(selectedCase.total_records ?? 0, activeBenchmarks, (item) =>
-      safeNumber(item.total_records),
+      safeNumber(item.metadata.total_records),
     );
     const connectorsPercentile = percentileRank(
       selectedCase.connectors_with_records ?? 0,
       activeBenchmarks,
-      (item) => safeNumber(item.connectors_with_records),
+      (item) => safeNumber(item.metadata.connectors_with_records),
     );
     return (
       confidencePercentile * 0.35 +
@@ -120,10 +146,13 @@ export function DealEvaluationWorkflow({ cases }: DealEvaluationWorkflowProps) {
   }, [activeBenchmarks, selectedCase]);
 
   const qualitativeScore = useMemo(() => {
-    const values = Object.values(rubric);
-    const average = values.reduce((sum, value) => sum + value, 0) / values.length;
+    if (!selectedQualitative) return 0;
+    const scores = DIMENSION_ORDER.map(
+      (dimension) => selectedQualitative.dimensions[dimension].score_1_5,
+    );
+    const average = avg(scores);
     return ((average - 1) / 4) * 100;
-  }, [rubric]);
+  }, [selectedQualitative]);
 
   const riskPenalty = useMemo(() => {
     if (!selectedCase) return 100;
@@ -138,12 +167,25 @@ export function DealEvaluationWorkflow({ cases }: DealEvaluationWorkflowProps) {
     return Math.min(penalty, 100);
   }, [selectedCase]);
 
-  const finalScore = Math.max(0, Math.min(100, quantScore * 0.45 + qualitativeScore * 0.35 + (100 - riskPenalty) * 0.2));
+  const diligenceScore = Math.max(
+    0,
+    Math.min(100, quantScore * 0.45 + qualitativeScore * 0.35 + (100 - riskPenalty) * 0.2),
+  );
+  const riReadinessScore = safeNumber(selectedRiReadiness?.financing_readiness_score_0_100);
+  const finalScore = selectedRiReadiness
+    ? Math.max(0, Math.min(100, diligenceScore * 0.7 + riReadinessScore * 0.3))
+    : diligenceScore;
   const recommendation = finalScore >= 75 ? "Prioritize" : finalScore >= 60 ? "Watchlist" : "Deprioritize";
 
-  const mockedCandidate = Boolean(selectedCase?.mocked_api_calls) || safeNumber(selectedCase?.fallback_connector_count) > 0;
+  const mockedCandidate =
+    Boolean(selectedCase?.mocked_api_calls) ||
+    safeNumber(selectedCase?.fallback_connector_count) > 0 ||
+    Boolean(selectedQualitative?.mocked_data_present);
   const mockedBenchmarks = activeBenchmarks.some(
-    (item) => Boolean(item.mocked_api_calls) || safeNumber(item.fallback_connector_count) > 0,
+    (item) =>
+      Boolean(item.metadata.mocked_api_calls) ||
+      safeNumber(item.metadata.fallback_connector_count) > 0 ||
+      Boolean(item.qualitative_assessment.mocked_data_present),
   );
 
   const confidenceSignals = [
@@ -164,8 +206,8 @@ export function DealEvaluationWorkflow({ cases }: DealEvaluationWorkflowProps) {
         <p className="font-mono text-xs uppercase tracking-widest text-cockpit-teal">Deal evaluation workflow</p>
         <h1 className="text-3xl font-semibold tracking-tight">Search, benchmark, and prioritize</h1>
         <p className="max-w-3xl text-sm text-muted-foreground">
-          Evaluate a target case against benchmark peers with both percentile-based quantitative metrics and an explicit
-          qualitative rubric.
+          Evaluate a target case against benchmark peers with percentile-based quantitative metrics and
+          qualitative judgments generated only from cached artifacts.
         </p>
       </header>
 
@@ -193,8 +235,8 @@ export function DealEvaluationWorkflow({ cases }: DealEvaluationWorkflowProps) {
               value={selectedCase?.case_id ?? ""}
               onChange={setSelectedCaseId}
               options={filteredCandidates.map((item) => ({
-                value: item.case_id,
-                label: `${item.target_name} · ${item.indication_name}`,
+                value: item.metadata.case_id,
+                label: `${item.metadata.target_name} · ${item.metadata.indication_name}`,
               }))}
             />
             <p className="text-xs text-muted-foreground">
@@ -271,36 +313,100 @@ export function DealEvaluationWorkflow({ cases }: DealEvaluationWorkflowProps) {
               <ShieldAlert className="h-5 w-5 text-cockpit-teal" />
               Step 4: Qualitative rubric
             </CardTitle>
-            <CardDescription>Score each dimension from 1 to 5 with your diligence context.</CardDescription>
+            <CardDescription>
+              Auto-generated from cached artifacts with source-record citations per dimension.
+            </CardDescription>
           </CardHeader>
           <CardContent className="space-y-3 text-sm">
-            <RubricSlider label="Science quality" value={rubric.science} onChange={(value) => setRubric((prev) => ({ ...prev, science: value }))} />
-            <RubricSlider
-              label="Differentiation and moat"
-              value={rubric.differentiation}
-              onChange={(value) => setRubric((prev) => ({ ...prev, differentiation: value }))}
-            />
-            <RubricSlider
-              label="Regulatory clarity"
-              value={rubric.regulatory}
-              onChange={(value) => setRubric((prev) => ({ ...prev, regulatory: value }))}
-            />
-            <RubricSlider
-              label="Execution readiness"
-              value={rubric.execution}
-              onChange={(value) => setRubric((prev) => ({ ...prev, execution: value }))}
-            />
-            <RubricSlider
-              label="Strategic fit"
-              value={rubric.strategicFit}
-              onChange={(value) => setRubric((prev) => ({ ...prev, strategicFit: value }))}
-            />
+            {selectedQualitative ? (
+              DIMENSION_ORDER.map((dimension) => (
+                <GeneratedDimensionCard
+                  key={dimension}
+                  label={DIMENSION_LABELS[dimension]}
+                  result={selectedQualitative.dimensions[dimension]}
+                />
+              ))
+            ) : (
+              <p className="text-muted-foreground">
+                No qualitative artifact-derived assessment available for selected case.
+              </p>
+            )}
             <div className="rounded-md border border-border/60 bg-background/40 px-3 py-2">
               <p className="font-medium text-foreground">Qual composite: {qualitativeScore.toFixed(1)} / 100</p>
+              <p className="text-xs text-muted-foreground">
+                Source: {selectedQualitative?.generated_from ?? "n/a"}
+              </p>
             </div>
           </CardContent>
         </Card>
       </div>
+
+      <Card className="border-border/80 bg-card/80">
+        <CardHeader>
+          <CardTitle>Step 4b: RI clinical inflection readiness</CardTitle>
+          <CardDescription>
+            Static RI lens overlays clinical-inflection, physician staffing, and capital-path readiness.
+          </CardDescription>
+        </CardHeader>
+        <CardContent className="space-y-4">
+          {selectedRiReadiness ? (
+            <>
+              <div className="grid gap-3 md:grid-cols-4">
+                <DecisionStat
+                  label="Inflection score"
+                  value={safeNumber(selectedRiReadiness.clinical_inflection_score_0_100).toFixed(1)}
+                />
+                <DecisionStat
+                  label="Staffing feasibility"
+                  value={safeNumber(selectedRiReadiness.staffing_feasibility_score_0_100).toFixed(1)}
+                />
+                <DecisionStat
+                  label="Capital path score"
+                  value={safeNumber(selectedRiReadiness.capital_path_score_0_100).toFixed(1)}
+                />
+                <DecisionStat
+                  label="RI readiness score"
+                  value={safeNumber(selectedRiReadiness.financing_readiness_score_0_100).toFixed(1)}
+                />
+              </div>
+              <div className="flex flex-wrap items-center gap-2">
+                <Badge variant={selectedRiReadiness.mocked ? "warning" : "success"}>
+                  {selectedRiReadiness.mocked
+                    ? "RI lens uses mocked static CSV inputs"
+                    : "RI lens derived from validated non-mock inputs"}
+                </Badge>
+                <Badge
+                  variant={
+                    selectedRiReadiness.financing_readiness_state === "financeable_now"
+                      ? "success"
+                      : selectedRiReadiness.financing_readiness_state === "financeable_post_inflection"
+                        ? "warning"
+                        : "danger"
+                  }
+                >
+                  {selectedRiReadiness.financing_readiness_state.replace(/_/g, " ")}
+                </Badge>
+              </div>
+              <div className="rounded-md border border-border/60 bg-background/40 p-3">
+                <p className="font-medium text-foreground">Next actions</p>
+                {selectedRiReadiness.next_actions.length > 0 ? (
+                  <ul className="mt-2 list-inside list-disc space-y-1 text-sm text-muted-foreground">
+                    {selectedRiReadiness.next_actions.map((action) => (
+                      <li key={action}>{action}</li>
+                    ))}
+                  </ul>
+                ) : (
+                  <p className="mt-2 text-sm text-muted-foreground">No RI next actions generated for this case.</p>
+                )}
+              </div>
+            </>
+          ) : (
+            <p className="text-sm text-muted-foreground">
+              No RI readiness artifact found for selected case. Run static RI artifact generation in workflow.
+            </p>
+          )}
+        </CardContent>
+      </Card>
 
       <Card className="border-border/80 bg-card/80">
         <CardHeader>
@@ -309,9 +415,12 @@ export function DealEvaluationWorkflow({ cases }: DealEvaluationWorkflowProps) {
         </CardHeader>
         <CardContent className="space-y-4">
           <div className="grid gap-3 md:grid-cols-4">
-            <DecisionStat label="Quant score (45%)" value={quantScore.toFixed(1)} />
-            <DecisionStat label="Qual score (35%)" value={qualitativeScore.toFixed(1)} />
-            <DecisionStat label="Risk adjustment (20%)" value={`${(100 - riskPenalty).toFixed(1)}`} />
+            <DecisionStat label="Diligence score" value={diligenceScore.toFixed(1)} />
+            <DecisionStat label="RI readiness score" value={riReadinessScore.toFixed(1)} />
+            <DecisionStat
+              label={selectedRiReadiness ? "Composite (70/30 blend)" : "Composite score"}
+              value={finalScore.toFixed(1)}
+            />
             <DecisionStat label="Confidence context" value={`${confidenceScore.toFixed(0)}%`} />
           </div>
           <div className="flex flex-wrap items-center gap-2">
@@ -334,8 +443,9 @@ export function DealEvaluationWorkflow({ cases }: DealEvaluationWorkflowProps) {
             ) : (
               <ul className="mt-2 space-y-1 text-sm text-muted-foreground">
                 {nearestBenchmarks.map((item) => (
-                  <li key={item.case_id}>
-                    {item.target_name} / {item.indication_name} ({item.maturity_stage})
+                  <li key={item.metadata.case_id}>
+                    {item.metadata.target_name} / {item.metadata.indication_name} (
+                    {item.metadata.maturity_stage})
                   </li>
                 ))}
               </ul>
@@ -343,9 +453,14 @@ export function DealEvaluationWorkflow({ cases }: DealEvaluationWorkflowProps) {
           </div>
 
           {selectedCase ? (
-            <Button asChild variant="outline">
-              <Link href={`/cases/${selectedCase.case_id}`}>Open selected case dashboard</Link>
-            </Button>
+            <>
+              <Button asChild variant="outline">
+                <Link href={`/opportunities/${selectedCase.case_id}`}>Open syndicate brief</Link>
+              </Button>
+              <Button asChild variant="outline">
+                <Link href={`/cases/${selectedCase.case_id}`}>Open diligence cockpit</Link>
+              </Button>
+            </>
           ) : null}
         </CardContent>
       </Card>
@@ -378,12 +493,12 @@ function percentileRank<T>(value: number, set: T[], accessor: (item: T) => numbe
 }
 
 function metricPercentile(
-  selectedCase: CaseMetadata | null,
-  benchmarks: CaseMetadata[],
+  selectedCase: EvaluationCaseData["metadata"] | null,
+  benchmarks: EvaluationCaseData[],
   key: "confidence_score" | "comparability_score" | "total_records" | "connectors_with_records",
 ): string {
   if (!selectedCase || benchmarks.length === 0) return "0.0";
-  return percentileRank(safeNumber(selectedCase[key]), benchmarks, (item) => safeNumber(item[key])).toFixed(1);
+  return percentileRank(safeNumber(selectedCase[key]), benchmarks, (item) => safeNumber(item.metadata[key])).toFixed(1);
 }
 
 function ScoreRow({ label, value }: { label: string; value: string }) {
@@ -404,31 +519,42 @@ function DecisionStat({ label, value }: { label: string; value: string }) {
   );
 }
 
-function RubricSlider({
+function avg(values: number[]): number {
+  if (values.length === 0) return 0;
+  return values.reduce((sum, value) => sum + value, 0) / values.length;
+}
+
+function GeneratedDimensionCard({
   label,
-  value,
-  onChange,
+  result,
 }: {
   label: string;
-  value: number;
-  onChange: (value: number) => void;
+  result: GeneratedQualitativeAssessment["dimensions"][QualitativeDimensionKey];
 }) {
   return (
-    <label className="grid gap-1 text-sm">
-      <span className="flex items-center justify-between text-muted-foreground">
-        {label}
-        <span className="font-medium text-foreground">{value}</span>
-      </span>
-      <input
-        type="range"
-        min={1}
-        max={5}
-        step={1}
-        value={value}
-        className="accent-teal-500"
-        onChange={(event) => onChange(Number(event.target.value))}
-      />
-    </label>
+    <div className="rounded-md border border-border/60 bg-background/40 p-3">
+      <div className="flex flex-wrap items-center justify-between gap-2">
+        <p className="font-medium text-foreground">{label}</p>
+        <div className="flex items-center gap-2">
+          <Badge variant="outline">Score {result.score_1_5}/5</Badge>
+          <Badge variant={result.confidence_0_1 >= 0.7 ? "success" : "warning"}>
+            Confidence {(result.confidence_0_1 * 100).toFixed(0)}%
+          </Badge>
+        </div>
+      </div>
+      <p className="mt-2 text-sm text-muted-foreground">{result.rationale}</p>
+      <div className="mt-2 flex flex-wrap gap-1">
+        {result.source_record_ids.length > 0 ? (
+          result.source_record_ids.map((sourceId) => (
+            <Badge key={sourceId} variant="outline" className="font-mono">
+              {sourceId}
+            </Badge>
+          ))
+        ) : (
+          <span className="text-xs text-amber-300">No source_record_ids linked</span>
+        )}
+      </div>
+    </div>
   );
 }
 

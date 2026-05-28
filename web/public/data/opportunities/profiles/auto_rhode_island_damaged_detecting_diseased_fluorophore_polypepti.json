@@ -1,0 +1,21 @@
+{
+  "case_id": "auto_rhode_island_damaged_detecting_diseased_fluorophore_polypepti",
+  "display_name": "Method detecting diseased damaged tissue with Technology Platform Opportunity",
+  "llm_inferred_label": "Method detecting diseased damaged tissue with Technology Platform Opportunity",
+  "ri_notes": "Deduped patent family (1 of 1 records); review scope and naming.",
+  "ri_physician_lead": "TBD",
+  "conflict_tags": [],
+  "ri_institution": "Rhode Island ecosystem",
+  "ri_ip_source": "lens:129-685-709-438-265",
+  "ip_assets": [
+    {
+      "asset_id": "asset_b4d4c9841b07",
+      "title": "Method of detecting diseased or damaged tissue with a pH-triggered polypeptide fluorophore composition",
+      "lens_id": "129-685-709-438-265",
+      "url": "https://lens.org/129-685-709-438-265",
+      "owners": "RHODE ISLAND COUNCIL ON POSTSECONDARY EDUCATION (2017-09-21);;YALE UNIVERSITY (2017-09-21);;UNIVERSITY OF RHODE ISLAND BOARD OF TRUSTEES (2021-04-09)",
+      "legal_status": "ACTIVE",
+      "publication_date": "2023-08-29"
+    }
+  ]
+}

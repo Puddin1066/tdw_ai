@@ -1,0 +1,55 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://tdw.ai/schemas/ri_financing_readiness.schema.json",
+  "title": "RiFinancingReadinessArtifact",
+  "allOf": [
+    { "$ref": "./_common.definitions.json#/$defs/artifactEnvelope" },
+    {
+      "type": "object",
+      "properties": {
+        "artifact_type": { "const": "ri_financing_readiness" },
+        "data": { "$ref": "#/$defs/riFinancingReadinessData" }
+      },
+      "required": ["artifact_type", "data"]
+    }
+  ],
+  "$defs": {
+    "riFinancingReadinessData": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "financing_readiness_state",
+        "financing_readiness_score_0_100",
+        "clinical_inflection_score_0_100",
+        "staffing_feasibility_score_0_100",
+        "capital_path_score_0_100",
+        "ri_anchor_score_0_100",
+        "private_match_needed_usd",
+        "capital_gap_remaining_usd",
+        "slater_invested",
+        "next_actions",
+        "source_type",
+        "mocked",
+        "confidence_0_1"
+      ],
+      "properties": {
+        "financing_readiness_state": {
+          "type": "string",
+          "enum": ["financeable_now", "financeable_post_inflection", "not_financeable_yet"]
+        },
+        "financing_readiness_score_0_100": { "type": "number", "minimum": 0, "maximum": 100 },
+        "clinical_inflection_score_0_100": { "type": "number", "minimum": 0, "maximum": 100 },
+        "staffing_feasibility_score_0_100": { "type": "number", "minimum": 0, "maximum": 100 },
+        "capital_path_score_0_100": { "type": "number", "minimum": 0, "maximum": 100 },
+        "ri_anchor_score_0_100": { "type": "number", "minimum": 0, "maximum": 100 },
+        "private_match_needed_usd": { "type": "integer", "minimum": 0 },
+        "capital_gap_remaining_usd": { "type": "integer", "minimum": 0 },
+        "slater_invested": { "type": "boolean" },
+        "next_actions": { "type": "array", "items": { "type": "string" } },
+        "source_type": { "type": "string" },
+        "mocked": { "type": "boolean" },
+        "confidence_0_1": { "type": "number", "minimum": 0, "maximum": 1 }
+      }
+    }
+  }
+}

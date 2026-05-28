@@ -1,0 +1,21 @@
+{
+  "case_id": "auto_rhode_island_osteoarthritis_prevention",
+  "display_name": "METHOD AND COMPOSITION FOR THE PREVENTION Technology Platform Opportunity",
+  "llm_inferred_label": "METHOD AND COMPOSITION FOR THE PREVENTION Technology Platform Opportunity",
+  "ri_notes": "Deduped patent family (1 of 1 records); review scope and naming.",
+  "ri_physician_lead": "TBD",
+  "conflict_tags": [],
+  "ri_institution": "Rhode Island ecosystem",
+  "ri_ip_source": "lens:176-942-989-926-106",
+  "ip_assets": [
+    {
+      "asset_id": "asset_1b48ec144f79",
+      "title": "METHOD AND COMPOSITION FOR THE PREVENTION OR TREATMENT OF OSTEOARTHRITIS",
+      "lens_id": "176-942-989-926-106",
+      "url": "https://lens.org/176-942-989-926-106",
+      "owners": "RHODE ISLAND HOSPITAL (2021-04-22)",
+      "legal_status": "PENDING",
+      "publication_date": "2024-06-20"
+    }
+  ]
+}

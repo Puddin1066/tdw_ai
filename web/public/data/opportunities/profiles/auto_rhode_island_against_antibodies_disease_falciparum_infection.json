@@ -1,0 +1,21 @@
+{
+  "case_id": "auto_rhode_island_against_antibodies_disease_falciparum_infection",
+  "display_name": "Antibodies PfGARP kill Plasmodium falciparum malaria Technology Platform Opportunity",
+  "llm_inferred_label": "Antibodies PfGARP kill Plasmodium falciparum malaria Technology Platform Opportunity",
+  "ri_notes": "Deduped patent family (2 of 4 records); review scope and naming.",
+  "ri_physician_lead": "TBD",
+  "conflict_tags": [],
+  "ri_institution": "Rhode Island ecosystem",
+  "ri_ip_source": "lens:115-977-056-135-780",
+  "ip_assets": [
+    {
+      "asset_id": "asset_23500f619ba5",
+      "title": "Antibodies to PfGARP kill Plasmodium falciparum malaria parasites and protect against infection and severe disease",
+      "lens_id": "115-977-056-135-780",
+      "url": "https://lens.org/115-977-056-135-780",
+      "owners": "RHODE ISLAND HOSPITAL (2021-04-29)",
+      "legal_status": "ACTIVE",
+      "publication_date": "2024-07-16"
+    }
+  ]
+}

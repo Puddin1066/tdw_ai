@@ -1,0 +1,1019 @@
+case_id,catalog_tier,catalog_include,review_status,title_clean,display_name,company,indication,opportunity_type,development_stage,ri_institution,data_caveat,ri_notes,last_refreshed_at,reviewer,web_search_queries,web_search_notes,primary_lens_id,primary_display_key,primary_patent_title,primary_patent_url,assignee_company,inventors,ip_lens_ids,ip_titles,ip_urls,publication_count,publication_titles,publication_lead_authors,publication_ri_affiliations,publication_urls,publication_pmids,literature_narrative,suggest_publication_titles,suggest_publication_urls,suggest_publication_notes,physician_lead_npi,physician_lead_name,physician_lead_specialty,physician_lead_institution,physician_lead_profile_url,physician_supporters,physician_supporter_profile_urls,comp1_name,comp1_type,comp1_url,comp1_value_anchor_usd,comp1_value_anchor_type,comp1_value_source_url,comp1_total_raised_usd,comp1_last_round_usd,comp1_financing_ladder,comp1_development_path,comp1_validation_status,comp2_name,comp2_type,comp2_url,comp2_value_anchor_usd,comp2_value_anchor_type,comp2_value_source_url,comp2_total_raised_usd,comp2_last_round_usd,comp2_financing_ladder,comp2_development_path,comp2_validation_status,comp3_name,comp3_type,comp3_url,comp3_value_anchor_usd,comp3_value_anchor_type,comp3_value_source_url,comp3_total_raised_usd,comp3_last_round_usd,comp3_financing_ladder,comp3_development_path,comp3_validation_status,suggest_comp1_value_source_url,suggest_comp1_financing_ladder,suggest_comp1_notes,financing_stage,total_package_usd,physician_share_usd,slater_share_usd,clinical_allocation_usd,rd_allocation_usd,financing_rationale,trial_count,trial_nct_ids,trial_titles,trial_pi_names,trial_urls,trial_phases,rd_plan_summary,rd_milestones,rd_milestone_types,clinical_study_type,clinical_primary_endpoint,clinical_duration_weeks,clinical_cost_usd,clinical_path_notes,target_timeline_weeks,investment_thesis,mcq_lead_pillar,mcq_financing_structure,mcq_audience,required_specialties,clinical_tags,program_family,enrichment_status
+auto_brown_university_annulus_biocompatible_brain_catheter_coupled_ele,A,true,pending,Brain electrode annulus + catheter system,Coupled annulus and catheter system for Medical Device Opportunity,Brown University,Brain electrode annulus + catheter system,medical_device,validation,Brown University,,Deduped patent family (2 of 2 records); review scope and naming.,2026-05-28,,"""Boston Scientific Vercise"" (""Series A"" OR ""Series B"" OR ""Series C"" OR seed OR ""venture capital"" OR ""funding round"") | Boston Scientific Vercise total funding raised venture capital investors | Boston Scientific Vercise funding site:prnewswire.com OR site:businesswire.com OR site:techcrunch.com OR site:fiercebiotech.com | Boston Scientific Vercise crunchbase funding rounds | Boston Scientific Vercise acquisition OR IPO OR market cap | ""Medtronic SenSight leads"" (""Series A"" OR ""Series B"" OR ""Series C"" OR seed OR ""venture capital"" OR ""funding round"") | Medtronic SenSight leads total funding raised venture capital investors | Medtronic SenSight leads funding site:prnewswire.com OR site:businesswire.com OR site:techcrunch.com OR site:fiercebiotech.com | Medtronic SenSight leads crunchbase funding rounds | Medtronic SenSight leads acquisition OR IPO OR market cap | Brown University Brain electrode annulus + catheter system preclinical development milestone | Brain electrode annulus + catheter system translational research Rhode Island","[comp1] List of top Boston Scientific Portfolio Companies - Crunchbase | https://www.crunchbase.com/hub/boston-scientific-portfolio-companies
+[comp1_heuristic] Program / company page (on file) | https://www.bostonscientific.com/
+[comp1_heuristic] SEC EDGAR search | https://www.sec.gov/edgar/search/#/q=Boston%20Scientific%20Vercise
+[comp2_heuristic] Program / company page (on file) | https://www.medtronic.com/
+[comp2_heuristic] SEC EDGAR search | https://www.sec.gov/edgar/search/#/q=Medtronic%20SenSight%20leads",045-257-162-357-202,US 11957899 B2,Coupled annulus and catheter system for placement of biocompatible brain electrodes and like devices,https://lens.org/045-257-162-357-202,BROWN UNIVERSITY,ASAAD WAEL|LEE SHANE|LEARY OWEN|TRAC NOAH|TAHIRY ZAKIR|RASTOGI ROHAN,045-257-162-357-202,Coupled annulus and catheter system for placement of biocompatible brain electrodes and like devices,https://lens.org/045-257-162-357-202,6,"Subthalamic-Cortical Network Reorganization during Parkinson's Tremor.
+Concurrent decoding of distinct neurophysiological fingerprints of tremor and bradykinesia in Parkinson's disease.
+Thalamic neuromodulation in epilepsy: A primer for emerging circuit-based therapies.
+GLP-1 Receptor Agonists: Beyond Diabetes-What the Neurosurgeon Needs to Know.
+The persistent value of lesions in psychiatric neurosurgery.
+Clinical criteria for filum terminale resection in occult tethered cord syndrome.","Peter M Lauro
+Peter M Lauro
+Bryan Zheng
+Hael Abdulrazeq
+Hael Abdulrazeq
+Petra M Klinge","Brown University
+Brown University
+Brown University
+Brown University
+Brown University
+Brown University","https://pubmed.ncbi.nlm.nih.gov/34702744/
+https://pubmed.ncbi.nlm.nih.gov/37249217/
+https://pubmed.ncbi.nlm.nih.gov/36731858/
+https://pubmed.ncbi.nlm.nih.gov/39959894/
+https://pubmed.ncbi.nlm.nih.gov/38906167/
+https://pubmed.ncbi.nlm.nih.gov/38489815/","34702744
+37249217
+36731858
+39959894
+38906167
+38489815","6 RI lead-author publication(s) via BioMCP/PubMed (inventors: ASAAD, LEARY, LEE, RASTOGI, TAHIRY, TRAC).","Biomarker changes associated with fornix deep brain stimulation in Alzheimer's disease.
+Cancer Incidence, Mortality, Years of Life Lost, Years Lived With Disability, and Disability-Adjusted Life Years for 29 Cancer Groups From 2010 to 2019: A Systematic Analysis for the Global Burden of Disease Study 2019.
+Screening for Breast Cancer: US Preventive Services Task Force Recommendation Statement.
+Genetic drivers of heterogeneity in type 2 diabetes pathophysiology.
+Brain charts for the human lifespan.
+Analysis of shared heritability in common disorders of the brain.
+Guidelines for the use and interpretation of assays for monitoring autophagy (4th edition)1.
+Bilateral deep brain stimulation of the fornix for Alzheimer's disease: surgical safety in the ADvance trial.","https://pubmed.ncbi.nlm.nih.gov/40566800/
+https://pubmed.ncbi.nlm.nih.gov/34967848/
+https://pubmed.ncbi.nlm.nih.gov/38687503/
+https://pubmed.ncbi.nlm.nih.gov/38374256/
+https://pubmed.ncbi.nlm.nih.gov/35388223/
+https://pubmed.ncbi.nlm.nih.gov/29930110/
+https://pubmed.ncbi.nlm.nih.gov/33634751/
+https://pubmed.ncbi.nlm.nih.gov/26684775/","BioMCP patent-linked; not RI lead author
+BioMCP patent-linked; not RI lead author
+BioMCP patent-linked; not RI lead author
+BioMCP patent-linked; not RI lead author
+BioMCP patent-linked; not RI lead author
+BioMCP patent-linked; not RI lead author
+BioMCP patent-linked; not RI lead author
+BioMCP patent-linked; not RI lead author; inventors: ASAAD",1003392689,Wael Asaad,Neurology,Brown University,https://vivo.brown.edu/display/wasaad,"1023039740|DENNIS AUMENTADO|NEUROLOGY|NORTH SMITHFIELD, RI|reviewer
+1023135720|PREETI GUPTA|NEUROLOGY|EAST PROVIDENCE, RI|reviewer
+1023182383|JUAN CANTON|NEUROLOGY|WARWICK, RI|reviewer
+1023291556|CHIZOBA UMEH|NEUROLOGY|ACCESS TELECARE PLLC|reviewer",,Boston Scientific Vercise,incumbent,https://www.bostonscientific.com/,,,,,,Strategic,Commercial neurostimulation,suggested,Medtronic SenSight leads,incumbent,https://www.medtronic.com/,,,,,,Strategic,510(k) device line extensions,suggested,ClearPoint Neuro,startup,https://www.clearpointneuro.com/,335000000,market_cap,https://finance.yahoo.com/quote/CLPT/,335000000,,Public (NASDAQ CLPT); ~$335M market cap (May 2026),Commercial neuro navigation,verified,https://www.crunchbase.com/hub/boston-scientific-portfolio-companies,,List of top Boston Scientific Portfolio Companies - Crunchbase,seed,400000,200000,200000,,,Seed/Series A RI package capped at policy limit; 50% physician syndicate / 50% Slater SSBCI match.,,,,,,,Near-term R&D for Brain electrode annulus + catheter system (validation stage). Development path analog: Boston Scientific Vercise — Commercial neurostimulation. RI co-investment package targets de-risking experiments and clinical-ready milestones aligned with physician syndicate diligence.,,,interventional,clinical_outcome,311,4246704,"Clinical path draft — confirm trial design, PI, and NCT fit before approval.",40,"Brown University — Brain electrode annulus + catheter system. focused on Brain electrode annulus + catheter system. comparable path: Boston Scientific Vercise. financing precedent: Strategic. RI package: 400,000 USD (50% physician / 50% Slater SSBCI, policy cap)..",ip,physician_50_slater_ssbci_50,mixed_slater_physician_hospital_bd,neurology|neurosurgery|physical medicine and rehabilitation,neurology|neurosurgery|medical_device,,web_enriched
+auto_brown_university_anti_antibody_bispecific_chi3l1_reagents_relatin,A,true,pending,CHI3L1 — bispecific antibody platform,METHODS AND COMPOSITIONS RELATING BISPECIFIC ANTI Therapeutic Opportunity,Brown University,CHI3L1 — bispecific antibody platform,therapeutic,validation,Brown University,,Deduped patent family (2 of 7 records); review scope and naming.,2026-05-28,,"""Ocean Biomedical"" (""Series A"" OR ""Series B"" OR ""Series C"" OR seed OR ""venture capital"" OR ""funding round"") | Ocean Biomedical total funding raised venture capital investors | Ocean Biomedical funding site:prnewswire.com OR site:businesswire.com OR site:techcrunch.com OR site:fiercebiotech.com | Ocean Biomedical crunchbase funding rounds | Ocean Biomedical acquisition OR IPO OR market cap | ""Brown / RI Hospital CHI3L1 program"" (""Series A"" OR ""Series B"" OR ""Series C"" OR seed OR ""venture capital"" OR ""funding round"") | Brown / RI Hospital CHI3L1 program total funding raised venture capital investors | Brown / RI Hospital CHI3L1 program funding site:prnewswire.com OR site:businesswire.com OR site:techcrunch.com OR site:fiercebiotech.com | Brown / RI Hospital CHI3L1 program crunchbase funding rounds | Brown University CHI3L1 — bispecific antibody platform preclinical development milestone | CHI3L1 — bispecific antibody platform translational research Rhode Island","[comp1_heuristic] Press release (on file) | https://www.globenewswire.com/news-release/2023/05/23/2674264/0/en/Ocean-Biomedical-Inc-NASDAQ-OCEA-Announces-Patent-Award-for-Novel-Cancer-Immunotherapy-Treatment-Granted-for-Prostate-Cancer-Colon-Cancer-Ovarian-Cancer-Kidney-Cancer-Breast-Cancer.html
+[comp1_heuristic] SEC EDGAR search | https://www.sec.gov/edgar/search/#/q=Ocean%20Biomedical
+[comp2_heuristic] SEC filing (on file) | https://www.sec.gov/Archives/edgar/data/1869974/000149315223010129/form10-k.htm",151-994-099-652-139,US 2024/0076407 A1,METHODS AND COMPOSITIONS RELATING TO BISPECIFIC ANTI-CHI3L1 ANTIBODY REAGENTS,https://lens.org/151-994-099-652-139,BROWN UNIVERSITY,ELIAS JACK A|LEE CHUN GEUN|HE CHUAN HUA|MA BING|KAMLE SUCHITRA|LEE CHANG-MIN,151-994-099-652-139|167-106-335-943-097,"METHODS AND COMPOSITIONS RELATING TO BISPECIFIC ANTI-CHI3L1 ANTIBODY REAGENTS
+METHODS AND COMPOSITIONS RELATING TO ANTI-CHI3L1 ANTIBODY REAGENTS","https://lens.org/151-994-099-652-139
+https://lens.org/167-106-335-943-097",6,"CHI3L1 regulates PD-L1 and anti-CHI3L1-PD-1 antibody elicits synergistic antitumor responses.
+Chitinase 1 regulates pulmonary fibrosis by modulating TGF-β/SMAD7 pathway via TGFBRAP1 and FOXO3.
+IL-13Rα2 uses TMEM219 in chitinase 3-like-1-induced signalling and effector responses.
+Galectin-3 Interacts with the CHI3L1 Axis and Contributes to Hermansky-Pudlak Syndrome Lung Disease.
+Chitinase 3-like-1 Inhibits Innate Antitumor and Tissue Remodeling Immune Responses by Regulating CD47-SIRPα- and CD24-Siglec10-Mediated Phagocytosis.
+Targeting Chitinase 1 and Chitinase 3-Like 1 as Novel Therapeutic Strategy of Pulmonary Fibrosis.","Bing Ma
+Chang-Min Lee
+Chang-Min Lee
+Yang Zhou
+Bing Ma
+Suh-Young Lee","Brown University
+Brown University
+Brown University
+Brown University
+Brown University
+Brown University","https://pubmed.ncbi.nlm.nih.gov/34720089/
+https://pubmed.ncbi.nlm.nih.gov/31085559/
+https://pubmed.ncbi.nlm.nih.gov/27629921/
+https://pubmed.ncbi.nlm.nih.gov/29427412/
+https://pubmed.ncbi.nlm.nih.gov/39291933/
+https://pubmed.ncbi.nlm.nih.gov/35370755/","34720089
+31085559
+27629921
+29427412
+39291933
+35370755","6 RI lead-author publication(s) via BioMCP/PubMed (inventors: ELIAS, HE, KAMLE, LEE, MA).","The tumor-derived cytokine Chi3l1 induces neutrophil extracellular traps that promote T cell exclusion in triple-negative breast cancer.
+CHI3L1 signaling impairs hippocampal neurogenesis and cognitive function in autoimmune-mediated neuroinflammation.
+Genome-wide analyses identify 30 loci associated with obsessive-compulsive disorder.
+Genome-wide analyses identify 30 loci associated with obsessive-compulsive disorder.
+Chi3l1/YKL-40 is controlled by the astrocyte circadian clock and regulates neuroinflammation and Alzheimer's disease pathogenesis.
+Phospholipid scramblase-1 regulates innate type 2 inflammation in mouse lungs via CRTH2-dependent mechanisms.
+N-Glycosylation Regulates Chitinase 3-like-1 and IL-13 Ligand Binding to IL-13 Receptor α2.
+Phytochemical Study on Seeds of Paeonia clusii subsp. rhodia-Antioxidant and Anti-Tyrosinase Properties.","https://pubmed.ncbi.nlm.nih.gov/38039967/
+https://pubmed.ncbi.nlm.nih.gov/37756391/
+https://pubmed.ncbi.nlm.nih.gov/40360802/
+https://pubmed.ncbi.nlm.nih.gov/38712091/
+https://pubmed.ncbi.nlm.nih.gov/33328329/
+https://pubmed.ncbi.nlm.nih.gov/37289545/
+https://pubmed.ncbi.nlm.nih.gov/32402213/
+https://pubmed.ncbi.nlm.nih.gov/36902364/","BioMCP patent-linked; not RI lead author
+BioMCP patent-linked; not RI lead author
+BioMCP patent-linked; not RI lead author
+BioMCP patent-linked; not RI lead author
+BioMCP patent-linked; not RI lead author
+BioMCP patent-linked; not RI lead author
+BioMCP patent-linked; not RI lead author
+BioMCP patent-linked; not RI lead author; inventors: ELIAS",,JACK A ELIAS,Pulmonary / critical care medicine,Brown University,https://vivo.brown.edu/display/jaelias,"1194249565|MOHAMMED JALOUDI|MEDICAL ONCOLOGY|AFFINITY PHYSICIANS LLC.|reviewer
+1336596774|KATHRYN DECARLI|MEDICAL ONCOLOGY|RHODE ISLAND HOSPITAL|reviewer
+1790977650|KHALDOUN ALMHANNA|MEDICAL ONCOLOGY|RHODE ISLAND HOSPITAL|reviewer
+1821070418|PLAKYIL JOSEPH|MEDICAL ONCOLOGY|AFFINITY PHYSICIANS LLC.|reviewer",,Ocean Biomedical (CHI3L1 / Elias),ri_public,https://www.globenewswire.com/news-release/2023/05/23/2674264/0/en/Ocean-Biomedical-Inc-NASDAQ-OCEA-Announces-Patent-Award-for-Novel-Cancer-Immunotherapy-Treatment-Granted-for-Prostate-Cancer-Colon-Cancer-Ovarian-Cancer-Kidney-Cancer-Breast-Cancer.html,,,,,,Public vehicle + university licenses,Preclinical → IND-enabling → spinouts,suggested,Brown / RI Hospital CHI3L1 program (Elias),research,https://www.sec.gov/Archives/edgar/data/1869974/000149315223010129/form10-k.htm,,,,,,NIH + philanthropy + venture spinout,Academic → Ocean license → IND,suggested,GSK efimosfermin acquisition (NASH analog),pharma_deal,https://www.businesswire.com/news/home/20250513598541/en/GSK-to-acquire-efimosfermin-a-phase-III-ready-potential-best-in-class-specialty-medicine-to-treat-and-prevent-progression-of-steatotic-liver-disease-SLD,1200000000,acquisition,https://www.businesswire.com/news/home/20250513598541/en/GSK-to-acquire-efimosfermin-a-phase-III-ready-potential-best-in-class-specialty-medicine-to-treat-and-prevent-progression-of-steatotic-liver-disease-SLD,1200000000,1200000000,$1.2B upfront + up to $800M milestones,Pharma acquisition analog — review therapeutic fit (NASH ≠ CHI3L1); prefer Ocean Biomedical / bispecific oncology exits,suggested,,,,seed,400000,200000,200000,,,Seed/Series A RI package capped at policy limit; 50% physician syndicate / 50% Slater SSBCI match.,,,,,,,Near-term R&D for CHI3L1 — bispecific antibody platform (validation stage). Development path analog: Ocean Biomedical (CHI3L1 / Elias) — Preclinical → IND-enabling → spinouts. RI co-investment package targets de-risking experiments and clinical-ready milestones aligned with physician syndicate diligence.,,,interventional,clinical_outcome,34,3447704,"Clinical path draft — confirm trial design, PI, and NCT fit before approval.",40,"Brown University — CHI3L1 — bispecific antibody platform. focused on CHI3L1 — bispecific antibody platform. comparable path: Ocean Biomedical (CHI3L1 / Elias). financing precedent: Public vehicle + university licenses. RI package: 400,000 USD (50% physician / 50% Slater SSBCI, policy cap)..",ip,physician_50_slater_ssbci_50,mixed_slater_physician_hospital_bd,oncology|hospital medicine|clinical pharmacology,clinical_pharmacology|medical_oncology,chi3l1,web_enriched
+auto_brown_university_biomedical_biosensor_diagnostics_large_networks,A,true,pending,Nurmikko — wireless biosensor networks,Large scale wireless biosensor networks for Diagnostic Opportunity,Brown University,Nurmikko — wireless biosensor networks,diagnostic,validation,Brown University,,Deduped patent family (2 of 4 records); review scope and naming.,2026-05-28,,"""Biowear"" (""Series A"" OR ""Series B"" OR ""Series C"" OR seed OR ""venture capital"" OR ""funding round"") | Biowear total funding raised venture capital investors | Biowear funding site:prnewswire.com OR site:businesswire.com OR site:techcrunch.com OR site:fiercebiotech.com | Biowear crunchbase funding rounds | ""Senphonix"" (""Series A"" OR ""Series B"" OR ""Series C"" OR seed OR ""venture capital"" OR ""funding round"") | Senphonix total funding raised venture capital investors | Senphonix funding site:prnewswire.com OR site:businesswire.com OR site:techcrunch.com OR site:fiercebiotech.com | Senphonix crunchbase funding rounds | ""AOKNOS"" (""Series A"" OR ""Series B"" OR ""Series C"" OR seed OR ""venture capital"" OR ""funding round"") | AOKNOS total funding raised venture capital investors | AOKNOS funding site:prnewswire.com OR site:businesswire.com OR site:techcrunch.com OR site:fiercebiotech.com | AOKNOS crunchbase funding rounds | Brown University Nurmikko — wireless biosensor networks preclinical development milestone | Nurmikko — wireless biosensor networks translational research Rhode Island","[comp1_heuristic] Program / company page (on file) | https://www.biowear.net/
+[comp1_heuristic] SEC EDGAR search | https://www.sec.gov/edgar/search/#/q=Biowear
+[comp2_heuristic] Program / company page (on file) | https://senphonix.com/solution
+[comp2_heuristic] SEC EDGAR search | https://www.sec.gov/edgar/search/#/q=Senphonix
+[comp3_heuristic] Program / company page (on file) | https://aoknos.com/
+[comp3_heuristic] SEC EDGAR search | https://www.sec.gov/edgar/search/#/q=AOKNOS",104-492-034-772-215,US 12303230 B2,Large-scale wireless biosensor networks for biomedical diagnostics,https://lens.org/104-492-034-772-215,BROWN UNIVERSITY,NURMIKKO ARTO|LEE JIHUN|LEE AH-HYOUNG|LAIWALLA FARAH,104-492-034-772-215,Large-scale wireless biosensor networks for biomedical diagnostics,https://lens.org/104-492-034-772-215,6,"An asynchronous wireless network for capturing event-driven data from large populations of autonomous sensors.
+Future of Neural Interfaces.
+Integrated device for optical stimulation and spatiotemporal electrical recording of neural activity in light-sensitized brain tissue.
+Active microelectronic neurosensor arrays for implantable brain communication interfaces.
+Wireless, high-bandwidth recordings from non-human primate motor cortex using a scalable 16-Ch implantable microsystem.
+Patterned electrical brain stimulation by a wireless network of implantable microdevices.","Jihun Lee
+Farah Laiwalla
+Jiayi Zhang
+Y-K Song
+David A Borton
+Ah-Hyoung Lee","Brown University
+Brown University
+Brown University
+Brown University
+Brown University
+Brown University","https://pubmed.ncbi.nlm.nih.gov/38737565/
+https://pubmed.ncbi.nlm.nih.gov/31729678/
+https://pubmed.ncbi.nlm.nih.gov/19721185/
+https://pubmed.ncbi.nlm.nih.gov/19502132/
+https://pubmed.ncbi.nlm.nih.gov/19964128/
+https://pubmed.ncbi.nlm.nih.gov/39572612/","38737565
+31729678
+19721185
+19502132
+19964128
+39572612","6 RI lead-author publication(s) via BioMCP/PubMed (inventors: LAIWALLA, LEE, NURMIKKO).","A Scalable and Low Stress Post-CMOS Processing Technique for Implantable Microsensors.
+Genetic drivers of heterogeneity in type 2 diabetes pathophysiology.
+Inherited causes of clonal haematopoiesis in 97,691 whole genomes.
+Guidelines for the use and interpretation of assays for monitoring autophagy (4th edition)1.
+Multi-ancestry genetic study of type 2 diabetes highlights the power of diverse populations for discovery and translation.
+Genetic diversity fuels gene discovery for tobacco and alcohol use.
+A shape-memory and spiral light-emitting device for precise multisite stimulation of nerve bundles.
+Generation of single-cell and single-nuclei suspensions from embryonic and adult mouse brains.","https://pubmed.ncbi.nlm.nih.gov/33028005/
+https://pubmed.ncbi.nlm.nih.gov/38374256/
+https://pubmed.ncbi.nlm.nih.gov/33057201/
+https://pubmed.ncbi.nlm.nih.gov/33634751/
+https://pubmed.ncbi.nlm.nih.gov/35551307/
+https://pubmed.ncbi.nlm.nih.gov/36477530/
+https://pubmed.ncbi.nlm.nih.gov/31243276/
+https://pubmed.ncbi.nlm.nih.gov/36520627/","BioMCP patent-linked; not RI lead author
+BioMCP patent-linked; not RI lead author
+BioMCP patent-linked; not RI lead author
+BioMCP patent-linked; not RI lead author
+BioMCP patent-linked; not RI lead author
+BioMCP patent-linked; not RI lead author
+BioMCP patent-linked; not RI lead author
+BioMCP patent-linked; not RI lead author; inventors: LEE",1003392689,Arto Nurmikko,Neurology,Brown University,https://vivo.brown.edu/display/anurmikk,"1023039740|DENNIS AUMENTADO|NEUROLOGY|NORTH SMITHFIELD, RI|reviewer
+1023135720|PREETI GUPTA|NEUROLOGY|EAST PROVIDENCE, RI|reviewer
+1023182383|JUAN CANTON|NEUROLOGY|WARWICK, RI|reviewer
+1023291556|CHIZOBA UMEH|NEUROLOGY|ACCESS TELECARE PLLC|reviewer",,Biowear,startup,https://www.biowear.net/,,,,,,Venture + hospital partners,Hospital validation → deployment,suggested,Senphonix (SleeveSense),startup,https://senphonix.com/solution,,,,,,Seed medtech,Pilot → health-system integration,suggested,AOKNOS,startup,https://aoknos.com/,,,,,,Seed,Algorithm validation → FDA path,suggested,,,,seed,400000,200000,200000,,,Seed/Series A RI package capped at policy limit; 50% physician syndicate / 50% Slater SSBCI match.,,,,,,,Near-term R&D for Nurmikko — wireless biosensor networks (validation stage). Development path analog: Biowear — Hospital validation → deployment. RI co-investment package targets de-risking experiments and clinical-ready milestones aligned with physician syndicate diligence.,,,interventional,clinical_outcome,270,5821200,"Clinical path draft — confirm trial design, PI, and NCT fit before approval.",40,"Brown University — Nurmikko — wireless biosensor networks. focused on Nurmikko — wireless biosensor networks. comparable path: Biowear. financing precedent: Venture + hospital partners. RI package: 400,000 USD (50% physician / 50% Slater SSBCI, policy cap)..",ip,physician_50_slater_ssbci_50,mixed_slater_physician_hospital_bd,neurology|neurosurgery|physical medicine and rehabilitation,neurology|neurosurgery|medical_device,,web_enriched
+auto_brown_university_brain_chemotherapeutic_drug_enhancing_tumors_upt,A,true,pending,Brown — brain tumor chemo uptake,METHODS AND COMPOSITIONS FOR ENHANCING CHEMOTHERAPEUTIC Therapeutic Opportunity,Brown University,Brown — brain tumor chemo uptake,therapeutic,validation,Brown University,,Deduped patent family (1 of 1 records); review scope and naming.,2026-05-28,,Brown University Brown — brain tumor chemo uptake preclinical development milestone | Brown — brain tumor chemo uptake translational research Rhode Island,,152-495-100-609-294,US 2024/0358678 A1,METHODS AND COMPOSITIONS FOR ENHANCING CHEMOTHERAPEUTIC DRUG UPTAKE INTO BRAIN TUMORS,https://lens.org/152-495-100-609-294,BROWN UNIVERSITY,LAWLER SEAN|JIMENEZ-MACIAS JORGE-LUIS,152-495-100-609-294,METHODS AND COMPOSITIONS FOR ENHANCING CHEMOTHERAPEUTIC DRUG UPTAKE INTO BRAIN TUMORS,https://lens.org/152-495-100-609-294,4,"Modulation of blood-tumor barrier transcriptional programs improves intratumoral drug delivery and potentiates chemotherapy in GBM.
+Modulation of blood-tumor barrier transcriptional programs improves intra-tumoral drug delivery and potentiates chemotherapy in GBM.
+Decoding the biology of the blood-brain tumor barrier in brain cancer.
+Clinical implications of cytomegalovirus in glioblastoma progression and therapy.","Jorge L Jimenez-Macias
+Jorge L Jimenez-Macias
+Jorge L Jimenez Macias
+Noe B Mercado","Brown University
+Brown University
+Brown University
+Brown University","https://pubmed.ncbi.nlm.nih.gov/40009687/
+https://pubmed.ncbi.nlm.nih.gov/39253453/
+https://pubmed.ncbi.nlm.nih.gov/41854391/
+https://pubmed.ncbi.nlm.nih.gov/39343770/","40009687
+39253453
+41854391
+39343770","4 RI lead-author publication(s) via BioMCP/PubMed (inventors: JIMENEZ-MACIAS, LAWLER).","STING activation promotes robust immune response and NK cell-mediated tumor regression in glioblastoma models.
+Inflammasome activation: from molecular mechanisms to autoinflammation.
+PPRX-1701, a nanoparticle formulation of 6'-bromoindirubin acetoxime, improves delivery and shows efficacy in preclinical GBM models.
+Cytomegalovirus-induced oncomodulation drives immune escape in glioblastoma.
+Acquired resistance to molecularly targeted therapies for cancer.
+Parental grief: a qualitative analysis of gratitude.
+Current pattern of antibiotics prescription to prevent surgical site infection after lower third molar removal.
+Quality of work life: perspectives and directions.","https://pubmed.ncbi.nlm.nih.gov/35787058/
+https://pubmed.ncbi.nlm.nih.gov/35832835/
+https://pubmed.ncbi.nlm.nih.gov/37060903/
+https://pubmed.ncbi.nlm.nih.gov/40676060/
+https://pubmed.ncbi.nlm.nih.gov/40510029/
+https://pubmed.ncbi.nlm.nih.gov/40525905/
+https://pubmed.ncbi.nlm.nih.gov/19089106/
+https://pubmed.ncbi.nlm.nih.gov/10259588/","BioMCP patent-linked; not RI lead author
+BioMCP patent-linked; not RI lead author
+BioMCP patent-linked; not RI lead author
+BioMCP patent-linked; not RI lead author
+BioMCP patent-linked; not RI lead author
+BioMCP patent-linked; not RI lead author; inventors: LAWLER
+BioMCP patent-linked; not RI lead author; inventors: LAWLER
+BioMCP patent-linked; not RI lead author; inventors: LAWLER",,SEAN LAWLER,Neuro-oncology,Brown University,https://vivo.brown.edu/display/slawler,"1194249565|MOHAMMED JALOUDI|MEDICAL ONCOLOGY|AFFINITY PHYSICIANS LLC.|reviewer
+1336596774|KATHRYN DECARLI|MEDICAL ONCOLOGY|RHODE ISLAND HOSPITAL|reviewer
+1790977650|KHALDOUN ALMHANNA|MEDICAL ONCOLOGY|RHODE ISLAND HOSPITAL|reviewer
+1821070418|PLAKYIL JOSEPH|MEDICAL ONCOLOGY|AFFINITY PHYSICIANS LLC.|reviewer",,Carthera (Sonocloud BBB),startup,https://www.carthera.eu/,55100000,total_raised,https://carthera.eu/,55100000,45000000,"~$55M total; Series B €42M (~$45M, Dec 2023)",Clinical trials in neuro-onc,verified,Insightec (Exablate / tFUS BBB),startup,https://insightec.com/,150000000,last_round,https://insightec.com/news/insightec-announces-150m-financing-to-fund-continued-growth/,810000000,150000000,$150M equity round (Jun 2024); BBB-opening tFUS platform,Non-invasive FUS BBB modulation → neuro-onc trials,verified,,,,,,,,,,,,,,,seed,400000,200000,200000,,,Seed/Series A RI package capped at policy limit; 50% physician syndicate / 50% Slater SSBCI match.,,,,,,,Near-term R&D for Brown — brain tumor chemo uptake (validation stage). Development path analog: Carthera (Sonocloud BBB) — Clinical trials in neuro-onc. RI co-investment package targets de-risking experiments and clinical-ready milestones aligned with physician syndicate diligence.,,,interventional,clinical_outcome,34,3447704,"Clinical path draft — confirm trial design, PI, and NCT fit before approval.",40,"Brown University — Brown — brain tumor chemo uptake. focused on Brown — brain tumor chemo uptake. comparable path: Carthera (Sonocloud BBB). financing precedent: ~$55M total; Series B €42M (~$45M, Dec 2023). RI package: 400,000 USD (50% physician / 50% Slater SSBCI, policy cap)..",ip,physician_50_slater_ssbci_50,mixed_slater_physician_hospital_bd,oncology|hospital medicine|clinical pharmacology,clinical_pharmacology|medical_oncology,,web_enriched
+auto_brown_university_drug_overdose,A,true,pending,Brown — drug overdose therapeutics,METHODS AND COMPOSITIONS FOR THE TREATMENT Therapeutic Opportunity,Brown University,Brown — drug overdose therapeutics,therapeutic,validation,Brown University,,Deduped patent family (1 of 1 records); review scope and naming.,2026-05-28,,"""Harm Reduction Therapeutics"" (""Series A"" OR ""Series B"" OR ""Series C"" OR seed OR ""venture capital"" OR ""funding round"") | Harm Reduction Therapeutics total funding raised venture capital investors | Harm Reduction Therapeutics funding site:prnewswire.com OR site:businesswire.com OR site:techcrunch.com OR site:fiercebiotech.com | Harm Reduction Therapeutics crunchbase funding rounds | Brown University Brown — drug overdose therapeutics preclinical development milestone | Brown — drug overdose therapeutics translational research Rhode Island","[comp2_heuristic] Program / company page (on file) | https://www.harmreductiontherapeutics.org/
+[comp2_heuristic] SEC EDGAR search | https://www.sec.gov/edgar/search/#/q=Harm%20Reduction%20Therapeutics",181-952-140-739-838,US 2024/0415829 A1,METHODS AND COMPOSITIONS FOR THE TREATMENT OF DRUG OVERDOSE,https://lens.org/181-952-140-739-838,BROWN UNIVERSITY,MCCANCE-KATZ ELINORE|HAASS-KOFFLER CAROLINA L,181-952-140-739-838,METHODS AND COMPOSITIONS FOR THE TREATMENT OF DRUG OVERDOSE,https://lens.org/181-952-140-739-838,6,"Oxytocin Reduces Noradrenergic-Induced Opioid-Like Withdrawal Symptoms in Individuals on Opioid Agonist Therapy.
+Randomized controlled trials for alcohol use disorder during the COVID-19 pandemic.
+Translational dynamics of alcohol tolerance of preclinical models and human laboratory studies.
+Disruption of circadian rhythms promotes alcohol use: a systematic review.
+Noradrenergic targets for the treatment of alcohol use disorder.
+Pharmacotherapy for alcoholic patients with alcoholic liver disease.","Brian J Gully
+Zoe E Brown
+Carolina L Haass-Koffler
+Morgan J Nelson
+Carolina L Haass-Koffler
+Cynthia L Vuittonet","Brown University
+Brown University
+Brown University
+Brown University
+Brown University
+Brown University","https://pubmed.ncbi.nlm.nih.gov/39534517/
+https://pubmed.ncbi.nlm.nih.gov/33434615/
+https://pubmed.ncbi.nlm.nih.gov/32212746/
+https://pubmed.ncbi.nlm.nih.gov/38123479/
+https://pubmed.ncbi.nlm.nih.gov/29460163/
+https://pubmed.ncbi.nlm.nih.gov/25027533/","39534517
+33434615
+32212746
+38123479
+29460163
+25027533","6 RI lead-author publication(s) via BioMCP/PubMed (inventors: HAASS-KOFFLER, MCCance-katz).","Translational Research in the Neurobiological Mechanisms of Alcohol and Substance Use Disorders.
+The Practice and Feasibility of Screening, Treatment, and Referral for Gaming Problems in Gambling, Alcohol and Other Drugs, and Youth Services.
+Belief, Behavior, and Belonging: How Faith is Indispensable in Preventing and Recovering from Substance Abuse.
+Cell Type-Specific Expression of Corticotropin-Releasing Hormone-Binding Protein in GABAergic Interneurons in the Prefrontal Cortex.
+How laboratory studies of cigarette craving can inform the experimental alcohol craving literature.
+Introduction to the Special Issue on ""Informing Longitudinal Studies on the Effects of Maternal Stress and Substance Use on Child Development: Planning for the HEALthy Brain and Child Development (HBCD) Study"".
+A review of pharmacological interactions between HIV or hepatitis C virus medications and opioid agonist therapy: implications and management for clinical practice.","https://pubmed.ncbi.nlm.nih.gov/31965552/
+https://pubmed.ncbi.nlm.nih.gov/36714324/
+https://pubmed.ncbi.nlm.nih.gov/31359242/
+https://pubmed.ncbi.nlm.nih.gov/29066956/
+https://pubmed.ncbi.nlm.nih.gov/35037262/
+https://pubmed.ncbi.nlm.nih.gov/33106790/
+https://pubmed.ncbi.nlm.nih.gov/23656339/","BioMCP patent-linked; not RI lead author
+BioMCP patent-linked; not RI lead author; inventors: MCCance-katz
+BioMCP patent-linked; not RI lead author; inventors: MCCance-katz
+BioMCP patent-linked; not RI lead author; inventors: HAASS-KOFFLER
+BioMCP patent-linked; not RI lead author; inventors: HAASS-KOFFLER
+BioMCP patent-linked; not RI lead author; inventors: MCCance-katz
+BioMCP patent-linked; not RI lead author; inventors: MCCance-katz",,CAROLINA HAASS-KOFFLER,Addiction medicine / translational pharmacology,Brown University,https://vivo.brown.edu/display/chaassko,1265446538|LAWRENCE PROANO|EMERGENCY MEDICINE|EMERGENCY CARE SERVICES OF NEW ENGLAND PC|reviewer,,Indivior,public,https://www.indivior.com/,4870000000,market_cap,https://public.com/stocks/indv/market-cap,4870000000,,Public (NASDAQ INDV); ~$4.9B market cap; opioid-use-disorder portfolio,NDA/BLA path,verified,Harm Reduction Therapeutics,startup,https://www.harmreductiontherapeutics.org/,,,,,,Grants + philanthropy,Regulatory → distribution,suggested,,,,,,,,,,,,,,,seed,400000,200000,200000,,,Seed/Series A RI package capped at policy limit; 50% physician syndicate / 50% Slater SSBCI match.,,,,,,,Near-term R&D for Brown — drug overdose therapeutics (validation stage). Development path analog: Indivior — NDA/BLA path. RI co-investment package targets de-risking experiments and clinical-ready milestones aligned with physician syndicate diligence.,,,interventional,clinical_outcome,34,3447704,"Clinical path draft — confirm trial design, PI, and NCT fit before approval.",40,"Brown University — Brown — drug overdose therapeutics. focused on Brown — drug overdose therapeutics. comparable path: Indivior. financing precedent: Public (NASDAQ INDV); ~$4.9B market cap; opioid-use-disorder portfolio. RI package: 400,000 USD (50% physician / 50% Slater SSBCI, policy cap)..",ip,physician_50_slater_ssbci_50,mixed_slater_physician_hospital_bd,addiction medicine|emergency medicine,clinical_pharmacology|medical_oncology,,web_enriched
+auto_brown_university_implantable_neural_wireless,A,true,pending,Nurmikko — implantable wireless neural device,Implantable wireless neural device Medical Device Opportunity,Brown University,Nurmikko — implantable wireless neural device,medical_device,validation,Brown University,,Deduped patent family (2 of 2 records); review scope and naming.,2026-05-28,,"""Blackrock Neurotech"" (""Series A"" OR ""Series B"" OR ""Series C"" OR seed OR ""venture capital"" OR ""funding round"") | Blackrock Neurotech total funding raised venture capital investors | Blackrock Neurotech funding site:prnewswire.com OR site:businesswire.com OR site:techcrunch.com OR site:fiercebiotech.com | Blackrock Neurotech crunchbase funding rounds | Brown University Nurmikko — implantable wireless neural device preclinical development milestone | Nurmikko — implantable wireless neural device translational research Rhode Island","[comp3_heuristic] Program / company page (on file) | https://www.blackrockneuro.com/
+[comp3_heuristic] SEC EDGAR search | https://www.sec.gov/edgar/search/#/q=Blackrock%20Neurotech",086-564-880-656-79X,US 10433754 B2,Implantable wireless neural device,https://lens.org/086-564-880-656-79X,BROWN UNIVERSITY,NURMIKKO ARTO V|YIN MING|PATTERSON WILLIAM R|ACEROS JUAN|BORTON DAVID A|BULL CHRISTOPHER W|LAIWALLA FARAH,086-564-880-656-79X,Implantable wireless neural device,https://lens.org/086-564-880-656-79X,6,"Listening to Brain Microcircuits for Interfacing With External World-Progress in Wireless Implantable Microelectronic Neuroengineering Devices: Experimental systems are described for electrical recording in the brain using multiple microelectrodes and short range implantable or wearable broadcasting units.
+Developing implantable neuroprosthetics: a new model in pig.
+A 100-channel hermetically sealed implantable device for chronic wireless neurosensing applications.
+A 32-channel fully implantable wireless neurosensor for simultaneous recording from two cortical regions.
+Wireless, high-bandwidth recordings from non-human primate motor cortex using a scalable 16-Ch implantable microsystem.
+An implantable wireless neural interface for recording cortical circuit dynamics in moving primates.","Arto V Nurmikko
+David Borton
+Ming Yin
+Juan Aceros
+David A Borton
+David A Borton","Brown University
+Brown University
+Brown University
+Brown University
+Brown University
+Brown University","https://pubmed.ncbi.nlm.nih.gov/21654935/
+https://pubmed.ncbi.nlm.nih.gov/22254977/
+https://pubmed.ncbi.nlm.nih.gov/23853294/
+https://pubmed.ncbi.nlm.nih.gov/22254801/
+https://pubmed.ncbi.nlm.nih.gov/19964128/
+https://pubmed.ncbi.nlm.nih.gov/23428937/","21654935
+22254977
+23853294
+22254801
+19964128
+23428937","6 RI lead-author publication(s) via BioMCP/PubMed (inventors: ACEROS, BORTON, BULL, LAIWALLA, NURMIKKO, PATTERSON, YIN).","Electro-Quasistatic Animal Body Communication for Untethered Rodent Biopotential Recording.
+Self-powered wireless carbohydrate/oxygen sensitive biodevice based on radio signal transmission.
+A Review: Electrode and Packaging Materials for Neurophysiology Recording Implants.
+Sensors and decoding for intracortical brain computer interfaces.","https://pubmed.ncbi.nlm.nih.gov/33558552/
+https://pubmed.ncbi.nlm.nih.gov/25310190/
+https://pubmed.ncbi.nlm.nih.gov/33585422/
+https://pubmed.ncbi.nlm.nih.gov/23862678/","BioMCP patent-linked; not RI lead author; inventors: BORTON
+BioMCP patent-linked; not RI lead author; inventors: BORTON
+BioMCP patent-linked; not RI lead author; inventors: BORTON
+BioMCP patent-linked; not RI lead author; inventors: ACEROS, BORTON, YIN",1003392689,Arto V Nurmikko,Neurology,Brown University,https://vivo.brown.edu/display/anurmikk,"1023039740|DENNIS AUMENTADO|NEUROLOGY|NORTH SMITHFIELD, RI|reviewer
+1023135720|PREETI GUPTA|NEUROLOGY|EAST PROVIDENCE, RI|reviewer
+1023182383|JUAN CANTON|NEUROLOGY|WARWICK, RI|reviewer
+1023291556|CHIZOBA UMEH|NEUROLOGY|ACCESS TELECARE PLLC|reviewer",,Iota Biosciences (neural dust),pharma_deal,https://newsroom.astellas.com/2020-10-30-Astellas-Completes-Acquisition-of-iota-Biosciences,304000000,acquisition,https://newsroom.astellas.com/2020-10-30-Astellas-Completes-Acquisition-of-iota-Biosciences,15000000,127500000,$15M Series A (May 2018); $127.5M upfront acquisition (Oct 2020) + up to $176.5M milestones; $125M five-year post-close R&D commitment,Preclinical → Astellas R&D partnership → acquisition → Rx+ platform,verified,Synchron (Stentrode),startup,https://synchron.com/,345000000,total_raised,https://www.businesswire.com/news/home/20251106150841/en/Synchron-Raises-200-Million-Series-D-to-Advance-Brain-Computer-Interface-Technology,345000000,200000000,$345M lifetime; $200M Series D (Nov 2025),IDE → pivotal → PMA,verified,Blackrock Neurotech,startup,https://www.blackrockneuro.com/,,,,,,Strategic + grants,Research grants → clinical trials,suggested,,,,seed,400000,200000,200000,,,Seed/Series A RI package capped at policy limit; 50% physician syndicate / 50% Slater SSBCI match.,,,,,,,Near-term R&D for Nurmikko — implantable wireless neural device (validation stage). Development path analog: Iota Biosciences (neural dust) — Preclinical → Astellas R&D partnership → acquisition → Rx+ platform. RI co-investment package targets de-risking experiments and clinical-ready milestones aligned with physician syndicate diligence.,,,interventional,clinical_outcome,311,4246704,"Clinical path draft — confirm trial design, PI, and NCT fit before approval.",40,"Brown University — Nurmikko — implantable wireless neural device. focused on Nurmikko — implantable wireless neural device. comparable path: Iota Biosciences (neural dust). financing precedent: $15M Series A (May 2018); $127.5M upfront acquisition (Oct 2020) + up to $176.5M milestones; $125M five-year post-close R&D commitment. RI package: 400,000 USD (50% physician / 50% Slater SSBCI, policy cap)..",ip,physician_50_slater_ssbci_50,mixed_slater_physician_hospital_bd,neurology|neurosurgery|physical medicine and rehabilitation,neurology|neurosurgery|medical_device,brown_neurotech,web_enriched
+auto_noramco_2020_hydrochloride_methylphenidate_synthesis_temperat,A,true,pending,Noramco — methylphenidate synthesis,Low temperature synthesis methylphenidate hydrochloride Technology Platform Opportunity,Noramco LLC,Noramco — methylphenidate synthesis,platform,validation,Noramco LLC,,Deduped patent family (2 of 2 records); review scope and naming.,2026-05-28,,"""Rhodes Technologies"" (""Series A"" OR ""Series B"" OR ""Series C"" OR seed OR ""venture capital"" OR ""funding round"") | Rhodes Technologies total funding raised venture capital investors | Rhodes Technologies funding site:prnewswire.com OR site:businesswire.com OR site:techcrunch.com OR site:fiercebiotech.com | Rhodes Technologies crunchbase funding rounds | Rhodes Technologies acquisition OR IPO OR market cap | ""C Huntley"" site:lifespan.org OR site:rhodeislandhospital.org | ""C Huntley"" site:web.uri.edu OR site:ele.uri.edu | ""C Huntley"" Brown Warren Alpert OR ""Rhode Island Hospital"" physician | Noramco LLC Noramco — methylphenidate synthesis preclinical development milestone | Noramco — methylphenidate synthesis translational research Rhode Island","[comp1_heuristic] Program / company page (on file) | https://www.rhodestech.com/
+[comp1_heuristic] SEC EDGAR search | https://www.sec.gov/edgar/search/#/q=Rhodes%20Technologies
+[profile] no profile URL found | see web_search_queries",091-572-312-359-923,US 9475770 B2,Low-temperature synthesis of methylphenidate hydrochloride,https://lens.org/091-572-312-359-923,NORAMCO LLC,HUNTLEY C FREDERICK M|KATAISTO ERIK WAYNE|LA LUMIERE KNICHOLAUS DUDLEY|REISCH HELGE ALFRED,091-572-312-359-923,Low-temperature synthesis of methylphenidate hydrochloride,https://lens.org/091-572-312-359-923,,,,,,,,,,,1144406802,C Frederick M Huntley,Pain Management,Noramco LLC,,"1194810507|NEBYOU BELAY|ADDICTION MEDICINE|THRIVE BEHAVIORAL HEALTH INC|reviewer
+1205850989|SYLVESTER SVIOKLA|ADDICTION MEDICINE|WARWICK, RI|reviewer
+1629427265|CAROLINE WUNSCH|ADDICTION MEDICINE|RHODE ISLAND HOSPITAL|reviewer
+1679991806|CECILIA FIX|ADDICTION MEDICINE|LIFESPAN PHYSICIAN GROUP INC|reviewer",,Rhodes Technologies,incumbent,https://www.rhodestech.com/,,,,,,Operating cash flow + SSBCI/capex,Process validation → commercial supply,suggested,Collegium Pharmaceutical,public,https://www.collegiumpharma.com/,1180000000,market_cap,https://finance.yahoo.com/quote/COLL/,1180000000,,Public (NASDAQ COLL); ~$1.2B market cap; pain/opioid reformulation model,FDA approvals → commercialization,verified,,,,,,,,,,,,,,,seed,400000,200000,200000,,,Seed/Series A RI package capped at policy limit; 50% physician syndicate / 50% Slater SSBCI match.,,,,,,,Near-term R&D for Noramco — methylphenidate synthesis (validation stage). Development path analog: Rhodes Technologies — Process validation → commercial supply. RI co-investment package targets de-risking experiments and clinical-ready milestones aligned with physician syndicate diligence.,,,interventional,clinical_outcome,469,343728,"Clinical path draft — confirm trial design, PI, and NCT fit before approval.",40,"Noramco LLC — Noramco — methylphenidate synthesis. focused on Noramco — methylphenidate synthesis. comparable path: Rhodes Technologies. financing precedent: Operating cash flow + SSBCI/capex. RI package: 400,000 USD (50% physician / 50% Slater SSBCI, policy cap)..",ip,physician_50_slater_ssbci_50,mixed_slater_physician_hospital_bd,pain management|anesthesiology|addiction medicine|psychiatry,pain_medicine|anesthesiology|behavioral_health,ri_pharma_chemistry,web_enriched
+auto_regents_university_anti_compounds_inflammatory_inhibition_making_qu,A,false,pending,URI — marine anti-inflammatory / quorum sensing,Anti inflammatory and quorum sensing inhibition Therapeutic Opportunity,University of California,URI — marine anti-inflammatory / quorum sensing,therapeutic,discovery,University of California,,Deduped patent family (2 of 2 records); review scope and naming. [excluded from catalog: non-RI assignee],2026-05-28,,,,088-720-257-229-600,US 9073884 B2,Anti-inflammatory and quorum sensing inhibition compounds and methods of making and using them,https://lens.org/088-720-257-229-600,THE REGENTS OF THE UNIVERSITY OF CALIFORNIA,GERWICK WILLIAM|GERWICK LENA|CHOI HYUAKJAE|VILLA FRANCISCO|SMITH JENNIFER|ROWLEY DAVID C,088-720-257-229-600|013-324-492-820-77X,"Anti-inflammatory and quorum sensing inhibition compounds and methods of making and using them
+ANTI-INFLAMMATORY AND QUORUM SENSING INHIBITION COMPOUNDS AND METHODS OF MAKING AND USING THEM","https://lens.org/088-720-257-229-600
+https://lens.org/013-324-492-820-77X",,,,,,,,,,,1003871336,William Gerwick,Oncology,University of California,,"1194249565|MOHAMMED JALOUDI|MEDICAL ONCOLOGY|AFFINITY PHYSICIANS LLC.|reviewer
+1336596774|KATHRYN DECARLI|MEDICAL ONCOLOGY|RHODE ISLAND HOSPITAL|reviewer
+1790977650|KHALDOUN ALMHANNA|MEDICAL ONCOLOGY|RHODE ISLAND HOSPITAL|reviewer
+1821070418|PLAKYIL JOSEPH|MEDICAL ONCOLOGY|AFFINITY PHYSICIANS LLC.|reviewer",,URI marine natural product program,research,https://web.uri.edu/pharmacy/,,,,,,NIH + URI translational,Grant → lead optimization → spinout,suggested,,,,,,,,,,,,,,,,,,,,,,,,,,seed,400000,200000,200000,,,Seed/Series A RI package capped at policy limit; 50% physician syndicate / 50% Slater SSBCI match.,,,,,,,,,,interventional,clinical_outcome,34,3447704,"Clinical path draft — confirm trial design, PI, and NCT fit before approval.",24,"University of California — URI — marine anti-inflammatory / quorum sensing. focused on URI — marine anti-inflammatory / quorum sensing. comparable path: URI marine natural product program. financing precedent: NIH + URI translational. RI package: 400,000 USD (50% physician / 50% Slater SSBCI, policy cap)..",ip,physician_50_slater_ssbci_50,mixed_slater_physician_hospital_bd,oncology|hospital medicine|clinical pharmacology,clinical_pharmacology|medical_oncology,,remediated_web_pass_v2
+auto_rhode_island_alloy_array_brain_cord_electrode_invasive_memory,A,true,pending,Shape-memory electrode array (spine/brain),SHAPE MEMORY ALLOY AND POLYMER ELECTRODE Medical Device Opportunity,Rhode Island Hospital,Shape-memory electrode array (spine/brain),medical_device,validation,Rhode Island Hospital,,Deduped patent family (1 of 1 records); review scope and naming.,2026-05-28,,"""Boston Scientific Vercise"" (""Series A"" OR ""Series B"" OR ""Series C"" OR seed OR ""venture capital"" OR ""funding round"") | Boston Scientific Vercise total funding raised venture capital investors | Boston Scientific Vercise funding site:prnewswire.com OR site:businesswire.com OR site:techcrunch.com OR site:fiercebiotech.com | Boston Scientific Vercise crunchbase funding rounds | Boston Scientific Vercise acquisition OR IPO OR market cap | ""Medtronic SenSight leads"" (""Series A"" OR ""Series B"" OR ""Series C"" OR seed OR ""venture capital"" OR ""funding round"") | Medtronic SenSight leads total funding raised venture capital investors | Medtronic SenSight leads funding site:prnewswire.com OR site:businesswire.com OR site:techcrunch.com OR site:fiercebiotech.com | Medtronic SenSight leads crunchbase funding rounds | Medtronic SenSight leads acquisition OR IPO OR market cap | ""Vikas Srivastava"" site:lifespan.org OR site:rhodeislandhospital.org | ""Vikas Srivastava"" site:web.uri.edu OR site:ele.uri.edu | ""Vikas Srivastava"" Brown Warren Alpert OR ""Rhode Island Hospital"" physician | Rhode Island Hospital Shape-memory electrode array (spine/brain) preclinical development milestone | Shape-memory electrode array (spine/brain) translational research Rhode Island","[comp1_heuristic] Program / company page (on file) | https://www.bostonscientific.com/
+[comp1_heuristic] SEC EDGAR search | https://www.sec.gov/edgar/search/#/q=Boston%20Scientific%20Vercise
+[comp2_heuristic] Program / company page (on file) | https://www.medtronic.com/
+[comp2_heuristic] SEC EDGAR search | https://www.sec.gov/edgar/search/#/q=Medtronic%20SenSight%20leads
+[profile] no profile URL found | see web_search_queries",198-710-266-309-345,US 2023/0166102 A1,SHAPE-MEMORY ALLOY AND POLYMER ELECTRODE ARRAY FOR MINIMALLY-INVASIVE SPINAL CORD AND BRAIN STIMULATION AND RECORDING,https://lens.org/198-710-266-309-345,RHODE ISLAND HOSPITAL,SRIVASTAVA VIKAS|TELFEIAN ALBERT|SAMPATH SHAILEN,198-710-266-309-345,SHAPE-MEMORY ALLOY AND POLYMER ELECTRODE ARRAY FOR MINIMALLY-INVASIVE SPINAL CORD AND BRAIN STIMULATION AND RECORDING,https://lens.org/198-710-266-309-345,6,"Shape Memory Nitinol Based Minimally Invasive Spinal Cord Stimulation Device Concept for Improved Pain Management.
+A COVID-19 model incorporating variants, vaccination, waning immunity, and population behavior.
+GLP-1 Receptor Agonists: Beyond Diabetes-What the Neurosurgeon Needs to Know.
+Tandem Detethering: A Novel One-Stage Approach Combining Cervicothoracic Cord Release Followed by Filum Terminale Sectioning.
+Development of posttraumatic frontal brain abscess in association with an orbital roof fracture and odontogenic abscess: A case report.
+Increasing Chemotherapeutic Efficacy Using pH-Modulating and Doxorubicin-Releasing Injectable Chitosan-Poly(ethylene glycol) Hydrogels.","Shailen G Sampath
+Zachary LaJoie
+Hael Abdulrazeq
+Natalie Amaral-Nieves
+Hael Abdulrazeq
+Zahra Ahmed","Brown University
+Brown University
+Brown University
+Brown University
+Brown University
+Brown University","https://pubmed.ncbi.nlm.nih.gov/35322993/
+https://pubmed.ncbi.nlm.nih.gov/36437375/
+https://pubmed.ncbi.nlm.nih.gov/39959894/
+https://pubmed.ncbi.nlm.nih.gov/41156039/
+https://pubmed.ncbi.nlm.nih.gov/36447845/
+https://pubmed.ncbi.nlm.nih.gov/37729014/","35322993
+36437375
+39959894
+41156039
+36447845
+37729014","6 RI lead-author publication(s) via BioMCP/PubMed (inventors: SAMPATH, SRIVASTAVA, TELFEIAN).","Editorial: Impact of SARS-CoV-2 on Antibiotic Resistance: Evolution of Treatment and Control Strategies.
+Prospects for observing and localizing gravitational-wave transients with Advanced LIGO, Advanced Virgo and KAGRA.
+Chordoma-Current Understanding and Modern Treatment Paradigms.
+Full endoscopic cervical spine surgery.
+Comments on: Senior residency: An opportunity missed?
+Robot-Assisted Navigation versus Computer-Assisted Navigation in Primary Total Knee Arthroplasty: Efficiency and Accuracy.
+A novel active biopolymer coating of pectin, potato starch, and pyrogallol: Impact on postharvest quality of tomato (Solanum lycopersicum L.).
+The dual promise of extracellular vesicles in lung diseases: towards reliable biomarkers and drug delivery vectors.","https://pubmed.ncbi.nlm.nih.gov/37602327/
+https://pubmed.ncbi.nlm.nih.gov/33015351/
+https://pubmed.ncbi.nlm.nih.gov/33806339/
+https://pubmed.ncbi.nlm.nih.gov/32656375/
+https://pubmed.ncbi.nlm.nih.gov/33463614/
+https://pubmed.ncbi.nlm.nih.gov/24967115/
+https://pubmed.ncbi.nlm.nih.gov/40183776/
+https://pubmed.ncbi.nlm.nih.gov/41605536/","BioMCP patent-linked; not RI lead author
+BioMCP patent-linked; not RI lead author
+BioMCP patent-linked; not RI lead author
+BioMCP patent-linked; not RI lead author
+BioMCP patent-linked; not RI lead author; inventors: SRIVASTAVA
+BioMCP patent-linked; not RI lead author; inventors: SAMPATH
+BioMCP patent-linked; not RI lead author; inventors: SAMPATH
+BioMCP patent-linked; not RI lead author; inventors: SAMPATH",1003392689,Vikas Srivastava,Neurology,Rhode Island Hospital,,"1023039740|DENNIS AUMENTADO|NEUROLOGY|NORTH SMITHFIELD, RI|reviewer
+1023135720|PREETI GUPTA|NEUROLOGY|EAST PROVIDENCE, RI|reviewer
+1023182383|JUAN CANTON|NEUROLOGY|WARWICK, RI|reviewer
+1023291556|CHIZOBA UMEH|NEUROLOGY|ACCESS TELECARE PLLC|reviewer",,Boston Scientific Vercise,incumbent,https://www.bostonscientific.com/,,,,,,Strategic,Commercial neurostimulation,suggested,Medtronic SenSight leads,incumbent,https://www.medtronic.com/,,,,,,Strategic,510(k) device line extensions,suggested,ClearPoint Neuro,startup,https://www.clearpointneuro.com/,335000000,market_cap,https://finance.yahoo.com/quote/CLPT/,335000000,,Public (NASDAQ CLPT); ~$335M market cap (May 2026),Commercial neuro navigation,verified,,,,seed,400000,200000,200000,,,Seed/Series A RI package capped at policy limit; 50% physician syndicate / 50% Slater SSBCI match.,,,,,,,Near-term R&D for Shape-memory electrode array (spine/brain) (validation stage). Development path analog: Boston Scientific Vercise — Commercial neurostimulation. RI co-investment package targets de-risking experiments and clinical-ready milestones aligned with physician syndicate diligence.,,,interventional,clinical_outcome,311,4246704,"Clinical path draft — confirm trial design, PI, and NCT fit before approval.",40,"Rhode Island Hospital — Shape-memory electrode array (spine/brain). focused on Shape-memory electrode array (spine/brain). comparable path: Boston Scientific Vercise. financing precedent: Strategic. RI package: 400,000 USD (50% physician / 50% Slater SSBCI, policy cap)..",ip,physician_50_slater_ssbci_50,mixed_slater_physician_hospital_bd,neurology|neurosurgery|physical medicine and rehabilitation,neurology|neurosurgery|medical_device,,web_enriched
+auto_rhode_island_anterior_cruciate_invasive_ligament_measurement,A,true,pending,ACL post-surgery outcome prediction (MRI),Non invasive measurement predict post surgery Technology Platform Opportunity,Rhode Island Hospital,ACL post-surgery outcome prediction (MRI),platform,validation,Rhode Island Hospital,,Deduped patent family (2 of 2 records); review scope and naming.,2026-05-28,,"""OrthoPred"" (""Series A"" OR ""Series B"" OR ""Series C"" OR seed OR ""venture capital"" OR ""funding round"") | OrthoPred total funding raised venture capital investors | OrthoPred funding site:prnewswire.com OR site:businesswire.com OR site:techcrunch.com OR site:fiercebiotech.com | OrthoPred crunchbase funding rounds | ""AIKESO"" (""Series A"" OR ""Series B"" OR ""Series C"" OR seed OR ""venture capital"" OR ""funding round"") | AIKESO total funding raised venture capital investors | AIKESO funding site:prnewswire.com OR site:businesswire.com OR site:techcrunch.com OR site:fiercebiotech.com | AIKESO crunchbase funding rounds | ""LigaNET"" (""Series A"" OR ""Series B"" OR ""Series C"" OR seed OR ""venture capital"" OR ""funding round"") | LigaNET total funding raised venture capital investors | LigaNET funding site:prnewswire.com OR site:businesswire.com OR site:techcrunch.com OR site:fiercebiotech.com | LigaNET crunchbase funding rounds | ""Braden Fleming"" site:lifespan.org OR site:rhodeislandhospital.org | ""Braden Fleming"" site:web.uri.edu OR site:ele.uri.edu | ""Braden Fleming"" Brown Warren Alpert OR ""Rhode Island Hospital"" physician | Rhode Island Hospital ACL post-surgery outcome prediction (MRI) preclinical development milestone | ACL post-surgery outcome prediction (MRI) translational research Rhode Island","[comp1_heuristic] Program / company page (on file) | https://orthopred.com/
+[comp1_heuristic] SEC EDGAR search | https://www.sec.gov/edgar/search/#/q=OrthoPred
+[comp2_heuristic] Program / company page (on file) | https://aikeso.com/
+[comp2_heuristic] SEC EDGAR search | https://www.sec.gov/edgar/search/#/q=AIKESO
+[comp3_heuristic] Program / company page (on file) | https://www.medrxiv.org/content/10.1101/2023.07.25.23293102v1
+[profile] no profile URL found | see web_search_queries",028-631-157-829-827,US 11234657 B2,Non-invasive measurement to predict post-surgery anterior cruciate ligament success,https://lens.org/028-631-157-829-827,RHODE ISLAND HOSPITAL,FLEMING BRADEN C|MURRAY MARTHA M,028-631-157-829-827,Non-invasive measurement to predict post-surgery anterior cruciate ligament success,https://lens.org/028-631-157-829-827,6,"Bridge-Enhanced Anterior Cruciate Ligament Restoration: 6-Year Results From the First-in-Human Cohort Study.
+Accuracy and Precision of Model-Based Tracking of a Dynamic Hop Landing Activity.
+Advancement of an automatic segmentation pipeline for metallic artifact removal in post-surgical ACL MRI.
+Automated magnetic resonance image segmentation of the anterior cruciate ligament.
+Hydrogel treatment for idiopathic osteoarthritis in a Dunkin Hartley Guinea pig model.
+Animal models of osteoarthritis: challenges of model selection and analysis.","Braden C Fleming
+John D Holtgrewe
+Dominique A Barnes
+Sean W Flannery
+Lauren R Parola
+Erin Teeple","Brown University
+Brown University
+Brown University
+Brown University
+Brown University
+Rhode Island Hospital","https://pubmed.ncbi.nlm.nih.gov/39143986/
+https://pubmed.ncbi.nlm.nih.gov/41301124/
+https://pubmed.ncbi.nlm.nih.gov/40348296/
+https://pubmed.ncbi.nlm.nih.gov/33241856/
+https://pubmed.ncbi.nlm.nih.gov/36449506/
+https://pubmed.ncbi.nlm.nih.gov/23329424/","39143986
+41301124
+40348296
+33241856
+36449506
+23329424","6 RI lead-author publication(s) via BioMCP/PubMed (inventors: FLEMING, MURRAY).","Bench-to-bedside: Bridge-enhanced anterior cruciate ligament repair.
+Articular cartilage and synovium may be important sources of post-surgical synovial fluid inflammatory mediators.","https://pubmed.ncbi.nlm.nih.gov/28608618/
+https://pubmed.ncbi.nlm.nih.gov/35422952/","BioMCP patent-linked; not RI lead author
+BioMCP patent-linked; not RI lead author",1003871336,Braden C Fleming,Oncology,Rhode Island Hospital,,"1023306974|SARA MALEKI|PATHOLOGY|RHODE ISLAND HOSPITAL|reviewer
+1063466621|GLADYS TELANG|PATHOLOGY|BROWN DERMATOLOGY INC|reviewer
+1073718417|LESLIE HUFF|PATHOLOGY|MASSTEX IMAGING, LLC|reviewer
+1073853248|MARIANA CANEPA|PATHOLOGY|RHODE ISLAND HOSPITAL|reviewer",,OrthoPred (DeepKnee),startup,https://orthopred.com/,,,,,,Seed/Series A imaging AI,CE/FDA software as medical device,suggested,AIKESO,startup,https://aikeso.com/,,,,,,Seed (Switzerland),Clinical pilots → FDA,suggested,LigaNET (ACL reinjury prediction),research,https://www.medrxiv.org/content/10.1101/2023.07.25.23293102v1,,,,,,NIH → seed,Academic validation → spinout,suggested,,,,seed,400000,200000,200000,,,Seed/Series A RI package capped at policy limit; 50% physician syndicate / 50% Slater SSBCI match.,,,,,,,Near-term R&D for ACL post-surgery outcome prediction (MRI) (validation stage). Development path analog: OrthoPred (DeepKnee) — CE/FDA software as medical device. RI co-investment package targets de-risking experiments and clinical-ready milestones aligned with physician syndicate diligence.,,,interventional,clinical_outcome,417,2938320,"Clinical path draft — confirm trial design, PI, and NCT fit before approval.",40,"Rhode Island Hospital — ACL post-surgery outcome prediction (MRI). focused on ACL post-surgery outcome prediction (MRI). comparable path: OrthoPred (DeepKnee). financing precedent: Seed/Series A imaging AI. RI package: 400,000 USD (50% physician / 50% Slater SSBCI, policy cap)..",ip,physician_50_slater_ssbci_50,mixed_slater_physician_hospital_bd,oncology|pathology|biostatistics,medical_oncology|pathology,,web_enriched
+auto_rhode_island_antibacterial_antibiofilm_auranofin_catheter_coa,A,true,pending,Auranofin antibiofilm catheter coating,Auranofin releasing antibacterial and antibiofilm polyurethane Medical Device Opportunity,Rhode Island Hospital,Auranofin antibiofilm catheter coating,medical_device,validation,Rhode Island Hospital,,Deduped patent family (2 of 2 records); review scope and naming.,2026-05-28,,"""Brown/RI Hospital auranofin catheter"" (""Series A"" OR ""Series B"" OR ""Series C"" OR seed OR ""venture capital"" OR ""funding round"") | Brown/RI Hospital auranofin catheter total funding raised venture capital investors | Brown/RI Hospital auranofin catheter funding site:prnewswire.com OR site:businesswire.com OR site:techcrunch.com OR site:fiercebiotech.com | Brown/RI Hospital auranofin catheter crunchbase funding rounds | ""Frontiers publication"" (""Series A"" OR ""Series B"" OR ""Series C"" OR seed OR ""venture capital"" OR ""funding round"") | Frontiers publication total funding raised venture capital investors | Frontiers publication funding site:prnewswire.com OR site:businesswire.com OR site:techcrunch.com OR site:fiercebiotech.com | Frontiers publication crunchbase funding rounds | ""Beth Fuchs"" site:lifespan.org OR site:rhodeislandhospital.org | ""Beth Fuchs"" site:web.uri.edu OR site:ele.uri.edu | ""Beth Fuchs"" Brown Warren Alpert OR ""Rhode Island Hospital"" physician | Rhode Island Hospital Auranofin antibiofilm catheter coating preclinical development milestone | Auranofin antibiofilm catheter coating translational research Rhode Island","[comp1_heuristic] Program / company page (on file) | https://engineering.brown.edu/news/2019-03-07/germ-fighting-catheter-coating-may-help-prevent-infections
+[comp3_heuristic] Program / company page (on file) | https://www.frontiersin.org/journals/cellular-and-infection-microbiology/articles/10.3389/fcimb.2019.00037/full
+[profile] no profile URL found | see web_search_queries",046-968-808-987-818,US 11931482 B2,Auranofin-releasing antibacterial and antibiofilm polyurethane intravascular catheter coatings,https://lens.org/046-968-808-987-818,RHODE ISLAND HOSPITAL,FUCHS BETH|SHUKLA ANITA|LIU HANYANG|MYLONAKIS ELEFTHERIOS,046-968-808-987-818|033-074-537-620-576,"Auranofin-releasing antibacterial and antibiofilm polyurethane intravascular catheter coatings
+AURANOFIN RELEASING ANTIBACTERIAL AND ANTIBIOFILM POLYURETHANE INTRAVASCULAR CATHETER COATINGS","https://lens.org/046-968-808-987-818
+https://lens.org/033-074-537-620-576",6,"Strategies against methicillin-resistant Staphylococcus aureus persisters.
+Antibacterial properties of 3-(phenylsulfonyl)-2-pyrazinecarbonitrile.
+Molecular and nonmolecular diagnostic methods for invasive fungal infections.
+Ubiquitin-proteasome system in the different stages of dominantly inherited Alzheimer's disease.
+Prevalence of Steatotic Liver Disease (MASLD, MetALD, and ALD) in the United States: NHANES 2017-2020.
+Antimicrobial Peptides and Small Molecules Targeting the Cell Membrane of Staphylococcus aureus.","Wooseong Kim
+Rajmohan Rajamuthiah
+Marios Arvanitis
+Haiyan Liu
+Markos Kalligeros
+Narchonai Ganesan","Brown University
+Brown University
+Brown University
+URI
+Brown University
+Brown University","https://pubmed.ncbi.nlm.nih.gov/29569952/
+https://pubmed.ncbi.nlm.nih.gov/26459212/
+https://pubmed.ncbi.nlm.nih.gov/24982319/
+https://pubmed.ncbi.nlm.nih.gov/40411302/
+https://pubmed.ncbi.nlm.nih.gov/37949334/
+https://pubmed.ncbi.nlm.nih.gov/37129495/","29569952
+26459212
+24982319
+40411302
+37949334
+37129495","6 RI lead-author publication(s) via BioMCP/PubMed (inventors: FUCHS, LIU, MYLONAKIS, SHUKLA).","Butenafine and analogues: An expeditious synthesis and cytotoxicity and antifungal activities.
+Current and promising pharmacotherapeutic options for candidiasis.
+Anti-MRSA agent discovery using Caenorhabditis elegans-based high-throughput screening.
+Guidelines for the use and interpretation of assays for monitoring autophagy (4th edition)1.
+Promotion of Lung Cancer Metastasis by SIRT2-Mediated Extracellular Protein Deacetylation.
+Inflammatory Macrophage Interleukin-1β Mediates High-Fat Diet-Induced Heart Failure With Preserved Ejection Fraction.
+Personalized Research on Diet in Ulcerative Colitis and Crohn's Disease: A Series of N-of-1 Diet Trials.
+The landscape of autosomal-dominant Alzheimer's disease: global distribution and age of onset.","https://pubmed.ncbi.nlm.nih.gov/30009053/
+https://pubmed.ncbi.nlm.nih.gov/33538201/
+https://pubmed.ncbi.nlm.nih.gov/32462486/
+https://pubmed.ncbi.nlm.nih.gov/33634751/
+https://pubmed.ncbi.nlm.nih.gov/36453571/
+https://pubmed.ncbi.nlm.nih.gov/36908663/
+https://pubmed.ncbi.nlm.nih.gov/35442220/
+https://pubmed.ncbi.nlm.nih.gov/39903689/","BioMCP patent-linked; not RI lead author
+BioMCP patent-linked; not RI lead author
+BioMCP patent-linked; not RI lead author
+BioMCP patent-linked; not RI lead author
+BioMCP patent-linked; not RI lead author
+BioMCP patent-linked; not RI lead author
+BioMCP patent-linked; not RI lead author
+BioMCP patent-linked; not RI lead author",1205814357,Beth Fuchs,Critical Care,Rhode Island Hospital,,,,Brown/RI Hospital auranofin catheter (published),research,https://engineering.brown.edu/news/2019-03-07/germ-fighting-catheter-coating-may-help-prevent-infections,,,,,,University translational + Slater,GLP → 510(k) catheter coating,suggested,CorMedix DefenCath,incumbent,https://www.cormedix.com/,570000000,market_cap,https://www.macrotrends.net/stocks/charts/CRMD/cormedix-inc/market-cap,570000000,,Public (NASDAQ CRMD); ~$570M market cap; DefenCath commercial,Commercial infection prevention,verified,Frontiers publication (auranofin PU coating),research,https://www.frontiersin.org/journals/cellular-and-infection-microbiology/articles/10.3389/fcimb.2019.00037/full,,,,,,Grant-funded science,Evidence package for 510(k),suggested,,,,seed,400000,200000,200000,,,Seed/Series A RI package capped at policy limit; 50% physician syndicate / 50% Slater SSBCI match.,,,,,,,Near-term R&D for Auranofin antibiofilm catheter coating (validation stage). Development path analog: Brown/RI Hospital auranofin catheter (published) — GLP → 510(k) catheter coating. RI co-investment package targets de-risking experiments and clinical-ready milestones aligned with physician syndicate diligence.,,,interventional,functional_or_symptom,82,4662646,"Clinical path draft — confirm trial design, PI, and NCT fit before approval.",40,"Rhode Island Hospital — Auranofin antibiofilm catheter coating. focused on Auranofin antibiofilm catheter coating. comparable path: Brown/RI Hospital auranofin catheter (published). financing precedent: University translational + Slater. RI package: 400,000 USD (50% physician / 50% Slater SSBCI, policy cap)..",ip,physician_50_slater_ssbci_50,mixed_slater_physician_hospital_bd,critical care|infectious disease|hospital medicine,medical_device,,web_enriched
+auto_rhode_island_behavioral_biomarkers_brain_closed_deep_features,A,true,pending,Closed-loop DBS with neural/behavioral biomarkers,CLOSED LOOP DEEP BRAIN STIMULATION USING Diagnostic Opportunity,Rhode Island Hospital,Closed-loop DBS with neural/behavioral biomarkers,diagnostic,validation,Rhode Island Hospital,,Deduped patent family (1 of 1 records); review scope and naming.,2026-05-28,,"""Medtronic Percept"" (""Series A"" OR ""Series B"" OR ""Series C"" OR seed OR ""venture capital"" OR ""funding round"") | Medtronic Percept total funding raised venture capital investors | Medtronic Percept funding site:prnewswire.com OR site:businesswire.com OR site:techcrunch.com OR site:fiercebiotech.com | Medtronic Percept crunchbase funding rounds | Medtronic Percept acquisition OR IPO OR market cap | ""Newronika"" (""Series A"" OR ""Series B"" OR ""Series C"" OR seed OR ""venture capital"" OR ""funding round"") | Newronika total funding raised venture capital investors | Newronika funding site:prnewswire.com OR site:businesswire.com OR site:techcrunch.com OR site:fiercebiotech.com | Newronika crunchbase funding rounds | ""Peter Lauro"" site:lifespan.org OR site:rhodeislandhospital.org | ""Peter Lauro"" site:web.uri.edu OR site:ele.uri.edu | ""Peter Lauro"" Brown Warren Alpert OR ""Rhode Island Hospital"" physician | Rhode Island Hospital Closed-loop DBS with neural/behavioral biomarkers preclinical development milestone | Closed-loop DBS with neural/behavioral biomarkers translational research Rhode Island","[comp1_heuristic] Program / company page (on file) | https://www.medtronic.com/en-us/healthcare-professionals/specialties/neurology/therapies-procedures/deep-brain-stimulation/product-portfolio/percept-family.html
+[comp1_heuristic] SEC EDGAR search | https://www.sec.gov/edgar/search/#/q=Medtronic%20Percept
+[comp3_heuristic] Program / company page (on file) | https://pmc.ncbi.nlm.nih.gov/articles/PMC11524207/
+[comp3_heuristic] SEC EDGAR search | https://www.sec.gov/edgar/search/#/q=Newronika
+[profile] no profile URL found | see web_search_queries",174-477-646-976-597,US 2024/0157144 A1,CLOSED-LOOP DEEP BRAIN STIMULATION USING NEURAL AND BEHAVIORAL BIOMARKERS OF SPECIFIC MOTOR FEATURES,https://lens.org/174-477-646-976-597,RHODE ISLAND HOSPITAL,LAURO PETER|LEE SHANE|AKBAR UMER|ASAAD WAEL,174-477-646-976-597,CLOSED-LOOP DEEP BRAIN STIMULATION USING NEURAL AND BEHAVIORAL BIOMARKERS OF SPECIFIC MOTOR FEATURES,https://lens.org/174-477-646-976-597,6,"Subthalamic-Cortical Network Reorganization during Parkinson's Tremor.
+Concurrent decoding of distinct neurophysiological fingerprints of tremor and bradykinesia in Parkinson's disease.
+Thalamic neuromodulation in epilepsy: A primer for emerging circuit-based therapies.
+The persistent value of lesions in psychiatric neurosurgery.
+Two-trajectory laser amygdalohippocampotomy: Anatomic modeling and initial seizure outcomes.
+Tardive dyskinesia: Epidemiology.","Peter M Lauro
+Peter M Lauro
+Bryan Zheng
+Hael Abdulrazeq
+David D Liu
+Anelyssa D'Abreu","Brown University
+Brown University
+Brown University
+Brown University
+Brown University
+Brown University","https://pubmed.ncbi.nlm.nih.gov/34702744/
+https://pubmed.ncbi.nlm.nih.gov/37249217/
+https://pubmed.ncbi.nlm.nih.gov/36731858/
+https://pubmed.ncbi.nlm.nih.gov/38906167/
+https://pubmed.ncbi.nlm.nih.gov/34338302/
+https://pubmed.ncbi.nlm.nih.gov/29433811/","34702744
+37249217
+36731858
+38906167
+34338302
+29433811","6 RI lead-author publication(s) via BioMCP/PubMed (inventors: AKBAR, ASAAD, LAURO, LEE).","Inpatient Mortality in Parkinson's Disease.
+Biomarker changes associated with fornix deep brain stimulation in Alzheimer's disease.
+Where Do Parkinson's Disease Patients Look While Walking?
+Bilateral deep brain stimulation of the fornix for Alzheimer's disease: surgical safety in the ADvance trial.
+PLDAPS: A Hardware Architecture and Software Toolbox for Neurophysiology Requiring Complex Visual Stimuli and Online Behavioral Control.
+Evaluation of Central Auditory Processing of Azeri-Persian Bilinguals Using Dichotic Listening Tasks in First and Second Languages.
+Analyzing Cardiovascular Disease Research in the Arab Region: A Bibliometric Review From 2012 to 2022.
+Antifungal Potency of Amaranth Leaf Extract: An In Vitro Study.","https://pubmed.ncbi.nlm.nih.gov/37064936/
+https://pubmed.ncbi.nlm.nih.gov/40566800/
+https://pubmed.ncbi.nlm.nih.gov/34997620/
+https://pubmed.ncbi.nlm.nih.gov/26684775/
+https://pubmed.ncbi.nlm.nih.gov/22319490/
+https://pubmed.ncbi.nlm.nih.gov/30598676/
+https://pubmed.ncbi.nlm.nih.gov/39430549/
+https://pubmed.ncbi.nlm.nih.gov/37111946/","BioMCP patent-linked; not RI lead author
+BioMCP patent-linked; not RI lead author
+BioMCP patent-linked; not RI lead author
+BioMCP patent-linked; not RI lead author; inventors: ASAAD
+BioMCP patent-linked; not RI lead author; inventors: ASAAD
+BioMCP patent-linked; not RI lead author; inventors: AKBAR
+BioMCP patent-linked; not RI lead author; inventors: ASAAD
+BioMCP patent-linked; not RI lead author; inventors: AKBAR",1063477032,Peter Lauro,Neurology,Rhode Island Hospital,,"1043704703|SCOTT WARREN|NEUROLOGY|RHODE ISLAND HOSPITAL|reviewer
+1043730112|ANIRUDH PENUMAKA|NEUROSURGERY|LIFESPAN PHYSICIAN GROUP INC|reviewer
+1053840827|ELIAS SHAAYA|NEUROSURGERY|RHODE ISLAND HOSPITAL|reviewer
+1063477032|HEINRICH ELINZANO|NEUROLOGY|RHODE ISLAND HOSPITAL|reviewer",,Medtronic Percept (BrainSense),incumbent,https://www.medtronic.com/en-us/healthcare-professionals/specialties/neurology/therapies-procedures/deep-brain-stimulation/product-portfolio/percept-family.html,,,,,,Strategic incumbent (not VC seed),Post-market adaptive DBS rollout,suggested,NeuroPace (RNS),startup,https://www.neuropace.com/,540000000,market_cap,https://multiples.vc/public-comps/neuropace-valuation-multiples,540000000,,Public (NASDAQ NPCE); ~$540M market cap; $100M revenue (FY2025),PMA → post-approval studies,verified,Newronika (AlphaDBS),startup,https://pmc.ncbi.nlm.nih.gov/articles/PMC11524207/,,,,,,EU venture,Clinical trials → CE/FDA,suggested,,,,seed,400000,200000,200000,,,Seed/Series A RI package capped at policy limit; 50% physician syndicate / 50% Slater SSBCI match.,,,,,,,Near-term R&D for Closed-loop DBS with neural/behavioral biomarkers (validation stage). Development path analog: Medtronic Percept (BrainSense) — Post-market adaptive DBS rollout. RI co-investment package targets de-risking experiments and clinical-ready milestones aligned with physician syndicate diligence.,,,interventional,clinical_outcome,270,5821200,"Clinical path draft — confirm trial design, PI, and NCT fit before approval.",40,"Rhode Island Hospital — Closed-loop DBS with neural/behavioral biomarkers. focused on Closed-loop DBS with neural/behavioral biomarkers. comparable path: Medtronic Percept (BrainSense). financing precedent: Strategic incumbent (not VC seed). RI package: 400,000 USD (50% physician / 50% Slater SSBCI, policy cap)..",ip,physician_50_slater_ssbci_50,mixed_slater_physician_hospital_bd,neurology|neurosurgery|physical medicine and rehabilitation,neurology|neurosurgery|medical_device,,web_enriched
+auto_rhode_island_biomedical_detecting_electrical_electrode_locali,A,true,pending,"Besio — epilepsy electrodes, tripolar stimulation & sensors",Biomedical electrode system and method for Medical Device Opportunity,University of Rhode Island,"Besio — epilepsy electrodes, tripolar stimulation & sensors",medical_device,validation,University of Rhode Island,"Merged Besio families: tripolar/localized stimulation (US8615283), sensors on unprepared surfaces (US8626259), biomedical electrode (US2012/0150011).","Combined Walter Besio (URI) platform: localized EEG/stimulation, tripolar electrodes, and sensors usable on unprepared skin surfaces.",2026-05-28,,"""mjn-neuro"" (""Series A"" OR ""Series B"" OR ""Series C"" OR seed OR ""venture capital"" OR ""funding round"") | mjn-neuro total funding raised venture capital investors | mjn-neuro funding site:prnewswire.com OR site:businesswire.com OR site:techcrunch.com OR site:fiercebiotech.com | mjn-neuro crunchbase funding rounds | ""Precisis"" (""Series A"" OR ""Series B"" OR ""Series C"" OR seed OR ""venture capital"" OR ""funding round"") | Precisis total funding raised venture capital investors | Precisis funding site:prnewswire.com OR site:businesswire.com OR site:techcrunch.com OR site:fiercebiotech.com | Precisis crunchbase funding rounds | University of Rhode Island Besio — epilepsy electrodes, tripolar stimulation & sensors preclinical development milestone | Besio — epilepsy electrodes, tripolar stimulation & sensors translational research Rhode Island","[comp1_heuristic] Program / company page (on file) | https://mjn.cat/en/mjn-seras/
+[comp1_heuristic] SEC EDGAR search | https://www.sec.gov/edgar/search/#/q=mjn-neuro
+[comp3_heuristic] Program / company page (on file) | https://www.precisis.com/
+[comp3_heuristic] SEC EDGAR search | https://www.sec.gov/edgar/search/#/q=Precisis",054-598-697-690-839,US 8615283 B2,Biomedical electrode system and method for detecting localized electrical signals and providing electrical stimulation,https://lens.org/054-598-697-690-839,RHODE ISLAND BOARD OF EDUCATION STATE OF RHODE ISLAND AND PROVIDENCE PLANTATIONS,BESIO WALTER G,054-598-697-690-839|126-140-992-269-137,"Biomedical electrode system and method for detecting localized electrical signals and providing electrical stimulation
+BIOMEDICAL ELECTRODE SYSTEM AND METHOD FOR DETECTING LOCALIZED ELECTRICAL SIGNALS AND PROVIDING ELECTRICAL STIMULATION","https://lens.org/054-598-697-690-839
+https://lens.org/126-140-992-269-137",6,"Source localization of high-frequency activity in tripolar electroencephalography of patients with epilepsy.
+Neutralizing anti-interleukin-1β antibodies modulate fetal blood-brain barrier function after ischemia.
+Possible therapeutic effects of transcutaneous electrical stimulation via concentric ring electrodes.
+Interleukin-1β transfer across the blood-brain barrier in the ovine fetus.
+The Validation of a Portable Functional NIRS System for Assessing Mental Workload.
+Transcranial focal electrical stimulation via tripolar concentric ring electrodes does not modify the short- and long-term memory formation in rats evaluated in the novel object recognition test.","Christopher Toole
+Xiaodi Chen
+Walter G Besio
+Grazyna B Sadowska
+Manob Jyoti Saikia
+G Rogel-Salazar","University of Rhode Island
+Brown University
+University of Rhode Island
+Brown University
+University of Rhode Island
+University of Rhode Island","https://pubmed.ncbi.nlm.nih.gov/31706168/
+https://pubmed.ncbi.nlm.nih.gov/25258170/
+https://pubmed.ncbi.nlm.nih.gov/20618408/
+https://pubmed.ncbi.nlm.nih.gov/26082012/
+https://pubmed.ncbi.nlm.nih.gov/34072895/
+https://pubmed.ncbi.nlm.nih.gov/23419871/","31706168
+25258170
+20618408
+26082012
+34072895
+23419871",6 RI lead-author publication(s) via BioMCP/PubMed (inventors: BESIO).,"A Proposed Brain-, Spine-, and Mental- Health Screening Methodology (NEUROSCREEN) for Healthcare Systems: Position of the Society for Brain Mapping and Therapeutics.
+Workshops of the Seventh International Brain-Computer Interface Meeting: Not Getting Lost in Translation.
+Workshops of the Eighth International Brain-Computer Interface Meeting: BCIs: The Next Frontier.
+Quantitative analysis of the natural history of prolidase deficiency: description of 17 families and systematic review of published cases.
+Successful ageing in older persons belonging to the Aymara native community: exploring the protective role of psychosocial resources.","https://pubmed.ncbi.nlm.nih.gov/35034899/
+https://pubmed.ncbi.nlm.nih.gov/33033729/
+https://pubmed.ncbi.nlm.nih.gov/36908334/
+https://pubmed.ncbi.nlm.nih.gov/34040193/
+https://pubmed.ncbi.nlm.nih.gov/34040858/","BioMCP patent-linked; not RI lead author
+BioMCP patent-linked; not RI lead author; inventors: BESIO
+BioMCP patent-linked; not RI lead author; inventors: BESIO
+BioMCP patent-linked; not RI lead author; inventors: BESIO
+BioMCP patent-linked; not RI lead author; inventors: BESIO",,WALTER G BESIO,Biomedical engineering / neural interfaces,University of Rhode Island,https://www.ele.uri.edu/faculty/besio/,"1043704703|SCOTT WARREN|NEUROLOGY|RHODE ISLAND HOSPITAL|reviewer
+1043730112|ANIRUDH PENUMAKA|NEUROSURGERY|LIFESPAN PHYSICIAN GROUP INC|reviewer
+1053840827|ELIAS SHAAYA|NEUROSURGERY|RHODE ISLAND HOSPITAL|reviewer
+1063477032|HEINRICH ELINZANO|NEUROLOGY|RHODE ISLAND HOSPITAL|reviewer",,mjn-neuro (EPISERAS / mjn-SERAS),startup,https://mjn.cat/en/mjn-seras/,,,,,,Venture-backed med device; regional commercial launch,Pilot → EU commercial; digital therapeutic + device,suggested,Theta Neurotech,startup,https://www.thetaneurotech.com/,2000000,last_round,https://www.thetaneurotech.com/,2000000,2000000,"~$2M pre-seed (press, 2024)",Pre-seed → clinical validation → Series A,estimated,Precisis (EASEE),startup,https://www.precisis.com/,,,,,,EU VC + strategic; US IDE path,CE marketed → US Breakthrough → pivotal,suggested,,,,seed,400000,200000,200000,,,Seed/Series A RI package capped at policy limit; 50% physician syndicate / 50% Slater SSBCI match.,,,,,,,"Near-term R&D for Besio — epilepsy electrodes, tripolar stimulation & sensors (validation stage). Development path analog: mjn-neuro (EPISERAS / mjn-SERAS) — Pilot → EU commercial; digital therapeutic + device. RI co-investment package targets de-risking experiments and clinical-ready milestones aligned with physician syndicate diligence.",,,interventional,clinical_outcome,311,4246704,"Clinical path draft — confirm trial design, PI, and NCT fit before approval.",40,"University of Rhode Island — Besio — epilepsy electrodes, tripolar stimulation & sensors. focused on Besio — epilepsy electrodes, tripolar stimulation & sensors. comparable path: mjn-neuro (EPISERAS / mjn-SERAS). financing precedent: Venture-backed med device; regional commercial launch. RI package: 400,000 USD (50% physician / 50% Slater SSBCI, policy cap)..",ip,physician_50_slater_ssbci_50,mixed_slater_physician_hospital_bd,neurology|neurosurgery|physical medicine and rehabilitation,neurology|neurosurgery|medical_device,besio_neuro_device,web_enriched
+auto_rhode_island_connective_evaluate_pipeline_reinjury_risk_tissu,A,true,pending,MRI pipeline — connective tissue reinjury risk,MRI BASED PIPELINE EVALUATE RISK CONNECTIVE Technology Platform Opportunity,Rhode Island Hospital,MRI pipeline — connective tissue reinjury risk,platform,validation,Rhode Island Hospital,,Deduped patent family (1 of 1 records); review scope and naming.,2026-05-28,,"""OrthoPred"" (""Series A"" OR ""Series B"" OR ""Series C"" OR seed OR ""venture capital"" OR ""funding round"") | OrthoPred total funding raised venture capital investors | OrthoPred funding site:prnewswire.com OR site:businesswire.com OR site:techcrunch.com OR site:fiercebiotech.com | OrthoPred crunchbase funding rounds | ""AIKESO"" (""Series A"" OR ""Series B"" OR ""Series C"" OR seed OR ""venture capital"" OR ""funding round"") | AIKESO total funding raised venture capital investors | AIKESO funding site:prnewswire.com OR site:businesswire.com OR site:techcrunch.com OR site:fiercebiotech.com | AIKESO crunchbase funding rounds | ""LigaNET"" (""Series A"" OR ""Series B"" OR ""Series C"" OR seed OR ""venture capital"" OR ""funding round"") | LigaNET total funding raised venture capital investors | LigaNET funding site:prnewswire.com OR site:businesswire.com OR site:techcrunch.com OR site:fiercebiotech.com | LigaNET crunchbase funding rounds | ""Ata Kiapour"" site:lifespan.org OR site:rhodeislandhospital.org | ""Ata Kiapour"" site:web.uri.edu OR site:ele.uri.edu | ""Ata Kiapour"" Brown Warren Alpert OR ""Rhode Island Hospital"" physician | Rhode Island Hospital MRI pipeline — connective tissue reinjury risk preclinical development milestone | MRI pipeline — connective tissue reinjury risk translational research Rhode Island","[comp1_heuristic] Program / company page (on file) | https://orthopred.com/
+[comp1_heuristic] SEC EDGAR search | https://www.sec.gov/edgar/search/#/q=OrthoPred
+[comp2_heuristic] Program / company page (on file) | https://aikeso.com/
+[comp2_heuristic] SEC EDGAR search | https://www.sec.gov/edgar/search/#/q=AIKESO
+[comp3_heuristic] Program / company page (on file) | https://www.medrxiv.org/content/10.1101/2023.07.25.23293102v1
+[profile] no profile URL found | see web_search_queries",087-635-468-540-877,US 2024/0382151 A1,MRI-BASED PIPELINE TO EVALUATE RISK OF CONNECTIVE TISSUE REINJURY,https://lens.org/087-635-468-540-877,RHODE ISLAND HOSPITAL,KIAPOUR ATA|MURRAY MARTHA M|FLEMING BRADEN C|FLANNERY SEAN W|KARIMI DAVOOD|GHOLIPOUR-BABOLI ALI,087-635-468-540-877,MRI-BASED PIPELINE TO EVALUATE RISK OF CONNECTIVE TISSUE REINJURY,https://lens.org/087-635-468-540-877,6,"Quantitative MRI Biomarkers to Predict Risk of Reinjury Within 2 Years After Bridge-Enhanced ACL Restoration.
+Automated segmentation of the healed anterior cruciate ligament from T2 * relaxometry MRI scans.
+A transfer learning approach for automatic segmentation of the surgically treated anterior cruciate ligament.
+Reproducibility and postacquisition correction methods for quantitative magnetic resonance imaging of the anterior cruciate ligament (ACL).
+Early MRI-based quantitative outcomes are associated with a positive functional performance trajectory from 6 to 24 months post-ACL surgery.
+Bridge-Enhanced Anterior Cruciate Ligament Restoration: 6-Year Results From the First-in-Human Cohort Study.","Dominique A Barnes
+Sean W Flannery
+Sean W Flannery
+Sean W Flannery
+Sean W Flannery
+Braden C Fleming","Brown University
+Brown University
+Brown University
+Brown University
+Brown University
+Brown University","https://pubmed.ncbi.nlm.nih.gov/36645042/
+https://pubmed.ncbi.nlm.nih.gov/35634860/
+https://pubmed.ncbi.nlm.nih.gov/33458865/
+https://pubmed.ncbi.nlm.nih.gov/35266588/
+https://pubmed.ncbi.nlm.nih.gov/35704062/
+https://pubmed.ncbi.nlm.nih.gov/39143986/","36645042
+35634860
+33458865
+35266588
+35704062
+39143986","6 RI lead-author publication(s) via BioMCP/PubMed (inventors: FLANNERY, FLEMING, GHOLIPOUR-BABOLI, KARIMI, KIAPOUR, MURRAY).","Regional Differences in Anterior Cruciate Ligament Signal Intensity After Surgical Treatment.
+Bench-to-bedside: Bridge-enhanced anterior cruciate ligament repair.
+Brain metastasis in bone and soft tissue cancers: a review of incidence, interventions, and outcomes.","https://pubmed.ncbi.nlm.nih.gov/34668789/
+https://pubmed.ncbi.nlm.nih.gov/28608618/
+https://pubmed.ncbi.nlm.nih.gov/24757391/","BioMCP patent-linked; not RI lead author
+BioMCP patent-linked; not RI lead author
+BioMCP patent-linked; not RI lead author; inventors: FLANNERY",1003871336,Ata Kiapour,Oncology,Rhode Island Hospital,,"1023306974|SARA MALEKI|PATHOLOGY|RHODE ISLAND HOSPITAL|reviewer
+1063466621|GLADYS TELANG|PATHOLOGY|BROWN DERMATOLOGY INC|reviewer
+1073718417|LESLIE HUFF|PATHOLOGY|MASSTEX IMAGING, LLC|reviewer
+1073853248|MARIANA CANEPA|PATHOLOGY|RHODE ISLAND HOSPITAL|reviewer",,OrthoPred (DeepKnee),startup,https://orthopred.com/,,,,,,Seed/Series A imaging AI,CE/FDA software as medical device,suggested,AIKESO,startup,https://aikeso.com/,,,,,,Seed (Switzerland),Clinical pilots → FDA,suggested,LigaNET (ACL reinjury prediction),research,https://www.medrxiv.org/content/10.1101/2023.07.25.23293102v1,,,,,,NIH → seed,Academic validation → spinout,suggested,,,,seed,400000,200000,200000,,,Seed/Series A RI package capped at policy limit; 50% physician syndicate / 50% Slater SSBCI match.,,,,,,,Near-term R&D for MRI pipeline — connective tissue reinjury risk (validation stage). Development path analog: OrthoPred (DeepKnee) — CE/FDA software as medical device. RI co-investment package targets de-risking experiments and clinical-ready milestones aligned with physician syndicate diligence.,,,interventional,clinical_outcome,417,2938320,"Clinical path draft — confirm trial design, PI, and NCT fit before approval.",40,"Rhode Island Hospital — MRI pipeline — connective tissue reinjury risk. focused on MRI pipeline — connective tissue reinjury risk. comparable path: OrthoPred (DeepKnee). financing precedent: Seed/Series A imaging AI. RI package: 400,000 USD (50% physician / 50% Slater SSBCI, policy cap)..",ip,physician_50_slater_ssbci_50,mixed_slater_physician_hospital_bd,oncology|pathology|biostatistics,medical_oncology|pathology,,web_enriched
+auto_rhode_island_detection_large_occlusion_prediction_vessel,A,true,pending,LVO detection and treatment prediction,LARGE VESSEL OCCLUSION DETECTION AND TREATMENT Diagnostic Opportunity,Rhode Island Hospital,LVO detection and treatment prediction,diagnostic,validation,Rhode Island Hospital,,Deduped patent family (1 of 1 records); review scope and naming.,2026-05-28,,"""Harrison Bai"" site:lifespan.org OR site:rhodeislandhospital.org | ""Harrison Bai"" site:web.uri.edu OR site:ele.uri.edu | ""Harrison Bai"" Brown Warren Alpert OR ""Rhode Island Hospital"" physician | Rhode Island Hospital LVO detection and treatment prediction preclinical development milestone | LVO detection and treatment prediction translational research Rhode Island",[profile] no profile URL found | see web_search_queries,074-975-118-075-847,US 2023/0149088 A1,LARGE VESSEL OCCLUSION DETECTION AND TREATMENT PREDICTION,https://lens.org/074-975-118-075-847,RHODE ISLAND HOSPITAL,BAI HARRISON|PAN IAN|YI THOMAS|TRAN THI MY LINH (LINH),074-975-118-075-847,LARGE VESSEL OCCLUSION DETECTION AND TREATMENT PREDICTION,https://lens.org/074-975-118-075-847,6,"Performance of Radiologists in Differentiating COVID-19 from Non-COVID-19 Viral Pneumonia at Chest CT.
+Using Machine Learning to Predict Response to Image-guided Therapies for Hepatocellular Carcinoma.
+Artificial intelligence for medical image analysis in epilepsy.
+The RSNA Pediatric Bone Age Machine Learning Challenge.
+Deep Learning: An Update for Radiologists.
+Burden of respiratory syncytial virus infection in older and high-risk adults: a systematic review and meta-analysis of the evidence from developed countries.","Harrison X Bai
+Celina Hsieh
+John Sollee
+Safwan S Halabi
+Phillip M Cheng
+Jonathan S Nguyen-Van-Tam","Brown University
+Brown University
+Brown University
+Brown University
+Brown University
+Lifespan","https://pubmed.ncbi.nlm.nih.gov/32155105/
+https://pubmed.ncbi.nlm.nih.gov/37934098/
+https://pubmed.ncbi.nlm.nih.gov/35364483/
+https://pubmed.ncbi.nlm.nih.gov/30480490/
+https://pubmed.ncbi.nlm.nih.gov/34469211/
+https://pubmed.ncbi.nlm.nih.gov/36384703/","32155105
+37934098
+35364483
+30480490
+34469211
+36384703","6 RI lead-author publication(s) via BioMCP/PubMed (inventors: BAI, PAN, TRAN, YI).","Guidelines for the use and interpretation of assays for monitoring autophagy (4th edition)1.
+MRI-based Ovarian Lesion Classification via a Foundation Segmentation Model and Multimodal Analysis: A Multicenter Study.
+Artificial intelligence and body composition.
+Editorial: Advances of radiomics and artificial intelligence in the management of patients with central nervous system tumors.
+Genetic drivers of heterogeneity in type 2 diabetes pathophysiology.
+Multi-ancestry genetic study of type 2 diabetes highlights the power of diverse populations for discovery and translation.
+Multi-ancestry polygenic risk scores for the prediction of type 2 diabetes and complications in diverse ancestries.
+Multi-ancestry genome-wide study in >2.5 million individuals reveals heterogeneity in mechanistic pathways of type 2 diabetes and complications.","https://pubmed.ncbi.nlm.nih.gov/33634751/
+https://pubmed.ncbi.nlm.nih.gov/40762846/
+https://pubmed.ncbi.nlm.nih.gov/36867973/
+https://pubmed.ncbi.nlm.nih.gov/36741005/
+https://pubmed.ncbi.nlm.nih.gov/38374256/
+https://pubmed.ncbi.nlm.nih.gov/35551307/
+https://pubmed.ncbi.nlm.nih.gov/40778152/
+https://pubmed.ncbi.nlm.nih.gov/37034649/","BioMCP patent-linked; not RI lead author
+BioMCP patent-linked; not RI lead author
+BioMCP patent-linked; not RI lead author
+BioMCP patent-linked; not RI lead author
+BioMCP patent-linked; not RI lead author
+BioMCP patent-linked; not RI lead author
+BioMCP patent-linked; not RI lead author
+BioMCP patent-linked; not RI lead author",1063477032,Harrison Bai,Neurology,Rhode Island Hospital,,"1043704703|SCOTT WARREN|NEUROLOGY|RHODE ISLAND HOSPITAL|reviewer
+1043730112|ANIRUDH PENUMAKA|NEUROSURGERY|LIFESPAN PHYSICIAN GROUP INC|reviewer
+1053840827|ELIAS SHAAYA|NEUROSURGERY|RHODE ISLAND HOSPITAL|reviewer
+1063477032|HEINRICH ELINZANO|NEUROLOGY|RHODE ISLAND HOSPITAL|reviewer",,Viz.ai,startup,https://www.viz.ai/,1200000000,post_money_valuation,https://www.viz.ai/news/viz-ai-raises-100-million-in-series-d-funding,289250000,100000000,~$289M raised; $1.2B valuation at Series D (Apr 2022),Health-system SaaS scale,verified,RapidAI,startup,https://www.rapidai.com/,100000000,total_raised,https://www.rapidai.com/press-release/rapid-announces-investment-led-by-vista-credit-partners,100000000,75000000,~$100M total; $75M Series C (Jul 2023),FDA cleared → hospital contracts,verified,,,,,,,,,,,,,,,seed,400000,200000,200000,,,Seed/Series A RI package capped at policy limit; 50% physician syndicate / 50% Slater SSBCI match.,,,,,,,Near-term R&D for LVO detection and treatment prediction (validation stage). Development path analog: Viz.ai — Health-system SaaS scale. RI co-investment package targets de-risking experiments and clinical-ready milestones aligned with physician syndicate diligence.,,,interventional,clinical_outcome,270,5821200,"Clinical path draft — confirm trial design, PI, and NCT fit before approval.",40,"Rhode Island Hospital — LVO detection and treatment prediction. focused on LVO detection and treatment prediction. comparable path: Viz.ai. financing precedent: ~$289M raised; $1.2B valuation at Series D (Apr 2022). RI package: 400,000 USD (50% physician / 50% Slater SSBCI, policy cap)..",ip,physician_50_slater_ssbci_50,mixed_slater_physician_hospital_bd,neurology|neurosurgery|physical medicine and rehabilitation,neurology|neurosurgery|medical_device,,web_enriched
+auto_rhodes_technologies_compounds_novel_opioid_thereof,A,true,pending,Rhodes Tech — novel opioid compounds,NOVEL OPIOID COMPOUNDS AND USES THEREOF Therapeutic Opportunity,Rhodes Technologies,Rhodes Tech — novel opioid compounds,therapeutic,validation,Rhodes Technologies,,Deduped patent family (1 of 1 records); review scope and naming.,2026-05-28,,"""Noramco"" (""Series A"" OR ""Series B"" OR ""Series C"" OR seed OR ""venture capital"" OR ""funding round"") | Noramco total funding raised venture capital investors | Noramco funding site:prnewswire.com OR site:businesswire.com OR site:techcrunch.com OR site:fiercebiotech.com | Noramco crunchbase funding rounds | Noramco acquisition OR IPO OR market cap | ""Ping Chang"" site:lifespan.org OR site:rhodeislandhospital.org | ""Ping Chang"" site:web.uri.edu OR site:ele.uri.edu | ""Ping Chang"" Brown Warren Alpert OR ""Rhode Island Hospital"" physician | Rhodes Technologies Rhodes Tech — novel opioid compounds preclinical development milestone | Rhodes Tech — novel opioid compounds translational research Rhode Island","[comp1_heuristic] Program / company page (on file) | https://www.noramco.com/
+[comp1_heuristic] SEC EDGAR search | https://www.sec.gov/edgar/search/#/q=Noramco
+[profile] no profile URL found | see web_search_queries",061-012-931-362-642,US 2021/0061815 A1,NOVEL OPIOID COMPOUNDS AND USES THEREOF,https://lens.org/061-012-931-362-642,RHODES TECHNOLOGIES,CHANG PING|GLOWAKY RAYMOND|ROGERS MICHAEL DAVID,061-012-931-362-642,NOVEL OPIOID COMPOUNDS AND USES THEREOF,https://lens.org/061-012-931-362-642,,,,,,,,"Reweighting simulated events using machine-learning techniques in the CMS experiment.
+Combination of Measurements of the Top Quark Mass from Data Collected by the ATLAS and CMS Experiments at sqrt[s]=7 and 8 TeV.
+Evidence for the Higgs Boson Decay to a Z Boson and a Photon at the LHC.
+Observation of the Charged-Particle Multiplicity Dependence of σ_{ψ(2S)}/σ_{J/ψ} in p-Pb Collisions at 8.16 TeV.
+Observation of the ϒ(3S) Meson and Suppression of ϒ States in Pb-Pb Collisions at sqrt[s_{NN}]=5.02  TeV.
+Observation of the χ_{b1}(3P) and χ_{b2}(3P) and Measurement of their Masses.
+Author's response to Letter-to-the-Editor from Chang JS. concerning: ""Benefit of respiratory gating in the Danish Breast Cancer Group partial breast irradiation trial"".","https://pubmed.ncbi.nlm.nih.gov/40342237/
+https://pubmed.ncbi.nlm.nih.gov/38996325/
+https://pubmed.ncbi.nlm.nih.gov/38277607/
+https://pubmed.ncbi.nlm.nih.gov/40952232/
+https://pubmed.ncbi.nlm.nih.gov/39073941/
+https://pubmed.ncbi.nlm.nih.gov/30230889/
+https://pubmed.ncbi.nlm.nih.gov/38824961/","BioMCP patent-linked; not RI lead author
+BioMCP patent-linked; not RI lead author
+BioMCP patent-linked; not RI lead author
+BioMCP patent-linked; not RI lead author
+BioMCP patent-linked; not RI lead author
+BioMCP patent-linked; not RI lead author
+BioMCP patent-linked; not RI lead author; inventors: CHANG",1144406802,Ping Chang,Pain Management,Rhodes Technologies,,"1194810507|NEBYOU BELAY|ADDICTION MEDICINE|THRIVE BEHAVIORAL HEALTH INC|reviewer
+1205850989|SYLVESTER SVIOKLA|ADDICTION MEDICINE|WARWICK, RI|reviewer
+1629427265|CAROLINE WUNSCH|ADDICTION MEDICINE|RHODE ISLAND HOSPITAL|reviewer
+1679991806|CECILIA FIX|ADDICTION MEDICINE|LIFESPAN PHYSICIAN GROUP INC|reviewer",,Noramco,incumbent,https://www.noramco.com/,,,,,,Private operating company,CMC scale-up,suggested,Collegium Pharmaceutical,public,https://www.collegiumpharma.com/,1180000000,market_cap,https://finance.yahoo.com/quote/COLL/,1180000000,,Public (NASDAQ COLL); ~$1.2B market cap; pain/opioid reformulation model,FDA approvals → commercialization,verified,,,,,,,,,,,,,,,seed,400000,200000,200000,,,Seed/Series A RI package capped at policy limit; 50% physician syndicate / 50% Slater SSBCI match.,,,,,,,Near-term R&D for Rhodes Tech — novel opioid compounds (validation stage). Development path analog: Noramco — CMC scale-up. RI co-investment package targets de-risking experiments and clinical-ready milestones aligned with physician syndicate diligence.,,,interventional,clinical_outcome,34,3447704,"Clinical path draft — confirm trial design, PI, and NCT fit before approval.",40,"Rhodes Technologies — Rhodes Tech — novel opioid compounds. focused on Rhodes Tech — novel opioid compounds. comparable path: Noramco. financing precedent: Private operating company. RI package: 400,000 USD (50% physician / 50% Slater SSBCI, policy cap)..",ip,physician_50_slater_ssbci_50,mixed_slater_physician_hospital_bd,pain management|anesthesiology|addiction medicine|psychiatry,pain_medicine|anesthesiology|behavioral_health,ri_pharma_chemistry,web_enriched
+auto_rhodes_technologies_improved_oxycodone_synthesis,A,true,pending,Rhodes Tech — improved oxycodone synthesis,Process for improved oxycodone synthesis Technology Platform Opportunity,Rhodes Technologies,Rhodes Tech — improved oxycodone synthesis,platform,validation,Rhodes Technologies,,Deduped patent family (2 of 6 records); review scope and naming.,2026-05-28,,"""Noramco"" (""Series A"" OR ""Series B"" OR ""Series C"" OR seed OR ""venture capital"" OR ""funding round"") | Noramco total funding raised venture capital investors | Noramco funding site:prnewswire.com OR site:businesswire.com OR site:techcrunch.com OR site:fiercebiotech.com | Noramco crunchbase funding rounds | Noramco acquisition OR IPO OR market cap | ""Joshua Giguere"" site:lifespan.org OR site:rhodeislandhospital.org | ""Joshua Giguere"" site:web.uri.edu OR site:ele.uri.edu | ""Joshua Giguere"" Brown Warren Alpert OR ""Rhode Island Hospital"" physician | Rhodes Technologies Rhodes Tech — improved oxycodone synthesis preclinical development milestone | Rhodes Tech — improved oxycodone synthesis translational research Rhode Island","[comp1_heuristic] Program / company page (on file) | https://www.noramco.com/
+[comp1_heuristic] SEC EDGAR search | https://www.sec.gov/edgar/search/#/q=Noramco
+[profile] no profile URL found | see web_search_queries",001-644-598-968-817,US 10844072 B2,Process for improved oxycodone synthesis,https://lens.org/001-644-598-968-817,RHODES TECHNOLOGIES,GIGUERE JOSHUA ROBERT|MCCARTHY KEITH EDWARD|SCHLEUSNER MARCEL,001-644-598-968-817,Process for improved oxycodone synthesis,https://lens.org/001-644-598-968-817,,,,,,,,"The Synthesis and Glycoside Formation of Polyfluorinated Carbohydrates.
+A Prospective Assessment of Knee Arthroscopy Skills Between Medical Students and Residents-Simulator Exercises for Partial Meniscectomy and Analysis of Learning Curves.
+Anthropogenic changes to the nighttime environment.","https://pubmed.ncbi.nlm.nih.gov/35613331/
+https://pubmed.ncbi.nlm.nih.gov/34565232/
+https://pubmed.ncbi.nlm.nih.gov/37091747/","BioMCP patent-linked; not RI lead author; inventors: GIGUERE
+BioMCP patent-linked; not RI lead author; inventors: MCCarthy
+BioMCP patent-linked; not RI lead author; inventors: MCCarthy",1801208798,Joshua Robert Giguere,Pain Management,Rhodes Technologies,,"1972619864|DANIEL REGAN|ADDICTION MEDICINE|ATMED TREATMENT CENTER, INC.|reviewer
+1003012014|KEITH SCARFO|ANESTHESIOLOGY|RHODE ISLAND HOSPITAL|reviewer
+1003173048|CHRISTINE LEDDY|PSYCHIATRY|LIFESPAN PHYSICIAN GROUP INC|reviewer
+1003820432|LUISA SKOBLE|PSYCHIATRY|LIFESPAN PHYSICIAN GROUP INC|reviewer",,Noramco,incumbent,https://www.noramco.com/,,,,,,Private operating company,CMC scale-up,suggested,Collegium Pharmaceutical,public,https://www.collegiumpharma.com/,1180000000,market_cap,https://finance.yahoo.com/quote/COLL/,1180000000,,Public (NASDAQ COLL); ~$1.2B market cap; pain/opioid reformulation model,FDA approvals → commercialization,verified,,,,,,,,,,,,,,,seed,400000,200000,200000,,,Seed/Series A RI package capped at policy limit; 50% physician syndicate / 50% Slater SSBCI match.,,,,,,,Near-term R&D for Rhodes Tech — improved oxycodone synthesis (validation stage). Development path analog: Noramco — CMC scale-up. RI co-investment package targets de-risking experiments and clinical-ready milestones aligned with physician syndicate diligence.,,,interventional,clinical_outcome,469,343728,"Clinical path draft — confirm trial design, PI, and NCT fit before approval.",40,"Rhodes Technologies — Rhodes Tech — improved oxycodone synthesis. focused on Rhodes Tech — improved oxycodone synthesis. comparable path: Noramco. financing precedent: Private operating company. RI package: 400,000 USD (50% physician / 50% Slater SSBCI, policy cap)..",ip,physician_50_slater_ssbci_50,mixed_slater_physician_hospital_bd,pain management|anesthesiology|addiction medicine|psychiatry,pain_medicine|anesthesiology|behavioral_health,ri_pharma_chemistry,web_enriched
+auto_united_states_communication_facilitating_individuals_speak_spe,A,false,pending,Speech-based communication assistive system,System for facilitating speech based communication Technology Platform Opportunity,U.S. Department of Veterans Affairs,Speech-based communication assistive system,platform,validation,U.S. Department of Veterans Affairs,,Deduped patent family (2 of 2 records); review scope and naming. [excluded from catalog: non-RI assignee],2026-05-28,,,,132-876-212-164-238,US 12042303 B2,System for facilitating speech-based communication for individuals unable to speak or write,https://lens.org/132-876-212-164-238,THE UNITED STATES GOVERNMENT AS REPRESENTED BY THE DEPARTMENT OF VETERANS AFFAIRS,GOLDBERG MIRIAM ANNA RIMM|HOCHBERG LEIGH,132-876-212-164-238,System for facilitating speech-based communication for individuals unable to speak or write,https://lens.org/132-876-212-164-238,,,,,,,,,,,1003871336,Miriam Anna Rimm Goldberg,Oncology,U.S. Department of Veterans Affairs,,"1023306974|SARA MALEKI|PATHOLOGY|RHODE ISLAND HOSPITAL|reviewer
+1063466621|GLADYS TELANG|PATHOLOGY|BROWN DERMATOLOGY INC|reviewer
+1073718417|LESLIE HUFF|PATHOLOGY|MASSTEX IMAGING, LLC|reviewer
+1073853248|MARIANA CANEPA|PATHOLOGY|RHODE ISLAND HOSPITAL|reviewer",,Pison,startup,https://pison.com/,,,,,,Venture,Consumer/wearable → clinical,suggested,Neuralink (speech/BCI),startup,https://neuralink.com/,1000000000,total_raised,,1000000000,,$1B+ private,IDE clinical trials,suggested,,,,,,,,,,,,,,,seed,400000,200000,200000,,,Seed/Series A RI package capped at policy limit; 50% physician syndicate / 50% Slater SSBCI match.,,,,,,,,,,interventional,clinical_outcome,417,2938320,"Clinical path draft — confirm trial design, PI, and NCT fit before approval.",40,"U.S. Department of Veterans Affairs — Speech-based communication assistive system. focused on Speech-based communication assistive system. comparable path: Pison. financing precedent: Venture. RI package: 400,000 USD (50% physician / 50% Slater SSBCI, policy cap)..",ip,physician_50_slater_ssbci_50,mixed_slater_physician_hospital_bd,oncology|pathology|biostatistics,medical_oncology|pathology,,remediated_web_pass_v2
+auto_university_rhode_biomedical_brassylate_copolymers_dioxanone_ethyl,A,true,pending,URI — absorbable copolymer (PEBD),POLY ETHYLENE BRASSYLATE DIOXANONE COPOLYMERS METHOD Medical Device Opportunity,University of Rhode Island,URI — absorbable copolymer (PEBD),medical_device,validation,University of Rhode Island,,Deduped patent family (1 of 1 records); review scope and naming.,2026-05-28,,"""Tepha"" (""Series A"" OR ""Series B"" OR ""Series C"" OR seed OR ""venture capital"" OR ""funding round"") | Tepha total funding raised venture capital investors | Tepha funding site:prnewswire.com OR site:businesswire.com OR site:techcrunch.com OR site:fiercebiotech.com | Tepha crunchbase funding rounds | ""Evonik RESOMER"" (""Series A"" OR ""Series B"" OR ""Series C"" OR seed OR ""venture capital"" OR ""funding round"") | Evonik RESOMER total funding raised venture capital investors | Evonik RESOMER funding site:prnewswire.com OR site:businesswire.com OR site:techcrunch.com OR site:fiercebiotech.com | Evonik RESOMER crunchbase funding rounds | Evonik RESOMER acquisition OR IPO OR market cap | ""Matthew Kiesewetter"" site:lifespan.org OR site:rhodeislandhospital.org | ""Matthew Kiesewetter"" site:web.uri.edu OR site:ele.uri.edu | ""Matthew Kiesewetter"" Brown Warren Alpert OR ""Rhode Island Hospital"" physician | University of Rhode Island URI — absorbable copolymer (PEBD) preclinical development milestone | URI — absorbable copolymer (PEBD) translational research Rhode Island","[comp1_heuristic] Program / company page (on file) | https://www.tephainc.com/
+[comp1_heuristic] SEC EDGAR search | https://www.sec.gov/edgar/search/#/q=Tepha
+[comp2_heuristic] Program / company page (on file) | https://medical.evonik.com/
+[comp2_heuristic] SEC EDGAR search | https://www.sec.gov/edgar/search/#/q=Evonik%20RESOMER
+[profile] no profile URL found | see web_search_queries",016-951-596-182-057,US 2024/0343859 A1,"POLY(ETHYLENE BRASSYLATE-CO-DIOXANONE) COPOLYMERS, METHOD OF SYNTHESIS AND BIOMEDICAL DEVICES MADE THEREFROM",https://lens.org/016-951-596-182-057,UNIVERSITY OF RHODE ISLAND BOARD OF TRUSTEES,KIESEWETTER MATTHEW|PICARD KASSIE|POTHUPITIYA JINAL|SALTZMAN W MARK,016-951-596-182-057,"POLY(ETHYLENE BRASSYLATE-CO-DIOXANONE) COPOLYMERS, METHOD OF SYNTHESIS AND BIOMEDICAL DEVICES MADE THEREFROM",https://lens.org/016-951-596-182-057,6,"The mechanistic duality of (thio)urea organocatalysts for ring-opening polymerization.
+Using Surrogate Insects in Acid Bioassays for Development of New Controls for Varroa destructor (Arachnida: Varroidae).
+Triclocarban: Commercial Antibacterial and Highly Effective H-Bond Donating Catalyst for Ring-Opening Polymerization.
+Bis- and Tris-Urea H-Bond Donors for Ring-Opening Polymerization: Unprecedented Activity and Control from an Organocatalyst.
+N-Heterocyclic carbene-based gold etchants.
+Poly(thioester) by Organocatalytic Ring-Opening Polymerization.","Nayanthara U Dharmaratne
+Julia J Vieira
+Nayanthara U Dharmaratne
+Kurt V Fastnacht
+Robert B Chevalier
+Timothy J Bannin","University of Rhode Island
+University of Rhode Island
+University of Rhode Island
+University of Rhode Island
+University of Rhode Island
+University of Rhode Island","https://pubmed.ncbi.nlm.nih.gov/30834919/
+https://pubmed.ncbi.nlm.nih.gov/35980393/
+https://pubmed.ncbi.nlm.nih.gov/35610842/
+https://pubmed.ncbi.nlm.nih.gov/35607216/
+https://pubmed.ncbi.nlm.nih.gov/37674545/
+https://pubmed.ncbi.nlm.nih.gov/27182085/","30834919
+35980393
+35610842
+35607216
+37674545
+27182085","6 RI lead-author publication(s) via BioMCP/PubMed (inventors: KIESEWETTER, PICARD, POTHUPITIYA, SALTZMAN).","A Rare Case of Primary Pulmonary Diffuse Large B-Cell Lymphoma Transformed from Marginal Zone Mucosa-Associated Lymphoid Tissue Lymphoma.
+Ability of a meta-analysis to prevent redundant research: systematic review of studies on pain from propofol injection.
+Analysis of Myosin Heavy Chain Isoforms from Longissimus Thoracis Muscle of Hanwoo Steer by Electrophoresis and LC-MS/MS.
+Laparoscopic treatment of intestinal malrotation in adults.
+Effects of naturopathic medicines on Multiplate and ROTEM: a prospective experimental pilot study in healthy volunteers.
+A New Composite Fractal Function and Its Application in Image Encryption.","https://pubmed.ncbi.nlm.nih.gov/38929457/
+https://pubmed.ncbi.nlm.nih.gov/25161280/
+https://pubmed.ncbi.nlm.nih.gov/26761500/
+https://pubmed.ncbi.nlm.nih.gov/16121875/
+https://pubmed.ncbi.nlm.nih.gov/26887420/
+https://pubmed.ncbi.nlm.nih.gov/34460663/","BioMCP patent-linked; not RI lead author; inventors: KIESEWETTER
+BioMCP patent-linked; not RI lead author; inventors: PICARD
+BioMCP patent-linked; not RI lead author; inventors: PICARD
+BioMCP patent-linked; not RI lead author; inventors: KIESEWETTER
+BioMCP patent-linked; not RI lead author; inventors: KIESEWETTER
+BioMCP patent-linked; not RI lead author; inventors: PICARD",1194716829,Matthew Kiesewetter,Orthopedic Surgery,University of Rhode Island,,,,Tepha (resorbable polymers),startup,https://www.tephainc.com/,,,,,,Growth/medtech,510(k) device components,suggested,Evonik RESOMER,incumbent,https://medical.evonik.com/,,,,,,Strategic,Supplier partnership,suggested,,,,,,,,,,,,,,,seed,400000,200000,200000,,,Seed/Series A RI package capped at policy limit; 50% physician syndicate / 50% Slater SSBCI match.,,,,,,,Near-term R&D for URI — absorbable copolymer (PEBD) (validation stage). Development path analog: Tepha (resorbable polymers) — 510(k) device components. RI co-investment package targets de-risking experiments and clinical-ready milestones aligned with physician syndicate diligence.,,,interventional,clinical_outcome,311,4246704,"Clinical path draft — confirm trial design, PI, and NCT fit before approval.",40,"University of Rhode Island — URI — absorbable copolymer (PEBD). focused on URI — absorbable copolymer (PEBD). comparable path: Tepha (resorbable polymers). financing precedent: Growth/medtech. RI package: 400,000 USD (50% physician / 50% Slater SSBCI, policy cap)..",ip,physician_50_slater_ssbci_50,mixed_slater_physician_hospital_bd,orthopedic surgery|general surgery|biomedical engineering,medical_device,,web_enriched
+cbt_pain_digital_platform_ri,A,true,pending,Petzchner — SOMA Pain Management (digital CBT),CBT Pain Digital Opportunity (RI),SOMA Pain Management (Federika Petzchner / Brown),chronic pain — digital CBT via mobile app,digital_therapeutic,validation,SOMA Pain Management (Federika Petzchner / Brown),No RI patent in Lens export; proxy = SOMA Pain Management iOS app + Petzchner publications.,Digital therapeutic; App Store SOMA Pain Management beta.,2026-05-28,,SOMA Pain Management (Federika Petzchner / Brown) Petzchner — SOMA Pain Management (digital CBT) preclinical development milestone | chronic pain — digital CBT via mobile app translational research Rhode Island,,,,,,,,,,,3,"Practical challenges for precision medicine.
+SOMAScience: A Novel Platform for Multidimensional, Longitudinal Pain Assessment.
+Individual treatment expectations predict clinical outcome after lumbar injections against low back pain.","Frederike H Petzschner
+Chloe Zimmerman Gunsilius
+Matthias Müller-Schrader","Brown University
+Brown University
+URI","https://pubmed.ncbi.nlm.nih.gov/38207033/
+https://pubmed.ncbi.nlm.nih.gov/38214952/
+https://pubmed.ncbi.nlm.nih.gov/35543638/","38207033
+38214952
+35543638",3 RI lead-author publication(s) via BioMCP/PubMed (inventors: n/a).,"The interoceptive origin of reinforcement learning.
+The neuroscience of mental illness: Building toward the future.
+Beliefs, compulsive behavior and reduced confidence in control.
+Comparing the Effectiveness of Education Versus Digital Cognitive Behavioral Therapy for Adults With Sickle Cell Disease: Protocol for the Cognitive Behavioral Therapy and Real-time Pain Management Intervention for Sickle Cell via Mobile Applications (CaRISMA) Study.
+Experiences With a Multicomponent Digital Behavioral Pain Management Intervention for Adults With Sickle Cell Disease: Qualitative Analysis of the CaRISMA Trial.
+Digital cognitive-behavioral therapy for pain management in individuals with recurrent acute and chronic pancreatitis (IMPACT-2): study protocol for a hybrid effectiveness-implementation trial.
+Digital cognitive behavioral therapy and peer support for adolescents and young adults with sickle cell disease and chronic pain: study protocol of a parallel, three-arm, randomized controlled trial (PRESENCE).
+A Novel Digital Self-management Intervention for Symptoms of Fatigue, Pain, and Urgency in Inflammatory Bowel Disease: Describing the Process of Development.","https://pubmed.ncbi.nlm.nih.gov/40500611/
+https://pubmed.ncbi.nlm.nih.gov/39423804/
+https://pubmed.ncbi.nlm.nih.gov/38900828/
+https://pubmed.ncbi.nlm.nih.gov/33988517/
+https://pubmed.ncbi.nlm.nih.gov/40763347/
+https://pubmed.ncbi.nlm.nih.gov/41664170/
+https://pubmed.ncbi.nlm.nih.gov/42121176/
+https://pubmed.ncbi.nlm.nih.gov/35583924/","BioMCP patent-linked; not RI lead author
+BioMCP patent-linked; not RI lead author
+BioMCP patent-linked; not RI lead author
+BioMCP patent-linked; not RI lead author
+BioMCP patent-linked; not RI lead author
+BioMCP patent-linked; not RI lead author
+BioMCP patent-linked; not RI lead author
+BioMCP patent-linked; not RI lead author",,FREDERIKE PETZSCHNER,Psychiatry / digital pain therapeutics,Brown University,https://vivo.brown.edu/display/fpetzsch,"1194716829|MAHER EL KHATIB|PAIN MANAGEMENT|ORTHOPEDICS RHODE ISLAND INC|reviewer
+1275821738|SHIQIANG TIAN|PAIN MANAGEMENT|UNIVERSITY ORTHOPEDICS INC|reviewer
+1316966393|DO CHAN|INTERVENTIONAL PAIN MANAGEMENT|WARWICK PAIN ASSOCIATES LLC|reviewer
+1548365554|ELENA DESILLIER|PAIN MANAGEMENT|WARWICK PAIN ASSOCIATES LLC|reviewer",,Kaia Health,startup,https://dtxalliance.org/products/kaia-health/,285000000,acquisition,https://swordhealth.com/newsroom/sword-acquires-kaia-health,,,Acquired by Sword Health for $285M (Jan 2026),RCT → payer contracts,verified,Hinge Health,startup,https://www.hingehealth.com/,1487000000,total_raised,https://sacra.com/c/hinge-health/,1487000000,437300000,~$1.05B pre-IPO VC + $437M IPO (May 2025),Outcomes studies → enterprise sales,verified,Sword Health,startup,https://swordhealth.com,4000000000,post_money_valuation,https://swordhealth.com/newsroom/sword-acquires-kaia-health,540000000,,>$500M raised; ~$4B valuation (2025); acquired Kaia for $285M (Jan 2026),Scale digital pain/MSK,verified,,,,seed,400000,200000,200000,,,Seed/Series A RI package capped at policy limit; 50% physician syndicate / 50% Slater SSBCI match.,,,,,,,Near-term R&D for Petzchner — SOMA Pain Management (digital CBT) (validation stage). Development path analog: Kaia Health — RCT → payer contracts. RI co-investment package targets de-risking experiments and clinical-ready milestones aligned with physician syndicate diligence.,,,pilot,,36,1080000,Prospective pilot — chronic pain digital; confirm after Petzchner patent linked.,36,"SOMA Pain Management (Federika Petzchner / Brown) — Petzchner — SOMA Pain Management (digital CBT). focused on chronic pain — digital CBT via mobile app. comparable path: Kaia Health. financing precedent: Acquired by Sword Health for $285M (Jan 2026). RI package: 400,000 USD (50% physician / 50% Slater SSBCI, policy cap)..",ip,physician_50_slater_ssbci_50,mixed_slater_physician_hospital_bd,pain medicine|behavioral health|primary care,behavioral_health|chronic_pain|digital_therapeutic|pain_medicine,petzchner_digital,web_enriched
+monaghan_sepsis_diagnostic_ri,A,true,pending,Monaghan — deep RNA host-response diagnostic,Monaghan Sepsis RNA Dx Opportunity (RI),Monaghan Lab / RI Hospital,early sepsis and critical illness host-response RNA diagnostics,diagnostic,clinical,Rhode Island Hospital,Platform anchored on Monaghan deep RNA-seq patent; sepsis-specific claims may be grant/publication-led.,Monaghan Lab; NIH-funded deep RNA platform (Inflammatix-like). No spinout yet.,2026-05-28,,"""Sean Monaghan"" site:lifespan.org OR site:rhodeislandhospital.org | ""Sean Monaghan"" site:web.uri.edu OR site:ele.uri.edu | ""Sean Monaghan"" Brown Warren Alpert OR ""Rhode Island Hospital"" physician | Monaghan Lab / RI Hospital Monaghan — deep RNA host-response diagnostic preclinical development milestone | early sepsis and critical illness host-response RNA diagnostics translational research Rhode Island",[profile] no profile URL found | see web_search_queries,085-655-703-999-246,US 2025/0034234 A1,PREDICTING COVID-19 ANTIBODIES AMONG SURVIVORS WITH DEEP RNA SEQUENCING,https://lens.org/085-655-703-999-246,RHODE ISLAND HOSPITAL,MONAGHAN SEAN F|FREDERICKS ALGER M|NAU GERARD J,085-655-703-999-246,PREDICTING COVID-19 ANTIBODIES AMONG SURVIVORS WITH DEEP RNA SEQUENCING,https://lens.org/085-655-703-999-246,6,"Predicting Nonsense-mediated mRNA Decay from Splicing Events in Sepsis using RNA-Sequencing Data.
+Deep RNA sequencing of intensive care unit patients with COVID-19.
+Identification and mechanistic basis of non-ACE2 blocking neutralizing antibodies from COVID-19 patients with deep RNA sequencing and molecular dynamics simulations.
+Predicting nonsense-mediated mRNA decay from splicing events in sepsis using RNA-sequencing data.
+The unusual gene architecture of polyubiquitin is created by dual-specific splice sites.
+The effects of structure on pre-mRNA processing and stability.","Jaewook Shin
+Alger M Fredericks
+Alger M Fredericks
+Jaewook Shin
+Chaorui Duan
+Rachel Soemedi","Brown University
+Brown University
+Brown University
+Brown University
+Brown University
+Brown University","https://pubmed.ncbi.nlm.nih.gov/40236428/
+https://pubmed.ncbi.nlm.nih.gov/36130991/
+https://pubmed.ncbi.nlm.nih.gov/36589229/
+https://pubmed.ncbi.nlm.nih.gov/40992925/
+https://pubmed.ncbi.nlm.nih.gov/38268025/
+https://pubmed.ncbi.nlm.nih.gov/28595983/","40236428
+36130991
+36589229
+40992925
+38268025
+28595983","6 RI lead-author publication(s) via BioMCP/PubMed (inventors: FREDERICKS, MONAGHAN, NAU).","Depression, Anxiety and Stress Among Indians in Times of Covid-19 Lockdown.
+Regulation of action potential delays via voltage-gated potassium Kv1.1 channels in dentate granule cells during hippocampal epilepsy.
+Total Failure of Fenbendazole to Control Strongylid Infections in Czech Horse Operations.","https://pubmed.ncbi.nlm.nih.gov/32577997/
+https://pubmed.ncbi.nlm.nih.gov/24367293/
+https://pubmed.ncbi.nlm.nih.gov/35265696/","BioMCP patent-linked; not RI lead author; inventors: MONAGHAN
+BioMCP patent-linked; not RI lead author; inventors: MONAGHAN
+BioMCP patent-linked; not RI lead author; inventors: MONAGHAN",1871795906,SEAN MONAGHAN,Critical care / sepsis diagnostics,Rhode Island Hospital,,"1013211168|JASON BOULWARE|EMERGENCY MEDICINE|AFFINITY PHYSICIANS LLC.|reviewer
+1013322486|DANIEL SHANIN|EMERGENCY MEDICINE|BROWN EMERGENCY MEDICINE|reviewer
+1013476175|ORIANE LONGERSTAEY|EMERGENCY MEDICINE|BROWN EMERGENCY MEDICINE|reviewer
+1023039146|OTTO LIEBMANN|EMERGENCY MEDICINE|BROWN EMERGENCY MEDICINE|reviewer",,Inflammatix (TriVerity),startup,https://www.inflammatix.com/,200000000,total_raised,https://inflammatix.com/inflammatix-secures-57-million-to-advance-novel-diagnostic-for-patients-with-suspected-infections-or-sepsis/,200000000,57000000,>$200M private + >$50M grants; $57M Series E (Sep 2024),510(k) → health-system adoption,verified,Immunexpress (SeptiCyte),startup,https://immunexpress.com/products/,46880000,total_raised,https://www.prnewswire.com/news-releases/immunexpress-announces-closing-of-private-funding-round-300930242.html,46880000,,~$46.9M total raised; FDA-cleared SeptiCyte RAPID on Biocartis Idylla,CLIA/LDT → ICU adoption,verified,Presymptom Health (InfectiClear),startup,https://www.presymptomhealth.fuel4vision.co.za/,1900000,total_raised,https://ploughshare.co.uk/mod-spin-out-presymptom-health-raises-1-5m-to-develop-ai-driven-sepsis-and-infection-tests-for-the-nhs/,3200000,1900000,£1.5M follow-on seed+grants (Mar 2024); UKI2S reports ~£3.2M total capital,Validation → NHS pilot → scale,verified,,,,seed,400000,200000,200000,,,Seed/Series A RI package capped at policy limit; 50% physician syndicate / 50% Slater SSBCI match.,,,,,,,Near-term R&D for Monaghan — deep RNA host-response diagnostic (clinical stage). Development path analog: Inflammatix (TriVerity) — 510(k) → health-system adoption. RI co-investment package targets de-risking experiments and clinical-ready milestones aligned with physician syndicate diligence.,,,pilot,,52,810000,Prospective pilot — RNA sepsis diagnostic; fix patent Lens ID.,52,"Monaghan Lab / RI Hospital — Monaghan — deep RNA host-response diagnostic. focused on early sepsis and critical illness host-response RNA diagnostics. comparable path: Inflammatix (TriVerity). financing precedent: >$200M private + >$50M grants; $57M Series E (Sep 2024). RI package: 400,000 USD (50% physician / 50% Slater SSBCI, policy cap)..",ip,physician_50_slater_ssbci_50,mixed_slater_physician_hospital_bd,critical care|infectious disease|emergency medicine|general surgery,critical_care|diagnostic|emergency_medicine|infectious_disease|sepsis,monaghan_rna_dx,web_enriched
+nanode_ri,A,true,pending,NanoDe — Nanopieces / Janus nucleotide delivery,Nanode / MedTech Platform Opportunity (RI),NanoDe Therapeutics,Janus nucleotide and Nanopieces nucleic acid delivery,platform,validation,Rhode Island Hospital,,Chen Qian Nanopieces primary; nanotube carrier secondary. Dana Ono historical CEO.,2026-05-28,,NanoDe Therapeutics NanoDe — Nanopieces / Janus nucleotide delivery preclinical development milestone | Janus nucleotide and Nanopieces nucleic acid delivery translational research Rhode Island,,008-231-790-422-477,US 2024/0156853 A1,IN VITRO AND IN VIVO INTRACELLULAR DELIVERY OF SIRNA VIA SELF-ASSEMBLED NANOPIECES,https://lens.org/008-231-790-422-477,RHODE ISLAND HOSPITAL,CHEN QIAN|CHEN YUPENG|YU HONGCHUAN,008-231-790-422-477|104-876-606-446-902,"IN VITRO AND IN VIVO INTRACELLULAR DELIVERY OF SIRNA VIA SELF-ASSEMBLED NANOPIECES
+Nanotubes as carriers of nucleic acids into cells","https://lens.org/008-231-790-422-477
+https://lens.org/104-876-606-446-902",6,"Bioactive rosette nanotube-hydroxyapatite nanocomposites improve osteoblast functions.
+Tuning cell adhesion on titanium with osteogenic rosette nanotubes.
+Enhanced osteoblast adhesion on self-assembled nanostructured hydrogel scaffolds.
+Enhanced endothelial cell functions on rosette nanotube-coated titanium vascular stents.
+Novel injectable biomimetic hydrogels with carbon nanofibers and self assembled rosette nanotubes for myocardial applications.
+Biologically inspired rosette nanotubes and nanocrystalline hydroxyapatite hydrogel nanocomposites as improved bone substitutes.","Linlin Sun
+Lijie Zhang
+Lijie Zhang
+Eli Fine
+Xiangling Meng
+Lijie Zhang","Brown University
+Brown University
+Brown University
+Brown University
+Brown University
+Brown University","https://pubmed.ncbi.nlm.nih.gov/22530958/
+https://pubmed.ncbi.nlm.nih.gov/20725961/
+https://pubmed.ncbi.nlm.nih.gov/18588485/
+https://pubmed.ncbi.nlm.nih.gov/19516887/
+https://pubmed.ncbi.nlm.nih.gov/23008178/
+https://pubmed.ncbi.nlm.nih.gov/19420581/","22530958
+20725961
+18588485
+19516887
+23008178
+19420581","6 RI lead-author publication(s) via BioMCP/PubMed (inventors: CHEN, FENNIRI, HEMRAZ, WEBSTER, YU).","Apoptotic cell death in disease-Current understanding of the NCCD 2023.
+Guidelines for the use and interpretation of assays for monitoring autophagy (4th edition)1.
+Associations of habitual fish oil supplementation with cardiovascular outcomes and all cause mortality: evidence from a large population based cohort study.
+Dysfunction of cortical GABAergic neurons leads to sensory hyper-reactivity in a Shank3 mouse model of ASD.
+Genomic analysis of intracranial and subcortical brain volumes yields polygenic scores accounting for variation across ancestries.
+Editorial: Bone and Cartilage Diseases-The Role and Potential of Natural Products.
+Pharmacokinetics and biodistribution of recently-developed siRNA nanomedicines.
+High-performance grating-like SERS substrate based on machine learning for ultrasensitive detection of Zexie-Baizhu decoction.","https://pubmed.ncbi.nlm.nih.gov/37100955/
+https://pubmed.ncbi.nlm.nih.gov/33634751/
+https://pubmed.ncbi.nlm.nih.gov/32131999/
+https://pubmed.ncbi.nlm.nih.gov/32123378/
+https://pubmed.ncbi.nlm.nih.gov/39433889/
+https://pubmed.ncbi.nlm.nih.gov/35712717/
+https://pubmed.ncbi.nlm.nih.gov/26686832/
+https://pubmed.ncbi.nlm.nih.gov/38726156/","BioMCP patent-linked; not RI lead author
+BioMCP patent-linked; not RI lead author
+BioMCP patent-linked; not RI lead author
+BioMCP patent-linked; not RI lead author
+BioMCP patent-linked; not RI lead author
+BioMCP patent-linked; not RI lead author
+BioMCP patent-linked; not RI lead author; inventors: CHEN
+BioMCP patent-linked; not RI lead author; inventors: CHEN",,QIAN CHEN,Biomedical engineering / nucleic acid delivery,Rhode Island Hospital / NanoDe Therapeutics,https://nanodetherapeutics.com/,"1578553830|PEPPINO TETTEY|CRITICAL CARE (INTENSIVISTS)|LIFESPAN PHYSICIAN GROUP INC|reviewer
+1609229798|JENNA IANNUCCILLI|CRITICAL CARE (INTENSIVISTS)|PRIME HEALTHCARE SERVICES LANDMARK LLC|reviewer",,Eascra Biotech (Janus base nanoparticles),startup,https://eascrabiotech.com/,500000,total_raised,https://www.globenewswire.com/news-release/2025/05/19/3083947/0/en/Eascra-Biotech-Awarded-100-000-MassVentures-START-Grant.html,4500000,100000,NSF SBIR + AFWERX SBIR + >$4.5M grants/awards; MassVentures START $100K (May 2025),SBIR → animal POC → Series A,verified,Ionis Pharmaceuticals,public,https://www.ionis.com/,12640000000,market_cap,https://www.macrotrends.net/stocks/charts/IONS/ionis-pharmaceuticals/market-cap,,,Public NASDAQ IONS; ~$12.6B market cap May 2026,Platform → indication spinouts,verified,Alnylam Pharmaceuticals,public,https://www.alnylam.com/,38920000000,market_cap,https://stockanalysis.com/stocks/alny/statistics/,,,Public NASDAQ ALNY; ~$38.9B market cap May 2026,Rare disease → broader pipeline,verified,,,,seed,400000,200000,200000,,,Seed/Series A RI package capped at policy limit; 50% physician syndicate / 50% Slater SSBCI match.,,,,,,,Near-term R&D for NanoDe — Nanopieces / Janus nucleotide delivery (validation stage). Development path analog: Eascra Biotech (Janus base nanoparticles) — SBIR → animal POC → Series A. RI co-investment package targets de-risking experiments and clinical-ready milestones aligned with physician syndicate diligence.,,,pilot,,40,405000,Prospective pilot — Janus delivery platform.,40,"NanoDe Therapeutics — NanoDe — Nanopieces / Janus nucleotide delivery. focused on Janus nucleotide and Nanopieces nucleic acid delivery. comparable path: Eascra Biotech (Janus base nanoparticles). financing precedent: NSF SBIR + AFWERX SBIR + >$4.5M grants/awards; MassVentures START $100K (May 2025). RI package: 400,000 USD (50% physician / 50% Slater SSBCI, policy cap)..",ip,physician_50_slater_ssbci_50,mixed_slater_physician_hospital_bd,critical care|hospital medicine|biomedical engineering,biomedical_engineering|nucleic_acid_delivery|hospital_medicine|oncology,janus_delivery,web_enriched
+theromics_ri,A,true,pending,Theromics — albumin thermal accelerant (HeatSYNC),Theromics / Precision Oncology Platform (RI),Theromics Inc,thermal tumor ablation (liver/kidney RF and microwave),platform,validation,Rhode Island Hospital,,Park Lab spinout; albumin-based gel for RF/microwave ablation (HeatSYNC).,2026-05-28,,"""Neuwave"" (""Series A"" OR ""Series B"" OR ""Series C"" OR seed OR ""venture capital"" OR ""funding round"") | Neuwave total funding raised venture capital investors | Neuwave funding site:prnewswire.com OR site:businesswire.com OR site:techcrunch.com OR site:fiercebiotech.com | Neuwave crunchbase funding rounds | Neuwave acquisition OR IPO OR market cap | Theromics Inc Theromics — albumin thermal accelerant (HeatSYNC) preclinical development milestone | thermal tumor ablation (liver/kidney RF and microwave) translational research Rhode Island","[comp2_heuristic] Program / company page (on file) | https://www.ethicon.com
+[comp2_heuristic] SEC EDGAR search | https://www.sec.gov/edgar/search/#/q=Neuwave",185-839-533-093-266,US 11076916 B2,Thermal accelerant compositions and methods of use,https://lens.org/185-839-533-093-266,RHODE ISLAND HOSPITAL,PARK WILLIAM KEUN CHAN|DUPUY DAMIAN E,185-839-533-093-266|115-872-208-456-081,"Thermal accelerant compositions and methods of use
+Thermal Accelerant Compositions and Methods of Use","https://lens.org/185-839-533-093-266
+https://lens.org/115-872-208-456-081",6,"Evaluation of a Novel Thermal Accelerant for Augmentation of Microwave Energy during Image-guided Tumor Ablation.
+Adjuvant Thermal Accelerant Gel Use Increases Microwave Ablation Zone Temperature in Porcine Liver as Measured by MR Thermometry.
+Effects of a Thermal Accelerant Gel on Microwave Ablation Zone Volumes in Lung: A Porcine Study.
+The in vivo performance of a novel thermal accelerant agent used for augmentation of microwave energy delivery within biologic tissues during image-guided thermal ablation: a porcine study.
+Thermal ablation of tumours: biological mechanisms and advances in therapy.
+Image-guided tumor ablation: standardization of terminology and reporting criteria--a 10-year update.","William Keun Chan Park
+Aaron W P Maxwell
+Aaron W P Maxwell
+William Keun Chan Park
+Katrina F Chu
+Muneeb Ahmed","Brown University
+Brown University
+Brown University
+Rhode Island Hospital
+Brown University
+Rhode Island Hospital","https://pubmed.ncbi.nlm.nih.gov/28382173/
+https://pubmed.ncbi.nlm.nih.gov/32457010/
+https://pubmed.ncbi.nlm.nih.gov/30747590/
+https://pubmed.ncbi.nlm.nih.gov/28540805/
+https://pubmed.ncbi.nlm.nih.gov/24561446/
+https://pubmed.ncbi.nlm.nih.gov/24927329/","28382173
+32457010
+30747590
+28540805
+24561446
+24927329","6 RI lead-author publication(s) via BioMCP/PubMed (inventors: DUPUY, PARK).","Updates on Current Role and Practice of Lung Ablation.
+Radiofrequency ablation for stage <IIB non-small cell lung cancer: Opportunities, challenges, and the road ahead.
+Safety and clinical outcomes of computed tomography-guided percutaneous microwave ablation in patients aged 80 years and older with early-stage non-small cell lung cancer: A multicenter retrospective study.
+Ultrasonography-Guided Thermal Ablation for Cervical Lymph Node Metastasis of Recurrent Papillary Thyroid Carcinoma: Is it Superior to Surgical Resection?
+Hydrogen sulfide blocks HIV rebound by maintaining mitochondrial bioenergetics and redox homeostasis.
+COVID-19 and the Authority of Science.
+The effect of marine dissolved organic carbon on nickel accumulation in early life-stages of the sea urchin, Strongylocentrotus purpuratus.","https://pubmed.ncbi.nlm.nih.gov/31094898/
+https://pubmed.ncbi.nlm.nih.gov/37740563/
+https://pubmed.ncbi.nlm.nih.gov/31679181/
+https://pubmed.ncbi.nlm.nih.gov/35832431/
+https://pubmed.ncbi.nlm.nih.gov/34792020/
+https://pubmed.ncbi.nlm.nih.gov/34251565/
+https://pubmed.ncbi.nlm.nih.gov/34352398/","BioMCP patent-linked; not RI lead author
+BioMCP patent-linked; not RI lead author; inventors: DUPUY
+BioMCP patent-linked; not RI lead author; inventors: DUPUY
+BioMCP patent-linked; not RI lead author; inventors: DUPUY
+BioMCP patent-linked; not RI lead author; inventors: DUPUY
+BioMCP patent-linked; not RI lead author; inventors: DUPUY
+BioMCP patent-linked; not RI lead author; inventors: PARK",1861480733,DAMIAN E DUPUY,Interventional radiology / tumor ablation,Rhode Island Hospital (Theromics co-founder),https://www.theromicsinc.com/,"1235542655|AARON MAXWELL|INTERVENTIONAL RADIOLOGY|RHODE ISLAND MEDICAL IMAGING INC|reviewer
+1255865309|MANGALADEVI PATIL|INTERVENTIONAL RADIOLOGY|RHODE ISLAND MEDICAL IMAGING INC|reviewer
+1265828081|DYLAN WOLMAN|INTERVENTIONAL RADIOLOGY|LIFESPAN PHYSICIAN GROUP INC|reviewer
+1356348817|ROBERT BINEK|INTERVENTIONAL RADIOLOGY|AFFINITY PHYSICIANS LLC.|reviewer",,Profound Medical (TULSA-PRO),public,https://profoundmedical.com/,253000000,market_cap,https://stockanalysis.com/stocks/prof/,253000000,,Public (NASDAQ PROF); ~$253M market cap (May 2026),Pivotal trials → commercial prostate ablation,verified,Neuwave (Ethicon/J&J),incumbent,https://www.ethicon.com,,,,,,Strategic partnership vs standalone VC,Market access via device OEM partnership,suggested,,,,,,,,,,,,,,,seed,400000,200000,200000,,,Seed/Series A RI package capped at policy limit; 50% physician syndicate / 50% Slater SSBCI match.,,,,,,,Near-term R&D for Theromics — albumin thermal accelerant (HeatSYNC) (validation stage). Development path analog: Profound Medical (TULSA-PRO) — Pivotal trials → commercial prostate ablation. RI co-investment package targets de-risking experiments and clinical-ready milestones aligned with physician syndicate diligence.,,,interventional,clinical_outcome,469,343728,"Clinical path draft — confirm trial design, PI, and NCT fit before approval.",40,"Theromics Inc — Theromics — albumin thermal accelerant (HeatSYNC). focused on thermal tumor ablation (liver/kidney RF and microwave). comparable path: Profound Medical (TULSA-PRO). financing precedent: Public (NASDAQ PROF); ~$253M market cap (May 2026). RI package: 400,000 USD (50% physician / 50% Slater SSBCI, policy cap)..",ip,physician_50_slater_ssbci_50,mixed_slater_physician_hospital_bd,interventional radiology|surgical oncology|radiation oncology|medical oncology,interventional_radiology|radiation_oncology|surgical_oncology|thermal_ablation|tumor_ablation,theromics_ablation,web_enriched
+phlip_therapeutics_ri,A,true,pending,pHLIP Inc — imaging and pH-targeted delivery,pHLIP Therapeutics / pH-Sensitive Imaging Platform (RI),pHLIP Inc,tumor imaging and pH-targeted therapeutic delivery,platform,validation,University of Rhode Island,Some therapeutic delivery rights may be licensed separately (e.g. Cybrexa).,pHLIP Inc (phlipinc.com); Reshetnyak/Engelman Yale-URI IP.,2026-05-28,,"""Indocyanine green"" (""Series A"" OR ""Series B"" OR ""Series C"" OR seed OR ""venture capital"" OR ""funding round"") | Indocyanine green total funding raised venture capital investors | Indocyanine green funding site:prnewswire.com OR site:businesswire.com OR site:techcrunch.com OR site:fiercebiotech.com | Indocyanine green crunchbase funding rounds | Indocyanine green acquisition OR IPO OR market cap | pHLIP Inc pHLIP Inc — imaging and pH-targeted delivery preclinical development milestone | tumor imaging and pH-targeted therapeutic delivery translational research Rhode Island","[comp3_heuristic] Program / company page (on file) | https://www.fda.gov/
+[comp3_heuristic] SEC EDGAR search | https://www.sec.gov/edgar/search/#/q=Indocyanine%20green",156-876-316-327-303,US 12290575 B2,Fluorescent compound comprising a fluorophore conjugated to a pH-triggered polypeptide,https://lens.org/156-876-316-327-303,RHODE ISLAND COUNCIL ON POSTSECONDARY EDUCATION,RESHETNYAK YANA K|ANDREEV OLEG A|ENGELMAN DONALD M,156-876-316-327-303|129-685-709-438-265,"Fluorescent compound comprising a fluorophore conjugated to a pH-triggered polypeptide
+Method of detecting diseased or damaged tissue with a pH-triggered polypeptide fluorophore composition","https://lens.org/156-876-316-327-303
+https://lens.org/129-685-709-438-265",6,"pHLIP targeted intracellular delivery of calicheamicin.
+Applications of pHLIP Technology for Cancer Imaging and Therapy.
+Tumor treatment by pHLIP-targeted antigen delivery.
+Eradication of tumors and development of anti-cancer immunity using STINGa targeted by pHLIP.
+pHLIP Peptides Target Acidity in Activated Macrophages.
+Mapping pH at Cancer Cell Surfaces.","Michael DuPont
+Linden C Wyatt
+Michael DuPont
+Anna Moshnikova
+Hannah Visca
+Da Wei","University of Rhode Island
+University of Rhode Island
+University of Rhode Island
+University of Rhode Island
+University of Rhode Island
+University of Rhode Island","https://pubmed.ncbi.nlm.nih.gov/38428548/
+https://pubmed.ncbi.nlm.nih.gov/28438340/
+https://pubmed.ncbi.nlm.nih.gov/36686229/
+https://pubmed.ncbi.nlm.nih.gov/36330464/
+https://pubmed.ncbi.nlm.nih.gov/35604527/
+https://pubmed.ncbi.nlm.nih.gov/30989440/","38428548
+28438340
+36686229
+36330464
+35604527
+30989440","6 RI lead-author publication(s) via BioMCP/PubMed (inventors: ANDREEV, ENGELMAN, RESHETNYAK).","Advanced targeted nanomedicine.
+Astrocytic Slc4a4 regulates blood-brain barrier integrity in healthy and stroke brains via a CCL2-CCR2 pathway and NO dysregulation.
+Spatial Rabi oscillations between Majorana bound states and quantum dots.
+Pseudocirrhosis and portal hypertension in patients with metastatic cancers: a systematic review and meta-analysis.
+Impact of AKI care bundles on kidney and patient outcomes in hospitalized patients: a systematic review and meta-analysis.
+Evidence for anisotropic spin-triplet Andreev reflection at the 2D van der Waals ferromagnet/superconductor interface.
+Dynamics of life expectancy and life span equality.","https://pubmed.ncbi.nlm.nih.gov/25615945/
+https://pubmed.ncbi.nlm.nih.gov/38709635/
+https://pubmed.ncbi.nlm.nih.gov/29977685/
+https://pubmed.ncbi.nlm.nih.gov/36400809/
+https://pubmed.ncbi.nlm.nih.gov/34625046/
+https://pubmed.ncbi.nlm.nih.gov/34795286/
+https://pubmed.ncbi.nlm.nih.gov/32094193/","BioMCP patent-linked; not RI lead author
+BioMCP patent-linked; not RI lead author
+BioMCP patent-linked; not RI lead author; inventors: ANDREEV
+BioMCP patent-linked; not RI lead author; inventors: ENGELMAN
+BioMCP patent-linked; not RI lead author; inventors: ENGELMAN
+BioMCP patent-linked; not RI lead author; inventors: ANDREEV
+BioMCP patent-linked; not RI lead author; inventors: ANDREEV",,YANA K RESHETNYAK,Biophysics / pH-targeted imaging,University of Rhode Island,https://web.uri.edu/pharmacy/meet/yana-reshetnyak/,"1235542655|AARON MAXWELL|INTERVENTIONAL RADIOLOGY|RHODE ISLAND MEDICAL IMAGING INC|reviewer
+1073853248|MARIANA CANEPA|PATHOLOGY|RHODE ISLAND HOSPITAL|reviewer
+1023306974|SARA MALEKI|PATHOLOGY|RHODE ISLAND HOSPITAL|reviewer",,On Target Laboratories (Cytalux),startup,https://www.ontargetlaboratories.com/,116500000,total_raised,https://www.prnewswire.com/news-releases/on-target-laboratories-secures-30-million-for-commercialization-of-cytalux-pafolacianine-injection-301989832.html,116500000,30000000,$116.5M total raised; $30M Series C Nov 2023 for CYTALUX commercialization,IND → pivotal → FDA approval → hospital adoption,verified,Cybrexa (alphalex),startup,https://www.cybrexa.com/,44400000,total_raised,https://www.globenewswire.com/news-release/2021/03/10/2190275/0/en/Cybrexa-Therapeutics-Closes-25-Million-Series-B-Financing.html,44400000,25000000,$6M seed (2017) + $25M Series B (Mar 2021); alphalex PDC platform; URI-origin pHLIP,Clinical-stage oncology PDC → partnership,verified,Indocyanine green (ICG),incumbent,https://www.fda.gov/,,,,,,Generic pharmaceutical supply,Established surgical fluorescence standard,suggested,,,,seed,400000,200000,200000,,,Seed/Series A RI package capped at policy limit; 50% physician syndicate / 50% Slater SSBCI match.,,,,,,,Near-term R&D for pHLIP Inc — imaging and pH-targeted delivery (validation stage). Development path analog: On Target Laboratories (Cytalux) — IND → pivotal → FDA approval → hospital adoption. RI co-investment package targets de-risking experiments and clinical-ready milestones aligned with physician syndicate diligence.,,,pilot,,24,360000,Prospective pilot — intraoperative fluorescence imaging for tumor margin detection.,40,"pHLIP Inc — pHLIP Inc — imaging and pH-targeted delivery. focused on tumor imaging and pH-targeted therapeutic delivery. comparable path: On Target Laboratories (Cytalux). financing precedent: $116.5M total raised; $30M Series C Nov 2023 for CYTALUX commercialization. RI package: 400,000 USD (50% physician / 50% Slater SSBCI, policy cap)..",ip,physician_50_slater_ssbci_50,mixed_slater_physician_hospital_bd,oncology|interventional radiology|pathology,diagnostic|imaging|interventional_radiology|oncology|pathology,phlip_imaging,web_enriched
+auto_brown_university_assay_diagnostic_virus,B,true,pending,RNA VIRUS DIAGNOSTIC ASSAY Diagnostic Opportunity,RNA VIRUS DIAGNOSTIC ASSAY Diagnostic Opportunity,Brown University,RNA VIRUS DIAGNOSTIC ASSAY Diagnostic Opportunity,diagnostic,validation,Brown University,,Deduped patent family (1 of 1 records); review scope and naming.,2026-05-28,,Brown University RNA VIRUS DIAGNOSTIC ASSAY Diagnostic Opportunity preclinical development milestone | RNA VIRUS DIAGNOSTIC ASSAY Diagnostic Opportunity translational research Rhode Island,,149-093-272-688-064,US 2023/0167512 A1,RNA VIRUS DIAGNOSTIC ASSAY,https://lens.org/149-093-272-688-064,BROWN UNIVERSITY,FAIRBROTHER WILLIAM,149-093-272-688-064,RNA VIRUS DIAGNOSTIC ASSAY,https://lens.org/149-093-272-688-064,,,,,,,,,,,1013211168,JASON BOULWARE,Infectious Disease,Brown University,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,seed,400000,200000,200000,,,Seed/Series A RI package capped at policy limit; 50% physician syndicate / 50% Slater SSBCI match.,,,,,,,Near-term R&D for RNA VIRUS DIAGNOSTIC ASSAY Diagnostic Opportunity (validation stage). RI co-investment package targets de-risking experiments and clinical-ready milestones aligned with physician syndicate diligence.,,,interventional,functional_or_symptom,117,1386000,"Clinical path draft — confirm trial design, PI, and NCT fit before approval.",40,"Brown University — RNA VIRUS DIAGNOSTIC ASSAY Diagnostic Opportunity. focused on RNA VIRUS DIAGNOSTIC ASSAY Diagnostic Opportunity. RI package: 400,000 USD (50% physician / 50% Slater SSBCI, policy cap)..",ip,physician_50_slater_ssbci_50,mixed_slater_physician_hospital_bd,infectious disease|pathology|emergency medicine,diagnostic|pathology,,web_enriched
+auto_brown_university_biomarkers_disease_neural_parkinson,B,true,pending,Neural biomarkers Parkinson disease Diagnostic Opportunity,Neural biomarkers Parkinson disease Diagnostic Opportunity,Brown University,Neural biomarkers Parkinson disease Diagnostic Opportunity,diagnostic,validation,Brown University,,Deduped patent family (2 of 2 records); review scope and naming.,2026-05-28,,Brown University Neural biomarkers Parkinson disease Diagnostic Opportunity preclinical development milestone | Neural biomarkers Parkinson disease Diagnostic Opportunity translational research Rhode Island,,039-865-022-252-646,US 12336833 B2,Neural biomarkers of Parkinson's disease,https://lens.org/039-865-022-252-646,BROWN UNIVERSITY,ASAAD WAEL FAROUK|AHN MINKYU|LEE SHANE|LAURO PETER MAXWELL|AKBAR UMER|LIU DAVID D|YU JAMES YOUNG HO|AMAYA DANIEL ESTEBAN,039-865-022-252-646,Neural biomarkers of Parkinson's disease,https://lens.org/039-865-022-252-646,,,,,,,,,,,1003392689,Wael Farouk Asaad,Neurology,Brown University,https://vivo.brown.edu/display/wasaad,"1023039740|DENNIS AUMENTADO|NEUROLOGY|NORTH SMITHFIELD, RI|reviewer
+1023135720|PREETI GUPTA|NEUROLOGY|EAST PROVIDENCE, RI|reviewer
+1023182383|JUAN CANTON|NEUROLOGY|WARWICK, RI|reviewer
+1023291556|CHIZOBA UMEH|NEUROLOGY|ACCESS TELECARE PLLC|reviewer",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,seed,400000,200000,200000,,,Seed/Series A RI package capped at policy limit; 50% physician syndicate / 50% Slater SSBCI match.,,,,,,,Near-term R&D for Neural biomarkers Parkinson disease Diagnostic Opportunity (validation stage). RI co-investment package targets de-risking experiments and clinical-ready milestones aligned with physician syndicate diligence.,,,interventional,clinical_outcome,270,5821200,"Clinical path draft — confirm trial design, PI, and NCT fit before approval.",40,"Brown University — Neural biomarkers Parkinson disease Diagnostic Opportunity. focused on Neural biomarkers Parkinson disease Diagnostic Opportunity. RI package: 400,000 USD (50% physician / 50% Slater SSBCI, policy cap)..",ip,physician_50_slater_ssbci_50,mixed_slater_physician_hospital_bd,neurology|neurosurgery|physical medicine and rehabilitation,neurology|neurosurgery|medical_device,brown_neurotech,web_enriched
+auto_brown_university_biopsy_burr_hole_mounted_stereotactic,B,true,pending,Burr hole mounted stereotactic biopsy device Medical Device Opportunity,Burr hole mounted stereotactic biopsy device Medical Device Opportunity,Brown University,Burr hole mounted stereotactic biopsy device Medical Device Opportunity,medical_device,validation,Brown University,,Deduped patent family (2 of 2 records); review scope and naming.,2026-05-28,,Brown University Burr hole mounted stereotactic biopsy device Medical Device Opportunity preclinical development milestone | Burr hole mounted stereotactic biopsy device Medical Device Opportunity translational research Rhode Island,,061-948-855-057-272,US 10194890 B2,Burr hole mounted stereotactic biopsy device,https://lens.org/061-948-855-057-272,BROWN UNIVERSITY,COSGROVE G REES|VARNER HANNAH,061-948-855-057-272,Burr hole mounted stereotactic biopsy device,https://lens.org/061-948-855-057-272,,,,,,,,,,,1003392689,G Rees Cosgrove,Neurology,Brown University,https://vivo.brown.edu/display/gcosgrov,"1023039740|DENNIS AUMENTADO|NEUROLOGY|NORTH SMITHFIELD, RI|reviewer
+1023135720|PREETI GUPTA|NEUROLOGY|EAST PROVIDENCE, RI|reviewer
+1023182383|JUAN CANTON|NEUROLOGY|WARWICK, RI|reviewer
+1023291556|CHIZOBA UMEH|NEUROLOGY|ACCESS TELECARE PLLC|reviewer",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,seed,400000,200000,200000,,,Seed/Series A RI package capped at policy limit; 50% physician syndicate / 50% Slater SSBCI match.,,,,,,,Near-term R&D for Burr hole mounted stereotactic biopsy device Medical Device Opportunity (validation stage). RI co-investment package targets de-risking experiments and clinical-ready milestones aligned with physician syndicate diligence.,,,interventional,clinical_outcome,311,4246704,"Clinical path draft — confirm trial design, PI, and NCT fit before approval.",40,"Brown University — Burr hole mounted stereotactic biopsy device Medical Device Opportunity. focused on Burr hole mounted stereotactic biopsy device Medical Device Opportunity. RI package: 400,000 USD (50% physician / 50% Slater SSBCI, policy cap)..",ip,physician_50_slater_ssbci_50,mixed_slater_physician_hospital_bd,neurology|neurosurgery|physical medicine and rehabilitation,neurology|neurosurgery|medical_device,,web_enriched
+auto_brown_university_brain_high_imaging_resolution_spatiotemporal,B,true,pending,Brown — high-resolution brain imaging,High spatiotemporal resolution brain imaging Technology Platform Opportunity,Brown University,Brown — high-resolution brain imaging,platform,validation,Brown University,,Deduped patent family (2 of 2 records); review scope and naming.,2026-05-28,,Brown University Brown — high-resolution brain imaging preclinical development milestone | Brown — high-resolution brain imaging translational research Rhode Island,,038-432-364-973-494,US 12035996 B2,High spatiotemporal resolution brain imaging,https://lens.org/038-432-364-973-494,BROWN UNIVERSITY,NURMIKKO ARTO|ZHANG NING,038-432-364-973-494|048-642-338-391-608,"High spatiotemporal resolution brain imaging
+HIGH SPATIOTEMPORAL RESOLUTION BRAIN IMAGING","https://lens.org/038-432-364-973-494
+https://lens.org/048-642-338-391-608",,,,,,,,,,,1003392689,Arto Nurmikko,Neurology,Brown University,https://vivo.brown.edu/display/anurmikk,"1023039740|DENNIS AUMENTADO|NEUROLOGY|NORTH SMITHFIELD, RI|reviewer
+1023135720|PREETI GUPTA|NEUROLOGY|EAST PROVIDENCE, RI|reviewer
+1023182383|JUAN CANTON|NEUROLOGY|WARWICK, RI|reviewer
+1023291556|CHIZOBA UMEH|NEUROLOGY|ACCESS TELECARE PLLC|reviewer",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,seed,400000,200000,200000,,,Seed/Series A RI package capped at policy limit; 50% physician syndicate / 50% Slater SSBCI match.,,,,,,,Near-term R&D for Brown — high-resolution brain imaging (validation stage). RI co-investment package targets de-risking experiments and clinical-ready milestones aligned with physician syndicate diligence.,,,interventional,clinical_outcome,469,343728,"Clinical path draft — confirm trial design, PI, and NCT fit before approval.",40,"Brown University — Brown — high-resolution brain imaging. focused on Brown — high-resolution brain imaging. RI package: 400,000 USD (50% physician / 50% Slater SSBCI, policy cap)..",ip,physician_50_slater_ssbci_50,mixed_slater_physician_hospital_bd,neurology|neurosurgery|physical medicine and rehabilitation,neurology|neurosurgery|medical_device,,web_enriched
+auto_brown_university_interrogation_neural_platform,B,true,pending,Brown — neural interrogation platform,Neural interrogation platform Digital Therapeutic Opportunity,Brown University,Brown — neural interrogation platform,digital_therapeutic,validation,Brown University,,Deduped patent family (2 of 2 records); review scope and naming.,2026-05-28,,Brown University Brown — neural interrogation platform preclinical development milestone | Brown — neural interrogation platform translational research Rhode Island,,195-814-745-754-304,US 11464964 B2,Neural interrogation platform,https://lens.org/195-814-745-754-304,BROWN UNIVERSITY,BORTON DAVID A|POWELL MARC,195-814-745-754-304,Neural interrogation platform,https://lens.org/195-814-745-754-304,,,,,,,,,,,1003392689,David A Borton,Neurology,Brown University,https://vivo.brown.edu/display/dborton,"1023039740|DENNIS AUMENTADO|NEUROLOGY|NORTH SMITHFIELD, RI|reviewer
+1023135720|PREETI GUPTA|NEUROLOGY|EAST PROVIDENCE, RI|reviewer
+1023182383|JUAN CANTON|NEUROLOGY|WARWICK, RI|reviewer
+1023291556|CHIZOBA UMEH|NEUROLOGY|ACCESS TELECARE PLLC|reviewer",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,seed,400000,200000,200000,,,Seed/Series A RI package capped at policy limit; 50% physician syndicate / 50% Slater SSBCI match.,,,,,,,Near-term R&D for Brown — neural interrogation platform (validation stage). RI co-investment package targets de-risking experiments and clinical-ready milestones aligned with physician syndicate diligence.,,,interventional,clinical_outcome,134,687456,"Clinical path draft — confirm trial design, PI, and NCT fit before approval.",36,"Brown University — Brown — neural interrogation platform. focused on Brown — neural interrogation platform. RI package: 400,000 USD (50% physician / 50% Slater SSBCI, policy cap)..",ip,physician_50_slater_ssbci_50,mixed_slater_physician_hospital_bd,neurology|neurosurgery|physical medicine and rehabilitation,neurology|neurosurgery|medical_device,brown_neurotech,web_enriched
+auto_noramco_2020_acetate_buprenorphine_preparing_salt,B,true,pending,Acetate salt buprenorphine and methods for Technology Platform Opportunity,Acetate salt buprenorphine and methods for Technology Platform Opportunity,Noramco LLC,Acetate salt buprenorphine and methods for Technology Platform Opportunity,platform,validation,Noramco LLC,,Deduped patent family (2 of 10 records); review scope and naming.,2026-05-28,,"""C Huntley"" site:lifespan.org OR site:rhodeislandhospital.org | ""C Huntley"" site:web.uri.edu OR site:ele.uri.edu | ""C Huntley"" Brown Warren Alpert OR ""Rhode Island Hospital"" physician | Noramco LLC Acetate salt buprenorphine and methods for Technology Platform Opportunity preclinical development milestone | Acetate salt buprenorphine and methods for Technology Platform Opportunity translational research Rhode Island",[profile] no profile URL found | see web_search_queries,013-126-611-882-483,US 10874662 B2,Acetate salt of buprenorphine and methods for preparing buprenorphine,https://lens.org/013-126-611-882-483,NORAMCO LLC,HUNTLEY C FREDERICK|KATAISTO ERIK WAYNE|REISCH HELGE ALFRED|SHARMA ARCHANA,013-126-611-882-483|073-418-331-813-652,"Acetate salt of buprenorphine and methods for preparing buprenorphine
+Acetate salt of buprenorphine and methods for preparing buprenorphine","https://lens.org/013-126-611-882-483
+https://lens.org/073-418-331-813-652",,,,,,,,,,,1144406802,C Frederick Huntley,Pain Management,Noramco LLC,,"1194810507|NEBYOU BELAY|ADDICTION MEDICINE|THRIVE BEHAVIORAL HEALTH INC|reviewer
+1205850989|SYLVESTER SVIOKLA|ADDICTION MEDICINE|WARWICK, RI|reviewer
+1629427265|CAROLINE WUNSCH|ADDICTION MEDICINE|RHODE ISLAND HOSPITAL|reviewer
+1679991806|CECILIA FIX|ADDICTION MEDICINE|LIFESPAN PHYSICIAN GROUP INC|reviewer",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,seed,400000,200000,200000,,,Seed/Series A RI package capped at policy limit; 50% physician syndicate / 50% Slater SSBCI match.,,,,,,,Near-term R&D for Acetate salt buprenorphine and methods for Technology Platform Opportunity (validation stage). RI co-investment package targets de-risking experiments and clinical-ready milestones aligned with physician syndicate diligence.,,,interventional,clinical_outcome,469,343728,"Clinical path draft — confirm trial design, PI, and NCT fit before approval.",40,"Noramco LLC — Acetate salt buprenorphine and methods for Technology Platform Opportunity. focused on Acetate salt buprenorphine and methods for Technology Platform Opportunity. RI package: 400,000 USD (50% physician / 50% Slater SSBCI, policy cap)..",ip,physician_50_slater_ssbci_50,mixed_slater_physician_hospital_bd,pain management|anesthesiology|addiction medicine|psychiatry,pain_medicine|anesthesiology|behavioral_health,ri_pharma_chemistry,web_enriched
+auto_noramco_2020_dioxanocodides_dioxanomorphides,B,true,pending,dioxanomorphides and dioxanocodides Technology Platform Opportunity,dioxanomorphides and dioxanocodides Technology Platform Opportunity,Noramco LLC,dioxanomorphides and dioxanocodides Technology Platform Opportunity,platform,validation,Noramco LLC,,Deduped patent family (2 of 2 records); review scope and naming.,2026-05-28,,"""Helge Reisch"" site:lifespan.org OR site:rhodeislandhospital.org | ""Helge Reisch"" site:web.uri.edu OR site:ele.uri.edu | ""Helge Reisch"" Brown Warren Alpert OR ""Rhode Island Hospital"" physician | Noramco LLC dioxanomorphides and dioxanocodides Technology Platform Opportunity preclinical development milestone | dioxanomorphides and dioxanocodides Technology Platform Opportunity translational research Rhode Island",[profile] no profile URL found | see web_search_queries,109-331-095-459-390,US 9315514 B2,"1,3-dioxanomorphides and 1,3-dioxanocodides",https://lens.org/109-331-095-459-390,NORAMCO LLC,REISCH HELGE A,109-331-095-459-390,"1,3-dioxanomorphides and 1,3-dioxanocodides",https://lens.org/109-331-095-459-390,,,,,,,,,,,1144406802,Helge A Reisch,Pain Management,Noramco LLC,,"1194810507|NEBYOU BELAY|ADDICTION MEDICINE|THRIVE BEHAVIORAL HEALTH INC|reviewer
+1205850989|SYLVESTER SVIOKLA|ADDICTION MEDICINE|WARWICK, RI|reviewer
+1629427265|CAROLINE WUNSCH|ADDICTION MEDICINE|RHODE ISLAND HOSPITAL|reviewer
+1679991806|CECILIA FIX|ADDICTION MEDICINE|LIFESPAN PHYSICIAN GROUP INC|reviewer",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,seed,400000,200000,200000,,,Seed/Series A RI package capped at policy limit; 50% physician syndicate / 50% Slater SSBCI match.,,,,,,,Near-term R&D for dioxanomorphides and dioxanocodides Technology Platform Opportunity (validation stage). RI co-investment package targets de-risking experiments and clinical-ready milestones aligned with physician syndicate diligence.,,,interventional,clinical_outcome,469,343728,"Clinical path draft — confirm trial design, PI, and NCT fit before approval.",40,"Noramco LLC — dioxanomorphides and dioxanocodides Technology Platform Opportunity. focused on dioxanomorphides and dioxanocodides Technology Platform Opportunity. RI package: 400,000 USD (50% physician / 50% Slater SSBCI, policy cap)..",ip,physician_50_slater_ssbci_50,mixed_slater_physician_hospital_bd,pain management|anesthesiology|addiction medicine|psychiatry,pain_medicine|anesthesiology|behavioral_health,ri_pharma_chemistry,web_enriched
+auto_purdue_pharma_allyl_catalyzed_compounds_metal_preparation_ther,B,true,pending,Transition metal catalyzed processes for the Therapeutic Opportunity,Transition metal catalyzed processes for the Therapeutic Opportunity,Purdue Pharma,Transition metal catalyzed processes for the Therapeutic Opportunity,therapeutic,validation,Purdue Pharma,,Deduped patent family (2 of 10 records); review scope and naming.,2026-05-28,,"""Joshua Giguere"" site:lifespan.org OR site:rhodeislandhospital.org | ""Joshua Giguere"" site:web.uri.edu OR site:ele.uri.edu | ""Joshua Giguere"" Brown Warren Alpert OR ""Rhode Island Hospital"" physician | Purdue Pharma Transition metal catalyzed processes for the Therapeutic Opportunity preclinical development milestone | Transition metal catalyzed processes for the Therapeutic Opportunity translational research Rhode Island",[profile] no profile URL found | see web_search_queries,054-959-301-698-764,US 9657030 B2,Transition metal-catalyzed processes for the preparation of N-allyl compounds and use thereof,https://lens.org/054-959-301-698-764,PURDUE PHARMA L.P,GIGUERE JOSHUA ROBERT|MCCARTHY KEITH EDWARD|REISCH HELGE ALFRED|SANDOVAL SERGIO|STYMIEST JAKE LARRY,054-959-301-698-764,Transition metal-catalyzed processes for the preparation of N-allyl compounds and use thereof,https://lens.org/054-959-301-698-764,,,,,,,,,,,1144406802,Joshua Robert Giguere,Pain Management,Purdue Pharma,,"1194810507|NEBYOU BELAY|ADDICTION MEDICINE|THRIVE BEHAVIORAL HEALTH INC|reviewer
+1205850989|SYLVESTER SVIOKLA|ADDICTION MEDICINE|WARWICK, RI|reviewer
+1629427265|CAROLINE WUNSCH|ADDICTION MEDICINE|RHODE ISLAND HOSPITAL|reviewer
+1679991806|CECILIA FIX|ADDICTION MEDICINE|LIFESPAN PHYSICIAN GROUP INC|reviewer",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,seed,400000,200000,200000,,,Seed/Series A RI package capped at policy limit; 50% physician syndicate / 50% Slater SSBCI match.,,,,,,,Near-term R&D for Transition metal catalyzed processes for the Therapeutic Opportunity (validation stage). RI co-investment package targets de-risking experiments and clinical-ready milestones aligned with physician syndicate diligence.,,,interventional,clinical_outcome,34,3447704,"Clinical path draft — confirm trial design, PI, and NCT fit before approval.",40,"Purdue Pharma — Transition metal catalyzed processes for the Therapeutic Opportunity. focused on Transition metal catalyzed processes for the Therapeutic Opportunity. RI package: 400,000 USD (50% physician / 50% Slater SSBCI, policy cap)..",ip,physician_50_slater_ssbci_50,mixed_slater_physician_hospital_bd,pain management|anesthesiology|addiction medicine|psychiatry,pain_medicine|anesthesiology|behavioral_health,ri_pharma_chemistry,web_enriched
+auto_purdue_pharmaceuticals_having_hydrochloride_hydroxycodeinone_less_oxyco,B,true,pending,Oxycodone hydrochloride having less than PPM Technology Platform Opportunity,Oxycodone hydrochloride having less than PPM Technology Platform Opportunity,Purdue Pharma,Oxycodone hydrochloride having less than PPM Technology Platform Opportunity,platform,validation,Purdue Pharmaceuticals,,Deduped patent family (2 of 2 records); review scope and naming.,2026-05-28,,"""Robert Chapman"" site:lifespan.org OR site:rhodeislandhospital.org | ""Robert Chapman"" site:web.uri.edu OR site:ele.uri.edu | ""Robert Chapman"" Brown Warren Alpert OR ""Rhode Island Hospital"" physician | Purdue Pharma Oxycodone hydrochloride having less than PPM Technology Platform Opportunity preclinical development milestone | Oxycodone hydrochloride having less than PPM Technology Platform Opportunity translational research Rhode Island",[profile] no profile URL found | see web_search_queries,183-546-839-542-835,US 9073933 B2,Oxycodone hydrochloride having less than 25 PPM 14-hydroxycodeinone,https://lens.org/183-546-839-542-835,PURDUE PHARMACEUTICALS L.P,CHAPMAN ROBERT|RIDER LONN S|HONG QI|KYLE DONALD|KUPPER ROBERT,183-546-839-542-835,Oxycodone hydrochloride having less than 25 PPM 14-hydroxycodeinone,https://lens.org/183-546-839-542-835,,,,,,,,,,,1144406802,Robert Chapman,Pain Management,Purdue Pharmaceuticals,,"1194810507|NEBYOU BELAY|ADDICTION MEDICINE|THRIVE BEHAVIORAL HEALTH INC|reviewer
+1205850989|SYLVESTER SVIOKLA|ADDICTION MEDICINE|WARWICK, RI|reviewer
+1629427265|CAROLINE WUNSCH|ADDICTION MEDICINE|RHODE ISLAND HOSPITAL|reviewer
+1679991806|CECILIA FIX|ADDICTION MEDICINE|LIFESPAN PHYSICIAN GROUP INC|reviewer",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,seed,400000,200000,200000,,,Seed/Series A RI package capped at policy limit; 50% physician syndicate / 50% Slater SSBCI match.,,,,,,,Near-term R&D for Oxycodone hydrochloride having less than PPM Technology Platform Opportunity (validation stage). RI co-investment package targets de-risking experiments and clinical-ready milestones aligned with physician syndicate diligence.,,,interventional,clinical_outcome,469,343728,"Clinical path draft — confirm trial design, PI, and NCT fit before approval.",40,"Purdue Pharma — Oxycodone hydrochloride having less than PPM Technology Platform Opportunity. focused on Oxycodone hydrochloride having less than PPM Technology Platform Opportunity. RI package: 400,000 USD (50% physician / 50% Slater SSBCI, policy cap)..",ip,physician_50_slater_ssbci_50,mixed_slater_physician_hospital_bd,pain management|anesthesiology|addiction medicine|psychiatry,pain_medicine|anesthesiology|behavioral_health,ri_pharma_chemistry,web_enriched
+auto_rhode_island_brain_implantable,B,true,pending,Brain implantable device Medical Device Opportunity,Brain implantable device Medical Device Opportunity,Rhode Island Hospital,Brain implantable device Medical Device Opportunity,medical_device,validation,Rhode Island Hospital,,Deduped patent family (2 of 2 records); review scope and naming.,2026-05-28,,"""Wael Asaad"" site:lifespan.org OR site:rhodeislandhospital.org | ""Wael Asaad"" site:web.uri.edu OR site:ele.uri.edu | ""Wael Asaad"" Brown Warren Alpert OR ""Rhode Island Hospital"" physician | Rhode Island Hospital Brain implantable device Medical Device Opportunity preclinical development milestone | Brain implantable device Medical Device Opportunity translational research Rhode Island",[profile] no profile URL found | see web_search_queries,178-459-504-176-515,US 11684781 B2,Brain implantable device,https://lens.org/178-459-504-176-515,RHODE ISLAND HOSPITAL,ASAAD WAEL FAROUK|LEE SHANE|LAURO PETER MAXWELL,178-459-504-176-515,Brain implantable device,https://lens.org/178-459-504-176-515,,,,,,,,,,,1023351285,Wael Farouk Asaad,Neurology,Rhode Island Hospital,,"1043704703|SCOTT WARREN|NEUROLOGY|RHODE ISLAND HOSPITAL|reviewer
+1043730112|ANIRUDH PENUMAKA|NEUROSURGERY|LIFESPAN PHYSICIAN GROUP INC|reviewer
+1053840827|ELIAS SHAAYA|NEUROSURGERY|RHODE ISLAND HOSPITAL|reviewer
+1063477032|HEINRICH ELINZANO|NEUROLOGY|RHODE ISLAND HOSPITAL|reviewer",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,seed,400000,200000,200000,,,Seed/Series A RI package capped at policy limit; 50% physician syndicate / 50% Slater SSBCI match.,,,,,,,Near-term R&D for Brain implantable device Medical Device Opportunity (validation stage). RI co-investment package targets de-risking experiments and clinical-ready milestones aligned with physician syndicate diligence.,,,interventional,clinical_outcome,311,4246704,"Clinical path draft — confirm trial design, PI, and NCT fit before approval.",40,"Rhode Island Hospital — Brain implantable device Medical Device Opportunity. focused on Brain implantable device Medical Device Opportunity. RI package: 400,000 USD (50% physician / 50% Slater SSBCI, policy cap)..",ip,physician_50_slater_ssbci_50,mixed_slater_physician_hospital_bd,neurology|neurosurgery|physical medicine and rehabilitation,neurology|neurosurgery|medical_device,,web_enriched
+auto_rhode_island_fixation_intracranial,B,true,pending,Intracranial fixation device Medical Device Opportunity,Intracranial fixation device Medical Device Opportunity,Rhode Island Hospital,Intracranial fixation device Medical Device Opportunity,medical_device,validation,Rhode Island Hospital,,Deduped patent family (2 of 2 records); review scope and naming.,2026-05-28,,"""Wael Asaad"" site:lifespan.org OR site:rhodeislandhospital.org | ""Wael Asaad"" site:web.uri.edu OR site:ele.uri.edu | ""Wael Asaad"" Brown Warren Alpert OR ""Rhode Island Hospital"" physician | Rhode Island Hospital Intracranial fixation device Medical Device Opportunity preclinical development milestone | Intracranial fixation device Medical Device Opportunity translational research Rhode Island",[profile] no profile URL found | see web_search_queries,099-809-198-435-630,US 9675783 B2,Intracranial fixation device,https://lens.org/099-809-198-435-630,RHODE ISLAND HOSPITAL,ASAAD WAEL F|SEGAR DAVID J,099-809-198-435-630,Intracranial fixation device,https://lens.org/099-809-198-435-630,,,,,,,,,,,1023351285,Wael F Asaad,Neurology,Rhode Island Hospital,,"1043704703|SCOTT WARREN|NEUROLOGY|RHODE ISLAND HOSPITAL|reviewer
+1043730112|ANIRUDH PENUMAKA|NEUROSURGERY|LIFESPAN PHYSICIAN GROUP INC|reviewer
+1053840827|ELIAS SHAAYA|NEUROSURGERY|RHODE ISLAND HOSPITAL|reviewer
+1063477032|HEINRICH ELINZANO|NEUROLOGY|RHODE ISLAND HOSPITAL|reviewer",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,seed,400000,200000,200000,,,Seed/Series A RI package capped at policy limit; 50% physician syndicate / 50% Slater SSBCI match.,,,,,,,Near-term R&D for Intracranial fixation device Medical Device Opportunity (validation stage). RI co-investment package targets de-risking experiments and clinical-ready milestones aligned with physician syndicate diligence.,,,interventional,clinical_outcome,311,4246704,"Clinical path draft — confirm trial design, PI, and NCT fit before approval.",40,"Rhode Island Hospital — Intracranial fixation device Medical Device Opportunity. focused on Intracranial fixation device Medical Device Opportunity. RI package: 400,000 USD (50% physician / 50% Slater SSBCI, policy cap)..",ip,physician_50_slater_ssbci_50,mixed_slater_physician_hospital_bd,neurology|neurosurgery|physical medicine and rehabilitation,neurology|neurosurgery|medical_device,,web_enriched
+auto_rhodes_technologies_cannabinoid_delivery_dosage_forms_inhalational_i,B,true,pending,CANNABINOID COMPOSITIONS AND DOSAGE FORMS FOR Technology Platform Opportunity,CANNABINOID COMPOSITIONS AND DOSAGE FORMS FOR Technology Platform Opportunity,Rhodes Technologies,CANNABINOID COMPOSITIONS AND DOSAGE FORMS FOR Technology Platform Opportunity,platform,validation,Rhodes Technologies,,Deduped patent family (1 of 1 records); review scope and naming.,2026-05-28,,"""Chuanhai Cao"" site:lifespan.org OR site:rhodeislandhospital.org | ""Chuanhai Cao"" site:web.uri.edu OR site:ele.uri.edu | ""Chuanhai Cao"" Brown Warren Alpert OR ""Rhode Island Hospital"" physician | Rhodes Technologies CANNABINOID COMPOSITIONS AND DOSAGE FORMS FOR Technology Platform Opportunity preclinical development milestone | CANNABINOID COMPOSITIONS AND DOSAGE FORMS FOR Technology Platform Opportunity translational research Rhode Island",[profile] no profile URL found | see web_search_queries,037-717-271-782-00X,US 2023/0233635 A1,CANNABINOID COMPOSITIONS AND DOSAGE FORMS FOR INTRANASAL OR INHALATIONAL DELIVERY,https://lens.org/037-717-271-782-00X,RHODES TECHNOLOGIES,CAO CHUANHAI|CHANG PING,037-717-271-782-00X,CANNABINOID COMPOSITIONS AND DOSAGE FORMS FOR INTRANASAL OR INHALATIONAL DELIVERY,https://lens.org/037-717-271-782-00X,,,,,,,,,,,1144406802,Chuanhai Cao,Pain Management,Rhodes Technologies,,"1194810507|NEBYOU BELAY|ADDICTION MEDICINE|THRIVE BEHAVIORAL HEALTH INC|reviewer
+1205850989|SYLVESTER SVIOKLA|ADDICTION MEDICINE|WARWICK, RI|reviewer
+1629427265|CAROLINE WUNSCH|ADDICTION MEDICINE|RHODE ISLAND HOSPITAL|reviewer
+1679991806|CECILIA FIX|ADDICTION MEDICINE|LIFESPAN PHYSICIAN GROUP INC|reviewer",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,seed,400000,200000,200000,,,Seed/Series A RI package capped at policy limit; 50% physician syndicate / 50% Slater SSBCI match.,,,,,,,Near-term R&D for CANNABINOID COMPOSITIONS AND DOSAGE FORMS FOR Technology Platform Opportunity (validation stage). RI co-investment package targets de-risking experiments and clinical-ready milestones aligned with physician syndicate diligence.,,,interventional,clinical_outcome,469,343728,"Clinical path draft — confirm trial design, PI, and NCT fit before approval.",40,"Rhodes Technologies — CANNABINOID COMPOSITIONS AND DOSAGE FORMS FOR Technology Platform Opportunity. focused on CANNABINOID COMPOSITIONS AND DOSAGE FORMS FOR Technology Platform Opportunity. RI package: 400,000 USD (50% physician / 50% Slater SSBCI, policy cap)..",ip,physician_50_slater_ssbci_50,mixed_slater_physician_hospital_bd,pain management|anesthesiology|addiction medicine|psychiatry,pain_medicine|anesthesiology|behavioral_health,ri_pharma_chemistry,web_enriched
+auto_rhodes_technologies_dronabinol_increasing_stability,B,true,pending,SYSTEMS AND METHODS FOR INCREASING STABILITY Technology Platform Opportunity,SYSTEMS AND METHODS FOR INCREASING STABILITY Technology Platform Opportunity,Rhodes Technologies,SYSTEMS AND METHODS FOR INCREASING STABILITY Technology Platform Opportunity,platform,validation,Rhodes Technologies,,Deduped patent family (2 of 3 records); review scope and naming.,2026-05-28,,"""Robert Kupper"" site:lifespan.org OR site:rhodeislandhospital.org | ""Robert Kupper"" site:web.uri.edu OR site:ele.uri.edu | ""Robert Kupper"" Brown Warren Alpert OR ""Rhode Island Hospital"" physician | Rhodes Technologies SYSTEMS AND METHODS FOR INCREASING STABILITY Technology Platform Opportunity preclinical development milestone | SYSTEMS AND METHODS FOR INCREASING STABILITY Technology Platform Opportunity translational research Rhode Island",[profile] no profile URL found | see web_search_queries,155-377-718-670-849,US 2023/0218534 A1,SYSTEMS AND METHODS FOR INCREASING STABILITY OF DRONABINOL COMPOSITIONS,https://lens.org/155-377-718-670-849,RHODES TECHNOLOGIES,KUPPER ROBERT J,155-377-718-670-849,SYSTEMS AND METHODS FOR INCREASING STABILITY OF DRONABINOL COMPOSITIONS,https://lens.org/155-377-718-670-849,,,,,,,,,,,1144406802,Robert J Kupper,Pain Management,Rhodes Technologies,,"1194810507|NEBYOU BELAY|ADDICTION MEDICINE|THRIVE BEHAVIORAL HEALTH INC|reviewer
+1205850989|SYLVESTER SVIOKLA|ADDICTION MEDICINE|WARWICK, RI|reviewer
+1629427265|CAROLINE WUNSCH|ADDICTION MEDICINE|RHODE ISLAND HOSPITAL|reviewer
+1679991806|CECILIA FIX|ADDICTION MEDICINE|LIFESPAN PHYSICIAN GROUP INC|reviewer",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,seed,400000,200000,200000,,,Seed/Series A RI package capped at policy limit; 50% physician syndicate / 50% Slater SSBCI match.,,,,,,,Near-term R&D for SYSTEMS AND METHODS FOR INCREASING STABILITY Technology Platform Opportunity (validation stage). RI co-investment package targets de-risking experiments and clinical-ready milestones aligned with physician syndicate diligence.,,,interventional,clinical_outcome,469,343728,"Clinical path draft — confirm trial design, PI, and NCT fit before approval.",40,"Rhodes Technologies — SYSTEMS AND METHODS FOR INCREASING STABILITY Technology Platform Opportunity. focused on SYSTEMS AND METHODS FOR INCREASING STABILITY Technology Platform Opportunity. RI package: 400,000 USD (50% physician / 50% Slater SSBCI, policy cap)..",ip,physician_50_slater_ssbci_50,mixed_slater_physician_hospital_bd,pain management|anesthesiology|addiction medicine|psychiatry,pain_medicine|anesthesiology|behavioral_health,ri_pharma_chemistry,web_enriched
+auto_rhodes_technologies_improved_opioid_synthesis,B,true,pending,PROCESS FOR IMPROVED OPIOID SYNTHESIS Technology Platform Opportunity,PROCESS FOR IMPROVED OPIOID SYNTHESIS Technology Platform Opportunity,Rhodes Technologies,PROCESS FOR IMPROVED OPIOID SYNTHESIS Technology Platform Opportunity,platform,validation,Rhodes Technologies,,Deduped patent family (2 of 7 records); review scope and naming.,2026-05-28,,"""Stuart Gebbie"" site:lifespan.org OR site:rhodeislandhospital.org | ""Stuart Gebbie"" site:web.uri.edu OR site:ele.uri.edu | ""Stuart Gebbie"" Brown Warren Alpert OR ""Rhode Island Hospital"" physician | Rhodes Technologies PROCESS FOR IMPROVED OPIOID SYNTHESIS Technology Platform Opportunity preclinical development milestone | PROCESS FOR IMPROVED OPIOID SYNTHESIS Technology Platform Opportunity translational research Rhode Island",[profile] no profile URL found | see web_search_queries,036-222-027-029-816,US 2023/0130617 A1,PROCESS FOR IMPROVED OPIOID SYNTHESIS,https://lens.org/036-222-027-029-816,RHODES TECHNOLOGIES,GEBBIE STUART JAMES|GIGUERE JOSHUA R|MCCARTHY KEITH|RIDER LONN S,036-222-027-029-816|023-811-388-138-894,"PROCESS FOR IMPROVED OPIOID SYNTHESIS
+Process for improved opioid synthesis","https://lens.org/036-222-027-029-816
+https://lens.org/023-811-388-138-894",,,,,,,,,,,1801208798,Stuart James Gebbie,Pain Management,Rhodes Technologies,,"1972619864|DANIEL REGAN|ADDICTION MEDICINE|ATMED TREATMENT CENTER, INC.|reviewer
+1003012014|KEITH SCARFO|ANESTHESIOLOGY|RHODE ISLAND HOSPITAL|reviewer
+1003173048|CHRISTINE LEDDY|PSYCHIATRY|LIFESPAN PHYSICIAN GROUP INC|reviewer
+1003820432|LUISA SKOBLE|PSYCHIATRY|LIFESPAN PHYSICIAN GROUP INC|reviewer",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,seed,400000,200000,200000,,,Seed/Series A RI package capped at policy limit; 50% physician syndicate / 50% Slater SSBCI match.,,,,,,,Near-term R&D for PROCESS FOR IMPROVED OPIOID SYNTHESIS Technology Platform Opportunity (validation stage). RI co-investment package targets de-risking experiments and clinical-ready milestones aligned with physician syndicate diligence.,,,interventional,clinical_outcome,469,343728,"Clinical path draft — confirm trial design, PI, and NCT fit before approval.",40,"Rhodes Technologies — PROCESS FOR IMPROVED OPIOID SYNTHESIS Technology Platform Opportunity. focused on PROCESS FOR IMPROVED OPIOID SYNTHESIS Technology Platform Opportunity. RI package: 400,000 USD (50% physician / 50% Slater SSBCI, policy cap)..",ip,physician_50_slater_ssbci_50,mixed_slater_physician_hospital_bd,pain management|anesthesiology|addiction medicine|psychiatry,pain_medicine|anesthesiology|behavioral_health,ri_pharma_chemistry,web_enriched
+auto_rhodes_technologies_improved_oxymorphone_synthesis,B,true,pending,Process for improved oxymorphone synthesis Technology Platform Opportunity,Process for improved oxymorphone synthesis Technology Platform Opportunity,Rhodes Technologies,Process for improved oxymorphone synthesis Technology Platform Opportunity,platform,validation,Rhodes Technologies,,Deduped patent family (2 of 3 records); review scope and naming.,2026-05-28,,"""Joshua Giguere"" site:lifespan.org OR site:rhodeislandhospital.org | ""Joshua Giguere"" site:web.uri.edu OR site:ele.uri.edu | ""Joshua Giguere"" Brown Warren Alpert OR ""Rhode Island Hospital"" physician | Rhodes Technologies Process for improved oxymorphone synthesis Technology Platform Opportunity preclinical development milestone | Process for improved oxymorphone synthesis Technology Platform Opportunity translational research Rhode Island",[profile] no profile URL found | see web_search_queries,138-087-010-087-752,US 10189852 B2,Process for improved oxymorphone synthesis,https://lens.org/138-087-010-087-752,RHODES TECHNOLOGIES,GIGUERE JOSHUA ROBERT|MCCARTHY KEITH EDWARD|SCHLEUSNER MARCEL,138-087-010-087-752,Process for improved oxymorphone synthesis,https://lens.org/138-087-010-087-752,,,,,,,,,,,1801208798,Joshua Robert Giguere,Pain Management,Rhodes Technologies,,"1972619864|DANIEL REGAN|ADDICTION MEDICINE|ATMED TREATMENT CENTER, INC.|reviewer
+1003012014|KEITH SCARFO|ANESTHESIOLOGY|RHODE ISLAND HOSPITAL|reviewer
+1003173048|CHRISTINE LEDDY|PSYCHIATRY|LIFESPAN PHYSICIAN GROUP INC|reviewer
+1003820432|LUISA SKOBLE|PSYCHIATRY|LIFESPAN PHYSICIAN GROUP INC|reviewer",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,seed,400000,200000,200000,,,Seed/Series A RI package capped at policy limit; 50% physician syndicate / 50% Slater SSBCI match.,,,,,,,Near-term R&D for Process for improved oxymorphone synthesis Technology Platform Opportunity (validation stage). RI co-investment package targets de-risking experiments and clinical-ready milestones aligned with physician syndicate diligence.,,,interventional,clinical_outcome,469,343728,"Clinical path draft — confirm trial design, PI, and NCT fit before approval.",40,"Rhodes Technologies — Process for improved oxymorphone synthesis Technology Platform Opportunity. focused on Process for improved oxymorphone synthesis Technology Platform Opportunity. RI package: 400,000 USD (50% physician / 50% Slater SSBCI, policy cap)..",ip,physician_50_slater_ssbci_50,mixed_slater_physician_hospital_bd,pain management|anesthesiology|addiction medicine|psychiatry,pain_medicine|anesthesiology|behavioral_health,ri_pharma_chemistry,web_enriched
+auto_bryant_university_antibacterial_compounds_making_same_using,B,true,pending,Brown–Bryant antibacterial diamides,Antibacterial compounds and methods making and Therapeutic Opportunity,Brown University / Bryant University,antibacterial small molecules (diamides),therapeutic,validation,Bryant University,,Basu lab; merged WO auto_univ_brown duplicate. Thematic neighbor: Tier A auranofin catheter.,2026-05-28,,"""Amit Basu"" site:lifespan.org OR site:rhodeislandhospital.org | ""Amit Basu"" site:web.uri.edu OR site:ele.uri.edu | ""Amit Basu"" Brown Warren Alpert OR ""Rhode Island Hospital"" physician | Brown University / Bryant University Brown–Bryant antibacterial diamides preclinical development milestone | antibacterial small molecules (diamides) translational research Rhode Island",[profile] no profile URL found | see web_search_queries,059-233-465-923-592,US 10829440 B2,Antibacterial compounds and methods of making and using same,https://lens.org/059-233-465-923-592,BRYANT UNIVERSITY,BASU AMIT|REID CHRISTOPHER W|O'CONNOR MARY MARGARET|MAGNO ETHAN LINDSAY|JAMIESON MITCHELL EVAN|MILLER RYAN DANIEL,059-233-465-923-592|100-741-660-802-302,"Antibacterial compounds and methods of making and using same
+NOVEL ANTIBACTERIAL COMPOUNDS AND METHODS OF MAKING AND USING SAME","https://lens.org/059-233-465-923-592
+https://lens.org/100-741-660-802-302",,,,,,,,,,,,Amit Basu,,Bryant University,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,seed,400000,200000,200000,,,Seed/Series A RI package capped at policy limit; 50% physician syndicate / 50% Slater SSBCI match.,,,,,,,Near-term R&D for Brown–Bryant antibacterial diamides (validation stage). RI co-investment package targets de-risking experiments and clinical-ready milestones aligned with physician syndicate diligence.,,,,,40,540000,Comparator-guided path (NIH SBIR Phase I/II): Phase I → Phase II → seed,40,"Brown University / Bryant University — Brown–Bryant antibacterial diamides. focused on antibacterial small molecules (diamides). RI package: 400,000 USD (50% physician / 50% Slater SSBCI, policy cap)..",,,,,,brown_antibacterial,web_enriched
+auto_neurotech_analyte_apparatuses_diffusive_implantable_packag,B,true,pending,Neurotech — BAO implant packaging,System apparatuses devices and methods for Digital Therapeutic Opportunity,Neurotech USA Inc,packaging and logistics for encapsulated-cell implants,medical_device,validation,Neurotech USA Inc,,2026 grant; pairs with ophthalmic ECT program (same assignee).,2026-05-28,,"""A. Konrad"" site:lifespan.org OR site:rhodeislandhospital.org | ""A. Konrad"" site:web.uri.edu OR site:ele.uri.edu | ""A. Konrad"" Brown Warren Alpert OR ""Rhode Island Hospital"" physician | Neurotech USA Inc Neurotech — BAO implant packaging preclinical development milestone | packaging and logistics for encapsulated-cell implants translational research Rhode Island",[profile] no profile URL found | see web_search_queries,195-972-829-878-535,US 12629242 B2,"System, apparatuses, devices, and methods for packaging an analyte diffusive implantable device",https://lens.org/195-972-829-878-535,,Konrad A. Kauper|John F. Mills|Sandy Sherman|Arne M. Nystuen,195-972-829-878-535,"System, apparatuses, devices, and methods for packaging an analyte diffusive implantable device",https://lens.org/195-972-829-878-535,,,,,,,,,,,,A. Kauper Konrad,,Neurotech USA Inc,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,seed,400000,200000,200000,,,Seed/Series A RI package capped at policy limit; 50% physician syndicate / 50% Slater SSBCI match.,,,,,,,Near-term R&D for Neurotech — BAO implant packaging (validation stage). RI co-investment package targets de-risking experiments and clinical-ready milestones aligned with physician syndicate diligence.,,,,,40,540000,Comparator-guided path (NIH SBIR Phase I/II): Phase I → Phase II → seed,40,"Neurotech USA Inc — Neurotech — BAO implant packaging. focused on packaging and logistics for encapsulated-cell implants. RI package: 400,000 USD (50% physician / 50% Slater SSBCI, policy cap)..",,,,,,neurotech_ect,web_enriched
+auto_neurotech_cell_disorders_encapsulated_ophthalmic_therapy,B,true,pending,Neurotech — encapsulated cell therapy for ophthalmic disease,USE ENCAPSULATED CELL THERAPY FOR TREATMENT Technology Platform Opportunity,Neurotech USA Inc,"RP, dry AMD/GA, glaucoma via encapsulated cell therapy",platform,validation,Neurotech USA Inc,,Warwick RI assignee; link to auto_neurotech packaging case for manufacturing story.,2026-05-28,,"""Jeffrey Goldberg"" site:lifespan.org OR site:rhodeislandhospital.org | ""Jeffrey Goldberg"" site:web.uri.edu OR site:ele.uri.edu | ""Jeffrey Goldberg"" Brown Warren Alpert OR ""Rhode Island Hospital"" physician | Neurotech USA Inc Neurotech — encapsulated cell therapy for ophthalmic disease preclinical development milestone | RP, dry AMD/GA, glaucoma via encapsulated cell therapy translational research Rhode Island",[profile] no profile URL found | see web_search_queries,132-021-956-305-052,WO 2016/191645 A1,USE OF ENCAPSULATED CELL THERAPY FOR TREATMENT OF OPHTHALMIC DISORDERS,https://lens.org/132-021-956-305-052,,GOLDBERG JEFFREY LOUIS|MCGOVERN CAHIL|TAO WENG|KAUPER KONRAD,132-021-956-305-052,USE OF ENCAPSULATED CELL THERAPY FOR TREATMENT OF OPHTHALMIC DISORDERS,https://lens.org/132-021-956-305-052,,,,,,,,,,,,Jeffrey Louis Goldberg,,Neurotech USA Inc,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,seed,400000,200000,200000,,,Seed/Series A RI package capped at policy limit; 50% physician syndicate / 50% Slater SSBCI match.,,,,,,,Near-term R&D for Neurotech — encapsulated cell therapy for ophthalmic disease (validation stage). RI co-investment package targets de-risking experiments and clinical-ready milestones aligned with physician syndicate diligence.,,,,,40,540000,Comparator-guided path (NIH SBIR Phase I/II): Phase I → Phase II → seed,40,"Neurotech USA Inc — Neurotech — encapsulated cell therapy for ophthalmic disease. focused on RP, dry AMD/GA, glaucoma via encapsulated cell therapy. RI package: 400,000 USD (50% physician / 50% Slater SSBCI, policy cap)..",,,,,,neurotech_ect,web_enriched
+auto_rhode_island_activity_brain_detecting_pain_using,B,true,pending,Saab — brain/spinal pain neurophysiology,Pain management Technology Platform Opportunity,Rhode Island Hospital,brain- and spinal-cord–guided pain detection and neuromodulation,platform,validation,Rhode Island Hospital,,Merged Saab spinal oscillation + pain management families. Pair with Tier A seed cbt_pain_digital_platform_ri (DTx) for full pain stack.,2026-05-28,,"""Carl Saab"" site:lifespan.org OR site:rhodeislandhospital.org | ""Carl Saab"" site:web.uri.edu OR site:ele.uri.edu | ""Carl Saab"" Brown Warren Alpert OR ""Rhode Island Hospital"" physician | Rhode Island Hospital Saab — brain/spinal pain neurophysiology preclinical development milestone | brain- and spinal-cord–guided pain detection and neuromodulation translational research Rhode Island",[profile] no profile URL found | see web_search_queries,066-078-851-468-459,US 11064940 B2,Methods for detecting and treating pain using brain activity,https://lens.org/066-078-851-468-459,RHODE ISLAND HOSPITAL,SAAB CARL,066-078-851-468-459|097-225-405-141-167,"Methods for detecting and treating pain using brain activity
+Pain management","https://lens.org/066-078-851-468-459
+https://lens.org/097-225-405-141-167",,,,,,,,,,,,Carl Saab,Pain Medicine,Rhode Island Hospital,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,seed,400000,200000,200000,,,Seed/Series A RI package capped at policy limit; 50% physician syndicate / 50% Slater SSBCI match.,,,,,,,Near-term R&D for Saab — brain/spinal pain neurophysiology (validation stage). RI co-investment package targets de-risking experiments and clinical-ready milestones aligned with physician syndicate diligence.,,,,,40,540000,Comparator-guided path (NIH SBIR Phase I/II): Phase I → Phase II → seed,40,"Rhode Island Hospital — Saab — brain/spinal pain neurophysiology. focused on brain- and spinal-cord–guided pain detection and neuromodulation. RI package: 400,000 USD (50% physician / 50% Slater SSBCI, policy cap)..",,,,pain medicine|neurology|physical medicine and rehabilitation,chronic_pain|pain_medicine|neurology|medical_device,saab_pain_neuro,web_enriched
+auto_rhode_island_biomarker_brugada_circulating_syndrome,B,true,pending,Brugada syndrome circulating biomarker (MESPl),CIRCULATING BIOMARKER FOR BRUGADA SYNDROME Diagnostic Opportunity,Rhode Island Hospital,Brugada syndrome risk stratification from blood MESPl,diagnostic,validation,Rhode Island Hospital,,Dudley lab; MESPl protein/transcript biomarker. Confirm cardiology PI.,2026-05-28,,"""Samuel Dudley"" site:lifespan.org OR site:rhodeislandhospital.org | ""Samuel Dudley"" site:web.uri.edu OR site:ele.uri.edu | ""Samuel Dudley"" Brown Warren Alpert OR ""Rhode Island Hospital"" physician | Rhode Island Hospital Brugada syndrome circulating biomarker (MESPl) preclinical development milestone | Brugada syndrome risk stratification from blood MESPl translational research Rhode Island",[profile] no profile URL found | see web_search_queries,153-735-440-075-184,WO 2017/031342 A1,CIRCULATING BIOMARKER FOR BRUGADA SYNDROME,https://lens.org/153-735-440-075-184,,DUDLEY SAMUEL C,153-735-440-075-184,CIRCULATING BIOMARKER FOR BRUGADA SYNDROME,https://lens.org/153-735-440-075-184,,,,,,,,,,,,Samuel C Dudley,Cardiology,Rhode Island Hospital,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,seed,400000,200000,200000,,,Seed/Series A RI package capped at policy limit; 50% physician syndicate / 50% Slater SSBCI match.,,,,,,,Near-term R&D for Brugada syndrome circulating biomarker (MESPl) (validation stage). RI co-investment package targets de-risking experiments and clinical-ready milestones aligned with physician syndicate diligence.,,,,,40,540000,Comparator-guided path (NIH SBIR Phase I/II): Phase I → Phase II → seed,40,"Rhode Island Hospital — Brugada syndrome circulating biomarker (MESPl). focused on Brugada syndrome risk stratification from blood MESPl. RI package: 400,000 USD (50% physician / 50% Slater SSBCI, policy cap)..",,,,cardiology|electrophysiology|emergency medicine,cardiology|diagnostic|electrophysiology,brugada_dx,web_enriched
+auto_rhode_island_brain_enhancer_primary_rnas_targeting_tumors,B,true,pending,Enhancer RNA targeting for primary brain tumors,Targeting enhancer RNAs for the treatment Technology Platform Opportunity,Brown / Rhode Island Hospital,primary brain tumors — enhancer RNA therapeutics,platform,validation,Rhode Island Hospital,,Tapinos/Akobundu; merged auto_univ_brown duplicate case.,2026-05-28,,"""Nikolaos Tapinos"" site:lifespan.org OR site:rhodeislandhospital.org | ""Nikolaos Tapinos"" site:web.uri.edu OR site:ele.uri.edu | ""Nikolaos Tapinos"" Brown Warren Alpert OR ""Rhode Island Hospital"" physician | Brown / Rhode Island Hospital Enhancer RNA targeting for primary brain tumors preclinical development milestone | primary brain tumors — enhancer RNA therapeutics translational research Rhode Island",[profile] no profile URL found | see web_search_queries,007-072-329-032-532,US 12060557 B2,Targeting enhancer RNAs for the treatment of primary brain tumors,https://lens.org/007-072-329-032-532,RHODE ISLAND HOSPITAL,TAPINOS NIKOLAOS|AKOBUNDU BLESSING,007-072-329-032-532|132-589-635-107-057,"Targeting enhancer RNAs for the treatment of primary brain tumors
+TARGETING ENHANCER RNAS FOR THE TREATMENT OF PRIMARY BRAIN TUMORS","https://lens.org/007-072-329-032-532
+https://lens.org/132-589-635-107-057",,,,,,,,,,,,Nikolaos Tapinos,,Rhode Island Hospital,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,seed,400000,200000,200000,,,Seed/Series A RI package capped at policy limit; 50% physician syndicate / 50% Slater SSBCI match.,,,,,,,Near-term R&D for Enhancer RNA targeting for primary brain tumors (validation stage). RI co-investment package targets de-risking experiments and clinical-ready milestones aligned with physician syndicate diligence.,,,,,40,540000,Comparator-guided path (NIH SBIR Phase I/II): Phase I → Phase II → seed,40,"Brown / Rhode Island Hospital — Enhancer RNA targeting for primary brain tumors. focused on primary brain tumors — enhancer RNA therapeutics. RI package: 400,000 USD (50% physician / 50% Slater SSBCI, policy cap)..",,,,,,brain_tumor_rna,web_enriched
+auto_rhode_island_conductivity_dose_fields_hydrogel_impacts_skin_t,B,true,pending,TTF hydrogel — skin dose from tumor treating fields,HYDROGEL CONDUCTIVITY IMPACTS SKIN DOSE FROM Technology Platform Opportunity,Rhode Island Hospital,optimize Optune/TTF delivery via hydrogel conductivity,medical_device,validation,Rhode Island Hospital,,Wong/Lok; accessory to commercial TTF (Optune). IL 315287 + US family.,2026-05-28,,"""Eric Wong"" site:lifespan.org OR site:rhodeislandhospital.org | ""Eric Wong"" site:web.uri.edu OR site:ele.uri.edu | ""Eric Wong"" Brown Warren Alpert OR ""Rhode Island Hospital"" physician | Rhode Island Hospital TTF hydrogel — skin dose from tumor treating fields preclinical development milestone | optimize Optune/TTF delivery via hydrogel conductivity translational research Rhode Island",[profile] no profile URL found | see web_search_queries,166-122-517-000-683,US 2025/0170395 A1,HYDROGEL CONDUCTIVITY IMPACTS SKIN DOSE FROM TUMOR TREATING FIELDS,https://lens.org/166-122-517-000-683,RHODE ISLAND HOSPITAL,WONG ERIC T|LOK EDWIN,166-122-517-000-683|080-656-667-976-444,"HYDROGEL CONDUCTIVITY IMPACTS SKIN DOSE FROM TUMOR TREATING FIELDS
+Hydrogell conductivity impacts skin dose from tumor treating fields","https://lens.org/166-122-517-000-683
+https://lens.org/080-656-667-976-444",,,,,,,,,,,,Eric T Wong,Neurology,Rhode Island Hospital,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,seed,400000,200000,200000,,,Seed/Series A RI package capped at policy limit; 50% physician syndicate / 50% Slater SSBCI match.,,,,,,,Near-term R&D for TTF hydrogel — skin dose from tumor treating fields (validation stage). RI co-investment package targets de-risking experiments and clinical-ready milestones aligned with physician syndicate diligence.,,,,,40,540000,Comparator-guided path (NIH SBIR Phase I/II): Phase I → Phase II → seed,40,"Rhode Island Hospital — TTF hydrogel — skin dose from tumor treating fields. focused on optimize Optune/TTF delivery via hydrogel conductivity. RI package: 400,000 USD (50% physician / 50% Slater SSBCI, policy cap)..",,,,neurology|medical oncology|radiation oncology,neuro_oncology|medical_device|brain_tumor,ttf_neuro_onc,web_enriched
+auto_univ_brown_chiplet_intranet_large_recordiing_scale_stimulat,B,true,pending,Brown — chiplet wireless neural intranet,CHIPLET BASED WIRELESS INTRANET FOR VERY Technology Platform Opportunity,Brown University,scalable wireless neural recording/stimulation (1000+ sites),medical_device,validation,Brown University,,Nurmikko ecosystem; extension of Tier A auto_brown_university_implantable_neural_wireless (distinct scalable architecture).,2026-05-28,,Brown University Brown — chiplet wireless neural intranet preclinical development milestone | scalable wireless neural recording/stimulation (1000+ sites) translational research Rhode Island,,062-471-784-728-462,WO 2016/187254 A1,CHIPLET BASED WIRELESS INTRANET FOR VERY LARGE SCALE RECORDIING AND STIMULATION,https://lens.org/062-471-784-728-462,,ROSENSTEIN JACOB|LARSON LAWRENCE E|ASBECK PETER M|MERCIER PATRICK|NURMIKKO ARTO V,062-471-784-728-462,CHIPLET BASED WIRELESS INTRANET FOR VERY LARGE SCALE RECORDIING AND STIMULATION,https://lens.org/062-471-784-728-462,,,,,,,,,,,,Jacob Rosenstein,,Brown University,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,seed,400000,200000,200000,,,Seed/Series A RI package capped at policy limit; 50% physician syndicate / 50% Slater SSBCI match.,,,,,,,Near-term R&D for Brown — chiplet wireless neural intranet (validation stage). RI co-investment package targets de-risking experiments and clinical-ready milestones aligned with physician syndicate diligence.,,,,,40,810000,Comparator-guided path (Iota Biosciences (neural dust)): Preclinical → Astellas R&D partnership → acquisition → Rx+ platform,40,"Brown University — Brown — chiplet wireless neural intranet. focused on scalable wireless neural recording/stimulation (1000+ sites). RI package: 400,000 USD (50% physician / 50% Slater SSBCI, policy cap)..",,,,,,brown_neurotech,web_enriched
+prothera_iaip_ri,B,true,pending,ProThera — IAIP biologics for sepsis,INTER ALPHA INHIBITOR PROTEINS AND METHODS Technology Platform Opportunity,ProThera Biologics Inc,early sepsis and critical illness — IAIP biologic therapeutic,therapeutic,validation,ProThera Biologics Inc,Merged ProThera US/DK/BR family from supplemental Lens export.,Yow-Pin Lim / ProThera. Complementary to monaghan_sepsis_diagnostic_ri (host RNA dx) — distinct IAIP biologic MOA.,2026-05-28,,ProThera Biologics Inc ProThera — IAIP biologics for sepsis preclinical development milestone | early sepsis and critical illness — IAIP biologic therapeutic translational research Rhode Island,,041-853-574-697-591,US 2026/0130975 A1,INTER-ALPHA INHIBITOR PROTEINS AND METHODS OF USE THEREOF,https://lens.org/041-853-574-697-591,,Yow-Pin LIM|Denice SPERO|Andre Richard SANTOSO,041-853-574-697-591|161-049-569-910-996,"INTER-ALPHA INHIBITOR PROTEINS AND METHODS OF USE THEREOF
+FREMSTILLING OG SAMMENSÆTNING AF INTER-ALPHA-INHIBITORPROTEINER UD FRA BLOD","https://lens.org/041-853-574-697-591
+https://lens.org/161-049-569-910-996",,,,,,,,,,,,TBD,,ProThera Biologics Inc,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,seed,400000,200000,200000,,,Seed/Series A RI package capped at policy limit; 50% physician syndicate / 50% Slater SSBCI match.,,,,,,,Near-term R&D for ProThera — IAIP biologics for sepsis (validation stage). RI co-investment package targets de-risking experiments and clinical-ready milestones aligned with physician syndicate diligence.,,,,,40,540000,Comparator-guided path (Inflammatix (TriVerity)): Dx adoption in ICU,40,"ProThera Biologics Inc — ProThera — IAIP biologics for sepsis. focused on early sepsis and critical illness — IAIP biologic therapeutic. RI package: 400,000 USD (50% physician / 50% Slater SSBCI, policy cap)..",,,,,,prothera_iaip,web_enriched
+auto_contech_medical_medical_securing,B,true,pending,Contech — medical device securing clip,SYSTEMS AND METHODS FOR SECURING MEDICAL Medical Device Opportunity,"Contech Medical, Inc.",secure medical devices and tubing in clinical workflows,medical_device,validation,"Contech Medical, Inc.",,2026 US filing; RI-area med-device manufacturer — no overlap with clinical Tier A programs.,2026-05-28,,"""Thomas Jesse"" site:lifespan.org OR site:rhodeislandhospital.org | ""Thomas Jesse"" site:web.uri.edu OR site:ele.uri.edu | ""Thomas Jesse"" Brown Warren Alpert OR ""Rhode Island Hospital"" physician | Contech Medical, Inc. Contech — medical device securing clip preclinical development milestone | secure medical devices and tubing in clinical workflows translational research Rhode Island",[profile] no profile URL found | see web_search_queries,007-074-526-025-963,US 2026/0137476 A1,SYSTEMS AND METHODS FOR SECURING MEDICAL DEVICES,https://lens.org/007-074-526-025-963,,Jesse Thomas McVaney,007-074-526-025-963,SYSTEMS AND METHODS FOR SECURING MEDICAL DEVICES,https://lens.org/007-074-526-025-963,,,,,,,,,,,,Thomas Mcvaney Jesse,,"Contech Medical, Inc.",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,seed,400000,200000,200000,,,Seed/Series A RI package capped at policy limit; 50% physician syndicate / 50% Slater SSBCI match.,,,,,,,Near-term R&D for Contech — medical device securing clip (validation stage). RI co-investment package targets de-risking experiments and clinical-ready milestones aligned with physician syndicate diligence.,,,,,40,540000,Comparator-guided path (NIH SBIR Phase I/II): Phase I → Phase II → seed,40,"Contech Medical, Inc. — Contech — medical device securing clip. focused on secure medical devices and tubing in clinical workflows. RI package: 400,000 USD (50% physician / 50% Slater SSBCI, policy cap)..",,,,,,med_device_accessory,web_enriched

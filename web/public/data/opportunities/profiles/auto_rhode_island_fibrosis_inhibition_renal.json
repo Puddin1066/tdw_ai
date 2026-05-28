@@ -1,0 +1,21 @@
+{
+  "case_id": "auto_rhode_island_fibrosis_inhibition_renal",
+  "display_name": "Inhibition Renal Fibrosis Technology Platform Opportunity",
+  "llm_inferred_label": "Inhibition Renal Fibrosis Technology Platform Opportunity",
+  "ri_notes": "Deduped patent family (2 of 2 records); review scope and naming.",
+  "ri_physician_lead": "TBD",
+  "conflict_tags": [],
+  "ri_institution": "Rhode Island ecosystem",
+  "ri_ip_source": "lens:167-676-794-591-355",
+  "ip_assets": [
+    {
+      "asset_id": "asset_f8f5e439c6f1",
+      "title": "Inhibition of Renal Fibrosis",
+      "lens_id": "167-676-794-591-355",
+      "url": "https://lens.org/167-676-794-591-355",
+      "owners": "RHODE ISLAND HOSPITAL (2014-01-29)",
+      "legal_status": "ACTIVE",
+      "publication_date": "2017-02-21"
+    }
+  ]
+}

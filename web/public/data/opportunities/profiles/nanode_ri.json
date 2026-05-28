@@ -1,0 +1,30 @@
+{
+  "case_id": "nanode_ri",
+  "display_name": "NanoDe / Nucleic Acid Delivery Platform (RI)",
+  "llm_inferred_label": "VITRO AND VIVO INTRACELLULAR DELIVERY SIRNA Technology Platform Opportunity",
+  "ri_notes": "Chen Qian Nanopieces primary; nanotube carrier secondary. Dana Ono historical CEO.",
+  "ri_physician_lead": "TODD ROBERTS",
+  "conflict_tags": [],
+  "ri_institution": "Brown University / Rhode Island Hospital",
+  "ri_ip_source": "lens:008-231-790-422-477",
+  "ip_assets": [
+    {
+      "asset_id": "asset_9cc16bb87916",
+      "title": "IN VITRO AND IN VIVO INTRACELLULAR DELIVERY OF SIRNA VIA SELF-ASSEMBLED NANOPIECES",
+      "lens_id": "008-231-790-422-477",
+      "url": "https://lens.org/008-231-790-422-477",
+      "owners": "RHODE ISLAND HOSPITAL (2020-11-05)",
+      "legal_status": "PENDING",
+      "publication_date": "2024-05-16"
+    },
+    {
+      "asset_id": "asset_2e2fd60848ce",
+      "title": "Nanotubes as carriers of nucleic acids into cells",
+      "lens_id": "104-876-606-446-902",
+      "url": "https://lens.org/104-876-606-446-902",
+      "owners": "THE GOVERNORS OF THE UNIVERSITY OF ALBERTA (2017-12-04);;RHODE ISLAND HOSPITAL (2013-07-02);;NATIONAL RESEARCH COUNCIL OF CANADA (2017-12-04);;BROWN UNIVERSITY (2013-07-02)",
+      "legal_status": "ACTIVE",
+      "publication_date": "2019-07-30"
+    }
+  ]
+}

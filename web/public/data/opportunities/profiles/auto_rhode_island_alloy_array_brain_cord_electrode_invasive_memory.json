@@ -1,0 +1,21 @@
+{
+  "case_id": "auto_rhode_island_alloy_array_brain_cord_electrode_invasive_memory",
+  "display_name": "SHAPE MEMORY ALLOY AND POLYMER ELECTRODE Medical Device Opportunity",
+  "llm_inferred_label": "SHAPE MEMORY ALLOY AND POLYMER ELECTRODE Medical Device Opportunity",
+  "ri_notes": "Deduped patent family (1 of 1 records); review scope and naming.",
+  "ri_physician_lead": "TBD",
+  "conflict_tags": [],
+  "ri_institution": "Rhode Island ecosystem",
+  "ri_ip_source": "lens:198-710-266-309-345",
+  "ip_assets": [
+    {
+      "asset_id": "asset_2345c8f43395",
+      "title": "SHAPE-MEMORY ALLOY AND POLYMER ELECTRODE ARRAY FOR MINIMALLY-INVASIVE SPINAL CORD AND BRAIN STIMULATION AND RECORDING",
+      "lens_id": "198-710-266-309-345",
+      "url": "https://lens.org/198-710-266-309-345",
+      "owners": "RHODE ISLAND HOSPITAL (2020-04-29);;BROWN UNIVERSITY (2020-11-10)",
+      "legal_status": "PENDING",
+      "publication_date": "2023-06-01"
+    }
+  ]
+}

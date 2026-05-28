@@ -1,0 +1,30 @@
+{
+  "case_id": "auto_brown_university_against_antibodies_bispecific_cells_chi3l1_ctla4",
+  "display_name": "BISPECIFIC ANTIBODIES AGAINST CHI3L1 AND CTLA4 Technology Platform Opportunity",
+  "llm_inferred_label": "BISPECIFIC ANTIBODIES AGAINST CHI3L1 AND CTLA4 Technology Platform Opportunity",
+  "ri_notes": "Deduped patent family (2 of 2 records); review scope and naming.",
+  "ri_physician_lead": "TBD",
+  "conflict_tags": [],
+  "ri_institution": "Rhode Island ecosystem",
+  "ri_ip_source": "lens:036-051-746-310-512",
+  "ip_assets": [
+    {
+      "asset_id": "asset_2d1c0255e4ef",
+      "title": "BISPECIFIC ANTIBODIES AGAINST CHI3L1 AND CTLA4 WITH ENHANCED CYTOTOXIC EFFECTS ON TUMOR CELLS",
+      "lens_id": "036-051-746-310-512",
+      "url": "https://lens.org/036-051-746-310-512",
+      "owners": "BROWN UNIVERSITY (2019-11-26)",
+      "legal_status": "PENDING",
+      "publication_date": "2023-02-16"
+    },
+    {
+      "asset_id": "asset_eae9fd172c55",
+      "title": "BISPECIFIC ANTIBODIES AGAINST CHI3L1 AND PD1 WITH ENHANCED T CELL-MEDIATED CYTOTOXIC EFFECTS ON TUMOR CELLS",
+      "lens_id": "156-173-392-705-117",
+      "url": "https://lens.org/156-173-392-705-117",
+      "owners": "BROWN UNIVERSITY (2019-10-02)",
+      "legal_status": "PENDING",
+      "publication_date": "2022-07-07"
+    }
+  ]
+}

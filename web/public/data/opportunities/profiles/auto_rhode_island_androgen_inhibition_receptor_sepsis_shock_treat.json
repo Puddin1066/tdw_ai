@@ -1,0 +1,21 @@
+{
+  "case_id": "auto_rhode_island_androgen_inhibition_receptor_sepsis_shock_treat",
+  "display_name": "ANDROGEN RECEPTOR INHIBITION TREAT SEPSIS AND Technology Platform Opportunity",
+  "llm_inferred_label": "ANDROGEN RECEPTOR INHIBITION TREAT SEPSIS AND Technology Platform Opportunity",
+  "ri_notes": "Deduped patent family (1 of 1 records); review scope and naming.",
+  "ri_physician_lead": "TBD",
+  "conflict_tags": [],
+  "ri_institution": "Rhode Island ecosystem",
+  "ri_ip_source": "lens:157-894-033-483-950",
+  "ip_assets": [
+    {
+      "asset_id": "asset_c8750ac9acf7",
+      "title": "ANDROGEN RECEPTOR INHIBITION TO TREAT SEPSIS AND SHOCK",
+      "lens_id": "157-894-033-483-950",
+      "url": "https://lens.org/157-894-033-483-950",
+      "owners": "RHODE ISLAND HOSPITAL (2021-04-19);;APPLIED BIOLOGY INC (2021-04-19)",
+      "legal_status": "PENDING",
+      "publication_date": "2024-06-20"
+    }
+  ]
+}

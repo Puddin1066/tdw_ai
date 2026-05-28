@@ -1,0 +1,21 @@
+{
+  "case_id": "auto_rhode_island_gastrointestinal_marker_tumors",
+  "display_name": "Marker for gastrointestinal tumors Technology Platform Opportunity",
+  "llm_inferred_label": "Marker for gastrointestinal tumors Technology Platform Opportunity",
+  "ri_notes": "Deduped patent family (2 of 2 records); review scope and naming.",
+  "ri_physician_lead": "TBD",
+  "conflict_tags": [],
+  "ri_institution": "Rhode Island ecosystem",
+  "ri_ip_source": "lens:067-485-038-164-019",
+  "ip_assets": [
+    {
+      "asset_id": "asset_c9b26b454bdf",
+      "title": "Marker for gastrointestinal tumors",
+      "lens_id": "067-485-038-164-019",
+      "url": "https://lens.org/067-485-038-164-019",
+      "owners": "RHODE ISLAND HOSPITAL (2020-03-31)",
+      "legal_status": "ACTIVE",
+      "publication_date": "2022-09-13"
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "case_id": "auto_rhode_island_animal_automated_conditions_control_electrical_i",
+  "display_name": "Non invasive automated electrical control systems Technology Platform Opportunity",
+  "llm_inferred_label": "Non invasive automated electrical control systems Technology Platform Opportunity",
+  "ri_notes": "Deduped patent family (2 of 2 records); review scope and naming.",
+  "ri_physician_lead": "TBD",
+  "conflict_tags": [],
+  "ri_institution": "Rhode Island ecosystem",
+  "ri_ip_source": "lens:112-318-504-290-437",
+  "ip_assets": [
+    {
+      "asset_id": "asset_290bfeb80c77",
+      "title": "Non-invasive automated electrical control systems and methods for monitoring animal conditions",
+      "lens_id": "112-318-504-290-437",
+      "url": "https://lens.org/112-318-504-290-437",
+      "owners": "RHODE ISLAND BOARD OF EDUCATION STATE OF RHODE ISLAND AND PROVIDENCE PLANTATIONS (2014-10-31)",
+      "legal_status": "ACTIVE",
+      "publication_date": "2016-07-26"
+    }
+  ]
+}

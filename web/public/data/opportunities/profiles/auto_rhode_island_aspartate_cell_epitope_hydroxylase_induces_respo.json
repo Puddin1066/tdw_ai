@@ -1,0 +1,21 @@
+{
+  "case_id": "auto_rhode_island_aspartate_cell_epitope_hydroxylase_induces_respo",
+  "display_name": "Aspartate hydroxylase induces epitope specific cell Technology Platform Opportunity",
+  "llm_inferred_label": "Aspartate hydroxylase induces epitope specific cell Technology Platform Opportunity",
+  "ri_notes": "Deduped patent family (2 of 2 records); review scope and naming.",
+  "ri_physician_lead": "TBD",
+  "conflict_tags": [],
+  "ri_institution": "Rhode Island ecosystem",
+  "ri_ip_source": "lens:027-647-944-238-460",
+  "ip_assets": [
+    {
+      "asset_id": "asset_0ee5aeb88f09",
+      "title": "Aspartate-\u03b2-hydroxylase induces epitope-specific T cell responses in tumors",
+      "lens_id": "027-647-944-238-460",
+      "url": "https://lens.org/027-647-944-238-460",
+      "owners": "RHODE ISLAND HOSPITAL (2015-07-30)",
+      "legal_status": "ACTIVE",
+      "publication_date": "2020-10-27"
+    }
+  ]
+}

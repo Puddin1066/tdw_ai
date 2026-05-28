@@ -1,0 +1,21 @@
+{
+  "case_id": "auto_brown_university_biomedical_biosensor_diagnostics_large_networks",
+  "display_name": "Large scale wireless biosensor networks for Diagnostic Opportunity",
+  "llm_inferred_label": "Large scale wireless biosensor networks for Diagnostic Opportunity",
+  "ri_notes": "Deduped patent family (2 of 4 records); review scope and naming.",
+  "ri_physician_lead": "TBD",
+  "conflict_tags": [],
+  "ri_institution": "Rhode Island ecosystem",
+  "ri_ip_source": "lens:104-492-034-772-215",
+  "ip_assets": [
+    {
+      "asset_id": "asset_f4d75c240c19",
+      "title": "Large-scale wireless biosensor networks for biomedical diagnostics",
+      "lens_id": "104-492-034-772-215",
+      "url": "https://lens.org/104-492-034-772-215",
+      "owners": "BROWN UNIVERSITY (2022-10-25)",
+      "legal_status": "ACTIVE",
+      "publication_date": "2025-05-20"
+    }
+  ]
+}

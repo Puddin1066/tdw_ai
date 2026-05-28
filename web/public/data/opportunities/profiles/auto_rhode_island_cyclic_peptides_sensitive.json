@@ -1,0 +1,21 @@
+{
+  "case_id": "auto_rhode_island_cyclic_peptides_sensitive",
+  "display_name": "SENSITIVE CYCLIC PEPTIDES Technology Platform Opportunity",
+  "llm_inferred_label": "SENSITIVE CYCLIC PEPTIDES Technology Platform Opportunity",
+  "ri_notes": "Deduped patent family (2 of 3 records); review scope and naming.",
+  "ri_physician_lead": "TBD",
+  "conflict_tags": [],
+  "ri_institution": "Rhode Island ecosystem",
+  "ri_ip_source": "lens:111-255-593-005-13X",
+  "ip_assets": [
+    {
+      "asset_id": "asset_625528c2a9ce",
+      "title": "pH-SENSITIVE CYCLIC PEPTIDES",
+      "lens_id": "111-255-593-005-13X",
+      "url": "https://lens.org/111-255-593-005-13X",
+      "owners": "RHODE ISLAND COUNCIL ON POSTSECONDARY EDUCATION (2018-12-07);;UNIVERSITY OF RHODE ISLAND BOARD OF TRUSTEES (2020-02-01)",
+      "legal_status": "PENDING",
+      "publication_date": "2022-09-08"
+    }
+  ]
+}

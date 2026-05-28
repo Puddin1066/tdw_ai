@@ -1,0 +1,21 @@
+{
+  "case_id": "auto_brown_university_biopsy_burr_hole_mounted_stereotactic",
+  "display_name": "Burr hole mounted stereotactic biopsy device Medical Device Opportunity",
+  "llm_inferred_label": "Burr hole mounted stereotactic biopsy device Medical Device Opportunity",
+  "ri_notes": "Deduped patent family (2 of 2 records); review scope and naming.",
+  "ri_physician_lead": "TBD",
+  "conflict_tags": [],
+  "ri_institution": "Rhode Island ecosystem",
+  "ri_ip_source": "lens:061-948-855-057-272",
+  "ip_assets": [
+    {
+      "asset_id": "asset_3eeecca4b1ce",
+      "title": "Burr hole mounted stereotactic biopsy device",
+      "lens_id": "061-948-855-057-272",
+      "url": "https://lens.org/061-948-855-057-272",
+      "owners": "BROWN UNIVERSITY (2015-03-12)",
+      "legal_status": "ACTIVE",
+      "publication_date": "2019-02-05"
+    }
+  ]
+}

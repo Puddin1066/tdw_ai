@@ -1,0 +1,21 @@
+{
+  "case_id": "auto_rhode_island_cells_exosome_expressing_targeting",
+  "display_name": "EXOSOME TARGETING CD4 EXPRESSING CELLS Technology Platform Opportunity",
+  "llm_inferred_label": "EXOSOME TARGETING CD4 EXPRESSING CELLS Technology Platform Opportunity",
+  "ri_notes": "Deduped patent family (1 of 1 records); review scope and naming.",
+  "ri_physician_lead": "TBD",
+  "conflict_tags": [],
+  "ri_institution": "Rhode Island ecosystem",
+  "ri_ip_source": "lens:086-855-100-913-768",
+  "ip_assets": [
+    {
+      "asset_id": "asset_5449b6567985",
+      "title": "EXOSOME TARGETING OF CD4+ EXPRESSING CELLS",
+      "lens_id": "086-855-100-913-768",
+      "url": "https://lens.org/086-855-100-913-768",
+      "owners": "RHODE ISLAND HOSPITAL (2020-09-09)",
+      "legal_status": "PENDING",
+      "publication_date": "2021-01-07"
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "case_id": "auto_brown_university_analoges_cb002_checkpoint_molecule_pathway_phase",
+  "display_name": "SMALL MOLECULE CB002 ANALOGES RESTORE THE Technology Platform Opportunity",
+  "llm_inferred_label": "SMALL MOLECULE CB002 ANALOGES RESTORE THE Technology Platform Opportunity",
+  "ri_notes": "Deduped patent family (1 of 1 records); review scope and naming.",
+  "ri_physician_lead": "TBD",
+  "conflict_tags": [],
+  "ri_institution": "Rhode Island ecosystem",
+  "ri_ip_source": "lens:172-939-060-865-33X",
+  "ip_assets": [
+    {
+      "asset_id": "asset_720f01952340",
+      "title": "SMALL MOLECULE CB002-ANALOGES RESTORE THE P53 PATHWAY AND TARGET S-PHASE CHECKPOINT",
+      "lens_id": "172-939-060-865-33X",
+      "url": "https://lens.org/172-939-060-865-33X",
+      "owners": "BROWN UNIVERSITY (2020-05-18)",
+      "legal_status": "PENDING",
+      "publication_date": "2023-07-13"
+    }
+  ]
+}

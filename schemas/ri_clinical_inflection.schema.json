@@ -1,0 +1,86 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://tdw.ai/schemas/ri_clinical_inflection.schema.json",
+  "title": "RiClinicalInflectionArtifact",
+  "allOf": [
+    { "$ref": "./_common.definitions.json#/$defs/artifactEnvelope" },
+    {
+      "type": "object",
+      "properties": {
+        "artifact_type": { "const": "ri_clinical_inflection" },
+        "data": { "$ref": "#/$defs/riClinicalInflectionData" }
+      },
+      "required": ["artifact_type", "data"]
+    }
+  ],
+  "$defs": {
+    "candidateValidationEvent": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "template_id",
+        "study_type",
+        "primary_endpoint_type",
+        "duration_weeks",
+        "cost_usd",
+        "required_roles",
+        "required_specialties",
+        "estimated_inflection_score_0_100",
+        "mocked",
+        "source_type"
+      ],
+      "properties": {
+        "template_id": { "type": ["string", "null"] },
+        "study_type": { "type": ["string", "null"] },
+        "primary_endpoint_type": { "type": ["string", "null"] },
+        "duration_weeks": { "type": "integer", "minimum": 0 },
+        "cost_usd": { "type": "integer", "minimum": 0 },
+        "required_roles": { "type": "array", "items": { "type": "string" } },
+        "required_specialties": { "type": "array", "items": { "type": "string" } },
+        "estimated_inflection_score_0_100": { "type": "number", "minimum": 0, "maximum": 100 },
+        "mocked": { "type": "boolean" },
+        "source_type": { "type": "string" }
+      }
+    },
+    "riClinicalInflectionData": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "clinical_decision_changed",
+        "clinical_inflection_score_0_100",
+        "best_validation_event",
+        "candidate_validation_events",
+        "required_specialties",
+        "required_physician_roles",
+        "estimated_cost_usd",
+        "estimated_duration_weeks",
+        "financing_milestone",
+        "source_type",
+        "mocked",
+        "confidence_0_1"
+      ],
+      "properties": {
+        "clinical_decision_changed": { "type": "boolean" },
+        "clinical_inflection_score_0_100": { "type": "number", "minimum": 0, "maximum": 100 },
+        "best_validation_event": {
+          "anyOf": [
+            { "type": "null" },
+            { "$ref": "#/$defs/candidateValidationEvent" }
+          ]
+        },
+        "candidate_validation_events": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/candidateValidationEvent" }
+        },
+        "required_specialties": { "type": "array", "items": { "type": "string" } },
+        "required_physician_roles": { "type": "array", "items": { "type": "string" } },
+        "estimated_cost_usd": { "type": "integer", "minimum": 0 },
+        "estimated_duration_weeks": { "type": "integer", "minimum": 0 },
+        "financing_milestone": { "type": "string" },
+        "source_type": { "type": "string" },
+        "mocked": { "type": "boolean" },
+        "confidence_0_1": { "type": "number", "minimum": 0, "maximum": 1 }
+      }
+    }
+  }
+}

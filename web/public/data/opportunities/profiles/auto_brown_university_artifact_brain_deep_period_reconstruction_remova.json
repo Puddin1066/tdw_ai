@@ -1,0 +1,21 @@
+{
+  "case_id": "auto_brown_university_artifact_brain_deep_period_reconstruction_remova",
+  "display_name": "PERIOD BASED ARTIFACT RECONSTRUCTION AND REMOVAL Technology Platform Opportunity",
+  "llm_inferred_label": "PERIOD BASED ARTIFACT RECONSTRUCTION AND REMOVAL Technology Platform Opportunity",
+  "ri_notes": "Deduped patent family (1 of 1 records); review scope and naming.",
+  "ri_physician_lead": "TBD",
+  "conflict_tags": [],
+  "ri_institution": "Rhode Island ecosystem",
+  "ri_ip_source": "lens:104-011-395-918-531",
+  "ip_assets": [
+    {
+      "asset_id": "asset_5a0eade9b4d0",
+      "title": "PERIOD-BASED ARTIFACT RECONSTRUCTION AND REMOVAL FOR DEEP BRAIN STIMULATION",
+      "lens_id": "104-011-395-918-531",
+      "url": "https://lens.org/104-011-395-918-531",
+      "owners": "BROWN UNIVERSITY (2023-11-25)",
+      "legal_status": "PENDING",
+      "publication_date": "2022-10-27"
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "case_id": "auto_brown_university_growth_muscle_regeneration",
+  "display_name": "MUSCLE REGENERATION AND GROWTH Technology Platform Opportunity",
+  "llm_inferred_label": "MUSCLE REGENERATION AND GROWTH Technology Platform Opportunity",
+  "ri_notes": "Deduped patent family (1 of 1 records); review scope and naming.",
+  "ri_physician_lead": "TBD",
+  "conflict_tags": [],
+  "ri_institution": "Rhode Island ecosystem",
+  "ri_ip_source": "lens:131-902-067-088-952",
+  "ip_assets": [
+    {
+      "asset_id": "asset_d8b51d29652f",
+      "title": "MUSCLE REGENERATION AND GROWTH",
+      "lens_id": "131-902-067-088-952",
+      "url": "https://lens.org/131-902-067-088-952",
+      "owners": "BROWN UNIVERSITY (2020-04-16)",
+      "legal_status": "PENDING",
+      "publication_date": "2023-09-28"
+    }
+  ]
+}

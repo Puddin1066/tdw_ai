@@ -1,0 +1,21 @@
+{
+  "case_id": "auto_brown_university_cardiac_cell_collagen_engineered_tissue",
+  "display_name": "CELL AND COLLAGEN COMPOSITIONS FOR ENGINEERED Technology Platform Opportunity",
+  "llm_inferred_label": "CELL AND COLLAGEN COMPOSITIONS FOR ENGINEERED Technology Platform Opportunity",
+  "ri_notes": "Deduped patent family (1 of 1 records); review scope and naming.",
+  "ri_physician_lead": "TBD",
+  "conflict_tags": [],
+  "ri_institution": "Rhode Island ecosystem",
+  "ri_ip_source": "lens:026-212-779-352-796",
+  "ip_assets": [
+    {
+      "asset_id": "asset_1b6c3f71d5d3",
+      "title": "CELL AND COLLAGEN COMPOSITIONS FOR ENGINEERED CARDIAC TISSUE",
+      "lens_id": "026-212-779-352-796",
+      "url": "https://lens.org/026-212-779-352-796",
+      "owners": "BROWN UNIVERSITY (2023-12-03)",
+      "legal_status": "PENDING",
+      "publication_date": "2024-05-23"
+    }
+  ]
+}

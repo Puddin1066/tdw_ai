@@ -595,6 +595,8 @@ class InputDisease:
 class InputProgram:
     asset: str | None = None
     company: str | None = None
+    opportunity_type: str | None = None
+    slater_invested: bool | None = None
     development_stage: str | None = None
     comparators: list[str] = field(default_factory=list)
 
@@ -682,6 +684,8 @@ class CaseConfig:
                 "program": {
                     "asset": self.input_profile.program.asset,
                     "company": self.input_profile.program.company,
+                    "opportunity_type": self.input_profile.program.opportunity_type,
+                    "slater_invested": self.input_profile.program.slater_invested,
                     "development_stage": self.input_profile.program.development_stage,
                     "comparators": list(self.input_profile.program.comparators),
                 },

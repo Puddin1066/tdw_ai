@@ -1,0 +1,21 @@
+{
+  "case_id": "auto_rhode_island_cells_delivery_diseased_environmentally_marking",
+  "display_name": "Selective delivery molecules into cells marking Technology Platform Opportunity",
+  "llm_inferred_label": "Selective delivery molecules into cells marking Technology Platform Opportunity",
+  "ri_notes": "Deduped patent family (2 of 6 records); review scope and naming.",
+  "ri_physician_lead": "TBD",
+  "conflict_tags": [],
+  "ri_institution": "Rhode Island ecosystem",
+  "ri_ip_source": "lens:046-853-519-373-676",
+  "ip_assets": [
+    {
+      "asset_id": "asset_af085d5f30e2",
+      "title": "Selective delivery of molecules into cells or marking of cells in diseased tissue regions using environmentally sensitive transmembrane peptide",
+      "lens_id": "046-853-519-373-676",
+      "url": "https://lens.org/046-853-519-373-676",
+      "owners": "RHODE ISLAND COUNCIL ON POSTSECONDARY EDUCATION (STATUTORY SUCCESSOR TO BOARD OF GOVERNORS FOR HIGHER EDUCATION STATE OF RHODE ISLAND AND PROVIDENCE PLANTATIONS) (2008-04-24);;BOARD OF GOVERNORS FOR HIGHER EDUCATION STATE OF RHODE ISLAND AND PROVIDENCE PLANTATIONS (2008-04-24);;YALE UNIVERSITY (2010-08-12);;UNIVERSITY OF RHODE ISLAND BOARD OF TRUSTEES (2021-04-09)",
+      "legal_status": "ACTIVE",
+      "publication_date": "2017-06-13"
+    }
+  ]
+}

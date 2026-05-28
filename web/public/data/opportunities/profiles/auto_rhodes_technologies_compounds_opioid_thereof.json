@@ -1,0 +1,30 @@
+{
+  "case_id": "auto_rhodes_technologies_compounds_opioid_thereof",
+  "display_name": "Opioid compounds and uses thereof Therapeutic Opportunity",
+  "llm_inferred_label": "Opioid compounds and uses thereof Therapeutic Opportunity",
+  "ri_notes": "Deduped patent family (2 of 11 records); review scope and naming.",
+  "ri_physician_lead": "TBD",
+  "conflict_tags": [],
+  "ri_institution": "Rhode Island ecosystem",
+  "ri_ip_source": "lens:032-768-832-139-486",
+  "ip_assets": [
+    {
+      "asset_id": "asset_0302e00d56d7",
+      "title": "Opioid compounds and uses thereof",
+      "lens_id": "032-768-832-139-486",
+      "url": "https://lens.org/032-768-832-139-486",
+      "owners": "RHODES TECHNOLOGIES (2019-02-21)",
+      "legal_status": "ACTIVE",
+      "publication_date": "2023-12-19"
+    },
+    {
+      "asset_id": "asset_15a79e999407",
+      "title": "Opioid ketal compounds and uses thereof",
+      "lens_id": "191-810-633-692-475",
+      "url": "https://lens.org/191-810-633-692-475",
+      "owners": "RHODES TECHNOLOGIES (2019-11-13)",
+      "legal_status": "ACTIVE",
+      "publication_date": "2023-10-03"
+    }
+  ]
+}

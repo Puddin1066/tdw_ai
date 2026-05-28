@@ -1,0 +1,21 @@
+{
+  "case_id": "auto_rhode_island_detection_large_occlusion_prediction_vessel",
+  "display_name": "LARGE VESSEL OCCLUSION DETECTION AND TREATMENT Diagnostic Opportunity",
+  "llm_inferred_label": "LARGE VESSEL OCCLUSION DETECTION AND TREATMENT Diagnostic Opportunity",
+  "ri_notes": "Deduped patent family (1 of 1 records); review scope and naming.",
+  "ri_physician_lead": "TBD",
+  "conflict_tags": [],
+  "ri_institution": "Rhode Island ecosystem",
+  "ri_ip_source": "lens:074-975-118-075-847",
+  "ip_assets": [
+    {
+      "asset_id": "asset_944d5fb1e254",
+      "title": "LARGE VESSEL OCCLUSION DETECTION AND TREATMENT PREDICTION",
+      "lens_id": "074-975-118-075-847",
+      "url": "https://lens.org/074-975-118-075-847",
+      "owners": "RHODE ISLAND HOSPITAL (2025-04-03);;BROWN UNIVERSITY (2023-01-12)",
+      "legal_status": "PENDING",
+      "publication_date": "2023-05-18"
+    }
+  ]
+}

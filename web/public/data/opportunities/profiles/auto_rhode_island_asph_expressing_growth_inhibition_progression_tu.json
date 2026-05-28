@@ -1,0 +1,21 @@
+{
+  "case_id": "auto_rhode_island_asph_expressing_growth_inhibition_progression_tu",
+  "display_name": "INHIBITION ASPH EXPRESSING TUMOR GROWTH AND Technology Platform Opportunity",
+  "llm_inferred_label": "INHIBITION ASPH EXPRESSING TUMOR GROWTH AND Technology Platform Opportunity",
+  "ri_notes": "Deduped patent family (1 of 1 records); review scope and naming.",
+  "ri_physician_lead": "TBD",
+  "conflict_tags": [],
+  "ri_institution": "Rhode Island ecosystem",
+  "ri_ip_source": "lens:072-922-149-143-177",
+  "ip_assets": [
+    {
+      "asset_id": "asset_1857dccc21f2",
+      "title": "INHIBITION OF ASPH EXPRESSING TUMOR GROWTH AND PROGRESSION",
+      "lens_id": "072-922-149-143-177",
+      "url": "https://lens.org/072-922-149-143-177",
+      "owners": "RHODE ISLAND HOSPITAL (2022-02-23)",
+      "legal_status": "PENDING",
+      "publication_date": "2022-02-24"
+    }
+  ]
+}

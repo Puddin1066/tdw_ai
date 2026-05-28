@@ -1,0 +1,30 @@
+{
+  "case_id": "auto_noramco_2020_acetate_buprenorphine_preparing_salt",
+  "display_name": "Acetate salt buprenorphine and methods for Technology Platform Opportunity",
+  "llm_inferred_label": "Acetate salt buprenorphine and methods for Technology Platform Opportunity",
+  "ri_notes": "Deduped patent family (2 of 10 records); review scope and naming.",
+  "ri_physician_lead": "TBD",
+  "conflict_tags": [],
+  "ri_institution": "Rhode Island ecosystem",
+  "ri_ip_source": "lens:013-126-611-882-483",
+  "ip_assets": [
+    {
+      "asset_id": "asset_0c3b01929163",
+      "title": "Acetate salt of buprenorphine and methods for preparing buprenorphine",
+      "lens_id": "013-126-611-882-483",
+      "url": "https://lens.org/013-126-611-882-483",
+      "owners": "NORAMCO LLC (2020-12-31);;RHODES TECHNOLOGIES (2017-04-11)",
+      "legal_status": "ACTIVE",
+      "publication_date": "2020-12-29"
+    },
+    {
+      "asset_id": "asset_b1c084845f0d",
+      "title": "Acetate salt of buprenorphine and methods for preparing buprenorphine",
+      "lens_id": "073-418-331-813-652",
+      "url": "https://lens.org/073-418-331-813-652",
+      "owners": "NORAMCO LLC (2020-12-31);;RHODES TECHNOLOGIES (2017-04-11)",
+      "legal_status": "ACTIVE",
+      "publication_date": "2020-11-17"
+    }
+  ]
+}

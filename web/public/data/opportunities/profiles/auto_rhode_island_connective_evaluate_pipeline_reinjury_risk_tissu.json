@@ -1,0 +1,21 @@
+{
+  "case_id": "auto_rhode_island_connective_evaluate_pipeline_reinjury_risk_tissu",
+  "display_name": "MRI BASED PIPELINE EVALUATE RISK CONNECTIVE Technology Platform Opportunity",
+  "llm_inferred_label": "MRI BASED PIPELINE EVALUATE RISK CONNECTIVE Technology Platform Opportunity",
+  "ri_notes": "Deduped patent family (1 of 1 records); review scope and naming.",
+  "ri_physician_lead": "TBD",
+  "conflict_tags": [],
+  "ri_institution": "Rhode Island ecosystem",
+  "ri_ip_source": "lens:087-635-468-540-877",
+  "ip_assets": [
+    {
+      "asset_id": "asset_ccb9303e3ebe",
+      "title": "MRI-BASED PIPELINE TO EVALUATE RISK OF CONNECTIVE TISSUE REINJURY",
+      "lens_id": "087-635-468-540-877",
+      "url": "https://lens.org/087-635-468-540-877",
+      "owners": "RHODE ISLAND HOSPITAL (2021-09-01);;CHILDREN'S MEDICAL CENTER CORPORATION (2021-09-01)",
+      "legal_status": "PENDING",
+      "publication_date": "2024-11-21"
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "case_id": "auto_rhode_island_drain_removal_same_surgical_using",
+  "display_name": "SURGICAL DRAIN REMOVAL DEVICE AND METHODS Medical Device Opportunity",
+  "llm_inferred_label": "SURGICAL DRAIN REMOVAL DEVICE AND METHODS Medical Device Opportunity",
+  "ri_notes": "Deduped patent family (1 of 1 records); review scope and naming.",
+  "ri_physician_lead": "TBD",
+  "conflict_tags": [],
+  "ri_institution": "Rhode Island ecosystem",
+  "ri_ip_source": "lens:081-708-618-950-561",
+  "ip_assets": [
+    {
+      "asset_id": "asset_05e2486f14fa",
+      "title": "SURGICAL DRAIN REMOVAL DEVICE AND METHODS FOR USING SAME",
+      "lens_id": "081-708-618-950-561",
+      "url": "https://lens.org/081-708-618-950-561",
+      "owners": "RHODE ISLAND HOSPITAL (2021-02-10)",
+      "legal_status": "PENDING",
+      "publication_date": "2022-07-14"
+    }
+  ]
+}
