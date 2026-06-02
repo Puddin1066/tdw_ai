@@ -4,12 +4,14 @@ from __future__ import annotations
 
 from typing import Any
 
+from pipeline.ri_cases_enriched_io import _display_title
+
 MCQ_LABELS = {
     "ip": "Technology & IP",
     "physicians": "Physician expertise",
     "clinical": "Clinical path",
     "physician_50_slater_ssbci_50": "50% physician syndicate / 50% Slater SSBCI",
-    "mixed_slater_physician_hospital_bd": "Slater · physicians · hospital BD",
+    "mixed_slater_physician_hospital_bd": "RI physicians · Slater SSBCI · hospital BD",
 }
 
 TYPE_LABELS = {
@@ -27,6 +29,15 @@ def _num(value: str | None) -> int:
         return int(float((value or "").strip()))
     except ValueError:
         return 0
+
+
+def _float(value: str | None | float, *, default: float = 0.0) -> float:
+    if isinstance(value, (int, float)):
+        return float(value)
+    try:
+        return float((value or "").strip())
+    except ValueError:
+        return default
 
 
 def _pipe_list(value: str | None) -> list[str]:
@@ -77,13 +88,19 @@ def _enrich_precedent(
 
 
 def _pick_lead_precedent(precedents: list[dict[str, Any]]) -> dict[str, Any] | None:
+    if not precedents:
+        return None
+    ordered = sorted(precedents, key=lambda p: _num(str(p.get("rank", 999))))
+    for p in ordered:
+        if (p.get("validation_status") or "").lower() == "verified":
+            return p
     for status in ("verified", "estimated", "suggested"):
-        for p in precedents:
+        for p in ordered:
             if (p.get("validation_status") or "").lower() == status and _num(
                 str(p.get("value_anchor_usd", ""))
             ):
                 return p
-    return precedents[0] if precedents else None
+    return ordered[0]
 
 
 def _value_band_label(row: dict[str, str]) -> str:
@@ -93,6 +110,24 @@ def _value_band_label(row: dict[str, str]) -> str:
     if lo == hi:
         return _format_anchor_short(lo, "comparable")
     return f"{_format_anchor_short(lo, 'comparable')} – {_format_anchor_short(hi, 'comparable')}"
+
+
+def _canonical_value_band_label(lead_prec: dict[str, Any] | None) -> str:
+    """Lead-comp anchor for monolithic CSV (no million-dollar inferred bands)."""
+    if not lead_prec:
+        return ""
+    anchor = _num(str(lead_prec.get("value_anchor_usd", "")))
+    name = (lead_prec.get("name") or "").strip()
+    if anchor and name:
+        return f"{name} — {_format_anchor_short(anchor, lead_prec.get('value_anchor_type', ''))}"
+    return f"Lead comp: {name}" if name else ""
+
+
+def _comparator_grounded(row: dict[str, str], *, from_canonical: bool, verified_count: int) -> bool:
+    if from_canonical:
+        has_comp = bool((row.get("comp1_name") or "").strip())
+        return verified_count > 0 or has_comp
+    return row.get("opportunity_enrichment_source") == "comparator_inferred"
 
 
 def _build_evidence_section(
@@ -136,6 +171,7 @@ def build_exhibit(
     evidence: dict[str, Any] | None = None,
     comp_dossiers: dict[str, dict[str, Any]] | None = None,
     comp_rollup: dict[str, str] | None = None,
+    physician_match: dict[str, Any] | None = None,
 ) -> dict[str, Any]:
     from_canonical = (row.get("enrichment_status") or "") == "canonical_csv" or (
         row.get("opportunity_enrichment_source") == "ri_cases_enriched.csv"
@@ -175,10 +211,20 @@ def build_exhibit(
 
     thesis = (row.get("investment_thesis") or row.get("synthesis_memo") or "").strip()
     ordered_ip = _order_ip_assets(row, ip_assets)
+    verified_count = _num(row.get("value_anchor_verified_count"))
+    physician_share = _num(row.get("physician_share_usd")) or (gap // 2 if gap else 0)
+    slater_share = _num(row.get("slater_share_usd")) or (gap // 2 if gap else 0)
+    inventor_lead = ""
+    for line in (row.get("inventors") or "").splitlines():
+        line = line.strip()
+        if line:
+            inventor_lead = line.split(";")[0].split("|")[0].strip()
+            break
+    display_title = _display_title(row.get("title_clean", ""), row.get("company", ""))
 
     return {
         "headline": {
-            "title": row.get("title_clean", ""),
+            "title": display_title or row.get("title_clean", ""),
             "tagline": row.get("display_name", ""),
             "thesis": thesis,
             "indication": row.get("indication", ""),
@@ -188,25 +234,35 @@ def build_exhibit(
             "catalog_tier": row.get("catalog_tier", ""),
             "geography": "Rhode Island",
             "company": row.get("company", ""),
+            "ri_institution": row.get("ri_institution", ""),
+            "inventor_lead": inventor_lead,
+            "physician_lead_name": row.get("physician_lead_name", ""),
             "data_caveat": row.get("data_caveat", ""),
         },
         "snapshot": {
             "capital_gap_usd": gap,
-            "physician_share_usd": gap // 2 if gap else 0,
-            "slater_share_usd": gap // 2 if gap else 0,
+            "physician_share_usd": physician_share,
+            "slater_share_usd": slater_share,
             "budget_ceiling_usd": _num(row.get("budget_ceiling_usd")),
             "value_band": {
                 "min_usd": 0 if from_canonical else _num(row.get("value_band_min_usd")),
                 "max_usd": 0 if from_canonical else _num(row.get("value_band_max_usd")),
                 "median_usd": 0 if from_canonical else _num(row.get("value_band_median_usd")),
-                "label": "" if from_canonical else _value_band_label(row),
+                "label": _canonical_value_band_label(lead_prec)
+                if from_canonical
+                else _value_band_label(row),
                 "verification_status": row.get("value_verification_status", ""),
-                "verified_anchor_count": _num(row.get("value_anchor_verified_count")),
+                "verified_anchor_count": verified_count,
             },
             "lead_comparable": lead_comparable,
             "next_milestone": row.get("inferred_next_milestone", ""),
             "enrichment_source": row.get("opportunity_enrichment_source", ""),
-            "comparator_grounded": row.get("opportunity_enrichment_source") == "comparator_inferred",
+            "comparator_grounded": _comparator_grounded(
+                row, from_canonical=from_canonical, verified_count=verified_count
+            ),
+            "clinical_allocation_usd": _num(row.get("clinical_allocation_usd")),
+            "rd_allocation_usd": _num(row.get("rd_allocation_usd")),
+            "financing_rationale": row.get("financing_rationale", ""),
         },
         "technology": {
             "patents": ordered_ip,
@@ -244,7 +300,19 @@ def build_exhibit(
             "supporters": supporters,
             "roster": physicians,
             "roster_size": len(physicians),
-            "required_specialties": _pipe_list(row.get("required_specialties")),
+            "required_specialties": _pipe_list(row.get("required_specialties"))
+            or (physician_match or {}).get("required_specialties")
+            or [],
+            "required_clinical_tags": (physician_match or {}).get("required_clinical_tags")
+            or _pipe_list(row.get("clinical_tags")),
+            "staffing_feasibility_score_0_100": _float(
+                (physician_match or {}).get("staffing_feasibility_score_0_100")
+                if physician_match
+                else row.get("staffing_feasibility_score"),
+            ),
+            "staffing_gaps": (physician_match or {}).get("staffing_gaps") or [],
+            "role_coverage": (physician_match or {}).get("role_coverage") or {},
+            "candidate_physicians": (physician_match or {}).get("candidate_physicians") or [],
             "summary": (
                 f"{len(physicians)} Rhode Island clinicians identified "
                 f"({1 if lead_phys else 0} lead, {len(supporters)} supporters)."
@@ -314,6 +382,7 @@ def build_catalog_card(case_id: str, exhibit: dict[str, Any]) -> dict[str, Any]:
     return {
         "case_id": case_id,
         "catalog_tier": h.get("catalog_tier", ""),
+        "ri_institution": h.get("ri_institution", ""),
         "title": h.get("title", ""),
         "opportunity_type_label": h.get("opportunity_type_label", ""),
         "development_stage": h.get("development_stage", ""),

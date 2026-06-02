@@ -4,6 +4,7 @@ import type { OpportunityExhibit } from "@/types/combined";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { OpportunityFramingBanner } from "@/components/opportunities/OpportunityFramingBanner";
 import { ComparableCitationLinks } from "@/components/opportunities/ComparableCitationLinks";
 import { formatUsd, formatValueAnchorType } from "@/lib/format";
 import { OpportunityEvidence } from "@/components/opportunities/OpportunityEvidence";
@@ -23,6 +24,8 @@ function FramingStrip({ exhibit }: { exhibit: OpportunityExhibit }) {
     { label: "Audience", value: f.audience_label },
     { label: "Development ask", value: f.development_ask_label },
   ].filter((item) => item.value);
+
+  if (!items.length) return null;
 
   return (
     <div className="flex flex-wrap gap-2" aria-label="Framing decisions">
@@ -94,7 +97,26 @@ export function OpportunityMemo({ exhibit }: OpportunityMemoProps) {
     ),
     syndicate: (
       <div className="space-y-4">
-        <p className="text-sm text-muted-foreground">{syndicate.summary}</p>
+        <p className="text-sm leading-relaxed text-muted-foreground">
+          {syndicate.roster.length
+            ? `${syndicate.summary} Co-investors oversee clinical credibility, pilot design, and local adoption — not passive capital.`
+            : `${syndicate.summary} Target: Rhode Island physician syndicate paired with Slater SSBCI for clinical oversight.`}
+        </p>
+        {(syndicate.staffing_feasibility_score_0_100 ?? 0) > 0 ||
+        (syndicate.required_clinical_tags?.length ?? 0) > 0 ? (
+          <div className="flex flex-wrap gap-2 text-xs">
+            {(syndicate.staffing_feasibility_score_0_100 ?? 0) > 0 ? (
+              <Badge variant="outline" className="font-normal">
+                Staffing feasibility: {syndicate.staffing_feasibility_score_0_100?.toFixed(0)}/100
+              </Badge>
+            ) : null}
+            {syndicate.required_clinical_tags?.slice(0, 6).map((tag) => (
+              <Badge key={tag} variant="outline" className="font-normal text-muted-foreground">
+                {tag.replace(/_/g, " ")}
+              </Badge>
+            ))}
+          </div>
+        ) : null}
         {syndicate.roster.length ? (
           <div className="overflow-x-auto rounded-lg border border-border/60">
             <table className="w-full min-w-[520px] text-left text-sm">
@@ -112,11 +134,28 @@ export function OpportunityMemo({ exhibit }: OpportunityMemoProps) {
                     key={`${p.physician_id || p.name}-${p.is_lead}-${index}`}
                     className="border-b border-border/40"
                   >
-                    <td className="px-4 py-2.5 font-medium">{p.name}</td>
+                    <td className="px-4 py-2.5 font-medium">
+                      {p.profile_url ? (
+                        <a
+                          href={p.profile_url}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="text-cockpit-teal hover:underline"
+                        >
+                          {p.name}
+                        </a>
+                      ) : (
+                        p.name
+                      )}
+                    </td>
                     <td className="px-4 py-2.5 text-muted-foreground">{p.specialty || "—"}</td>
                     <td className="px-4 py-2.5 text-muted-foreground">{p.institution || "—"}</td>
                     <td className="px-4 py-2.5 capitalize">
-                      {p.is_lead === "true" ? "Lead" : p.roles_matched.replace(/\|/g, ", ")}
+                      {p.is_lead === "true"
+                        ? "Lead"
+                        : Array.isArray(p.roles_matched)
+                          ? p.roles_matched.join(", ")
+                          : String(p.roles_matched || "").replace(/\|/g, ", ")}
                     </td>
                   </tr>
                 ))}
@@ -124,8 +163,47 @@ export function OpportunityMemo({ exhibit }: OpportunityMemoProps) {
             </table>
           </div>
         ) : (
-          <p className="text-sm text-muted-foreground">No matched physicians yet.</p>
+          <p className="text-sm text-muted-foreground">No matched physicians on roster yet.</p>
         )}
+        {(syndicate.candidate_physicians?.length ?? 0) > 0 ? (
+          <div className="space-y-2">
+            <h3 className="text-sm font-medium text-foreground">NPI-matched candidates</h3>
+            <p className="text-xs text-muted-foreground">
+              Ranked by clinical-tag overlap and role fit (CMS NPI registry). Promote in curate after
+              conflict review.
+            </p>
+            <ul className="space-y-2">
+              {syndicate.candidate_physicians!.slice(0, 8).map((p) => (
+                <li
+                  key={`${p.physician_id}-${p.name}`}
+                  className="rounded-lg border border-border/60 bg-card/50 px-4 py-2.5 text-sm"
+                >
+                  <div className="flex flex-wrap items-baseline justify-between gap-2">
+                    <span className="font-medium">{p.name}</span>
+                    {p.match_score_0_100 != null ? (
+                      <span className="text-xs text-cockpit-teal">
+                        Match {p.match_score_0_100}/100
+                      </span>
+                    ) : null}
+                  </div>
+                  <p className="text-xs text-muted-foreground mt-1">
+                    {[p.specialty, p.institution].filter(Boolean).join(" · ")}
+                  </p>
+                  {p.clinical_tags_matched?.length ? (
+                    <p className="text-xs text-muted-foreground mt-1">
+                      Tags: {p.clinical_tags_matched.join(", ")}
+                    </p>
+                  ) : null}
+                </li>
+              ))}
+            </ul>
+          </div>
+        ) : null}
+        {syndicate.staffing_gaps?.length ? (
+          <p className="text-xs text-muted-foreground">
+            Role gaps: {syndicate.staffing_gaps.join(", ")}
+          </p>
+        ) : null}
       </div>
     ),
     clinical: clinical.has_plan ? (
@@ -169,6 +247,7 @@ export function OpportunityMemo({ exhibit }: OpportunityMemoProps) {
         {headline.tagline && headline.tagline !== headline.title ? (
           <p className="text-sm text-muted-foreground">{headline.tagline}</p>
         ) : null}
+        <OpportunityFramingBanner headline={headline} meta={exhibit.meta} />
         <p className="max-w-3xl text-base leading-relaxed text-muted-foreground">{headline.thesis}</p>
         <FramingStrip exhibit={exhibit} />
         {headline.data_caveat ? (
@@ -176,19 +255,35 @@ export function OpportunityMemo({ exhibit }: OpportunityMemoProps) {
             {headline.data_caveat}
           </Badge>
         ) : null}
-        <p className="text-sm text-muted-foreground">{headline.indication}</p>
+        {headline.indication &&
+        headline.indication.toLowerCase() !== headline.title.toLowerCase() ? (
+          <p className="text-sm text-muted-foreground">
+            <span className="font-medium text-foreground">Indication: </span>
+            {headline.indication}
+          </p>
+        ) : null}
       </header>
 
       {/* At-a-glance snapshot */}
       <section className="grid gap-3 rounded-lg border border-border/60 bg-muted/20 p-4 sm:grid-cols-2 lg:grid-cols-4">
         <div>
-          <p className="text-xs text-muted-foreground">RI package</p>
+          <p className="text-xs text-muted-foreground">RI co-investment package</p>
           <p className="text-lg font-semibold">{formatUsd(snapshot.capital_gap_usd)}</p>
+          <p className="text-xs text-muted-foreground mt-0.5">
+            {formatUsd(snapshot.physician_share_usd)} physician ·{" "}
+            {formatUsd(snapshot.slater_share_usd)} Slater
+          </p>
         </div>
         {snapshot.value_band.label ? (
           <div>
-            <p className="text-xs text-muted-foreground">Market precedent</p>
+            <p className="text-xs text-muted-foreground">Financing precedent</p>
             <p className="text-sm font-semibold leading-snug">{snapshot.value_band.label}</p>
+            {snapshot.value_band.verified_anchor_count > 0 ? (
+              <p className="text-xs text-muted-foreground">
+                {snapshot.value_band.verified_anchor_count} verified anchor
+                {snapshot.value_band.verified_anchor_count === 1 ? "" : "s"}
+              </p>
+            ) : null}
           </div>
         ) : null}
         {snapshot.lead_comparable?.name ? (

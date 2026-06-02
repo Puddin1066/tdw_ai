@@ -27,6 +27,7 @@ from typing import Any
 
 from pipeline.build_ri_exhibit import build_catalog_card, build_exhibit
 from pipeline.comp_site_dossier import case_rollup, dossiers_for_case, load_dossier_bundle
+from pipeline.physician_assignment import compute_assignments_for_enriched_rows
 from pipeline.ri_cases_enriched_io import (
     CASES_CSV,
     catalog_row_from_enriched,
@@ -204,15 +205,17 @@ def build_from_cases_enriched(
     approved_only: bool = False,
 ) -> tuple[list[dict[str, Any]], list[dict[str, Any]]]:
     dossiers_bundle = dossier_bundle if dossier_bundle is not None else load_dossier_bundle(DOSSIERS)
+    catalog_rows = [
+        raw
+        for raw in load_cases(CASES_CSV)
+        if _bool(raw.get("catalog_include", "true"))
+        and (not approved_only or (raw.get("review_status") or "").lower() == "approved")
+    ]
+    physician_assignments = compute_assignments_for_enriched_rows(catalog_rows, catalog_only=False)
     opportunities: list[dict[str, Any]] = []
     catalog_cards: list[dict[str, Any]] = []
 
-    for raw in load_cases(CASES_CSV):
-        if not _bool(raw.get("catalog_include", "true")):
-            continue
-        approved = (raw.get("review_status") or "").lower() == "approved"
-        if approved_only and not approved:
-            continue
+    for raw in catalog_rows:
         case_id = raw["case_id"]
         row = catalog_row_from_enriched(dict(raw))
         precedents = comps_from_row(raw)
@@ -228,6 +231,7 @@ def build_from_cases_enriched(
             evidence,
             comp_dossiers=case_dossiers,
             comp_rollup=case_rollup(dossiers_bundle, case_id),
+            physician_match=physician_assignments.get(case_id),
         )
         opportunities.append({"case_id": case_id, "exhibit": exhibit})
         catalog_cards.append(build_catalog_card(case_id, exhibit))

@@ -4,7 +4,8 @@
 
 **Non-goals:** New UI patterns, new JSON schemas unless necessary, multi-file curator workflows, or re-inferring dollars at build time.
 
-**Methodology & enrichment tools:** [RI_ENRICHMENT_METHOD.md](./RI_ENRICHMENT_METHOD.md)
+**Methodology & enrichment tools:** [RI_ENRICHMENT_METHOD.md](./RI_ENRICHMENT_METHOD.md)  
+**Development focus (agents & engineers):** [RI_DEVELOPMENT_FOCUS.md](./RI_DEVELOPMENT_FOCUS.md)
 
 ---
 
@@ -96,6 +97,7 @@ Use **pipe `|`** or **newline** inside cells for lists (already used for `physic
 | `publication_urls` | PubMed or Lens per row |
 | `publication_pmids` | Optional parallel |
 | `literature_narrative` | 2–3 sentence summary |
+| `literature_source_urls` | Newline `title \| url` — sources for narrative / suggest pubs / patent |
 
 **Suggest columns (scripts only — copy into main columns after review):**
 
@@ -173,16 +175,22 @@ Optional internal column `legacy_capital_gap_usd` may exist for audit only; neve
 
 #### G. Clinical trials (optional, cited)
 
+**Policy:** High-confidence CT.gov matches only in main columns. Most rows stay empty. Pilot design uses `clinical_*` (template analog). Weak path analogs → `suggest_trial_*` (curate tab).
+
 | Column | Notes |
 |--------|--------|
-| `trial_count` | 0+ |
+| `trial_count` | 0 = no strong registry match (expected for many preclinical rows) |
 | `trial_nct_ids` | Pipe-separated |
 | `trial_titles` | Parallel |
 | `trial_pi_names` | Parallel |
 | `trial_urls` | `https://clinicaltrials.gov/study/{NCT}` |
 | `trial_phases` | Parallel |
+| `suggest_trial_nct_ids` | Low-confidence analogs (scripts / curate only) |
+| `suggest_trial_titles` | Parallel |
+| `suggest_trial_urls` | Parallel |
+| `suggest_trial_notes` | Role + relevance score |
 
-**Source:** `ri_trial_templates.csv`, CT.gov export (`normalize_ri_sources`), web search.
+**Source:** comp-precedent + mechanism CT.gov search ([`ri_trial_enrichment.py`](../pipeline/ri_trial_enrichment.py)), `ri_trial_templates.csv` for `clinical_*`, not institution-name queries.
 
 #### H. R&D plan (brief)
 
@@ -190,6 +198,8 @@ Optional internal column `legacy_capital_gap_usd` may exist for audit only; neve
 |--------|--------|
 | `rd_plan_summary` | 2–4 sentences |
 | `rd_milestones` | Newline bullets: mouse model, in silico, preclinical, partner, small trial |
+| `rd_milestone_source_urls` | Parallel newline `milestone \| url` — primary source per milestone |
+| `rd_plan_source_url` | Primary URL backing `rd_plan_summary` |
 | `rd_milestone_types` | Tags pipe-separated |
 
 #### I. Build / legacy (optional bridge)

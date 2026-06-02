@@ -35,8 +35,9 @@ export function OpportunityCatalog({ cards }: OpportunityCatalogProps) {
       />
 
       <p className="text-sm text-muted-foreground">
-        {filtered.length} Rhode Island patent-backed venture programs — comparator-grounded financing
-        and physician syndicates.
+        {filtered.length} Rhode Island patent-backed programs — comparator-grounded financing,
+        physician syndicate matching, and cited scientific evidence. Memos show draft diligence until
+        curator-approved.
       </p>
 
       <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
@@ -58,7 +59,15 @@ export function OpportunityCatalog({ cards }: OpportunityCatalogProps) {
                       Comp-grounded
                     </Badge>
                   ) : null}
+                  {(card.review_status || "pending").toLowerCase() !== "approved" ? (
+                    <Badge variant="outline" className="text-[10px] font-normal text-muted-foreground">
+                      Draft
+                    </Badge>
+                  ) : null}
                 </div>
+                {card.ri_institution ? (
+                  <p className="text-xs text-muted-foreground">{card.ri_institution}</p>
+                ) : null}
                 <CardTitle className="text-base leading-snug group-hover:text-cockpit-teal">
                   {card.title}
                 </CardTitle>
@@ -69,7 +78,7 @@ export function OpportunityCatalog({ cards }: OpportunityCatalogProps) {
               <CardContent className="space-y-4">
                 {card.value_band_label ? (
                   <p className="text-xs">
-                    <span className="text-muted-foreground">Market precedent: </span>
+                    <span className="text-muted-foreground">Financing precedent: </span>
                     <span className="font-medium text-foreground">{card.value_band_label}</span>
                   </p>
                 ) : null}

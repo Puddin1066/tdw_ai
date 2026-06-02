@@ -413,6 +413,92 @@ def compute_global_assignments(
     return results
 
 
+DEFAULT_REQUIRED_ROLES = "reviewer|advisor|pilot_designer|investigator"
+
+
+def opportunity_from_enriched_row(row: dict[str, str]) -> dict[str, str]:
+    """Map ri_cases_enriched.csv row to physician_assignment opportunity shape."""
+    return {
+        "case_id": (row.get("case_id") or "").strip(),
+        "display_name": (row.get("display_name") or row.get("title_clean") or "").strip(),
+        "target": (row.get("title_clean") or row.get("display_name") or "").strip(),
+        "indication": (row.get("indication") or "").strip(),
+        "opportunity_type": (row.get("opportunity_type") or "platform").strip(),
+        "required_roles": (row.get("required_roles") or DEFAULT_REQUIRED_ROLES).strip(),
+        "required_specialties": (row.get("required_specialties") or "").strip(),
+        "clinical_tags": (row.get("clinical_tags") or "").strip(),
+        "conflict_tags": (row.get("conflict_tags") or "").strip(),
+        "llm_inferred_label": (row.get("title_clean") or "").strip(),
+    }
+
+
+def _load_opportunities_lookup() -> dict[str, dict[str, str]]:
+    rows = _read_csv(OPPORTUNITIES_CSV)
+    return {(row.get("case_id") or "").strip(): row for row in rows if (row.get("case_id") or "").strip()}
+
+
+def _merge_opportunity_baseline(enriched: dict[str, str], baseline: dict[str, str] | None) -> dict[str, str]:
+    """Prefer enriched values; fill required_roles/specialties from ri_opportunities.csv when empty."""
+    out = opportunity_from_enriched_row(enriched)
+    if not baseline:
+        return out
+    for key in (
+        "required_roles",
+        "required_specialties",
+        "clinical_tags",
+        "conflict_tags",
+        "target",
+        "display_name",
+    ):
+        if not (out.get(key) or "").strip() and (baseline.get(key) or "").strip():
+            out[key] = baseline[key].strip()
+    return out
+
+
+def load_ip_by_case() -> dict[str, list[dict[str, str]]]:
+    by_case: dict[str, list[dict[str, str]]] = {}
+    for row in _read_csv(IP_ASSETS_CSV):
+        cid = (row.get("case_id") or "").strip()
+        if cid:
+            by_case.setdefault(cid, []).append(row)
+    return by_case
+
+
+def compute_assignments_for_enriched_rows(
+    rows: list[dict[str, str]],
+    *,
+    catalog_only: bool = True,
+) -> dict[str, dict[str, Any]]:
+    """Run global physician assignment from monolithic enriched CSV rows."""
+    physicians = _read_csv(PHYSICIANS_CSV)
+    ip_by_case = load_ip_by_case()
+    baseline_by = _load_opportunities_lookup()
+    opportunities: dict[str, dict[str, str]] = {}
+    for row in rows:
+        if catalog_only and not _to_bool(row.get("catalog_include"), default=True):
+            continue
+        cid = (row.get("case_id") or "").strip()
+        if not cid:
+            continue
+        merged = _merge_opportunity_baseline(row, baseline_by.get(cid))
+        merged = enrich_opportunity_row(merged, ip_by_case.get(cid))
+        opportunities[cid] = merged
+    return compute_global_assignments(opportunities, physicians, ip_by_case)
+
+
+def physician_match_for_enriched_row(
+    row: dict[str, str],
+    assignments: dict[str, dict[str, Any]] | None = None,
+) -> dict[str, Any]:
+    """Physician match bundle for one enriched catalog row."""
+    cid = (row.get("case_id") or "").strip()
+    if assignments is not None:
+        return assignments.get(cid) or physician_match_for_case(cid)
+    # Fallback: single-case compute (slower; used in tests).
+    single = compute_assignments_for_enriched_rows([row], catalog_only=False)
+    return single.get(cid) or physician_match_for_case(cid)
+
+
 def clear_assignment_cache() -> None:
     load_global_physician_assignments.cache_clear()
 

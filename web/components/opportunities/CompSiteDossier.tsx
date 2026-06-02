@@ -102,9 +102,17 @@ function CompSiteDossierPanel({ dossier }: { dossier: CompSiteDossierPayload }) 
   );
 }
 
+function roleBadgeVariant(role: string): "default" | "secondary" | "outline" {
+  const r = role.toLowerCase();
+  if (r === "therapeutic") return "default";
+  if (r === "diagnostic") return "secondary";
+  return "outline";
+}
+
 function PrecedentCard({ p }: { p: CombinedPrecedent }) {
   const anchor = Number(p.value_anchor_usd) || 0;
   const status = (p.validation_status || "suggested").toLowerCase();
+  const role = (p.role || "").trim();
 
   return (
     <li className="rounded-lg border border-border/60 bg-card/50 px-4 py-3 space-y-2">
@@ -112,13 +120,24 @@ function PrecedentCard({ p }: { p: CombinedPrecedent }) {
         <div>
           <p className="font-medium leading-snug">{p.name}</p>
           <p className="text-xs text-muted-foreground capitalize">
-            {p.type.replace(/_/g, " ")} · {p.stage.replace(/_/g, " ")}
+            {p.type.replace(/_/g, " ")}
+            {p.stage ? ` · ${p.stage.replace(/_/g, " ")}` : ""}
           </p>
         </div>
-        <Badge variant={validationBadgeVariant(status)} className="shrink-0 text-[10px] uppercase">
-          {status}
-        </Badge>
+        <div className="flex flex-wrap gap-1 shrink-0">
+          {role ? (
+            <Badge variant={roleBadgeVariant(role)} className="text-[10px] uppercase">
+              {role}
+            </Badge>
+          ) : null}
+          <Badge variant={validationBadgeVariant(status)} className="text-[10px] uppercase">
+            {status}
+          </Badge>
+        </div>
       </div>
+      {p.notes && p.notes !== p.inferred_financing ? (
+        <p className="text-sm text-muted-foreground">{p.notes}</p>
+      ) : null}
       {anchor > 0 ? (
         <p className="text-sm">
           <span className="font-semibold text-foreground">{formatUsd(anchor)}</span>
@@ -135,7 +154,11 @@ function PrecedentCard({ p }: { p: CombinedPrecedent }) {
           <span className="text-foreground/80">Financing:</span> {p.inferred_financing}
         </p>
       ) : null}
-      <ComparableCitationLinks companyUrl={p.url} valueSourceUrl={p.value_source_url} />
+      <ComparableCitationLinks
+        companyUrl={p.url}
+        valueSourceUrl={p.value_source_url}
+        supportingCitations={p.supporting_citations}
+      />
       {p.site_dossier ? <CompSiteDossierPanel dossier={p.site_dossier} /> : null}
     </li>
   );

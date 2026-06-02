@@ -13,13 +13,14 @@ export default function OpportunitiesPage() {
         <header className="max-w-2xl space-y-3">
           <h1 className="text-3xl font-semibold tracking-tight">Rhode Island opportunities</h1>
           <p className="text-base leading-relaxed text-muted-foreground">
-            Each program is a Rhode Island patent-backed venture case: verified{" "}
-            <strong className="font-medium text-foreground">market comparables</strong> set financing
-            and development precedent,{" "}
-            <strong className="font-medium text-foreground">physician syndicates</strong> provide
+            Each program is a Rhode Island patent-backed venture case grounded in{" "}
+            <strong className="font-medium text-foreground">cited market comparables</strong> (financing
+            and development precedent),{" "}
+            <strong className="font-medium text-foreground">physician syndicate</strong> matching for
             clinical credibility, and a{" "}
-            <strong className="font-medium text-foreground">pilot path</strong> de-risks the technology
-            — packaged for 50/50 physician and Slater SSBCI financing.
+            <strong className="font-medium text-foreground">defined pilot path</strong> — packaged for
+            50/50 physician and Slater SSBCI co-investment (≤$400K policy cap). Memos reflect CSV
+            enrichment; curator approval gates investor-ready status.
           </p>
           <Link
             href="/opportunities/curate"

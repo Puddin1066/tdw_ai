@@ -27,21 +27,41 @@ export function OpportunityInvestmentPackage({
       </div>
       <p className="text-sm leading-relaxed text-muted-foreground">
         <span className="font-medium text-foreground">{financing.structure_label}</span> — total ask{" "}
-        <strong className="text-foreground">{formatUsd(gap)}</strong> (
-        <strong className="text-foreground">{formatUsd(snapshot.physician_share_usd)}</strong>{" "}
-        physician syndicate ·{" "}
-        <strong className="text-foreground">{formatUsd(snapshot.slater_share_usd)}</strong> Slater
-        SSBCI).
+        <strong className="text-foreground">{formatUsd(gap)}</strong> for Rhode Island physicians
+        and Slater Tech Fund (SSBCI match):
       </p>
+      <ul className="text-sm space-y-1 list-none pl-0">
+        <li>
+          <strong className="text-foreground">{formatUsd(snapshot.physician_share_usd)}</strong>{" "}
+          <span className="text-muted-foreground">
+            — physician syndicate check (clinical oversight, pilot credibility, local KOL network)
+          </span>
+        </li>
+        <li>
+          <strong className="text-foreground">{formatUsd(snapshot.slater_share_usd)}</strong>{" "}
+          <span className="text-muted-foreground">
+            — Slater SSBCI equity match (≤$200K policy cap)
+          </span>
+        </li>
+      </ul>
       {snapshot.next_milestone ? (
         <p className="text-sm">
           <span className="text-muted-foreground">Next milestone:</span> {snapshot.next_milestone}
         </p>
       ) : null}
+      {snapshot.financing_rationale ? (
+        <p className="text-sm text-muted-foreground">{snapshot.financing_rationale}</p>
+      ) : null}
       <dl className="grid gap-3 text-sm sm:grid-cols-3">
         <div>
-          <dt className="text-muted-foreground">Clinical pilot</dt>
-          <dd className="font-medium">{formatUsd(clinical.cost_usd)}</dd>
+          <dt className="text-muted-foreground">Clinical allocation</dt>
+          <dd className="font-medium">
+            {formatUsd(snapshot.clinical_allocation_usd ?? clinical.cost_usd)}
+          </dd>
+        </div>
+        <div>
+          <dt className="text-muted-foreground">R&D / preclinical</dt>
+          <dd className="font-medium">{formatUsd(snapshot.rd_allocation_usd ?? 0)}</dd>
         </div>
         <div>
           <dt className="text-muted-foreground">Timeline</dt>

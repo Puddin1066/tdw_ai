@@ -61,6 +61,19 @@ def test_build_thesis_uses_policy_package():
     thesis = build_thesis(row)
     assert "400,000" in thesis
     assert "1,800,000" not in thesis
+    assert "Profound Medical" in thesis
+    assert "Theromics Inc — Theromics" not in thesis
+
+
+def test_build_thesis_skips_duplicate_indication():
+    row = empty_row("x")
+    row["title_clean"] = "Brain electrode system"
+    row["indication"] = "Brain electrode system"
+    row["total_package_usd"] = "400000"
+    from pipeline.ri_cases_enriched_io import build_thesis
+
+    thesis = build_thesis(row)
+    assert "focused on" not in thesis
 
 
 def test_validate_approved_requires_pubs_tier_a():
@@ -74,3 +87,12 @@ def test_validate_approved_requires_pubs_tier_a():
     row["slater_share_usd"] = "200000"
     report = validate_row(row, ["Brown University"])
     assert any("publication_count" in e for e in report.errors)
+
+
+def test_catalog_row_preserves_approved_thesis():
+    row = empty_row("prothera_iaip_ri")
+    row["review_status"] = "approved"
+    row["total_package_usd"] = "400000"
+    row["investment_thesis"] = "Curated investor thesis for ProThera."
+    cat = catalog_row_from_enriched(row)
+    assert cat["investment_thesis"] == "Curated investor thesis for ProThera."

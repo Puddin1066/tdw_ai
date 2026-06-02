@@ -8,10 +8,16 @@ export interface CombinedIpAsset {
   url: string;
 }
 
+export interface CompSupportingCitation {
+  label: string;
+  url: string;
+}
+
 export interface CombinedPrecedent {
   rank: number;
   type: string;
   name: string;
+  role?: string;
   stage: string;
   notes: string;
   url: string;
@@ -27,6 +33,7 @@ export interface CombinedPrecedent {
   validation_status: string;
   confidence: string;
   source: string;
+  supporting_citations?: CompSupportingCitation[];
   display_headline?: string;
   has_value_anchor?: boolean;
   is_verified?: boolean;
@@ -73,8 +80,12 @@ export interface CombinedPhysician {
   name: string;
   specialty: string;
   institution: string;
-  roles_matched: string;
+  roles_matched: string | string[];
   is_lead?: string;
+  profile_url?: string;
+  match_score_0_100?: number;
+  clinical_tags_matched?: string[];
+  relevance_rationale?: string;
 }
 
 export interface ExhibitHeadline {
@@ -88,6 +99,9 @@ export interface ExhibitHeadline {
   catalog_tier: string;
   geography: string;
   company: string;
+  ri_institution?: string;
+  inventor_lead?: string;
+  physician_lead_name?: string;
   data_caveat: string;
 }
 
@@ -116,6 +130,9 @@ export interface ExhibitSnapshot {
   physician_share_usd: number;
   slater_share_usd: number;
   budget_ceiling_usd: number;
+  clinical_allocation_usd?: number;
+  rd_allocation_usd?: number;
+  financing_rationale?: string;
   value_band: ExhibitValueBand;
   lead_comparable: ExhibitLeadComparable | null;
   next_milestone: string;
@@ -146,6 +163,11 @@ export interface ExhibitSyndicate {
   roster: CombinedPhysician[];
   roster_size: number;
   required_specialties: string[];
+  required_clinical_tags?: string[];
+  staffing_feasibility_score_0_100?: number;
+  staffing_gaps?: string[];
+  role_coverage?: Record<string, boolean>;
+  candidate_physicians?: CombinedPhysician[];
   summary: string;
 }
 
@@ -231,6 +253,7 @@ export interface ExhibitMeta {
   ri_notes: string;
   mocked: boolean;
   source: string;
+  review_status?: string;
 }
 
 export interface OpportunityExhibit {
@@ -249,6 +272,7 @@ export interface OpportunityExhibit {
 export interface CatalogCard {
   case_id: string;
   catalog_tier: string;
+  ri_institution?: string;
   title: string;
   opportunity_type_label: string;
   development_stage: string;
@@ -263,6 +287,7 @@ export interface CatalogCard {
   lead_comparable_name: string;
   publication_count: number;
   evidence_status: string;
+  review_status?: string;
 }
 
 export interface CombinedOpportunity {

@@ -4,7 +4,7 @@
 
 **Artifact:** [`data/ri/ri_cases_enriched.csv`](../data/ri/ri_cases_enriched.csv) — one row per catalog program; single source of truth for the opportunity UI.
 
-**Related:** [RI_CASES_MONOLITHIC.md](./RI_CASES_MONOLITHIC.md) (column schema and locked policy rules).
+**Related:** [RI_CASES_MONOLITHIC.md](./RI_CASES_MONOLITHIC.md) (column schema and locked policy rules) · [RI_DEVELOPMENT_FOCUS.md](./RI_DEVELOPMENT_FOCUS.md) (continuous development guardrails)
 
 ---
 
@@ -15,7 +15,7 @@
 | Layer | Role | Examples |
 |-------|------|----------|
 | **Ground truth** | Do not infer | Lens patents, `ri_ip_assets`, CMS NPI physicians, tier-A comp seeds |
-| **Machine assist** | Proposals in `suggest_*` / `web_search_*` | BioMCP, PubMed, DuckDuckGo comp resolution, Brown VIVO |
+| **Machine assist** | Proposals in `suggest_*` / `web_search_*` | BioMCP, PubMed, DuckDuckGo comp resolution, Brown VIVO, **LLM agent** |
 | **Policy + human gate** | What investors see | Allowlists, $400K cap, 50/50 physician/Slater, `review_status=approved` |
 
 ```text
@@ -44,12 +44,21 @@ Curator approval         ──┘
 | `npm run enrich:ri:biomcp -- --tier A` | Refresh `ri_opportunity_evidence.json` (patent-linked pubs/trials) |
 | `npm run ri:cases:biomcp:apply` | Promote RI lead-author pubs → `publication_*`; others → `suggest_publication_*` |
 | `npm run ri:cases:vivo` | Brown faculty → `https://vivo.brown.edu/display/{slug}` |
+| `npm run ri:cases:enrich:full` | **Cited gap pass:** tier-A sync → remediate → BioMCP → web URL resolve → source columns (`literature_source_urls`, `rd_milestone_source_urls`, comp citations) |
+| `npm run ri:cases:enrich:full:live` | Same + live LLM agent + DuckDuckGo verify |
+| `npm run ri:cases:enrich:package` | Tier-A comp sync + physician/inventor NPI match + use-of-funds + build |
+| `npm run ri:cases:enrich:agent` | LLM comp/R&D proposals → `web_search_*` + empty-slot comps (`validation_status=suggested`); `--no-fetch` by default |
+| `npm run ri:cases:enrich:agent:live` | Same with `OPENAI_API_KEY` + DuckDuckGo URL verification |
+| `npm run ri:cases:enrich:agent:dry` | Print agent JSON per row (no CSV write) |
 | `npm run ri:cases:enrich:web` | DuckDuckGo comp/profile/R&D queries → `suggest_comp*` + `web_search_*` audit |
 | `npm run ri:cases:enrich:web:fast` | Heuristic comp links only (SEC/company pages; ~2s, no DDG) |
 | `npm run ri:cases:remediate` | Mechanical fixes (thesis, leads, indications, comp types) |
 | `npm run ri:cases:validate` | Errors only on `review_status=approved` rows |
 | `npm run ri:cases:export-json` | Curator UI + build input |
 | **`npm run ri:cases:enrich`** | **Full assist pass:** biomcp apply → vivo → web → export |
+| **`npm run ri:cases:enrich:case -- --case-id <id>`** | **Single orchestrator:** mode `tier_a_full` (default) — tier-A sync → remediate → BioMCP → physicians → trials → cited web (+ agent). Use `--mode tier_b_light`, `web_only`, `package`, or `refresh_copy` |
+| **`npm run ri:cases:enrich:copy -- --case-id <id>`** | **Approved-row copy refresh:** source URLs + VIVO gaps only (no thesis/comp overwrite) + build |
+| **`npm run ri:cases:enrich:case:build -- --case-id <id>`** | Same as enrich:case + validate + export + build |
 
 **Curator:** `/opportunities/curate` — review `suggest_*` and `web_search_notes`, copy into main columns, set `review_status=approved`.
 
@@ -69,7 +78,8 @@ Curator approval         ──┘
 | Column | Source |
 |--------|--------|
 | `suggest_publication_*` | BioMCP patent-linked candidates failing RI lead-author rule |
-| `suggest_comp1_*` | Web-resolved financing URL for comp1 |
+| `suggest_physician_*` | NPI match candidates; promote to `physician_lead_*` / `physician_supporters` in curate |
+| `staffing_feasibility_score` | 0–100 from global NPI tag overlap (`ri:cases:enrich:physicians`) |
 | `web_search_queries` | Pipe-separated queries executed (audit trail) |
 | `web_search_notes` | Newline results: `[compN] title \| url`, `[profile] url`, `[rd] title \| url` |
 
@@ -79,6 +89,24 @@ Curator approval         ──┘
 2. **Comps:** science + development path precedent; not RI geography ([Eascra for NanoDe](../data/ri/tier_a/comparables.csv) is the model).
 3. **Publications:** strict RI lead author; BioMCP alone is insufficient if first author is not RI-affiliated.
 4. **Finance UI:** policy package only — no million-dollar inferred gaps in snapshot.
+
+---
+
+## Clinical trials (three layers)
+
+Most preclinical device/platform opportunities **will not** have a directly relevant CT.gov trial. Empty `trial_*` on the investor memo is correct and preferred over false positives (e.g. matching “Brown” → brown adipose tissue).
+
+| Layer | Columns | When populated | Investor meaning |
+|-------|---------|----------------|------------------|
+| **A — Registry precedent** | `trial_*` | Jaccard score ≥ 0.22 on mechanism tokens; comp company + indication queries | “A trial exists for this mechanism or comp path” |
+| **B — Pilot design analog** | `clinical_*` | `ri_trial_templates.csv` by `opportunity_type` | “What an RI-sized pilot might look like” (not claiming same NCT) |
+| **C — Curator assist** | `suggest_trial_*` | Score 0.12–0.22; comp-precedent path analogs | Promote in `/opportunities/curate` if useful |
+
+**Search terms (never):** institution names (`Brown`, `Rhode Island`), inventor surnames alone, raw `title_clean` with “Brown —” prefix.
+
+**Search terms (always):** patent title keywords, cleaned indication, comp1–3 base names + mechanism.
+
+Implementation: [`pipeline/ri_trial_enrichment.py`](../pipeline/ri_trial_enrichment.py). Re-run after policy changes: `npm run ri:cases:enrich:trials`.
 
 ---
 

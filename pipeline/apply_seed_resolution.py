@@ -95,24 +95,31 @@ SEED_ENRICHMENT: dict[str, dict[str, str]] = {
         "ri_notes": "pHLIP Inc (phlipinc.com); Reshetnyak/Engelman Yale-URI IP.",
     },
     "prothera_iaip_ri": {
-        "catalog_tier": "B",
+        "catalog_tier": "A",
         "catalog_include": "true",
         "title_clean": "ProThera — IAIP biologics for sepsis",
         "program_family": "prothera_iaip",
         "indication": "early sepsis and critical illness — IAIP biologic therapeutic",
         "company": "ProThera Biologics Inc",
         "opportunity_type": "therapeutic",
+        "development_stage": "validation",
         "primary_lens_id": "041-853-574-697-591",
         "primary_display_key": "US 2026/0130975 A1",
         "primary_patent_title": "INTER-ALPHA INHIBITOR PROTEINS AND METHODS OF USE THEREOF",
         "ip_lens_ids": "041-853-574-697-591|161-049-569-910-996|112-360-390-080-405",
         "ip_asset_count": "3",
-        "physician_lead_npi": "",
-        "physician_lead_name": "TBD",
-        "data_caveat": "Merged ProThera US/DK/BR family from supplemental Lens export.",
+        "physician_lead_npi": "1023246287",
+        "physician_lead_name": "CHESTON CUNHA",
+        "physician_lead_specialty": "Infectious disease / antimicrobial stewardship",
+        "physician_lead_institution": "Rhode Island Hospital / Brown Medicine",
+        "physician_lead_profile_url": "https://vivo.brown.edu/display/ccunha",
+        "data_caveat": (
+            "Global IAIP program licensed to Takeda (Apr 2020). RI package funds local "
+            "ICU biomarker pilot — not duplicate of Takeda IND."
+        ),
         "ri_notes": (
-            "Yow-Pin Lim / ProThera. Complementary to monaghan_sepsis_diagnostic_ri "
-            "(host RNA dx) — distinct IAIP biologic MOA."
+            "Yow-Pin Lim / ProThera (https://vivo.brown.edu/display/ylimmdph). "
+            "Complementary to monaghan_sepsis_diagnostic_ri — distinct IAIP biologic MOA."
         ),
     },
 }

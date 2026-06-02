@@ -29,7 +29,7 @@ export function OpportunityEvidence({ evidence }: OpportunityEvidenceProps) {
   if (!pubs.length && !trials.length) {
     return (
       <p className="text-sm text-muted-foreground">
-        {evidence.narrative || "No publications or trials fetched yet for this program."}
+        {evidence.narrative || "No RI lead-author publications promoted for this program yet."}
         {evidence.search_terms?.length ? (
           <span className="mt-2 block text-xs">
             Search terms: {evidence.search_terms.join(" · ")}

@@ -14,7 +14,7 @@ from pipeline.ri_cases_enriched_io import (
     load_cases,
     write_cases,
 )
-from pipeline.ri_cases_enriched_schema import COMP_PREFIXES, FIELDNAMES
+from pipeline.ri_cases_enriched_schema import COMP_PREFIXES, FIELDNAMES, MAX_COMP_SLOTS
 
 ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "data" / "ri"
@@ -37,13 +37,17 @@ def _load_csv(path: Path) -> list[dict[str, str]]:
 
 
 def _load_comparables_by_case() -> dict[str, list[dict[str, str]]]:
+    """Merge program precedents with tier-A overrides (tier-A wins per case_id)."""
     by_case: dict[str, list[dict[str, str]]] = defaultdict(list)
-    tier_a_path = TIER_A_COMPARABLES
-    source = _load_csv(tier_a_path) if tier_a_path.exists() else []
-    if not source:
-        source = _load_csv(PRECEDENTS)
-    for row in source:
+    for row in _load_csv(PRECEDENTS):
         by_case[row["case_id"]].append(row)
+    tier_rows = _load_csv(TIER_A_COMPARABLES) if TIER_A_COMPARABLES.exists() else []
+    tier_by_case: dict[str, list[dict[str, str]]] = defaultdict(list)
+    for row in tier_rows:
+        tier_by_case[row["case_id"]].append(row)
+    for case_id, tier_comps in tier_by_case.items():
+        tier_comps.sort(key=lambda r: int(r.get("precedent_rank") or 0))
+        by_case[case_id] = tier_comps
     for cid in by_case:
         by_case[cid].sort(key=lambda r: int(r.get("precedent_rank") or 0))
     return by_case
@@ -99,7 +103,10 @@ def _fill_patents(row: dict[str, str], ip_rows: list[dict[str, str]], catalog: d
 def _fill_comp(row: dict[str, str], prefix: str, comp: dict[str, str]) -> None:
     row[f"{prefix}name"] = comp.get("precedent_name", "")
     row[f"{prefix}type"] = comp.get("precedent_type", "")
+    row[f"{prefix}role"] = comp.get("comp_role") or comp.get("precedent_role", "")
+    row[f"{prefix}stage"] = comp.get("precedent_stage", "")
     row[f"{prefix}url"] = comp.get("precedent_url", "")
+    row[f"{prefix}notes"] = comp.get("precedent_notes", "")
     row[f"{prefix}value_anchor_usd"] = comp.get("value_anchor_usd", "")
     row[f"{prefix}value_anchor_type"] = comp.get("value_anchor_type", "")
     row[f"{prefix}value_source_url"] = comp.get("value_source_url", "")
@@ -108,6 +115,7 @@ def _fill_comp(row: dict[str, str], prefix: str, comp: dict[str, str]) -> None:
     row[f"{prefix}financing_ladder"] = comp.get("inferred_financing", "")
     row[f"{prefix}development_path"] = comp.get("inferred_development", "")
     row[f"{prefix}validation_status"] = comp.get("validation_status", "suggested")
+    row[f"{prefix}supporting_citations"] = comp.get("supporting_citations", "")
 
 
 def _fill_catalog_identity(row: dict[str, str], cat: dict[str, str]) -> None:
@@ -235,7 +243,7 @@ def bootstrap(*, preserve_approved: bool = True) -> list[dict[str, str]]:
         row = empty_row(case_id)
         _fill_catalog_identity(row, cat)
         _fill_patents(row, ip_by.get(case_id, []), cat)
-        comps = comps_by.get(case_id, [])[:3]
+        comps = comps_by.get(case_id, [])[:MAX_COMP_SLOTS]
         for i, comp in enumerate(comps):
             _fill_comp(row, COMP_PREFIXES[i], comp)
         _fill_biomcp_suggest(row, evidence_by.get(case_id))

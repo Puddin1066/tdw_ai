@@ -68,6 +68,45 @@ def apply_finance_defaults(row: dict[str, str]) -> None:
         row["financing_stage"] = "seed"
 
 
+def apply_use_of_funds(row: dict[str, str]) -> bool:
+    """Split total package into clinical vs R&D allocations with physician-readable rationale."""
+    apply_finance_defaults(row)
+    total = _int(row.get("total_package_usd"))
+    if total <= 0:
+        return False
+
+    changed = False
+    clinical_cost = _int(row.get("clinical_cost_usd"))
+    otype = (row.get("opportunity_type") or "platform").strip().lower()
+
+    if not (row.get("clinical_allocation_usd") or "").strip():
+        if otype in ("diagnostic", "digital_therapeutic", "therapeutic"):
+            clinical = min(clinical_cost or (total * 45 // 100), total // 2)
+        elif otype == "medical_device":
+            clinical = min(clinical_cost or (total * 35 // 100), total // 2)
+        else:
+            clinical = min(clinical_cost or (total // 3), total // 2)
+        row["clinical_allocation_usd"] = str(clinical)
+        changed = True
+
+    if not (row.get("rd_allocation_usd") or "").strip():
+        clinical_alloc = _int(row.get("clinical_allocation_usd"))
+        row["rd_allocation_usd"] = str(max(0, total - clinical_alloc))
+        changed = True
+
+    if not (row.get("financing_rationale") or "").strip():
+        cl = _int(row.get("clinical_allocation_usd"))
+        rd = _int(row.get("rd_allocation_usd"))
+        half = _int(row.get("physician_share_usd"))
+        row["financing_rationale"] = (
+            f"${half:,} physician syndicate + ${half:,} Slater SSBCI match; "
+            f"${cl:,} toward clinical pilot validation · ${rd:,} toward R&D/preclinical de-risking."
+        )
+        changed = True
+
+    return changed
+
+
 def _split_lines(value: str) -> list[str]:
     return [x.strip() for x in (value or "").replace("\r", "").split("\n") if x.strip()]
 
@@ -76,22 +115,39 @@ def _split_pipe(value: str) -> list[str]:
     return [x.strip() for x in (value or "").split("|") if x.strip()]
 
 
+def _parse_supporting_citations(value: str) -> list[dict[str, str]]:
+    """Parse newline 'label | url' supporting citation lines."""
+    out: list[dict[str, str]] = []
+    for line in _split_lines(value):
+        if " | " not in line:
+            continue
+        label, url = line.split(" | ", 1)
+        label = label.strip()
+        url = url.strip()
+        if label and url:
+            out.append({"label": label, "url": url})
+    return out
+
+
 def comps_from_row(row: dict[str, str]) -> list[dict[str, Any]]:
     precedents: list[dict[str, Any]] = []
     for rank, prefix in enumerate(COMP_PREFIXES, start=1):
         name = (row.get(f"{prefix}name") or "").strip()
         if not name:
             continue
+        notes = (row.get(f"{prefix}notes") or "").strip()
+        ladder = (row.get(f"{prefix}financing_ladder") or "").strip()
         precedents.append(
             {
                 "rank": rank,
                 "type": row.get(f"{prefix}type", ""),
                 "name": name,
-                "stage": "",
-                "notes": row.get(f"{prefix}financing_ladder", ""),
+                "role": row.get(f"{prefix}role", ""),
+                "stage": row.get(f"{prefix}stage", ""),
+                "notes": notes or ladder,
                 "url": row.get(f"{prefix}url", ""),
                 "inferred_development": row.get(f"{prefix}development_path", ""),
-                "inferred_financing": row.get(f"{prefix}financing_ladder", ""),
+                "inferred_financing": ladder,
                 "inferred_team": "",
                 "total_raised_usd_est": row.get(f"{prefix}total_raised_usd", ""),
                 "last_round_usd_est": row.get(f"{prefix}last_round_usd", ""),
@@ -102,6 +158,9 @@ def comps_from_row(row: dict[str, str]) -> list[dict[str, Any]]:
                 "validation_status": row.get(f"{prefix}validation_status", "suggested"),
                 "confidence": "",
                 "source": "ri_cases_enriched.csv",
+                "supporting_citations": _parse_supporting_citations(
+                    row.get(f"{prefix}supporting_citations", "")
+                ),
             }
         )
     return precedents
@@ -196,33 +255,86 @@ def evidence_from_row(row: dict[str, str]) -> dict[str, Any]:
     }
 
 
+def _first_inventor(inventors: str | None) -> str:
+    for line in (inventors or "").splitlines():
+        line = line.strip()
+        if line:
+            return line.split(";")[0].split("|")[0].strip()
+    return ""
+
+
+def _display_title(title: str, company: str) -> str:
+    """Strip redundant company prefix from title_clean (e.g. 'Theromics — X' when company is Theromics Inc)."""
+    title = title.strip()
+    if not title or not company:
+        return title
+    company_l = company.lower()
+    if title.lower().startswith(company_l):
+        return title
+    co_token = company.split()[0]
+    for sep in (" — ", " - ", "—"):
+        if sep not in title:
+            continue
+        prefix, rest = title.split(sep, 1)
+        p = prefix.strip().lower()
+        if p == co_token.lower() or p == company_l:
+            return rest.strip()
+    return title
+
+
 def build_thesis(row: dict[str, str]) -> str:
-    """Short thesis from canonical row (avoids legacy million-dollar catalog text)."""
-    title = row.get("title_clean") or row.get("case_id", "")
-    company = row.get("company", "")
-    indication = row.get("indication", "")
+    """Investor/physician-facing thesis from canonical row (policy package, no legacy gaps)."""
+    title = _display_title(
+        (row.get("title_clean") or row.get("case_id", "")).strip(),
+        (row.get("company") or "").strip(),
+    )
+    company = (row.get("company") or "").strip()
+    institution = (row.get("ri_institution") or "").strip()
+    indication = (row.get("indication") or "").strip()
     total = _int(row.get("total_package_usd"))
     comp1 = (row.get("comp1_name") or "").strip()
     ladder = (row.get("comp1_financing_ladder") or "").strip()
-    parts = [f"{title}"]
-    if company:
-        parts[0] = f"{company} — {title}" if title else company
-    if indication:
+    inventor = _first_inventor(row.get("inventors"))
+    phys_lead = (row.get("physician_lead_name") or "").strip()
+
+    if company and title and not title.lower().startswith(company.lower()):
+        headline = f"{company} — {title}"
+    elif title:
+        headline = title
+    else:
+        headline = company
+
+    parts: list[str] = []
+    if institution and institution.lower() not in headline.lower():
+        parts.append(f"RI anchor: {institution}")
+    if headline:
+        parts.append(headline)
+    if (
+        indication
+        and indication.lower() not in title.lower()
+        and indication.lower() != headline.lower()
+        and len(indication) < 120
+    ):
         parts.append(f"focused on {indication}")
-    if comp1:
+    if inventor:
+        parts.append(f"inventor: {inventor}")
+    if comp1 and comp1.lower() not in {company.lower(), title.lower()}:
         parts.append(f"comparable path: {comp1}")
     if ladder:
-        parts.append(f"financing precedent: {ladder[:200]}")
+        parts.append(f"financing ladder: {ladder[:180]}")
+    if phys_lead:
+        parts.append(f"proposed physician lead: {phys_lead}")
     if total:
         parts.append(
-            f"RI package: {total:,} USD (50% physician / 50% Slater SSBCI, policy cap)."
+            f"RI co-investment ${total:,} (50% physician syndicate / 50% Slater SSBCI, ≤$400K policy cap)"
         )
-    return ". ".join(p for p in parts if p) + ("." if parts else "")
+    text = ". ".join(p for p in parts if p)
+    return text + ("." if text and not text.endswith(".") else "")
 
 
 def catalog_row_from_enriched(row: dict[str, str]) -> dict[str, str]:
     """Map monolithic row → build_exhibit catalog-shaped dict."""
-    apply_finance_defaults(row)
+    apply_use_of_funds(row)
     total = _int(row.get("total_package_usd"))
     out = dict(row)
     out["capital_gap_usd"] = str(total)
@@ -245,7 +357,15 @@ def catalog_row_from_enriched(row: dict[str, str]) -> dict[str, str]:
     out["clinical_path_notes"] = row.get("clinical_path_notes") or row.get("rd_plan_summary", "")
     out["opportunity_enrichment_source"] = "ri_cases_enriched.csv"
     out["enrichment_status"] = row.get("enrichment_status") or "canonical_csv"
-    out["investment_thesis"] = build_thesis(row)
+    out.setdefault("mcq_lead_pillar", "ip")
+    out.setdefault("mcq_financing_structure", "physician_50_slater_ssbci_50")
+    out.setdefault("mcq_audience", "mixed_slater_physician_hospital_bd")
+    if (row.get("review_status") or "").lower() == "approved" and (row.get("investment_thesis") or "").strip():
+        out["investment_thesis"] = row["investment_thesis"]
+    else:
+        out["investment_thesis"] = build_thesis(row)
+    if (row.get("comparable_market_narrative") or "").strip():
+        out["comparable_market_narrative"] = row["comparable_market_narrative"]
     if row.get("rd_plan_summary") and not out.get("clinical_study_type"):
         out["clinical_study_type"] = "Proposed R&D plan"
     return out

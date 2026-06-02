@@ -1,0 +1,21 @@
+{
+  "comps": [
+    {
+      "slot": 1,
+      "name": "Fixture Therapeutics",
+      "type": "startup",
+      "role": "therapeutic",
+      "notes": "MOCK/SYNTHETIC fixture comp for unit tests",
+      "development_path": "Series A -> Phase 1",
+      "financing_search_queries": [
+        "\"Fixture Therapeutics\" Series A funding site:prnewswire.com"
+      ],
+      "supporting_citation_queries": []
+    }
+  ],
+  "comp_gaps": "MOCK/SYNTHETIC — fixture gap note",
+  "rd_milestones_draft": "MOCK/SYNTHETIC — complete IND-enabling tox",
+  "rd_plan_summary_draft": "MOCK/SYNTHETIC — near-term validation plan",
+  "literature_narrative_draft": "",
+  "physician_profile_queries": []
+}

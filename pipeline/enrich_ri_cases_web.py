@@ -17,6 +17,7 @@ from pathlib import Path
 
 from pipeline.brown_vivo_profiles import fill_brown_profile_url, is_brown_institution
 from pipeline.ri_cases_enriched_io import CASES_CSV, load_cases, write_cases
+from pipeline.ri_cases_enriched_schema import COMP_PREFIXES
 from pipeline.tier_a.comp_financing import comp_base_name, resolve_financing_queries
 from pipeline.tier_a.comp_link_resolve import (
     _acceptable_result_url,
@@ -189,7 +190,7 @@ def enrich_row(
 
     # Comparables
     if fetch_comps:
-        for rank, prefix in [("1", "comp1_"), ("2", "comp2_"), ("3", "comp3_")]:
+        for rank, prefix in zip((str(i) for i in range(1, len(COMP_PREFIXES) + 1)), COMP_PREFIXES, strict=True):
             if not _needs_comp_search(row, prefix):
                 continue
             comp = _comp_dict(row, prefix, rank)

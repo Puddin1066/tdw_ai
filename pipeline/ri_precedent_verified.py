@@ -259,4 +259,76 @@ VERIFIED_PATCHES: dict[tuple[str, str], dict[str, str]] = {
         "confidence": "low",
         "source": "web_verify_2026_05",
     },
+    ("prothera_iaip", "Kamada"): {
+        "value_anchor_usd": "95000000",
+        "value_anchor_type": "acquisition",
+        "value_source_url": (
+            "https://www.nasdaq.com/press-release/kamada-announces-strategic-"
+            "transformational-transaction-positioning-the-company-as-a-global-leader-"
+            "in-the-plasma-derived-hyperimmune-market-through-the-acquisition-of-a-"
+            "portfolio-of-four-fda-approved-commercial-products"
+        ),
+        "inferred_financing": "$95M upfront Saol hyperimmune portfolio (Nov 2021)",
+        "validation_status": "verified",
+        "confidence": "high",
+        "source": "web_verify_2026_05",
+    },
+    ("prothera_iaip", "Lev Pharmaceuticals (Cinryze)"): {
+        "value_anchor_usd": "442900000",
+        "value_anchor_type": "acquisition",
+        "value_source_url": (
+            "https://www.sec.gov/Archives/edgar/data/1144062/000114420408040150/dex991.htm"
+        ),
+        "inferred_financing": "$442.9M upfront; up to $617.5M with CVR milestones (Jul 2008)",
+        "validation_status": "verified",
+        "confidence": "high",
+        "source": "web_verify_2026_05",
+    },
+    ("prothera_iaip", "Takeda (ProThera IAIP license)"): {
+        "value_source_url": (
+            "https://www.takeda.com/en-us/newsroom/news-releases/2020/"
+            "prothera-biologics-and-takeda-enter-global-licensing-agreement/"
+        ),
+        "inferred_development": (
+            "IND-enabling collaboration → Takeda-led plasma-derived IAIP "
+            "development + companion diagnostics"
+        ),
+        "inferred_financing": (
+            "Global licensing deal (Apr 2020); Takeda funds all development "
+            "and commercialization (terms undisclosed)"
+        ),
+        "validation_status": "verified",
+        "confidence": "high",
+        "source": "web_verify_2026_05",
+    },
+    ("prothera_iaip", "Inflammatix (TriVerity)"): {
+        "total_raised_usd_est": "200000000",
+        "last_round_usd_est": "57000000",
+        "value_anchor_usd": "200000000",
+        "value_anchor_type": "total_raised",
+        "value_source_url": (
+            "https://inflammatix.com/inflammatix-secures-57-million-to-advance-novel-"
+            "diagnostic-for-patients-with-suspected-infections-or-sepsis/"
+        ),
+        "inferred_financing": ">$200M private + >$50M grants; $57M Series E (Sep 2024)",
+        "inferred_development": "FDA clearance (Jan 2025) → ICU sepsis host-response adoption",
+        "validation_status": "verified",
+        "confidence": "high",
+        "source": "web_verify_2026_05",
+    },
+    ("prothera_iaip", "Immunexpress (SeptiCyte RAPID)"): {
+        "total_raised_usd_est": "3200000",
+        "value_anchor_usd": "3200000",
+        "value_anchor_type": "grant",
+        "value_source_url": (
+            "https://www.prnewswire.com/news-releases/immunexpress-secures-barda-contract-"
+            "for-the-continued-development-of-septicyte-for-the-rapid-and-accurate-"
+            "diagnosis-of-sepsis-300790510.html"
+        ),
+        "inferred_financing": "BARDA DRIVe $744K of $3.2M SeptiCyte/Idylla project (Feb 2019)",
+        "inferred_development": "Host-response gene panel → FDA-cleared SeptiCyte RAPID (1 hr)",
+        "validation_status": "verified",
+        "confidence": "high",
+        "source": "web_verify_2026_05",
+    },
 }

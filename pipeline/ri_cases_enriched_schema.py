@@ -7,6 +7,35 @@ MAX_TOTAL_PACKAGE_USD = 400_000
 MAX_SLATER_SHARE_USD = 200_000
 DEFAULT_TOTAL_PACKAGE_USD = 400_000
 
+MAX_COMP_SLOTS = 6
+
+# Per-slot comparable columns (wide CSV; Excel-friendly).
+COMP_SUFFIXES: tuple[str, ...] = (
+    "name",
+    "type",
+    "role",
+    "stage",
+    "url",
+    "notes",
+    "value_anchor_usd",
+    "value_anchor_type",
+    "value_source_url",
+    "total_raised_usd",
+    "last_round_usd",
+    "financing_ladder",
+    "development_path",
+    "validation_status",
+    "supporting_citations",
+)
+
+COMP_PREFIXES: tuple[str, ...] = tuple(f"comp{i}_" for i in range(1, MAX_COMP_SLOTS + 1))
+
+
+def comp_fieldnames() -> list[str]:
+    """All compN_* columns for slots 1..MAX_COMP_SLOTS."""
+    return [f"comp{i}_{suffix}" for i in range(1, MAX_COMP_SLOTS + 1) for suffix in COMP_SUFFIXES]
+
+
 FIELDNAMES: list[str] = [
     # Identity
     "case_id",
@@ -45,6 +74,7 @@ FIELDNAMES: list[str] = [
     "publication_urls",
     "publication_pmids",
     "literature_narrative",
+    "literature_source_urls",
     # Publication suggestions (scripts only)
     "suggest_publication_titles",
     "suggest_publication_urls",
@@ -57,42 +87,16 @@ FIELDNAMES: list[str] = [
     "physician_lead_profile_url",
     "physician_supporters",
     "physician_supporter_profile_urls",
-    # Comparable 1
-    "comp1_name",
-    "comp1_type",
-    "comp1_url",
-    "comp1_value_anchor_usd",
-    "comp1_value_anchor_type",
-    "comp1_value_source_url",
-    "comp1_total_raised_usd",
-    "comp1_last_round_usd",
-    "comp1_financing_ladder",
-    "comp1_development_path",
-    "comp1_validation_status",
-    # Comparable 2
-    "comp2_name",
-    "comp2_type",
-    "comp2_url",
-    "comp2_value_anchor_usd",
-    "comp2_value_anchor_type",
-    "comp2_value_source_url",
-    "comp2_total_raised_usd",
-    "comp2_last_round_usd",
-    "comp2_financing_ladder",
-    "comp2_development_path",
-    "comp2_validation_status",
-    # Comparable 3
-    "comp3_name",
-    "comp3_type",
-    "comp3_url",
-    "comp3_value_anchor_usd",
-    "comp3_value_anchor_type",
-    "comp3_value_source_url",
-    "comp3_total_raised_usd",
-    "comp3_last_round_usd",
-    "comp3_financing_ladder",
-    "comp3_development_path",
-    "comp3_validation_status",
+    # Physician suggestions (NPI match assist; curate promotes to lead/supporters)
+    "suggest_physician_lead_npi",
+    "suggest_physician_lead_name",
+    "suggest_physician_lead_specialty",
+    "suggest_physician_lead_institution",
+    "suggest_physician_lead_match_score",
+    "suggest_physician_supporters",
+    "suggest_physician_notes",
+    "staffing_feasibility_score",
+    *comp_fieldnames(),
     # Comp suggestions
     "suggest_comp1_value_source_url",
     "suggest_comp1_financing_ladder",
@@ -112,10 +116,17 @@ FIELDNAMES: list[str] = [
     "trial_pi_names",
     "trial_urls",
     "trial_phases",
+    # Trial suggestions (low-confidence path analogs; scripts / curate only)
+    "suggest_trial_nct_ids",
+    "suggest_trial_titles",
+    "suggest_trial_urls",
+    "suggest_trial_notes",
     # R&D plan
     "rd_plan_summary",
     "rd_milestones",
     "rd_milestone_types",
+    "rd_milestone_source_urls",
+    "rd_plan_source_url",
     # Clinical template (from catalog)
     "clinical_study_type",
     "clinical_primary_endpoint",
@@ -124,6 +135,7 @@ FIELDNAMES: list[str] = [
     "clinical_path_notes",
     "target_timeline_weeks",
     # Build / framing
+    "comparable_market_narrative",
     "investment_thesis",
     "mcq_lead_pillar",
     "mcq_financing_structure",
@@ -133,5 +145,3 @@ FIELDNAMES: list[str] = [
     "program_family",
     "enrichment_status",
 ]
-
-COMP_PREFIXES = ("comp1_", "comp2_", "comp3_")
