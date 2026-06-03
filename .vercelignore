@@ -1,0 +1,17 @@
+.venv
+.git
+.cursor
+.vercel
+web/.vercel
+.next
+web/.next
+data
+pipeline
+connectors
+evals
+configs
+tests
+generated
+**/__pycache__
+*.pyc
+web/public/data/opportunities/profiles/auto_*
