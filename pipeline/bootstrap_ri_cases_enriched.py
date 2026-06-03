@@ -86,17 +86,20 @@ def _fill_patents(row: dict[str, str], ip_rows: list[dict[str, str]], catalog: d
     if not ordered:
         return
     lead = ordered[0]
-    lens = lead.get("lens_id", "")
+    lens = (lead.get("lens_id") or "").strip()
+    patent_url = (lead.get("url") or "").strip()
     row["primary_lens_id"] = lens
     row["primary_display_key"] = lead.get("display_key", "")
     row["primary_patent_title"] = lead.get("title", "")
-    row["primary_patent_url"] = f"https://lens.org/{lens}" if lens else ""
+    row["primary_patent_url"] = patent_url or (f"https://lens.org/{lens}" if lens else "")
     row["assignee_company"] = _assignee_from_owners(lead.get("owners", ""))
     row["inventors"] = (lead.get("inventors") or "").replace(";;", "|")
-    row["ip_lens_ids"] = "|".join(a.get("lens_id", "") for a in ordered)
+    row["ip_lens_ids"] = "|".join(a.get("lens_id", "") for a in ordered if a.get("lens_id"))
     row["ip_titles"] = "\n".join(a.get("title", "") for a in ordered)
     row["ip_urls"] = "\n".join(
-        f"https://lens.org/{a.get('lens_id', '')}" for a in ordered if a.get("lens_id")
+        (a.get("url") or "").strip() or f"https://lens.org/{a.get('lens_id', '')}"
+        for a in ordered
+        if (a.get("url") or "").strip() or a.get("lens_id")
     )
 
 

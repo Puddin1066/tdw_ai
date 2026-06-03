@@ -31,6 +31,7 @@ from typing import Any
 from pipeline.apply_tier_a_comps_to_enriched import apply_tier_a_comps
 from pipeline.brown_vivo_profiles import fill_brown_profile_url
 from pipeline.enrich_ri_cases_comps import enrich_comps
+from pipeline.enrich_ri_cases_trials import TRIAL_LOCKED_CASES
 from pipeline.enrich_ri_cases_full_web import fill_trials_from_web
 from pipeline.enrich_ri_cases_physicians import enrich_physicians
 from pipeline.enrich_ri_cases_sourced import enrich_sourced
@@ -223,6 +224,8 @@ def _enrich_trials_scoped(
         if limit is not None and processed >= limit:
             break
         processed += 1
+        if row.get("case_id", "") in TRIAL_LOCKED_CASES:
+            continue
         if fill_trials_from_web(row, force=True):
             touched += 1
     write_cases(rows, path)

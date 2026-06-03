@@ -1,34 +1,40 @@
 case_id: auto_rhode_island_cardiotoxicity_human_model_vitro
-display_name: HUMAN VITRO CARDIOTOXICITY MODEL Technology Platform Opportunity
+display_name: TEEM Therapeutics — hiPSC cardiac microtissues for cardiotox and AFib R&D
 workflow: translational_diligence
 version: v0.5
 
 target:
   name: HUMAN IN VITRO CARDIOTOXICITY MODEL
-  canonical_id: null
-  aliases: []
+  canonical_id: lens:128-033-973-760-237
+  aliases:
+    - TEEMs
+    - cardiac microtissues
 
 indication:
-  name: RI technology opportunity from patent corpus
-  aliases: []
+  name: proarrhythmic cardiotoxicity screening and atrial fibrillation drug discovery
+  aliases:
+    - cardiotoxicity
+    - atrial fibrillation
 
 biology:
-  mechanism_direction: null
-  modality: null
-  target_alias: null
+  mechanism_direction: safety screening / electrophysiology
+  modality: in vitro platform
+  target_alias: hiPSC cardiac microtissue
 
 disease:
-  patient_segment: null
+  patient_segment: drug development / AFib
   geography: "Rhode Island"
 
 program:
-  asset: null
-  company: "TBD"
+  asset: TEEM platform
+  company: "TEEM Therapeutics Inc"
   opportunity_type: "platform"
   slater_invested: false
   development_stage: "validation"
   comparators:
-    - TBD comparator
+    - Ncardia
+    - ScitoVation (IVIVE collab)
+    - Brown atrial microtissue (tech transfer)
 
 commercial:
   strategic_question: null

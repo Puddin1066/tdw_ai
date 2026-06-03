@@ -184,6 +184,17 @@ def ip_from_row(row: dict[str, str]) -> list[dict[str, str]]:
                 or f"https://lens.org/{primary}",
             }
         )
+    elif (row.get("primary_patent_url") or row.get("primary_patent_title") or "").strip():
+        # Manual / supplemental intake without Lens ID (e.g. mindimmune_therapeutics_ri)
+        assets.append(
+            {
+                "lens_id": "",
+                "display_key": row.get("primary_display_key", ""),
+                "title": row.get("primary_patent_title", ""),
+                "owners": row.get("assignee_company", ""),
+                "url": (row.get("primary_patent_url") or "").strip(),
+            }
+        )
     for i, lens in enumerate(lens_ids):
         if lens == primary:
             continue

@@ -2,7 +2,7 @@
   "case_id": "auto_rhode_island_conductivity_dose_fields_hydrogel_impacts_skin_t",
   "display_name": "HYDROGEL CONDUCTIVITY IMPACTS SKIN DOSE FROM Technology Platform Opportunity",
   "llm_inferred_label": "HYDROGEL CONDUCTIVITY IMPACTS SKIN DOSE FROM Technology Platform Opportunity",
-  "ri_notes": "Deduped patent family (1 of 1 records); review scope and naming.",
+  "ri_notes": "Wong/Lok; accessory to commercial TTF (Optune). IL 315287 + US family.",
   "ri_physician_lead": "TBD",
   "conflict_tags": [],
   "ri_institution": "Rhode Island ecosystem",
@@ -16,6 +16,15 @@
       "owners": "RHODE ISLAND HOSPITAL (2022-03-01)",
       "legal_status": "PENDING",
       "publication_date": "2025-05-29"
+    },
+    {
+      "asset_id": "asset_0e4e420e46a2",
+      "title": "Hydrogell conductivity impacts skin dose from tumor treating fields",
+      "lens_id": "080-656-667-976-444",
+      "url": "https://lens.org/080-656-667-976-444",
+      "owners": "",
+      "legal_status": "PENDING",
+      "publication_date": "2024-10-01"
     }
   ]
 }

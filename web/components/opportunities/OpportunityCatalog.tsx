@@ -7,37 +7,115 @@ import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { formatUsd } from "@/lib/format";
 
+type CatalogFilter = "all" | "comp_grounded" | "tier_a" | "package_ready";
+
 interface OpportunityCatalogProps {
   cards: CatalogCard[];
 }
 
+const FILTER_OPTIONS: { id: CatalogFilter; label: string }[] = [
+  { id: "all", label: "All" },
+  { id: "package_ready", label: "Package-ready" },
+  { id: "comp_grounded", label: "Comp-grounded" },
+  { id: "tier_a", label: "Tier A" },
+];
+
+function matchesFilter(card: CatalogCard, filter: CatalogFilter): boolean {
+  switch (filter) {
+    case "comp_grounded":
+      return card.comparator_grounded;
+    case "tier_a":
+      return card.catalog_tier === "A";
+    case "package_ready":
+      return (
+        card.comparator_grounded &&
+        card.physician_count > 0 &&
+        !card.has_data_caveat &&
+        card.capital_gap_usd <= 400_000
+      );
+    default:
+      return true;
+  }
+}
+
 export function OpportunityCatalog({ cards }: OpportunityCatalogProps) {
   const [query, setQuery] = useState("");
+  const [filter, setFilter] = useState<CatalogFilter>("all");
 
   const filtered = useMemo(() => {
     const q = query.trim().toLowerCase();
-    if (!q) return cards;
     return cards.filter((card) => {
-      const hay = `${card.title} ${card.thesis_teaser} ${card.lead_comparable_name} ${card.opportunity_type_label}`.toLowerCase();
+      if (!matchesFilter(card, filter)) return false;
+      if (!q) return true;
+      const hay =
+        `${card.title} ${card.thesis_teaser} ${card.lead_comparable_name} ${card.opportunity_type_label} ${card.ri_institution ?? ""}`.toLowerCase();
       return hay.includes(q);
     });
-  }, [cards, query]);
+  }, [cards, query, filter]);
 
   return (
-    <div className="space-y-6">
-      <input
-        type="search"
-        placeholder="Search programs, comparables, indications…"
-        value={query}
-        onChange={(e) => setQuery(e.target.value)}
-        className="w-full max-w-md rounded-md border border-border bg-background px-3 py-2 text-sm"
-        aria-label="Search opportunities"
-      />
+    <div id="catalog" className="scroll-mt-8 space-y-6">
+      <div className="space-y-3">
+        <h2 className="text-xl font-semibold tracking-tight">Opportunity catalog</h2>
+        <p className="max-w-3xl text-sm leading-relaxed text-muted-foreground">
+          {cards.length} RI technologies in the pipeline. Each card links to a diligence memo with
+          cited comparables, physician matches, and use-of-funds. Draft memos are labeled; approved
+          memos are ready for syndicate review.
+        </p>
+        <div className="flex flex-wrap gap-2 text-xs text-muted-foreground">
+          <span className="font-medium text-foreground">Legend:</span>
+          <span>
+            <Badge variant="secondary" className="mr-1 text-[10px] font-normal">
+              Comp-grounded
+            </Badge>
+            financing sized to a verified market comparable
+          </span>
+          <span className="hidden sm:inline">·</span>
+          <span>
+            <Badge variant="outline" className="mr-1 text-[10px] font-normal text-muted-foreground">
+              Draft
+            </Badge>
+            enrichment in progress — verify citations before sharing
+          </span>
+          <span className="hidden sm:inline">·</span>
+          <span>
+            <Badge variant="outline" className="mr-1 text-[10px] font-normal">
+              Tier A
+            </Badge>
+            highest-priority cases for physician and investor review
+          </span>
+        </div>
+      </div>
+
+      <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+        <div className="flex flex-wrap gap-2">
+          {FILTER_OPTIONS.map((option) => (
+            <button
+              key={option.id}
+              type="button"
+              onClick={() => setFilter(option.id)}
+              className={`rounded-md border px-3 py-1.5 text-xs transition-colors ${
+                filter === option.id
+                  ? "border-cockpit-teal/50 bg-cockpit-teal/10 font-medium text-cockpit-teal"
+                  : "border-border bg-background text-muted-foreground hover:text-foreground"
+              }`}
+            >
+              {option.label}
+            </button>
+          ))}
+        </div>
+        <input
+          type="search"
+          placeholder="Search programs, comparables, indications…"
+          value={query}
+          onChange={(e) => setQuery(e.target.value)}
+          className="w-full rounded-md border border-border bg-background px-3 py-2 text-sm sm:max-w-xs"
+          aria-label="Search opportunities"
+        />
+      </div>
 
       <p className="text-sm text-muted-foreground">
-        {filtered.length} Rhode Island patent-backed programs — comparator-grounded financing,
-        physician syndicate matching, and cited scientific evidence. Memos show draft diligence until
-        curator-approved.
+        Showing {filtered.length} of {cards.length} programs
       </p>
 
       <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
@@ -87,17 +165,17 @@ export function OpportunityCatalog({ cards }: OpportunityCatalogProps) {
                     Lead comp: <span className="text-foreground">{card.lead_comparable_name}</span>
                   </p>
                 ) : null}
-                  <dl className="grid grid-cols-2 gap-2 text-center text-xs sm:grid-cols-4">
-                    <div className="rounded-md bg-muted/30 px-2 py-2">
-                      <dt className="text-muted-foreground">Patents</dt>
-                      <dd className="mt-0.5 text-sm font-semibold">{card.patent_count || "—"}</dd>
-                    </div>
-                    <div className="rounded-md bg-muted/30 px-2 py-2">
-                      <dt className="text-muted-foreground">Pubs</dt>
-                      <dd className="mt-0.5 text-sm font-semibold">
-                        {card.publication_count || "—"}
-                      </dd>
-                    </div>
+                <dl className="grid grid-cols-2 gap-2 text-center text-xs sm:grid-cols-4">
+                  <div className="rounded-md bg-muted/30 px-2 py-2">
+                    <dt className="text-muted-foreground">Patents</dt>
+                    <dd className="mt-0.5 text-sm font-semibold">{card.patent_count || "—"}</dd>
+                  </div>
+                  <div className="rounded-md bg-muted/30 px-2 py-2">
+                    <dt className="text-muted-foreground">Pubs</dt>
+                    <dd className="mt-0.5 text-sm font-semibold">
+                      {card.publication_count || "—"}
+                    </dd>
+                  </div>
                   <div className="rounded-md bg-muted/30 px-2 py-2">
                     <dt className="text-muted-foreground">Physicians</dt>
                     <dd className="mt-0.5 text-sm font-semibold">{card.physician_count}</dd>

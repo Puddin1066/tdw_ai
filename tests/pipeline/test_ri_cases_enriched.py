@@ -6,6 +6,7 @@ from pipeline.ri_cases_enriched_io import (
     comps_from_row,
     empty_row,
     evidence_from_row,
+    ip_from_row,
 )
 from pipeline.validate_ri_cases_enriched import validate_row
 
@@ -37,6 +38,18 @@ def test_comps_from_row():
     comps = comps_from_row(row)
     assert len(comps) == 1
     assert comps[0]["name"] == "Acme"
+
+
+def test_ip_from_row_without_lens_id():
+    row = empty_row("mindimmune_therapeutics_ri")
+    row["primary_display_key"] = "US 2021/0181185 A1"
+    row["primary_patent_title"] = "Dendritic cell recruitment from blood to brain"
+    row["primary_patent_url"] = "https://patents.google.com/patent/US20210181185A1/en"
+    row["assignee_company"] = "MINDIMMUNE THERAPEUTICS, INC."
+    assets = ip_from_row(row)
+    assert len(assets) == 1
+    assert assets[0]["url"] == "https://patents.google.com/patent/US20210181185A1/en"
+    assert assets[0]["display_key"] == "US 2021/0181185 A1"
 
 
 def test_evidence_from_publications():

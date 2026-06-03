@@ -11,7 +11,14 @@ from pathlib import Path
 
 from pipeline.enrich_ri_cases_full_web import fill_trials_from_web
 from pipeline.ri_cases_enriched_io import CASES_CSV, load_cases, write_cases
-from pipeline.remediate_ri_cases_enriched import remediate
+from pipeline.remediate_ri_cases_enriched import CASE_FIELD_PATCHES, remediate
+
+# Cases with hand-curated trial_* policy in remediate patches — do not overwrite via CT.gov search.
+TRIAL_LOCKED_CASES = frozenset(
+    cid
+    for cid, patch in CASE_FIELD_PATCHES.items()
+    if "trial_nct_ids" in patch
+)
 
 
 def _bool(value: str | None) -> bool:
@@ -27,6 +34,15 @@ def enrich_trials(
 ) -> dict[str, int]:
     remediate(path=path)
     rows = load_cases(path)
+    suggest_keys = (
+        "suggest_trial_nct_ids",
+        "suggest_trial_titles",
+        "suggest_trial_urls",
+        "suggest_trial_notes",
+    )
+    for row in rows:
+        for key in suggest_keys:
+            row[key] = ""
     touched = 0
     main = suggest = empty = 0
     processed = 0
@@ -42,6 +58,9 @@ def enrich_trials(
             break
 
         processed += 1
+        cid = row.get("case_id", "")
+        if cid in TRIAL_LOCKED_CASES:
+            continue
         changes = fill_trials_from_web(row, force=True)
         if not changes:
             continue

@@ -1,30 +1,17 @@
-import { formatUsd } from "@/lib/format";
-
-interface PortfolioStatsBarProps {
-  total: number;
-  financeableNow: number;
-  totalCapitalGap: number;
-  avgReadiness: number;
-  fullPhysicianRoster: number;
+interface StatItem {
+  label: string;
+  value: string;
 }
 
-export function PortfolioStatsBar({
-  total,
-  financeableNow,
-  totalCapitalGap,
-  avgReadiness,
-  fullPhysicianRoster,
-}: PortfolioStatsBarProps) {
-  const items = [
-    { label: "Opportunities", value: String(total) },
-    { label: "Financeable now", value: String(financeableNow) },
-    { label: "Aggregate capital gap", value: formatUsd(totalCapitalGap) },
-    { label: "Avg readiness", value: `${avgReadiness.toFixed(0)}` },
-    { label: "Full physician roster (10)", value: String(fullPhysicianRoster) },
-  ];
+interface PortfolioStatsBarProps {
+  items: StatItem[];
+}
 
+export function PortfolioStatsBar({ items }: PortfolioStatsBarProps) {
   return (
-    <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-5">
+    <div
+      className={`grid gap-3 sm:grid-cols-2 ${items.length >= 5 ? "lg:grid-cols-5" : "lg:grid-cols-4"}`}
+    >
       {items.map((item) => (
         <div
           key={item.label}

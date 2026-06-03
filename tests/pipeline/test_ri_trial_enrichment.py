@@ -1,6 +1,7 @@
 """Tests for mechanism-focused clinical trial enrichment."""
 
 from pipeline.ri_trial_enrichment import (
+    _trial_matches_comp,
     build_trial_profile,
     clear_all_trial_fields,
     enrich_trials_for_row,
@@ -32,6 +33,15 @@ def test_score_trial_blocks_brown_adipose_false_positive():
         role="mechanism",
     )
     assert score == 0.0
+
+
+def test_trial_matches_comp_requires_name_in_title():
+    trial = {
+        "title": "TriVerity for Improved Management of Emergency Department Patients",
+        "sponsor": "Inflammatix Inc",
+    }
+    assert _trial_matches_comp("Inflammatix (TriVerity)", trial)
+    assert not _trial_matches_comp("Inflammatix (TriVerity)", {"title": "Random TENS back pain study", "sponsor": ""})
 
 
 def test_enrich_trials_clears_without_network(monkeypatch):

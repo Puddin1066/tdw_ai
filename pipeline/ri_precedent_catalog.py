@@ -1015,6 +1015,7 @@ CASE_PRECEDENT_GROUP: dict[str, str] = {
     "auto_rhode_island_antibodies_covid_deep_predicting_sequencing_surv": "monaghan_rna_dx",
     "nanode_ri": "janus_delivery",
     "phlip_therapeutics_ri": "phlip_imaging",
+    "mindimmune_therapeutics_ri": "mindimmune_neuroimmune",
     "cbt_pain_digital_platform_ri": "petzchner_digital",
     "auto_brown_university_anti_antibody_bispecific_chi3l1_reagents_relatin": "chi3l1",
     "auto_brown_university_implantable_neural_wireless": "brown_neurotech_implant",

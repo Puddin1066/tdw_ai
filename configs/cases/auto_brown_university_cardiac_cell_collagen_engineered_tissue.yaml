@@ -1,34 +1,40 @@
 case_id: auto_brown_university_cardiac_cell_collagen_engineered_tissue
-display_name: CELL AND COLLAGEN COMPOSITIONS FOR ENGINEERED Technology Platform Opportunity
+display_name: Engineered human myocardium — Coulombe Lab hiPSC collagen ECT
 workflow: translational_diligence
 version: v0.5
 
 target:
   name: CELL AND COLLAGEN COMPOSITIONS FOR ENGINEERED CARDIAC TISSUE
-  canonical_id: null
-  aliases: []
+  canonical_id: lens:026-212-779-352-796
+  aliases:
+    - engineered cardiac tissue
+    - engineered human myocardium
 
 indication:
-  name: RI technology opportunity from patent corpus
-  aliases: []
+  name: post-MI heart failure — hiPSC engineered human myocardium remuscularization
+  aliases:
+    - heart regeneration
+    - remuscularization
 
 biology:
-  mechanism_direction: null
-  modality: null
-  target_alias: null
+  mechanism_direction: remuscularization
+  modality: cell therapy / engineered tissue
+  target_alias: hiPSC-CM
 
 disease:
-  patient_segment: null
+  patient_segment: post-MI heart failure
   geography: "Rhode Island"
 
 program:
-  asset: null
-  company: "TBD"
+  asset: ECT/EHM collagen compositions
+  company: "Brown University / Coulombe Lab"
   opportunity_type: "platform"
   slater_invested: false
   development_stage: "validation"
   comparators:
-    - TBD comparator
+    - Heartseed (HS-001)
+    - StemCardia
+    - BioCardia
 
 commercial:
   strategic_question: null

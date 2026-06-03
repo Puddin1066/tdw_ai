@@ -1,34 +1,43 @@
 case_id: auto_brown_university_decellularized_extracellular_making_mammalian_ma
-display_name: DECELLULARIZED MAMMALIAN EXTRACELLULAR MATRIX MORSELS METHODS Technology Platform Opportunity
+display_name: XM Therapeutics — Morgan lab injectable ECM particles
 workflow: translational_diligence
 version: v0.5
 
 target:
-  name: DECELLULARIZED MAMMALIAN EXTRACELLULAR MATRIX MORSELS, METHODS MAKING AND METHOD
-  canonical_id: null
-  aliases: []
+  name: DECELLULARIZED MAMMALIAN EXTRACELLULAR MATRIX MORSELS, METHODS MAKING AND METHODS OF USING SAME
+  canonical_id: lens:193-358-966-816-063
+  aliases:
+    - ECM particles
+    - ECM morsels
+    - designer ECM
 
 indication:
-  name: RI technology opportunity from patent corpus
-  aliases: []
+  name: heart failure and pulmonary fibrosis — injectable designer ECM particles
+  aliases:
+    - heart failure
+    - pulmonary fibrosis
+    - myocarditis
 
 biology:
-  mechanism_direction: null
-  modality: null
-  target_alias: null
+  mechanism_direction: ECM remodeling / anti-fibrosis
+  modality: biologic / acellular ECM particles
+  target_alias: extracellular matrix
 
 disease:
-  patient_segment: null
+  patient_segment: chronic heart failure and pulmonary fibrosis
   geography: "Rhode Island"
 
 program:
-  asset: null
-  company: "TBD"
+  asset: injectable ECM particles
+  company: "XM Therapeutics Inc"
   opportunity_type: "platform"
-  slater_invested: false
+  slater_invested: true
   development_stage: "validation"
   comparators:
-    - TBD comparator
+    - Slater / XM Therapeutics seed
+    - Ventrix VentriGel (Karen Christman — NCT02305602)
+    - Pliant Therapeutics (fibrosis)
+    - Capricor Therapeutics (cardiac)
 
 commercial:
   strategic_question: null

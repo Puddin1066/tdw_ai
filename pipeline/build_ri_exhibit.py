@@ -272,7 +272,9 @@ def build_exhibit(
                 f"{len(ordered_ip)} Rhode Island-linked patent"
                 f"{'' if len(ordered_ip) == 1 else 's'} anchor the core technology asset."
                 if ordered_ip
-                else "Patent linkage pending — verify Lens IDs in enrichment CSV."
+                else (
+                    "Patent linkage pending — add primary_patent_url or Lens ID in enrichment CSV."
+                )
             ),
         },
         "evidence": _build_evidence_section(row, evidence),

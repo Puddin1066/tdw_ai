@@ -351,6 +351,18 @@ SEED_PATENT_EXTRA_TERMS: dict[str, list[str]] = {
         "lim yow",
         "sepsis",
     ],
+    "mindimmune_therapeutics_ri": [
+        "mindimmune",
+        "miti-101",
+        "dendritic cell",
+        "neurodegenerative",
+        "zorn",
+        "menniti",
+        "nelson",
+        "campbell",
+        "neuroinflammation",
+        "alzheimer",
+    ],
 }
 
 

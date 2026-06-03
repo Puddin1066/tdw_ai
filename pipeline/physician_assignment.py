@@ -54,6 +54,11 @@ OPPORTUNITY_TAG_OVERRIDES: dict[str, dict[str, str]] = {
         "required_specialties": "critical care|infectious disease|neonatology|emergency medicine",
         "indication": "early sepsis and critical illness — IAIP biologic therapeutic",
     },
+    "mindimmune_therapeutics_ri": {
+        "clinical_tags": "neurology|alzheimer|neuroimmunology|therapeutic",
+        "required_specialties": "neurology|geriatric psychiatry|memory disorders",
+        "indication": "Alzheimer's disease — peripheral neuroimmune blockade (MITI-101)",
+    },
     "auto_rhode_island_activity_brain_detecting_pain_using": {
         "clinical_tags": "chronic_pain|pain_medicine|neurology|medical_device",
         "required_specialties": "pain medicine|neurology|physical medicine and rehabilitation",

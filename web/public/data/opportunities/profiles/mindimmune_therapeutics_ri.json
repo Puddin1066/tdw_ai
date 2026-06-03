@@ -1,0 +1,21 @@
+{
+  "case_id": "mindimmune_therapeutics_ri",
+  "display_name": "MindImmune / MITI-101 Neuroimmune (RI)",
+  "llm_inferred_label": "Dendritic cell recruitment from blood to brain Therapeutic Opportunity",
+  "ri_notes": "URI Ryan Institute affiliate (Kingston); MITI-101 mAb; Slater/RightHill/Pfizer Ventures in Series A (~$30M total). Distinct from TEEM/Coulombe cardiac and Brown neuro-device Tier A cases.",
+  "ri_physician_lead": "HEINRICH ELINZANO",
+  "conflict_tags": [],
+  "ri_institution": "University of Rhode Island / Ryan Institute",
+  "ri_ip_source": "",
+  "ip_assets": [
+    {
+      "asset_id": "asset_mindimmune_dc_brain",
+      "title": "Dendritic cell recruitment from blood to brain in neurodegenerative disease",
+      "lens_id": "",
+      "url": "https://patents.google.com/patent/US20210181185A1/en",
+      "owners": "MINDIMMUNE THERAPEUTICS, INC.",
+      "legal_status": "UNKNOWN",
+      "publication_date": "2021-06-17"
+    }
+  ]
+}

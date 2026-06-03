@@ -1,9 +1,9 @@
 """Clinical trial enrichment for ri_cases_enriched.csv.
 
-Policy:
-  - Main trial_* columns: high-confidence matches only (mechanism / comp precedent).
-  - Most preclinical device/platform rows stay empty — pilot design lives in clinical_*.
-  - Low-confidence path analogs go to suggest_trial_* (curator promotes if useful).
+Policy (strict — empty beats wrong):
+  - Main trial_* columns: ONLY (1) NCT explicitly cited in comp columns, or (2) hand-curated
+    CASE_FIELD_PATCHES with trial_nct_ids (including intentional empty lock).
+  - No CT.gov keyword or comp-name search auto-matching.
 
 Never search on institution tokens (Brown, Rhode Island, inventor surnames alone).
 """
@@ -19,6 +19,7 @@ from typing import Any
 import httpx
 
 from pipeline.ri_biomcp_relevance import STOPWORDS as MECHANISM_STOPWORDS
+from pipeline.ri_cases_enriched_schema import COMP_SUFFIXES, MAX_COMP_SLOTS
 from pipeline.tier_a.comp_financing import comp_base_name
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -58,9 +59,11 @@ TRIAL_TITLE_BLOCKLIST = (
     "obsessive-compulsive disorder",
 )
 
-MIN_MAIN_SCORE = 0.22
+MIN_MAIN_SCORE = 0.22  # retained for tests; not used for auto-assignment
 MIN_SUGGEST_SCORE = 0.12
 FETCH_DELAY_S = 0.35
+NCT_ID_RE = re.compile(r"\bNCT\d{8}\b", re.I)
+MIN_COMP_TOKEN_LEN = 4
 
 
 def _tokenize(text: str) -> set[str]:
@@ -193,6 +196,95 @@ def score_trial(title: str, profile_tokens: set[str], *, role: str) -> float:
     return score
 
 
+def _comp_match_tokens(comp_name: str) -> list[str]:
+    """Company / product tokens used to verify a CT.gov hit belongs to a comp."""
+    name = (comp_name or "").strip()
+    if not name:
+        return []
+    # Skip generic financing / institution placeholders — not CT.gov search targets.
+    lower = name.lower()
+    if lower.startswith("nih sbir") or lower.startswith("brown/ri hospital"):
+        return []
+    if lower.startswith("slater /") or lower.startswith("slater/"):
+        return []
+    tokens: list[str] = []
+    base = comp_base_name(name).strip()
+    if len(base) >= MIN_COMP_TOKEN_LEN and base.lower() not in INSTITUTION_TOKENS:
+        tokens.append(base.lower())
+    paren = re.search(r"\(([^)]+)\)", name)
+    if paren:
+        for part in re.split(r"[/,&]", paren.group(1)):
+            piece = part.strip()
+            if len(piece) >= MIN_COMP_TOKEN_LEN:
+                tokens.append(piece.lower())
+    seen: set[str] = set()
+    out: list[str] = []
+    for t in tokens:
+        if t not in seen:
+            seen.add(t)
+            out.append(t)
+    return out
+
+
+def _trial_matches_comp(comp_name: str, trial: dict[str, str]) -> bool:
+    hay = f"{trial.get('title', '')} {trial.get('sponsor', '')}".lower()
+    return any(token in hay for token in _comp_match_tokens(comp_name))
+
+
+def _parse_ctgov_study(study: dict[str, Any]) -> dict[str, str] | None:
+    proto = study.get("protocolSection") or {}
+    ident = proto.get("identificationModule") or {}
+    design = proto.get("designModule") or {}
+    sponsor_mod = proto.get("sponsorCollaboratorsModule") or {}
+    nct = (ident.get("nctId") or "").strip()
+    title = (ident.get("briefTitle") or ident.get("officialTitle") or "").strip()
+    if not nct or not title:
+        return None
+    phases = design.get("phases") or []
+    lead = sponsor_mod.get("leadSponsor") or {}
+    sponsor = (lead.get("name") or "").strip()
+    return {
+        "nct_id": nct.upper(),
+        "title": title,
+        "phase": ", ".join(phases) if phases else "",
+        "url": f"https://clinicaltrials.gov/study/{nct.upper()}",
+        "sponsor": sponsor,
+    }
+
+
+def fetch_trial_by_nct(nct_id: str) -> dict[str, str] | None:
+    nct = (nct_id or "").strip().upper()
+    if not NCT_ID_RE.fullmatch(nct):
+        return None
+    try:
+        with httpx.Client(timeout=20.0, follow_redirects=True) as client:
+            response = client.get(
+                f"https://clinicaltrials.gov/api/v2/studies/{nct}",
+                params={"format": "json"},
+            )
+            response.raise_for_status()
+            payload = response.json()
+    except httpx.HTTPError:
+        return None
+    return _parse_ctgov_study(payload)
+
+
+def _ncts_from_comp_columns(row: dict[str, str]) -> list[str]:
+    seen: set[str] = set()
+    ordered: list[str] = []
+    for i in range(1, MAX_COMP_SLOTS + 1):
+        for suffix in COMP_SUFFIXES:
+            text = (row.get(f"comp{i}_{suffix}") or "").strip()
+            if not text:
+                continue
+            for match in NCT_ID_RE.findall(text):
+                nct = match.upper()
+                if nct not in seen:
+                    seen.add(nct)
+                    ordered.append(nct)
+    return ordered
+
+
 def fetch_trials_ctgov(query: str, *, limit: int = 5) -> list[dict[str, str]]:
     if len(query.strip()) < 8:
         return []
@@ -209,23 +301,9 @@ def fetch_trials_ctgov(query: str, *, limit: int = 5) -> list[dict[str, str]]:
 
     out: list[dict[str, str]] = []
     for study in payload.get("studies") or []:
-        proto = study.get("protocolSection") or {}
-        ident = proto.get("identificationModule") or {}
-        status_mod = proto.get("statusModule") or {}
-        design = proto.get("designModule") or {}
-        nct = (ident.get("nctId") or "").strip()
-        title = (ident.get("briefTitle") or ident.get("officialTitle") or "").strip()
-        if not nct or not title:
-            continue
-        phases = (design.get("phases") or [])
-        out.append(
-            {
-                "nct_id": nct,
-                "title": title,
-                "phase": ", ".join(phases) if phases else "",
-                "url": f"https://clinicaltrials.gov/study/{nct}",
-            }
-        )
+        parsed = _parse_ctgov_study(study)
+        if parsed:
+            out.append(parsed)
     return out
 
 
@@ -315,37 +393,31 @@ def enrich_trials_for_row(
         return changes
 
     clear_all_trial_fields(row)
-    profile = build_trial_profile(row, ip_rows)
-    profile_tokens = profile["tokens"]
-
     main_hits: list[tuple[float, str, dict[str, str]]] = []
-    suggest_hits: list[tuple[float, str, dict[str, str]]] = []
     seen_nct: set[str] = set()
 
-    for role, query in profile["queries"]:
+    # Layer A: NCT explicitly cited in comp columns (highest confidence).
+    for nct in _ncts_from_comp_columns(row):
         time.sleep(FETCH_DELAY_S)
-        for trial in fetch_trials_ctgov(query, limit=5):
-            nct = trial["nct_id"]
-            if nct in seen_nct:
-                continue
-            score = score_trial(trial["title"], profile_tokens, role=role)
-            if score < MIN_SUGGEST_SCORE:
-                continue
-            seen_nct.add(nct)
-            bucket = main_hits if score >= MIN_MAIN_SCORE else suggest_hits
-            bucket.append((score, role, trial))
+        trial = fetch_trial_by_nct(nct)
+        if not trial or trial["nct_id"] in seen_nct:
+            continue
+        seen_nct.add(trial["nct_id"])
+        main_hits.append((1.0, "comp_nct_cited", trial))
+
+    # Layer B disabled: quoted comp-name CT.gov search produced false positives
+    # (e.g. any Takeda trial for ProThera, NeuroPace RNS on unrelated DBS rows).
+    # Add verified NCT IDs to comp URLs/citations instead; curators lock via CASE_FIELD_PATCHES.
 
     if main_hits:
-        _write_main_trials(row, main_hits)
+        main_hits.sort(key=lambda x: x[0], reverse=True)
+        _write_main_trials(row, main_hits[:3])
         changes.append("trials_main")
-    elif suggest_hits:
-        _write_suggest_trials(row, suggest_hits)
-        changes.append("trials_suggest")
 
     if fill_clinical_template(row, templates):
         changes.append("clinical_template")
 
-    if not main_hits and not suggest_hits:
+    if not main_hits:
         row["trial_count"] = "0"
         changes.append("trials_empty")
 

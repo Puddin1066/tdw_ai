@@ -2,12 +2,21 @@
   "case_id": "auto_rhodes_technologies_delivery_dosage_forms_oral",
   "display_name": "COMPOSITIONS AND DOSAGE FORMS FOR ORAL Technology Platform Opportunity",
   "llm_inferred_label": "COMPOSITIONS AND DOSAGE FORMS FOR ORAL Technology Platform Opportunity",
-  "ri_notes": "Deduped patent family (2 of 3 records); review scope and naming.",
+  "ri_notes": "Deduped patent family (2 of 4 records); review scope and naming.",
   "ri_physician_lead": "TBD",
   "conflict_tags": [],
   "ri_institution": "Rhode Island ecosystem",
-  "ri_ip_source": "lens:133-099-883-604-903",
+  "ri_ip_source": "lens:197-292-882-872-806",
   "ip_assets": [
+    {
+      "asset_id": "asset_25e14a982a22",
+      "title": "COMPOSITIONS AND DOSAGE FORMS FOR ORAL DELIVERY",
+      "lens_id": "197-292-882-872-806",
+      "url": "https://lens.org/197-292-882-872-806",
+      "owners": "",
+      "legal_status": "UNKNOWN",
+      "publication_date": "2026-05-21"
+    },
     {
       "asset_id": "asset_aa9d76f84a1c",
       "title": "COMPOSITIONS AND DOSAGE FORMS FOR ORAL DELIVERY",

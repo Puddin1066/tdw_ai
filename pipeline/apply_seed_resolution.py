@@ -94,6 +94,32 @@ SEED_ENRICHMENT: dict[str, dict[str, str]] = {
         "data_caveat": "Some therapeutic delivery rights may be licensed separately (e.g. Cybrexa).",
         "ri_notes": "pHLIP Inc (phlipinc.com); Reshetnyak/Engelman Yale-URI IP.",
     },
+    "mindimmune_therapeutics_ri": {
+        "title_clean": "MindImmune — MITI-101 peripheral-to-CNS neuroimmune mAb",
+        "program_family": "mindimmune_neuroimmune",
+        "indication": "Alzheimer's disease — block peripheral immune cell recruitment to brain",
+        "company": "MindImmune Therapeutics Inc",
+        "opportunity_type": "therapeutic",
+        "primary_lens_id": "",
+        "primary_display_key": "US 2021/0181185 A1",
+        "primary_patent_title": (
+            "Dendritic cell recruitment from blood to brain in neurodegenerative disease"
+        ),
+        "ip_lens_ids": "",
+        "ip_asset_count": "1",
+        "physician_lead_npi": "npi_1063477032",
+        "physician_lead_name": "HEINRICH ELINZANO",
+        "data_caveat": (
+            "US 2021/0181185 A1 (Zorn/Menniti/Nelson/Campbell) not in RI Lens export; "
+            "patent anchor via Google Patents until Lens ID import. US app abandoned; "
+            "PCT WO2019094550 family."
+        ),
+        "ri_notes": (
+            "URI Ryan Institute affiliate (Kingston); MITI-101 mAb; "
+            "Slater/RightHill/Pfizer Ventures in Series A (~$30M total). "
+            "Distinct from TEEM/Coulombe cardiac and Brown neuro-device Tier A cases."
+        ),
+    },
     "prothera_iaip_ri": {
         "catalog_tier": "A",
         "catalog_include": "true",
@@ -276,6 +302,34 @@ DEDUPE_CASE = "auto_rhode_island_antibodies_covid_deep_predicting_sequencing_sur
 
 PROTHERA_SECONDARY_LENS = ("161-049-569-910-996", "112-360-390-080-405")
 
+MINDIMMUNE_MANUAL_IP: dict[str, dict[str, str]] = {
+    "mindimmune_therapeutics_ri": {
+        "asset_id": "asset_mindimmune_dc_brain",
+        "display_key": "US 2021/0181185 A1",
+        "lens_id": "",
+        "title": "Dendritic cell recruitment from blood to brain in neurodegenerative disease",
+        "publication_date": "2021-06-17",
+        "earliest_priority_date": "2017-11-09",
+        "applicants": "MindImmune Therapeutics, Inc.",
+        "owners": "MINDIMMUNE THERAPEUTICS, INC.",
+        "inventors": (
+            "CAMPBELL BRIAN MICHAEL;;MENNITI FRANK SAMUEL;;"
+            "NELSON ROBERT BRELSFORD;;ZORN STEVIN HOWARD"
+        ),
+        "jurisdiction": "US",
+        "kind": "A1",
+        "legal_status": "UNKNOWN",
+        "cpc_classifications": "G01N33/50",
+        "ipcr_classifications": "G01N33/50",
+        "url": "https://patents.google.com/patent/US20210181185A1/en",
+        "match_score": "24",
+        "source_type": "manual_patent_intake",
+        "mocked": "false",
+        "confidence_0_1": "0.8",
+        "ri_relevance_reason": "tier_a_seed_mindimmune_manual_intake",
+    },
+}
+
 NANODE_LEAD = ("npi_1003871336", "TODD ROBERTS", "MEDICAL ONCOLOGY", "PROSPECT CHARTERCARE RWMC, LLC")
 
 
@@ -372,6 +426,16 @@ def patch_ip_assets() -> None:
         template["ri_relevance_reason"] = "seed_resolution_secondary_patent"
         primary_rows.append(template)
         by_case[case_id] = primary_rows[:2]
+
+    for case_id, manual in MINDIMMUNE_MANUAL_IP.items():
+        rows_for_case = by_case.get(case_id, [])
+        if any(r.get("asset_id") == manual.get("asset_id") for r in rows_for_case):
+            continue
+        full = {fn: "" for fn in fieldnames}
+        full.update(manual)
+        full["case_id"] = case_id
+        rows_for_case.append(full)
+        by_case[case_id] = rows_for_case[:2]
 
     out: list[dict[str, str]] = []
     for case_id in sorted(by_case.keys()):
