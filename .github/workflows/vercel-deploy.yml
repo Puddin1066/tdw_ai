@@ -36,10 +36,8 @@ jobs:
       - name: Install Vercel CLI
         run: npm install -g vercel@54.7.1
 
-      - name: Pull Vercel project settings
-        run: vercel pull --yes --environment=production --token=${{ secrets.VERCEL_TOKEN }}
-
-      # Remote build on Vercel: project must use installCommand/buildCommand and outputDirectory=.next
+      # Do not run vercel pull here — it can overwrite ignore rules and shrink the upload (~600 files → 404).
+      # Project settings (install/build/outputDirectory=.next) live on the Vercel dashboard.
       # (see web/vercel.json). Do not use --prebuilt (emits empty @vercel/static).
       - name: Deploy to production
         run: vercel deploy --prod --yes --archive=tgz --force --token=${{ secrets.VERCEL_TOKEN }}
