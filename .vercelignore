@@ -5,6 +5,8 @@
 web/.vercel
 .next
 web/.next
+out
+web/out
 data
 pipeline
 connectors
@@ -14,4 +16,3 @@ tests
 generated
 **/__pycache__
 *.pyc
-web/public/data/opportunities/profiles/auto_*
